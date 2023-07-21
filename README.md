@@ -1,4 +1,4 @@
-# CustomChar
+# CustomChar - Your customized AI characters
 
 ![CustomChar](CustomChar.svg)
 
