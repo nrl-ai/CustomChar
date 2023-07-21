@@ -1,4 +1,6 @@
 .DS_Store
 /build
 /models
+!/models/.gitkeep
+!/models/download-whisper-models.sh
 .vscode

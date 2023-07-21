@@ -42,8 +42,8 @@ struct whisper_params {
 
     std::string person      = "User";
     std::string language    = "en";
-    std::string model_wsp   = "models/ggml-base.en.bin";
-    std::string model_llama = "models/ggml-llama-7B.bin";
+    std::string model_wsp   = "../models/ggml-base.en.bin";
+    std::string model_llama = "../models/llama-2-7b-chat.ggmlv3.q4_0.bin";
     std::string speak       = "say";
     std::string prompt      = "";
     std::string fname_out;
@@ -509,13 +509,6 @@ int main(int argc, char ** argv) {
                             embd.insert(embd.begin(), embd_inp.begin() + embd_inp.size() - n_prev, embd_inp.end());
                             // stop saving session if we run out of context
                             path_session = "";
-                            //printf("\n---\n");
-                            //printf("resetting: '");
-                            //for (int i = 0; i < (int) embd.size(); i++) {
-                            //    printf("%s", llama_token_to_str(ctx_llama, embd[i]));
-                            //}
-                            //printf("'\n");
-                            //printf("\n---\n");
                         }
 
                         // try to reuse a matching prefix from the loaded session instead of re-eval (via n_past)
