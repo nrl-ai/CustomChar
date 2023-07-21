@@ -40,7 +40,7 @@ struct whisper_params {
     bool no_timestamps = true;
     bool verbose_prompt = false;
 
-    std::string person      = "Georgi";
+    std::string person      = "User";
     std::string language    = "en";
     std::string model_wsp   = "models/ggml-base.en.bin";
     std::string model_llama = "models/ggml-llama-7B.bin";
@@ -361,7 +361,7 @@ int main(int argc, char ** argv) {
 
     printf("\n");
     printf("%s : initializing - please wait ...\n", __func__);
-    print("This may take a few minutes, depending on the model size.\n")
+    printf("This may take a few minutes, depending on the model size.\n");
 
     if (llama_eval(ctx_llama, embd_inp.data(), embd_inp.size(), 0, params.n_threads)) {
         fprintf(stderr, "%s : failed to eval\n", __func__);
