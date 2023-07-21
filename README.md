@@ -38,7 +38,7 @@ make
 ## Usage
 
 ```bash
-./try-customchar -mw ../models/ggml-small.en.bin -ml ../models/llama-2-7b-chat.ggmlv3.q4_0.bin -p "VA" -t 8
+./try-customchar -mw ../models/ggml-small.en.bin -ml ../models/llama-2-7b-chat.ggmlv3.q4_0.bin -p "User" -t 8
 ```
 
 - The `-mw` argument specifies the Whisper model that you would like to use. Recommended `base` or `small` for real-time experience
@@ -55,7 +55,7 @@ This feature is especially helpful for maintaining context in long conversations
 Example usage:
 
 ```bash
-./try-customchar --session ./my-session-file -mw ../models/ggml-small.en.bin -ml ../models/llama-2-7b-chat.ggmlv3.q4_0.bin -p "VA" -t 8
+./try-customchar --session ./my-session-file -mw ../models/ggml-small.en.bin -ml ../models/llama-2-7b-chat.ggmlv3.q4_0.bin -p "User" -t 8
 ```
 
 ## TTS

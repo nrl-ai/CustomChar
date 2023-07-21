@@ -44,7 +44,7 @@ struct whisper_params {
     std::string language    = "en";
     std::string model_wsp   = "models/ggml-base.en.bin";
     std::string model_llama = "models/ggml-llama-7B.bin";
-    std::string speak       = "./examples/talk-llama/speak";
+    std::string speak       = "say";
     std::string prompt      = "";
     std::string fname_out;
     std::string path_session = "";       // path to file for saving/loading model eval state
@@ -361,6 +361,7 @@ int main(int argc, char ** argv) {
 
     printf("\n");
     printf("%s : initializing - please wait ...\n", __func__);
+    print("This may take a few minutes, depending on the model size.\n")
 
     if (llama_eval(ctx_llama, embd_inp.data(), embd_inp.size(), 0, params.n_threads)) {
         fprintf(stderr, "%s : failed to eval\n", __func__);
@@ -373,7 +374,7 @@ int main(int argc, char ** argv) {
         fflush(stdout);
     }
 
-     // debug message about similarity of saved session, if applicable
+    // debug message about similarity of saved session, if applicable
     size_t n_matching_session_tokens = 0;
     if (session_tokens.size()) {
         for (llama_token id : session_tokens) {
