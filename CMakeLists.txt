@@ -1,4 +1,4 @@
-project(customchar-cpp)
+project(CustomChar)
 cmake_minimum_required(VERSION 3.22)
 
 # Using C++17
