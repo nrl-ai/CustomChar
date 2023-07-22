@@ -555,10 +555,10 @@ int main(int argc, char ** argv) {
 
                     {
                         // out of user input, sample next token
-                        const float top_k          = 5;
+                        const float top_k          = 10000;
                         const float top_p          = 0.80f;
-                        const float temp           = 0.30f;
-                        const float repeat_penalty = 1.1764f;
+                        const float temp           = 0.20f;
+                        const float repeat_penalty = 1.1f;
 
                         const int repeat_last_n    = 256;
 
@@ -639,8 +639,15 @@ int main(int argc, char ** argv) {
                     }
                 }
 
-                text_to_speak = ::replace(text_to_speak, "\"", "");
-                system((params.speak + " " + std::to_string(voice_id) + " \"" + text_to_speak + "\"").c_str());
+                // Remove quotes and special characters
+                text_to_speak = ::replace(text_to_speak, "\"", " ");
+
+                // Replace all \n with space
+                text_to_speak = ::replace(text_to_speak, "\n", " ");
+
+                // Play speak
+                std::string command = params.speak + " " + std::to_string(voice_id) + " \"" + text_to_speak + "\"";
+                system(command.c_str());
 
                 audio.clear();
 
