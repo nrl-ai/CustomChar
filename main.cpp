@@ -283,7 +283,7 @@ int main(int argc, char ** argv) {
     float prob0 = 0.0f;
 
     const std::string chat_symb = ":";
-    const std::string bot_name  = "LLaMA";
+    const std::string bot_name  = "CustomChar";
 
     std::vector<float> pcmf32_cur;
     std::vector<float> pcmf32_prompt;

@@ -1,8 +1,12 @@
 # CustomChar - Your customized AI characters
 
-![CustomChar](/docs/CustomChar.svg)
+![CustomChar](/docs/banner.svg)
 
 Your customized AI characters on commodity hardware. This project aims to be a framework to enable the creation of AI characters that can be used in games, simulations, and other applications without depending on a specific platform, cloud services, or specialized hardware.
+
+## Architecture
+
+![Architecture](/docs/architecture.svg)
 
 ## Updates
 
