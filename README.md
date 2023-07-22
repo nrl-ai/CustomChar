@@ -1,19 +1,19 @@
 # CustomChar - Your customized AI characters
 
-![CustomChar](CustomChar.svg)
+![CustomChar](/docs/CustomChar.svg)
 
 Your customized AI characters on commodity hardware. This project aims to be a framework to enable the creation of AI characters that can be used in games, simulations, and other applications without depending on a specific platform, cloud services, or specialized hardware.
 
 ## Features
 
 - [ ] Build AI characters from knowledge database:
-  - [x] LLamaCpp for LLM
-  - [ ] Knowledge indexing and searching
-- [x] Talk to your character
-  - [x] STT with whisper.cpp
+  - [x] LLamaCpp for LLM. Chat with Llama-V2 on all platforms.
+  - [ ] Knowledge indexing and searching.
+- [x] Talk to your character:
+  - [x] STT with whisper.cpp. Now supports speech recognition on all platforms.
 - [ ] Hear from your character:
-  - [x] TTS with "say" on MacOS
-  - [ ] TTS with bark.cpp
+  - [x] TTS with "say" on MacOS. **Note**: "say" is not available on other platforms (Windows, Linux)
+  - [ ] TTS with bark.cpp. Expected to be available on all platforms.
 
 ## Build
 
@@ -41,11 +41,11 @@ make
 Download the models before running the program:
 
 ```bash
-bash download-models.sh
+bash scripts/download-models.sh
 ```
 
 Run the program:
 
 ```bash
-./try-customchar
+./customchar
 ```

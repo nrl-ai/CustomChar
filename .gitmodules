@@ -1,3 +1,3 @@
-[submodule "whisper-cpp"]
-	path = whisper-cpp
+[submodule "libs/whisper-cpp"]
+	path = libs/whisper-cpp
 	url = https://github.com/ggerganov/whisper.cpp

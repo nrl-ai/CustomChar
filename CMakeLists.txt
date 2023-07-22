@@ -20,10 +20,22 @@ message(STATUS "SDL2_INCLUDE_DIRS = ${SDL2_INCLUDE_DIRS}")
 message(STATUS "SDL2_LIBRARIES = ${SDL2_LIBRARIES}")
 
 # Add whisper-cpp
-add_subdirectory(whisper-cpp)
+add_subdirectory(libs/whisper-cpp)
 
-# Add executable try-customchar
-set(TARGET try-customchar)
-add_executable(${TARGET} try-customchar.cpp llama.cpp whisper-cpp/examples/common.cpp whisper-cpp/examples/common-sdl.cpp)
-target_include_directories(${TARGET} PRIVATE ${SDL2_INCLUDE_DIRS} whisper-cpp/examples whisper-cpp)
+# Talk with Llama V2
+set(TARGET customchar)
+add_executable(
+    ${TARGET}
+    main.cpp
+    libs/llama-cpp/llama.cpp
+    libs/whisper-cpp/examples/common.cpp
+    libs/whisper-cpp/examples/common-sdl.cpp
+)
+target_include_directories(
+    ${TARGET} PRIVATE
+    ${SDL2_INCLUDE_DIRS}
+    libs/llama-cpp
+    libs/whisper-cpp
+    libs/whisper-cpp/examples
+)
 target_link_libraries(${TARGET} PRIVATE ${SDL2_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} whisper)

@@ -639,11 +639,15 @@ int main(int argc, char ** argv) {
                     }
                 }
 
-                // Remove quotes and special characters
-                text_to_speak = ::replace(text_to_speak, "\"", " ");
-
                 // Replace all \n with space
                 text_to_speak = ::replace(text_to_speak, "\n", " ");
+
+                // Remove quotes and special characters to put into command line string
+                text_to_speak = ::replace(text_to_speak, "\"", " ");
+                text_to_speak = ::replace(text_to_speak, "\\", " ");
+                text_to_speak = ::replace(text_to_speak, "\'", " ");
+                text_to_speak = ::replace(text_to_speak, "(", " ");
+                text_to_speak = ::replace(text_to_speak, ")", " ");
 
                 // Play speak
                 std::string command = params.speak + " " + std::to_string(voice_id) + " \"" + text_to_speak + "\"";
