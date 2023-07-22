@@ -22,6 +22,8 @@ Your customized AI characters on commodity hardware. This project aims to be a f
 - [ ] Hear from your character 🔊🔊🔊 :
   - [x] TTS with "say" on MacOS. **Note**: "say" is not available on other platforms (Windows, Linux)
   - [ ] TTS with bark.cpp. Expected to be available on all platforms.
+- [ ] Perception engine to see the world through the camera 📷📷📷.
+- [ ] 3D visualization of the character.
 - [ ] Add a GUI for the character interaction.
 - [ ] Add a GUI for the character creation.
 - [ ] Create virual characters that can be used in games, simulations, and other applications.
