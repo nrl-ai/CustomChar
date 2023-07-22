@@ -4,16 +4,27 @@
 
 Your customized AI characters on commodity hardware. This project aims to be a framework to enable the creation of AI characters that can be used in games, simulations, and other applications without depending on a specific platform, cloud services, or specialized hardware.
 
+## Updates
+
+- 🔥 **2023-07-22:** Voice chat with your Llama-V2 model. TTS is supported on MacOS only.
+
 ## Features
 
-- [ ] Build AI characters from knowledge database:
+- [ ] Build AI characters from knowledge database 💬💬💬 :
   - [x] LLamaCpp for LLM. Chat with Llama-V2 on all platforms.
   - [ ] Knowledge indexing and searching.
-- [x] Talk to your character:
+- [x] Talk to your character 🎤🎤🎤 :
   - [x] STT with whisper.cpp. Now supports speech recognition on all platforms.
-- [ ] Hear from your character:
+- [ ] Hear from your character 🔊🔊🔊 :
   - [x] TTS with "say" on MacOS. **Note**: "say" is not available on other platforms (Windows, Linux)
   - [ ] TTS with bark.cpp. Expected to be available on all platforms.
+- [ ] Add a GUI for the character interaction.
+- [ ] Add a GUI for the character creation.
+- [ ] Create virual characters that can be used in games, simulations, and other applications.
+  - [ ] Elon Musk
+  - [ ] Iron Man
+  - [ ] Batman
+  - [ ] Superman
 
 ## Build
 
