@@ -3,3 +3,4 @@
 !/**/.gitkeep
 /models
 .vscode
+/docs/_build

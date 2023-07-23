@@ -1,12 +1,14 @@
 # CustomChar - Your customized AI characters
 
-![CustomChar](/docs/banner.svg)
+![](/docs/banner.svg)
 
 Your customized AI characters on commodity hardware. This project aims to be a framework to enable the creation of AI characters that can be used in games, simulations, and other applications without depending on a specific platform, cloud services, or specialized hardware.
 
+**Note:** This project is still in the early stage of development. We are working hard to make it available as soon as possible. Star this project 🌟 to follow our progress and encourage us to make it happen.
+
 ## Architecture
 
-![Architecture](/docs/architecture.svg)
+![CustomChar Architecture](/docs/architecture.svg)
 
 ## Updates
 
@@ -66,3 +68,18 @@ Run the program:
 ```bash
 ./customchar
 ```
+
+## Build documentation
+
+- Step 1: Install **doxygen** first.
+
+- Step 2: Build the documentation:
+
+```bash
+cd docs
+doxygen Doxyfile.in
+```
+
+- Step 3: Deploy html documentation from `docs/_build/html`.
+
+- Step 4: Our lastest documentation is deployed at <https://docs.customchar.com>.
