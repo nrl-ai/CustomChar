@@ -1,6 +1,7 @@
 #pragma once
 
 #include "llama-cpp/llama.h"
+#include "whisper-cpp/examples/common-sdl.h" // TODO Remove this dependency
 
 #include <cassert>
 #include <cstdio>
@@ -40,6 +41,7 @@ The transcript only includes text, it does not include markup like HTML and Mark
 {0}{4})";
   std::string prompt_llama;
   std::string prompt = "";
+  std::vector<std::string> antiprompts;
   std::string person = "User";
   std::string bot_name = "CustomChar";
   const std::string chat_symb = ":";
@@ -48,6 +50,26 @@ The transcript only includes text, it does not include markup like HTML and Mark
   bool need_to_save_session = false;
 
   std::vector<llama_token> embd_inp;
+  std::vector<llama_token> session_tokens;
+
+  int n_keep;
+  int n_ctx;
+  int n_past;
+  int n_prev = 64;
+  int n_session_consumed = !path_session.empty() && session_tokens.size() > 0
+                               ? session_tokens.size()
+                               : 0;
+
+  std::string replace(const std::string& s, const std::string& from,
+                      const std::string& to) {
+    std::string result = s;
+    size_t pos = 0;
+    while ((pos = result.find(from, pos)) != std::string::npos) {
+      result.replace(pos, from.length(), to);
+      pos += to.length();
+    }
+    return result;
+  }
 
   void init_prompt() {
     // Construct the initial prompt for LLaMA inference
@@ -89,6 +111,8 @@ The transcript only includes text, it does not include markup like HTML and Mark
 
  public:
   LLM() {
+    init_prompt();
+
     // Init Llama
     llama_init_backend();
     lparams = llama_context_default_params();
@@ -101,10 +125,17 @@ The transcript only includes text, it does not include markup like HTML and Mark
     std::string model_llama =
         "../models/llama-2-7b-chat.ggmlv3.q4_0.bin";  // TODO: Fixit
     ctx_llama = llama_init_from_file(model_llama.c_str(), lparams);
+    n_ctx = llama_n_ctx(ctx_llama);
 
-    init_prompt();
-
+    // Initialize the prompt
     embd_inp = tokenize(prompt_llama, true);
+    n_keep = embd_inp.size();
+    n_past = n_keep;
+
+    // Reverse prompts for detecting when it's time to stop speaking
+    antiprompts = {
+        person + chat_symb,
+    };
   }
 
   ~LLM() {
@@ -210,9 +241,6 @@ The transcript only includes text, it does not include markup like HTML and Mark
   }
 
   std::string get_answer(std::vector<llama_token>& embd) {
-    // Append the new input tokens to the session_tokens vector
-    add_tokens_to_current_session(embd);
-
     bool done = false;
     std::string text_to_speak;
     while (true) {
@@ -255,9 +283,9 @@ The transcript only includes text, it does not include markup like HTML and Mark
         }
 
         if (llama_eval(ctx_llama, embd.data(), embd.size(), n_past,
-                       params.n_threads)) {
+                       n_threads)) {
           fprintf(stderr, "%s : failed to eval\n", __func__);
-          return 1;
+          exit(1);
         }
       }
 
@@ -343,7 +371,7 @@ The transcript only includes text, it does not include markup like HTML and Mark
                                last_output.length() - antiprompt.length(),
                                antiprompt.length()) != std::string::npos) {
             done = true;
-            text_to_speak = ::replace(text_to_speak, antiprompt, "");
+            text_to_speak = replace(text_to_speak, antiprompt, "");
             fflush(stdout);
             need_to_save_session = true;
             break;
@@ -351,12 +379,12 @@ The transcript only includes text, it does not include markup like HTML and Mark
         }
       }
 
-      is_running = sdl_poll_events();
-
-      if (!is_running) {
+      if (!sdl_poll_events()) {
         break;
       }
     }
+
+    return text_to_speak;
   }
 };
 

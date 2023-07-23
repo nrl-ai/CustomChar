@@ -24,7 +24,6 @@ set(TARGET customchar)
 add_executable(
     ${TARGET}
     main.cpp
-    src/llm.cpp
     libs/llama-cpp/llama.cpp
     libs/whisper-cpp/examples/common.cpp
     libs/whisper-cpp/examples/common-sdl.cpp
