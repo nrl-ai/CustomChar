@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['llm_50',['LLM',['../class_c_c_1_1_l_l_m.html',1,'CC']]]
+  ['document_75',['Document',['../class_c_c_1_1embeddb_1_1_document.html',1,'CC::embeddb']]]
 ];

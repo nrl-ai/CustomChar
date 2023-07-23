@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['finished_5ftalking_13',['finished_talking',['../class_c_c_1_1_voice_recorder.html#a6cd3c8c8b5baa28cd04046945203258f',1,'CC::VoiceRecorder']]],
-  ['fname_5fout_14',['fname_out',['../struct_c_c_1_1_c_c_params.html#a3c6e96d397d15be82ee3a47e7ccc30b2',1,'CC::CCParams']]],
-  ['freq_5fthold_15',['freq_thold',['../struct_c_c_1_1_c_c_params.html#a50623e94d1ad4f68ecb031071b51fc28',1,'CC::CCParams']]]
+  ['embeddb_19',['EmbedDB',['../class_c_c_1_1embeddb_1_1_embed_d_b.html',1,'CC::embeddb::EmbedDB'],['../class_c_c_1_1embeddb_1_1_embed_d_b.html#a084eb44c43a23d51d3419e16a938a503',1,'CC::embeddb::EmbedDB::EmbedDB()']]],
+  ['eval_5fmodel_20',['eval_model',['../class_c_c_1_1_l_l_m.html#aa808ab8fe6b3a3223a07330ae9205b9c',1,'CC::LLM']]]
 ];

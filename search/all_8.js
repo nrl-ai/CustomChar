@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['max_5ftokens_23',['max_tokens',['../struct_c_c_1_1_c_c_params.html#a597a475d2af5a832c6716d2e468e051c',1,'CC::CCParams']]]
+  ['insert_5fdoc_40',['insert_doc',['../class_c_c_1_1embeddb_1_1_collection.html#ae253ff62851498f14ade222fd8efe4df',1,'CC::embeddb::Collection']]]
 ];

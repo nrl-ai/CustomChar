@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['recognize_66',['recognize',['../class_c_c_1_1_speech_recognizer.html#a0d5969d56d9830e607f4daef65d53aca',1,'CC::SpeechRecognizer']]],
-  ['replace_67',['replace',['../namespace_c_c_1_1common.html#a07b857d084cdfa2513e6b0c309b7e132',1,'CC::common']]]
+  ['has_5fcollection_111',['has_collection',['../class_c_c_1_1embeddb_1_1_embed_d_b.html#a8666494ec6692434766041e94f971afa',1,'CC::embeddb::EmbedDB']]]
 ];
