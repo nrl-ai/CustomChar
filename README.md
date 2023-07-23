@@ -12,6 +12,7 @@ Your customized AI characters on commodity hardware. This project aims to be a f
 
 ## Updates
 
+- 🔥 **2023-07-23:** Documentation website is online at <https://docs.customchar.com>.
 - 🔥 **2023-07-22:** Voice chat with your Llama-V2 model. TTS is supported on MacOS only.
 
 ## Features
