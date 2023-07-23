@@ -1,7 +1,14 @@
 #include "customchar/llm.h"
 
 using namespace CC;
-LLM::LLM() {
+
+LLM::LLM(const std::string& model_path, const std::string& path_session,
+         const std::string& person, const std::string& bot_name)
+    : model_path(model_path),
+      path_session(path_session),
+      person(person),
+      bot_name(bot_name) {
+  // Init prompt
   init_prompt();
 
   // Init Llama
@@ -13,12 +20,9 @@ LLM::LLM() {
   lparams.seed = 1;
   lparams.f16_kv = true;
 
-  std::string model_llama =
-      "../models/llama-2-7b-chat.ggmlv3.q4_0.bin";  // TODO: Fixit
-  ctx_llama = llama_init_from_file(model_llama.c_str(), lparams);
+  // Load model to ram
+  ctx_llama = llama_init_from_file(model_path.c_str(), lparams);
   n_ctx = llama_n_ctx(ctx_llama);
-
-  // Initialize the prompt
   embd_inp = tokenize(prompt_llama, true);
   n_keep = embd_inp.size();
   n_past = n_keep;
@@ -27,6 +31,9 @@ LLM::LLM() {
   antiprompts = {
       person + chat_symb,
   };
+
+  // Load session
+  load_session(path_session);
 }
 
 LLM::~LLM() {
@@ -91,7 +98,7 @@ void LLM::add_tokens_to_current_session(
   }
 }
 
-void LLM::load_session(std::string path_session) {
+void LLM::load_session(const std::string& path_session) {
   this->path_session = path_session;
   std::vector<llama_token> session_tokens;
   fprintf(stderr, "%s: attempting to load saved session from %s\n", __func__,
@@ -119,6 +126,10 @@ void LLM::load_session(std::string path_session) {
   } else {
     fprintf(stderr, "%s: session file does not exist, will create\n", __func__);
   }
+
+  n_session_consumed = !path_session.empty() && session_tokens.size() > 0
+                           ? session_tokens.size()
+                           : 0;
 }
 
 void LLM::eval_model() {
@@ -229,7 +240,6 @@ std::string LLM::get_answer(std::vector<llama_token>& embd) {
       const float top_p = 0.80f;
       const float temp = 0.20f;
       const float repeat_penalty = 1.1f;
-
       const int repeat_last_n = 256;
 
       if (!path_session.empty() && need_to_save_session) {

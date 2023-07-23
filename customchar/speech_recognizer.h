@@ -14,63 +14,53 @@
 
 namespace CC {
 
-struct whisper_params {
-  float prob0;
-
-  int32_t n_threads = std::min(4, (int32_t)std::thread::hardware_concurrency());
-  int32_t voice_ms = 10000;
-  int32_t capture_id = -1;
-  int32_t max_tokens = 32;
-  int32_t audio_ctx = 0;
-
-  float vad_thold = 0.6f;
-  float freq_thold = 100.0f;
-
-  bool speed_up = false;
-  bool translate = false;
-  bool print_special = false;
-  bool print_energy = false;
-  bool no_timestamps = true;
-  bool verbose_prompt = false;
-
-  std::string person = "User";
-  std::string language = "en";
-  std::string model_wsp = "../models/ggml-base.en.bin";
-  std::string model_llama = "../models/llm.bin";
-  std::string speak = "say";
-  std::string prompt = "";
-  std::string fname_out;
-  std::string path_session =
-      "";  // path to file for saving/loading model eval state
-};
-
 class SpeechRecognizer {
  private:
+  std::string person = "User";
+  std::string bot_name = "CustomChar";
+  const std::string chat_symb = ":";
   const std::string k_prompt_whisper =
       R"(A conversation with a person called {1}.)";
-  whisper_params params;
-  struct whisper_context* ctx_wsp;
-  std::string prompt_whisper;
-  std::string prompt = "";
+  struct whisper_context* context;
+  std::string prompt;
 
+  /// @brief Initialize prompt
   void init_prompt();
 
- public:
-  SpeechRecognizer(int argc, char** argv);
-  ~SpeechRecognizer();
+  std::string model_path;
+  std::string language;
+  int32_t audio_ctx;
+  int n_threads;
+  int max_tokens;
+  bool translate;
+  bool no_timestamps;
+  bool print_special;
+  bool speed_up;
 
+  /// @brief  Postprocess text
   std::string postprocess(const std::string& text_heard);
 
-  std::string recognize(const std::vector<float>& pcmf32, float& prob,
-                        int64_t& t_ms);
-
-  bool whisper_params_parse(int argc, char** argv, whisper_params& params);
-
-  void whisper_print_usage(int /*argc*/, char** argv,
-                           const whisper_params& params);
-
+  /// @brief Transcribe speech
   std::string transcribe(const std::vector<float>& pcmf32, float& prob,
                          int64_t& t_ms);
+
+ public:
+  /// @brief Constructor
+  SpeechRecognizer(const std::string& model_path, const std::string& language,
+                   int32_t audio_ctx = 0, int n_threads = 4,
+                   int max_tokens = 32, bool translate = false,
+                   bool no_timestamps = true, bool print_special = false,
+                   bool speed_up = false, const std::string& person = "User",
+                   const std::string& bot_name = "CustomChar");
+  ~SpeechRecognizer();
+
+  /// @brief Recognize speech
+  /// @param audio_buff Input audio buffer
+  /// @param prob Output probability
+  /// @param t_ms Output time
+  /// @return Recognized text
+  std::string recognize(const std::vector<float>& audio_buff, float& prob,
+                        int64_t& t_ms);
 
 };  // class SpeechRecognizer
 

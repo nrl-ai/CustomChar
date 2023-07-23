@@ -1,3 +1,5 @@
+#include "customchar/common.h"
+#include "customchar/helpers.h"
 #include "customchar/llm.h"
 #include "customchar/speech_recognizer.h"
 #include "customchar/voice_recorder.h"
@@ -13,38 +15,40 @@
 
 using namespace CC;
 
-const std::string person = "User";
-const std::string bot_name = "CustomChar";
-const std::string chat_symb = ":";
-
 int main(int argc, char** argv) {
-  SpeechRecognizer speech_recognizer(argc, argv);
-  VoiceRecoder voice_recorder;
+  // Parse command line arguments
+  CCParams params;
+  if (cc_params_parse(argc, argv, params) == false) {
+    exit(1);
+  }
+  if (whisper_lang_id(params.language.c_str()) == -1) {
+    fprintf(stderr, "error: unknown language '%s'\n", params.language.c_str());
+    cc_print_usage(argc, argv, params);
+    exit(1);
+  }
+
+  // CC components
+  SpeechRecognizer speech_recognizer(
+      params.sr_model_path, params.language, params.audio_ctx, params.n_threads,
+      params.max_tokens, params.translate, params.no_timestamps,
+      params.print_special, params.speed_up);
+  VoiceRecorder voice_recoder;
   VoiceSynthesizer voice_synthesizer;
 
-  // Init LLM session
-  LLM llm;
-  std::string path_session = "";
-  if (!path_session.empty()) {
-    llm.load_session(path_session);
-  }
+  // Load LLM
+  LLM llm(params.llm_model_path, params.path_session, params.person,
+          params.bot_name);
   llm.eval_model();
 
   // Start talking
   printf("Start speaking in the microphone\n");
-  printf("%s%s", person.c_str(), chat_symb.c_str());
+  printf("%s%s", params.person.c_str(), params.chat_symb.c_str());
   fflush(stdout);
 
   // Clear audio buffer to avoid processing old audio
-  voice_recorder.clear_audio_buffer();
+  voice_recoder.clear_audio_buffer();
 
   std::vector<llama_token> embd;
-
-  // Reverse prompts for detecting when it's time to stop speaking
-  std::vector<std::string> antiprompts = {
-      person + chat_symb,
-  };
-
   int n_iter = 0;
   bool is_running = true;
   while (is_running) {
@@ -60,14 +64,14 @@ int main(int argc, char** argv) {
     int64_t t_ms = 0;
 
     // Sample audio
-    voice_recorder.sample_audio();
-    if (!voice_recorder.finished_talking()) {
+    voice_recoder.sample_audio();
+    if (!voice_recoder.finished_talking()) {
       continue;
     }
 
     // Get recorded audio
     std::vector<float> audio_buff;
-    voice_recorder.get_audio(audio_buff);
+    voice_recoder.get_audio(audio_buff);
 
     // Recognize speech
     std::string text_heard =
@@ -79,7 +83,7 @@ int main(int argc, char** argv) {
     // Skip if nothing was heard
     if (text_heard.empty() || tokens.empty()) {
       printf("Heard nothing, skipping ...\n");
-      voice_recorder.clear_audio_buffer();
+      voice_recoder.clear_audio_buffer();
       continue;
     }
 
@@ -88,7 +92,7 @@ int main(int argc, char** argv) {
 
     // Print user input
     text_heard.insert(0, 1, ' ');
-    text_heard += "\n" + bot_name + chat_symb;
+    text_heard += "\n" + params.bot_name + params.chat_symb;
     printf("%s%s%s", "\033[1m", text_heard.c_str(), "\033[0m");
     fflush(stdout);
 
@@ -102,7 +106,7 @@ int main(int argc, char** argv) {
     voice_synthesizer.say(text_to_speak);
 
     // Clean up
-    voice_recorder.clear_audio_buffer();
+    voice_recoder.clear_audio_buffer();
     ++n_iter;
   }
 

@@ -11,13 +11,17 @@
 namespace CC {
 
 class VoiceSynthesizer {
+ private:
   bool is_say_supported = false;
 
- public:
-  VoiceSynthesizer();
-
+  /// @brief Preprocess text
   std::string preprocess(const std::string& text);
 
+ public:
+  /// @brief Constructor
+  VoiceSynthesizer();
+
+  /// @brief Say text
   void say(const std::string& text);
 };
 

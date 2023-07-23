@@ -31,6 +31,7 @@ add_executable(
     customchar/speech_recognizer.cpp
     customchar/voice_synthesizer.cpp
     customchar/voice_recorder.cpp
+    customchar/helpers.cpp
 
     libs/llama-cpp/llama.cpp
     libs/whisper-cpp/examples/common.cpp

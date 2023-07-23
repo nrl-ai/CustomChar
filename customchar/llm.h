@@ -36,50 +36,57 @@ The transcript only includes text, it does not include markup like HTML and Mark
 
 class LLM {
  private:
+  std::string model_path;
+  std::string person = "User";
+  std::string bot_name = "CustomChar";
+  const std::string chat_symb = ":";
+  bool verbose_prompt = false;
+  bool need_to_save_session = false;
+
   int n_threads = std::min(4, (int)std::thread::hardware_concurrency());
-  std::string path_session =
-      "";  // path to file for saving/loading model eval state
+  std::string path_session;
   struct llama_context_params lparams;
   struct llama_context* ctx_llama;
 
   std::string prompt_llama;
   std::string prompt = "";
-  std::vector<std::string> antiprompts;
-  std::string person = "User";
-  std::string bot_name = "CustomChar";
-  const std::string chat_symb = ":";
-
-  bool verbose_prompt = false;
-  bool need_to_save_session = false;
 
   std::vector<llama_token> embd_inp;
   std::vector<llama_token> session_tokens;
+  std::vector<std::string> antiprompts;
 
   int n_keep;
   int n_ctx;
   int n_past;
   int n_prev = 64;
-  int n_session_consumed = !path_session.empty() && session_tokens.size() > 0
-                               ? session_tokens.size()
-                               : 0;
+  int n_session_consumed;
 
-  std::string replace(const std::string& s, const std::string& from,
-                      const std::string& to);
-
+  /// @brief Initialize prompt
   void init_prompt();
 
  public:
-  LLM();
+  /// @brief Constructor
+  /// @param model_path Path to the model
+  /// @param path_session Path to the session
+  LLM(const std::string& model_path, const std::string& path_session = "",
+      const std::string& person = "User",
+      const std::string& bot_name = "CustomChar");
   ~LLM();
 
-  std::vector<llama_token> tokenize(const std::string& text, bool add_bos);
-
-  void add_tokens_to_current_session(const std::vector<llama_token>& tokens);
-
-  void load_session(std::string path_session);
-
+  /// @brief Evaluate the model. Run this function before inference.
   void eval_model();
 
+  /// @brief Load session from file
+  /// @param path_session Path to the session
+  void load_session(const std::string& path_session);
+
+  /// @brief Add new tokens to the sessions
+  void add_tokens_to_current_session(const std::vector<llama_token>& tokens);
+
+  /// @brief Tokenize text
+  std::vector<llama_token> tokenize(const std::string& text, bool add_bos);
+
+  /// @brief Get answer from LLM
   std::string get_answer(std::vector<llama_token>& embd);
 };
 

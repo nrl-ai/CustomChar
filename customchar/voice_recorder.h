@@ -13,21 +13,26 @@
 
 namespace CC {
 
-class VoiceRecoder {
+class VoiceRecorder {
  private:
   audio_async* audio = nullptr;
   std::vector<float> pcmf32_cur;
 
  public:
-  VoiceRecoder();
+  /// @brief Constructor
+  VoiceRecorder();
 
+  /// @brief Clear audio buffer to prepare for new recording
   void clear_audio_buffer();
 
+  /// @brief Sample audio
   void sample_audio();
 
+  /// @brief Check if finished talking
   bool finished_talking();
 
+  /// @brief Get final audio
   void get_audio(std::vector<float>& result);
-};  // class VoiceRecoder
+};  // class VoiceRecorder
 
 }  // namespace CC
