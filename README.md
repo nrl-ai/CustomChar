@@ -87,3 +87,17 @@ doxygen Doxyfile.in
 - Step 3: Deploy html documentation from `docs/_build/html`.
 
 - Step 4: Our lastest documentation is deployed at <https://docs.customchar.com>.
+
+## Contribution
+
+We welcome all contributions to this project.
+
+- For coding style, please follow the style of the existing code.
+- We use format tool for auto formating the code. You can use the following command to format code before commiting:
+
+```bash
+pre-commit install # Install pre-commit hook
+bash scripts/format-code.sh # Format code (C++ styling)
+```
+
+[![Star History Chart](https://api.star-history.com/svg?repos=vietanhdev/CustomChar&type=Date)](https://star-history.com/#vietanhdev/CustomChar)
