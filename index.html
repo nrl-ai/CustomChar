@@ -91,17 +91,27 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_README"></a> <img src="banner.svg" alt="" style="pointer-events: none;" class="inline"/></p>
-<p><b>Repository:</b> <a href="https://github.com/vietanhdev/CustomChar">https://github.com/vietanhdev/CustomChar</a>.</p>
-<p>Your customized AI characters on commodity hardware. This project aims to be a framework to enable the creation of AI characters that can be used in games, simulations, and other applications without depending on a specific platform, cloud services, or specialized hardware.</p>
-<p><b>Note:</b> This project is still in the early stage of development. We are working hard to make it available as soon as possible. Star this project 🌟 to follow our progress and encourage us to make it happen.</p>
-<h1>Architecture</h1>
+<ul>
+<li><b>Repository:</b> <a href="https://github.com/vietanhdev/CustomChar">https://github.com/vietanhdev/CustomChar</a>.</li>
+<li><b>Built With:</b> <a href="https://github.com/ggerganov/ggml">GGML</a>, <a href="https://github.com/ggerganov/llama.cpp">llama.cpp</a> (LLM, with <a href="https://ai.meta.com/llama/">LLaMA-v2</a>), <a href="https://github.com/ggerganov/whisper.cpp">whisper.cpp</a> (speech recognition).</li>
+</ul>
+<p>Your customized AI characters on commodity hardware. This project aims to be a framework to enable the creation of AI characters that can be used in games, simulations, virtual assistants, and other applications without depending on specific platforms, cloud services, or specialized hardware.</p>
+<p><b>Some of applications you can build with CustomChar:</b></p>
+<ul>
+<li>Game characters that can talk to you and interact with you.</li>
+<li>Your customized virtual assistant. Think about a <a href="https://en.wikipedia.org/wiki/J.A.R.V.I.S.">JARVIS</a> version on your computer.</li>
+<li>Online education experience with virtual friends / teachers.</li>
+<li>Cloud services which enable users to create their own virtual characters.</li>
+</ul>
+<p><b>Note:</b> This project is still in the early stage of development. We are working hard to make it available as soon as possible. Star this project 🌟🌟🌟 to follow our progress and encourage us to make it happen.</p>
+<h1>1. Architecture</h1>
 <p><img src="architecture.svg" alt="" style="pointer-events: none;" class="inline" title="CustomChar Architecture"/></p>
-<h1>Updates</h1>
+<h1>2. Updates</h1>
 <ul>
 <li>🔥 <b>2023-07-23:</b> Documentation website is online at <a href="https://docs.customchar.com">https://docs.customchar.com</a>.</li>
 <li>🔥 <b>2023-07-22:</b> Voice chat with your Llama-V2 model. TTS is supported on MacOS only.</li>
 </ul>
-<h1>Features</h1>
+<h1>3. Features</h1>
 <ul>
 <li>[ ] Build AI characters from knowledge database 💬💬💬 :<ul>
 <li>[x] LLamaCpp for LLM. Chat with Llama-V2 on all platforms.</li>
@@ -135,7 +145,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </ul>
 </li>
 </ul>
-<h1>Build</h1>
+<h1>4. Build</h1>
 <p><b>CustomChar</b> depends on SDL2 library to capture audio from the microphone. Install SDL2 library before building.</p>
 <div class="fragment"><div class="line"># Install SDL2 on Linux</div>
 <div class="line">sudo apt-get install libsdl2-dev</div>
@@ -147,12 +157,12 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line">cd build</div>
 <div class="line">cmake ..</div>
 <div class="line">make</div>
-</div><!-- fragment --><h1>Usage</h1>
+</div><!-- fragment --><h1>5. Usage</h1>
 <p>Download the models before running the program:</p>
 <div class="fragment"><div class="line">bash scripts/download-models.sh</div>
 </div><!-- fragment --><p>Run the program:</p>
 <div class="fragment"><div class="line">./customchar</div>
-</div><!-- fragment --><h1>Build documentation</h1>
+</div><!-- fragment --><h1>6. Build documentation</h1>
 <ul>
 <li>Step 1: Install <b>doxygen</b> first.</li>
 <li>Step 2: Build the documentation:</li>
@@ -162,7 +172,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <li>Step 3: Deploy html documentation from <code>docs/_build/html</code>.</li>
 <li>Step 4: Our lastest documentation is deployed at <a href="https://docs.customchar.com">https://docs.customchar.com</a>.</li>
 </ul>
-<h1>Contribution</h1>
+<h1>7. Contribution</h1>
 <p>We welcome all contributions to this project.</p>
 <ul>
 <li>For coding style, please follow the style of the existing code.</li>
@@ -170,7 +180,8 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </ul>
 <div class="fragment"><div class="line">pre-commit install # Install pre-commit hook</div>
 <div class="line">bash scripts/format-code.sh # Format code (C++ styling)</div>
-</div><!-- fragment --><p><a href="https://star-history.com/#vietanhdev/CustomChar"><img src="https://api.star-history.com/svg?repos=vietanhdev/CustomChar&amp;type=Date" alt="Star History Chart" class="inline"/></a> </p>
+</div><!-- fragment --><h1>8. Star history</h1>
+<p><a href="https://star-history.com/#vietanhdev/CustomChar"><img src="https://api.star-history.com/svg?repos=vietanhdev/CustomChar&amp;type=Date" alt="Star History Chart" class="inline"/></a> </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
