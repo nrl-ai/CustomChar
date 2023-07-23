@@ -24,6 +24,7 @@ set(TARGET customchar)
 add_executable(
     ${TARGET}
     main.cpp
+    src/llm.cpp
     libs/llama-cpp/llama.cpp
     libs/whisper-cpp/examples/common.cpp
     libs/whisper-cpp/examples/common-sdl.cpp
@@ -31,8 +32,7 @@ add_executable(
 target_include_directories(
     ${TARGET} PRIVATE
     ${SDL2_INCLUDE_DIRS}
-    libs/llama-cpp
-    libs/whisper-cpp
-    libs/whisper-cpp/examples
+    libs
+    headers
 )
 target_link_libraries(${TARGET} PRIVATE ${SDL2_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} whisper)
