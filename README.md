@@ -2,22 +2,30 @@
 
 ![](/docs/banner.svg)
 
-**Repository:** [https://github.com/vietanhdev/CustomChar](https://github.com/vietanhdev/CustomChar).
+- **Repository:** [https://github.com/vietanhdev/CustomChar](https://github.com/vietanhdev/CustomChar).
+- **Built With:** [GGML](https://github.com/ggerganov/ggml), [llama.cpp](https://github.com/ggerganov/llama.cpp) (LLM, with [LLaMA-v2](https://ai.meta.com/llama/)), [whisper.cpp](https://github.com/ggerganov/whisper.cpp) (speech recognition).
 
-Your customized AI characters on commodity hardware. This project aims to be a framework to enable the creation of AI characters that can be used in games, simulations, and other applications without depending on a specific platform, cloud services, or specialized hardware.
+Your customized AI characters on commodity hardware. This project aims to be a framework to enable the creation of AI characters that can be used in games, simulations, virtual assistants, and other applications without depending on specific platforms, cloud services, or specialized hardware.
 
-**Note:** This project is still in the early stage of development. We are working hard to make it available as soon as possible. Star this project 🌟 to follow our progress and encourage us to make it happen.
+**Some of applications you can build with CustomChar:**
 
-## Architecture
+- Game characters that can talk to you and interact with you.
+- Your customized virtual assistant. Think about a [JARVIS](https://en.wikipedia.org/wiki/J.A.R.V.I.S.) version on your computer.
+- Online education experience with virtual friends / teachers.
+- Cloud services which enable users to create their own virtual characters.
+
+**Note:** This project is still in the early stage of development. We are working hard to make it available as soon as possible. Star this project 🌟🌟🌟 to follow our progress and encourage us to make it happen.
+
+## 1. Architecture
 
 ![CustomChar Architecture](/docs/architecture.svg)
 
-## Updates
+## 2. Updates
 
 - 🔥 **2023-07-23:** Documentation website is online at <https://docs.customchar.com>.
 - 🔥 **2023-07-22:** Voice chat with your Llama-V2 model. TTS is supported on MacOS only.
 
-## Features
+## 3. Features
 
 - [ ] Build AI characters from knowledge database 💬💬💬 :
   - [x] LLamaCpp for LLM. Chat with Llama-V2 on all platforms.
@@ -41,7 +49,7 @@ Your customized AI characters on commodity hardware. This project aims to be a f
   - [ ] C# (Unity)
   - [ ] Javscript (On-browser)
 
-## Build
+## 4. Build
 
 **CustomChar** depends on SDL2 library to capture audio from the microphone. Install SDL2 library before building.
 
@@ -62,7 +70,7 @@ cmake ..
 make
 ```
 
-## Usage
+## 5. Usage
 
 Download the models before running the program:
 
@@ -76,7 +84,7 @@ Run the program:
 ./customchar
 ```
 
-## Build documentation
+## 6. Build documentation
 
 - Step 1: Install **doxygen** first.
 
@@ -90,7 +98,7 @@ doxygen Doxyfile.in
 
 - Step 4: Our lastest documentation is deployed at <https://docs.customchar.com>.
 
-## Contribution
+## 7. Contribution
 
 We welcome all contributions to this project.
 
@@ -101,5 +109,7 @@ We welcome all contributions to this project.
 pre-commit install # Install pre-commit hook
 bash scripts/format-code.sh # Format code (C++ styling)
 ```
+
+## 8. Star history
 
 [![Star History Chart](https://api.star-history.com/svg?repos=vietanhdev/CustomChar&type=Date)](https://star-history.com/#vietanhdev/CustomChar)
