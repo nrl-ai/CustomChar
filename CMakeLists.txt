@@ -26,6 +26,12 @@ set(TARGET customchar)
 add_executable(
     ${TARGET}
     customchar/main.cpp
+    customchar/common.cpp
+    customchar/llm.cpp
+    customchar/speech_recognizer.cpp
+    customchar/voice_synthesizer.cpp
+    customchar/voice_recorder.cpp
+
     libs/llama-cpp/llama.cpp
     libs/whisper-cpp/examples/common.cpp
     libs/whisper-cpp/examples/common-sdl.cpp

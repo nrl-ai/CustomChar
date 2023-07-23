@@ -1,6 +1,6 @@
 #include "customchar/llm.h"
 #include "customchar/speech_recognizer.h"
-#include "customchar/voice_recoder.h"
+#include "customchar/voice_recorder.h"
 #include "customchar/voice_synthesizer.h"
 
 #include <cassert>
@@ -19,7 +19,7 @@ const std::string chat_symb = ":";
 
 int main(int argc, char** argv) {
   SpeechRecognizer speech_recognizer(argc, argv);
-  VoiceRecoder voice_recoder;
+  VoiceRecoder voice_recorder;
   VoiceSynthesizer voice_synthesizer;
 
   // Init LLM session
@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
   fflush(stdout);
 
   // Clear audio buffer to avoid processing old audio
-  voice_recoder.clear_audio_buffer();
+  voice_recorder.clear_audio_buffer();
 
   std::vector<llama_token> embd;
 
@@ -60,14 +60,14 @@ int main(int argc, char** argv) {
     int64_t t_ms = 0;
 
     // Sample audio
-    voice_recoder.sample_audio();
-    if (!voice_recoder.finished_talking()) {
+    voice_recorder.sample_audio();
+    if (!voice_recorder.finished_talking()) {
       continue;
     }
 
     // Get recorded audio
     std::vector<float> audio_buff;
-    voice_recoder.get_audio(audio_buff);
+    voice_recorder.get_audio(audio_buff);
 
     // Recognize speech
     std::string text_heard =
@@ -79,7 +79,7 @@ int main(int argc, char** argv) {
     // Skip if nothing was heard
     if (text_heard.empty() || tokens.empty()) {
       printf("Heard nothing, skipping ...\n");
-      voice_recoder.clear_audio_buffer();
+      voice_recorder.clear_audio_buffer();
       continue;
     }
 
@@ -102,7 +102,7 @@ int main(int argc, char** argv) {
     voice_synthesizer.say(text_to_speak);
 
     // Clean up
-    voice_recoder.clear_audio_buffer();
+    voice_recorder.clear_audio_buffer();
     ++n_iter;
   }
 
