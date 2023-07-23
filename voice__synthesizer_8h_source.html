@@ -106,59 +106,19 @@ $(document).ready(function(){initNavTree('voice__synthesizer_8h_source.html','')
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keywordtype">bool</span> is_say_supported = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_c_c_1_1_voice_synthesizer.html#a99f487dbd8207e0e3da7ac58130a59ea">   17</a></span>&#160;  <a class="code" href="class_c_c_1_1_voice_synthesizer.html#a99f487dbd8207e0e3da7ac58130a59ea">VoiceSynthesizer</a>() {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">// Check if the say command is supported</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    std::string command = <span class="stringliteral">&quot;say --version&quot;</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    FILE* pipe = popen(command.c_str(), <span class="stringliteral">&quot;r&quot;</span>);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">if</span> (pipe == <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;      printf(<span class="stringliteral">&quot;Failed to run command: %s\n&quot;</span>, command.c_str());</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;      is_say_supported = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    is_say_supported = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_c_c_1_1_voice_synthesizer.html#aa7f183bc09bc6ed32534293761095946">   30</a></span>&#160;  std::string <a class="code" href="class_c_c_1_1_voice_synthesizer.html#aa7f183bc09bc6ed32534293761095946">preprocess</a>(<span class="keyword">const</span> std::string&amp; text) {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    std::string result = text;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// Replace all \n with space</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    result = ::replace(result, <span class="stringliteral">&quot;\n&quot;</span>, <span class="stringliteral">&quot; &quot;</span>);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// Remove quotes and special characters to put into command line string</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    result = ::replace(result, <span class="stringliteral">&quot;\&quot;&quot;</span>, <span class="stringliteral">&quot; &quot;</span>);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    result = ::replace(result, <span class="stringliteral">&quot;\\&quot;</span>, <span class="stringliteral">&quot; &quot;</span>);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    result = ::replace(result, <span class="stringliteral">&quot;\&#39;&quot;</span>, <span class="stringliteral">&quot; &quot;</span>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    result = ::replace(result, <span class="stringliteral">&quot;(&quot;</span>, <span class="stringliteral">&quot; &quot;</span>);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    result = ::replace(result, <span class="stringliteral">&quot;)&quot;</span>, <span class="stringliteral">&quot; &quot;</span>);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">// Remove multiple spaces</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    result = ::replace(result, <span class="stringliteral">&quot;  &quot;</span>, <span class="stringliteral">&quot; &quot;</span>);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_c_c_1_1_voice_synthesizer.html#adbc44f647e413c47d8d50898c79a7698">   49</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1_voice_synthesizer.html#adbc44f647e413c47d8d50898c79a7698">say</a>(<span class="keyword">const</span> std::string&amp; text) {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">if</span> (!is_say_supported) {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      printf(</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;          <span class="stringliteral">&quot;TTS is only supported on macOS at the moment. More OSes will be &quot;</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;          <span class="stringliteral">&quot;supported later.\n&quot;</span>);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> voice_id = 2;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    std::string command =</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="stringliteral">&quot;say &quot;</span> + std::to_string(voice_id) + <span class="stringliteral">&quot; \&quot;&quot;</span> + <a class="code" href="class_c_c_1_1_voice_synthesizer.html#aa7f183bc09bc6ed32534293761095946">preprocess</a>(text) + <span class="stringliteral">&quot;\&quot;&quot;</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    system(command.c_str());</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}  <span class="comment">// namespace CC</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <a class="code" href="class_c_c_1_1_voice_synthesizer.html#a1cd8d65da1503e72f5e848877cc661d7">VoiceSynthesizer</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  std::string <a class="code" href="class_c_c_1_1_voice_synthesizer.html#a0eff7a510d5ed9b23694821adc86a233">preprocess</a>(<span class="keyword">const</span> std::string&amp; text);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1_voice_synthesizer.html#aa44c2f39247ddba635965e54c0a84d12">say</a>(<span class="keyword">const</span> std::string&amp; text);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}  <span class="comment">// namespace CC</span></div>
 <div class="ttc" id="aclass_c_c_1_1_voice_synthesizer_html"><div class="ttname"><a href="class_c_c_1_1_voice_synthesizer.html">CC::VoiceSynthesizer</a></div><div class="ttdef"><b>Definition:</b> <a href="voice__synthesizer_8h_source.html#l00013">voice_synthesizer.h:13</a></div></div>
-<div class="ttc" id="aclass_c_c_1_1_voice_synthesizer_html_a99f487dbd8207e0e3da7ac58130a59ea"><div class="ttname"><a href="class_c_c_1_1_voice_synthesizer.html#a99f487dbd8207e0e3da7ac58130a59ea">CC::VoiceSynthesizer::VoiceSynthesizer</a></div><div class="ttdeci">VoiceSynthesizer()</div><div class="ttdef"><b>Definition:</b> <a href="voice__synthesizer_8h_source.html#l00017">voice_synthesizer.h:17</a></div></div>
-<div class="ttc" id="aclass_c_c_1_1_voice_synthesizer_html_aa7f183bc09bc6ed32534293761095946"><div class="ttname"><a href="class_c_c_1_1_voice_synthesizer.html#aa7f183bc09bc6ed32534293761095946">CC::VoiceSynthesizer::preprocess</a></div><div class="ttdeci">std::string preprocess(const std::string &amp;text)</div><div class="ttdef"><b>Definition:</b> <a href="voice__synthesizer_8h_source.html#l00030">voice_synthesizer.h:30</a></div></div>
-<div class="ttc" id="aclass_c_c_1_1_voice_synthesizer_html_adbc44f647e413c47d8d50898c79a7698"><div class="ttname"><a href="class_c_c_1_1_voice_synthesizer.html#adbc44f647e413c47d8d50898c79a7698">CC::VoiceSynthesizer::say</a></div><div class="ttdeci">void say(const std::string &amp;text)</div><div class="ttdef"><b>Definition:</b> <a href="voice__synthesizer_8h_source.html#l00049">voice_synthesizer.h:49</a></div></div>
-<div class="ttc" id="anamespace_c_c_html"><div class="ttname"><a href="namespace_c_c.html">CC</a></div><div class="ttdef"><b>Definition:</b> <a href="llm_8h_source.html#l00014">llm.h:14</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1_voice_synthesizer_html_a0eff7a510d5ed9b23694821adc86a233"><div class="ttname"><a href="class_c_c_1_1_voice_synthesizer.html#a0eff7a510d5ed9b23694821adc86a233">CC::VoiceSynthesizer::preprocess</a></div><div class="ttdeci">std::string preprocess(const std::string &amp;text)</div><div class="ttdef"><b>Definition:</b> <a href="voice__synthesizer_8cpp_source.html#l00019">voice_synthesizer.cpp:19</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1_voice_synthesizer_html_a1cd8d65da1503e72f5e848877cc661d7"><div class="ttname"><a href="class_c_c_1_1_voice_synthesizer.html#a1cd8d65da1503e72f5e848877cc661d7">CC::VoiceSynthesizer::VoiceSynthesizer</a></div><div class="ttdeci">VoiceSynthesizer()</div><div class="ttdef"><b>Definition:</b> <a href="voice__synthesizer_8cpp_source.html#l00006">voice_synthesizer.cpp:6</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1_voice_synthesizer_html_aa44c2f39247ddba635965e54c0a84d12"><div class="ttname"><a href="class_c_c_1_1_voice_synthesizer.html#aa44c2f39247ddba635965e54c0a84d12">CC::VoiceSynthesizer::say</a></div><div class="ttdeci">void say(const std::string &amp;text)</div><div class="ttdef"><b>Definition:</b> <a href="voice__synthesizer_8cpp_source.html#l00038">voice_synthesizer.cpp:38</a></div></div>
+<div class="ttc" id="anamespace_c_c_html"><div class="ttname"><a href="namespace_c_c.html">CC</a></div><div class="ttdef"><b>Definition:</b> <a href="common_8h_source.html#l00005">common.h:5</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

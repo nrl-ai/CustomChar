@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['n_5fthreads_18',['n_threads',['../struct_c_c_1_1whisper__params.html#a52083342c327c365130052cce99534b8',1,'CC::whisper_params']]],
-  ['no_5ftimestamps_19',['no_timestamps',['../struct_c_c_1_1whisper__params.html#af80c4e27240a145820fd70cc778a2c50',1,'CC::whisper_params']]]
+  ['max_5ftokens_17',['max_tokens',['../struct_c_c_1_1whisper__params.html#a8b1e1dca25c7721169e8dd14f1338fed',1,'CC::whisper_params']]],
+  ['model_5fllama_18',['model_llama',['../struct_c_c_1_1whisper__params.html#ab7cfbc7645174f0927ef35691a11593c',1,'CC::whisper_params']]],
+  ['model_5fwsp_19',['model_wsp',['../struct_c_c_1_1whisper__params.html#aae751449590451d63721303b85aa1d60',1,'CC::whisper_params']]]
 ];
