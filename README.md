@@ -2,6 +2,8 @@
 
 ![](/docs/banner.svg)
 
+**Repository:** [https://github.com/vietanhdev/CustomChar](https://github.com/vietanhdev/CustomChar).
+
 Your customized AI characters on commodity hardware. This project aims to be a framework to enable the creation of AI characters that can be used in games, simulations, and other applications without depending on a specific platform, cloud services, or specialized hardware.
 
 **Note:** This project is still in the early stage of development. We are working hard to make it available as soon as possible. Star this project 🌟 to follow our progress and encourage us to make it happen.
