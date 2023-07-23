@@ -1,7 +1,7 @@
 #pragma once
 
 #include "llama-cpp/llama.h"
-#include "whisper-cpp/examples/common-sdl.h" // TODO Remove this dependency
+#include "whisper-cpp/examples/common-sdl.h"  // TODO Remove this dependency
 
 #include <cassert>
 #include <cstdio>

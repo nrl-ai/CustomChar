@@ -48,12 +48,15 @@ class VoiceSynthesizer {
 
   void say(const std::string& text) {
     if (!is_say_supported) {
-      printf("TTS is only supported on macOS at the moment. More OSes will be supported later.\n");
+      printf(
+          "TTS is only supported on macOS at the moment. More OSes will be "
+          "supported later.\n");
       return;
     }
 
     const int voice_id = 2;
-    std::string command = "say " + std::to_string(voice_id) + " \"" + preprocess(text) + "\"";
+    std::string command =
+        "say " + std::to_string(voice_id) + " \"" + preprocess(text) + "\"";
     system(command.c_str());
   }
 };
