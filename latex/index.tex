@@ -1,0 +1,125 @@
+\label{index_md_README}%
+\Hypertarget{index_md_README}%
+ 
+\begin{DoxyInlineImage}
+\includegraphics[height=\baselineskip,keepaspectratio=true]{banner.svg}
+\end{DoxyInlineImage}
+
+
+Your customized AI characters on commodity hardware. This project aims to be a framework to enable the creation of AI characters that can be used in games, simulations, and other applications without depending on a specific platform, cloud services, or specialized hardware.
+
+{\bfseries{Note\+:}} This project is still in the early stage of development. We are working hard to make it available as soon as possible. Star this project 🌟 to follow our progress and encourage us to make it happen.
+
+\doxysection*{Architecture}
+
+
+\begin{DoxyInlineImage}
+\includegraphics[height=\baselineskip,keepaspectratio=true]{architecture.svg}%Custom\+Char Architecture
+\end{DoxyInlineImage}
+
+
+\doxysection*{Updates}
+
+
+\begin{DoxyItemize}
+\item 🔥 {\bfseries{2023-\/07-\/22\+:}} Voice chat with your Llama-\/\+V2 model. TTS is supported on Mac\+OS only.
+\end{DoxyItemize}
+
+\doxysection*{Features}
+
+
+\begin{DoxyItemize}
+\item \mbox{[} \mbox{]} Build AI characters from knowledge database 💬💬💬 \+:
+\begin{DoxyItemize}
+\item \mbox{[}x\mbox{]} LLama\+Cpp for LLM. Chat with Llama-\/\+V2 on all platforms.
+\item \mbox{[} \mbox{]} Knowledge indexing and searching.
+\end{DoxyItemize}
+\item \mbox{[}x\mbox{]} Talk to your character 🎤🎤🎤 \+:
+\begin{DoxyItemize}
+\item \mbox{[}x\mbox{]} STT with whisper.\+cpp. Now supports speech recognition on all platforms.
+\end{DoxyItemize}
+\item \mbox{[} \mbox{]} Hear from your character 🔊🔊🔊 \+:
+\begin{DoxyItemize}
+\item \mbox{[}x\mbox{]} TTS with \char`\"{}say\char`\"{} on Mac\+OS. {\bfseries{Note}}\+: \char`\"{}say\char`\"{} is not available on other platforms (Windows, Linux)
+\item \mbox{[} \mbox{]} TTS with bark.\+cpp. Expected to be available on all platforms.
+\end{DoxyItemize}
+\item \mbox{[} \mbox{]} Perception engine to see the world through the camera 📷📷📷.
+\item \mbox{[} \mbox{]} 3D visualization of the character.
+\item \mbox{[} \mbox{]} Add a GUI for the character interaction.
+\item \mbox{[} \mbox{]} Add a GUI for the character creation.
+\item \mbox{[} \mbox{]} Create virual characters that can be used in games, simulations, and other applications.
+\begin{DoxyItemize}
+\item \mbox{[} \mbox{]} Elon Musk
+\item \mbox{[} \mbox{]} Iron Man
+\item \mbox{[} \mbox{]} Batman
+\item \mbox{[} \mbox{]} Superman
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\doxysection*{Build}
+
+{\bfseries{Custom\+Char}} depends on SDL2 library to capture audio from the microphone. Install SDL2 library before building.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# Install SDL2 on Linux}
+\DoxyCodeLine{sudo apt-\/get install libsdl2-\/dev}
+\DoxyCodeLine{}
+\DoxyCodeLine{\# Install SDL2 on Mac OS}
+\DoxyCodeLine{brew install sdl2}
+
+\end{DoxyCode}
+
+
+Build the {\bfseries{Custom\+Char}} executable\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mkdir build}
+\DoxyCodeLine{cd build}
+\DoxyCodeLine{cmake ..}
+\DoxyCodeLine{make}
+
+\end{DoxyCode}
+
+
+\doxysection*{Usage}
+
+Download the models before running the program\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{bash scripts/download-\/models.sh}
+
+\end{DoxyCode}
+
+
+Run the program\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./customchar}
+
+\end{DoxyCode}
+
+
+\doxysection*{Build documentation}
+
+
+\begin{DoxyItemize}
+\item Step 1\+: Install {\bfseries{doxygen}} first.
+\item Step 2\+: Build the documentation\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{doxygen Doxyfile.in}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item Step 3\+: Deploy html documentation from {\ttfamily docs/\+\_\+build/html}.
+\item Step 4\+: Our lastest documentation is deployed at \href{https://docs.customchar.com}{\texttt{ https\+://docs.\+customchar.\+com}}. 
+\end{DoxyItemize}

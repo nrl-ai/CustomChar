@@ -1,0 +1,111 @@
+\hypertarget{class_c_c_1_1_l_l_m}{}\doxysection{CC\+::LLM Class Reference}
+\label{class_c_c_1_1_l_l_m}\index{CC::LLM@{CC::LLM}}
+
+
+{\ttfamily \#include $<$llm.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_c_1_1_l_l_m_a5b4c1b47ae840419a6e4420c79fe9a2c}{LLM}} ()
+\item 
+\mbox{\hyperlink{class_c_c_1_1_l_l_m_ae3cf0d50dd5fbd99a6e74bf0e6f48453}{$\sim$\+LLM}} ()
+\item 
+std\+::vector$<$ llama\+\_\+token $>$ \mbox{\hyperlink{class_c_c_1_1_l_l_m_a87dc5848a3cdd9094fd2b58498b7f3c1}{tokenize}} (const std\+::string \&text, bool add\+\_\+bos)
+\item 
+void \mbox{\hyperlink{class_c_c_1_1_l_l_m_ad7957268652ef228e62e185bc7ecec17}{add\+\_\+tokens\+\_\+to\+\_\+current\+\_\+session}} (const std\+::vector$<$ llama\+\_\+token $>$ \&tokens)
+\item 
+void \mbox{\hyperlink{class_c_c_1_1_l_l_m_a72b8c30267b5cf92043b50811b612cef}{load\+\_\+session}} (std\+::string path\+\_\+session)
+\item 
+void \mbox{\hyperlink{class_c_c_1_1_l_l_m_a9dfecde00c5e405c3a62f10286f49453}{eval\+\_\+model}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_c_c_1_1_l_l_m_ad359921a944c21fc1252829a25cfa112}{get\+\_\+answer}} (std\+::vector$<$ llama\+\_\+token $>$ \&embd)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 16 of file llm.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_c_1_1_l_l_m_a5b4c1b47ae840419a6e4420c79fe9a2c}\label{class_c_c_1_1_l_l_m_a5b4c1b47ae840419a6e4420c79fe9a2c}} 
+\index{CC::LLM@{CC::LLM}!LLM@{LLM}}
+\index{LLM@{LLM}!CC::LLM@{CC::LLM}}
+\doxysubsubsection{\texorpdfstring{LLM()}{LLM()}}
+{\footnotesize\ttfamily CC\+::\+LLM\+::\+LLM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 113 of file llm.\+h.
+
+\mbox{\Hypertarget{class_c_c_1_1_l_l_m_ae3cf0d50dd5fbd99a6e74bf0e6f48453}\label{class_c_c_1_1_l_l_m_ae3cf0d50dd5fbd99a6e74bf0e6f48453}} 
+\index{CC::LLM@{CC::LLM}!````~LLM@{$\sim$LLM}}
+\index{````~LLM@{$\sim$LLM}!CC::LLM@{CC::LLM}}
+\doxysubsubsection{\texorpdfstring{$\sim$LLM()}{~LLM()}}
+{\footnotesize\ttfamily CC\+::\+LLM\+::$\sim$\+LLM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 141 of file llm.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_c_1_1_l_l_m_ad7957268652ef228e62e185bc7ecec17}\label{class_c_c_1_1_l_l_m_ad7957268652ef228e62e185bc7ecec17}} 
+\index{CC::LLM@{CC::LLM}!add\_tokens\_to\_current\_session@{add\_tokens\_to\_current\_session}}
+\index{add\_tokens\_to\_current\_session@{add\_tokens\_to\_current\_session}!CC::LLM@{CC::LLM}}
+\doxysubsubsection{\texorpdfstring{add\_tokens\_to\_current\_session()}{add\_tokens\_to\_current\_session()}}
+{\footnotesize\ttfamily void CC\+::\+LLM\+::add\+\_\+tokens\+\_\+to\+\_\+current\+\_\+session (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ llama\+\_\+token $>$ \&}]{tokens }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 157 of file llm.\+h.
+
+\mbox{\Hypertarget{class_c_c_1_1_l_l_m_a9dfecde00c5e405c3a62f10286f49453}\label{class_c_c_1_1_l_l_m_a9dfecde00c5e405c3a62f10286f49453}} 
+\index{CC::LLM@{CC::LLM}!eval\_model@{eval\_model}}
+\index{eval\_model@{eval\_model}!CC::LLM@{CC::LLM}}
+\doxysubsubsection{\texorpdfstring{eval\_model()}{eval\_model()}}
+{\footnotesize\ttfamily void CC\+::\+LLM\+::eval\+\_\+model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 195 of file llm.\+h.
+
+\mbox{\Hypertarget{class_c_c_1_1_l_l_m_ad359921a944c21fc1252829a25cfa112}\label{class_c_c_1_1_l_l_m_ad359921a944c21fc1252829a25cfa112}} 
+\index{CC::LLM@{CC::LLM}!get\_answer@{get\_answer}}
+\index{get\_answer@{get\_answer}!CC::LLM@{CC::LLM}}
+\doxysubsubsection{\texorpdfstring{get\_answer()}{get\_answer()}}
+{\footnotesize\ttfamily std\+::string CC\+::\+LLM\+::get\+\_\+answer (\begin{DoxyParamCaption}\item[{std\+::vector$<$ llama\+\_\+token $>$ \&}]{embd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 243 of file llm.\+h.
+
+\mbox{\Hypertarget{class_c_c_1_1_l_l_m_a72b8c30267b5cf92043b50811b612cef}\label{class_c_c_1_1_l_l_m_a72b8c30267b5cf92043b50811b612cef}} 
+\index{CC::LLM@{CC::LLM}!load\_session@{load\_session}}
+\index{load\_session@{load\_session}!CC::LLM@{CC::LLM}}
+\doxysubsubsection{\texorpdfstring{load\_session()}{load\_session()}}
+{\footnotesize\ttfamily void CC\+::\+LLM\+::load\+\_\+session (\begin{DoxyParamCaption}\item[{std\+::string}]{path\+\_\+session }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 164 of file llm.\+h.
+
+\mbox{\Hypertarget{class_c_c_1_1_l_l_m_a87dc5848a3cdd9094fd2b58498b7f3c1}\label{class_c_c_1_1_l_l_m_a87dc5848a3cdd9094fd2b58498b7f3c1}} 
+\index{CC::LLM@{CC::LLM}!tokenize@{tokenize}}
+\index{tokenize@{tokenize}!CC::LLM@{CC::LLM}}
+\doxysubsubsection{\texorpdfstring{tokenize()}{tokenize()}}
+{\footnotesize\ttfamily std\+::vector$<$llama\+\_\+token$>$ CC\+::\+LLM\+::tokenize (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text,  }\item[{bool}]{add\+\_\+bos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 146 of file llm.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+llm.\+h\end{DoxyCompactItemize}

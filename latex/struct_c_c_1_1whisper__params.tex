@@ -1,0 +1,294 @@
+\hypertarget{struct_c_c_1_1whisper__params}{}\doxysection{CC\+::whisper\+\_\+params Struct Reference}
+\label{struct_c_c_1_1whisper__params}\index{CC::whisper\_params@{CC::whisper\_params}}
+
+
+{\ttfamily \#include $<$speech\+\_\+recognizer.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{struct_c_c_1_1whisper__params_a41a09fe4998c2aeb224b625ec4a18af0}{prob0}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_c_c_1_1whisper__params_a52083342c327c365130052cce99534b8}{n\+\_\+threads}} = std\+::min(4, (int32\+\_\+t)std\+::thread\+::hardware\+\_\+concurrency())
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_c_c_1_1whisper__params_a1d9330a4565ac5dff9e09ed827958f57}{voice\+\_\+ms}} = 10000
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_c_c_1_1whisper__params_ae6ae389432cacf51b37f54a8116f27b8}{capture\+\_\+id}} = -\/1
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_c_c_1_1whisper__params_a8b1e1dca25c7721169e8dd14f1338fed}{max\+\_\+tokens}} = 32
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_c_c_1_1whisper__params_a903a6bbbed7c104847c8e6e78e29a18f}{audio\+\_\+ctx}} = 0
+\item 
+float \mbox{\hyperlink{struct_c_c_1_1whisper__params_a175be1882d2f16e1913a7c019ee98138}{vad\+\_\+thold}} = 0.\+6f
+\item 
+float \mbox{\hyperlink{struct_c_c_1_1whisper__params_ac8665fb0de2f105f8616288900d5fe0c}{freq\+\_\+thold}} = 100.\+0f
+\item 
+bool \mbox{\hyperlink{struct_c_c_1_1whisper__params_a8ad79c88d7bfa06a490a778dcb88d14f}{speed\+\_\+up}} = false
+\item 
+bool \mbox{\hyperlink{struct_c_c_1_1whisper__params_ae4a01e23552504449def07ad3024f86f}{translate}} = false
+\item 
+bool \mbox{\hyperlink{struct_c_c_1_1whisper__params_a01af71e6b2cf929d8c1f7ac2c617d983}{print\+\_\+special}} = false
+\item 
+bool \mbox{\hyperlink{struct_c_c_1_1whisper__params_af2c4e9ccdcd352ecb3b25ca355f6e387}{print\+\_\+energy}} = false
+\item 
+bool \mbox{\hyperlink{struct_c_c_1_1whisper__params_af80c4e27240a145820fd70cc778a2c50}{no\+\_\+timestamps}} = true
+\item 
+bool \mbox{\hyperlink{struct_c_c_1_1whisper__params_a372bfc22c2a3878886e20a04d6d38e77}{verbose\+\_\+prompt}} = false
+\item 
+std\+::string \mbox{\hyperlink{struct_c_c_1_1whisper__params_a7dc20e472274a66bf44993e56f725cef}{person}} = \char`\"{}User\char`\"{}
+\item 
+std\+::string \mbox{\hyperlink{struct_c_c_1_1whisper__params_ae3b78834fbfd2063e837332df71c30ac}{language}} = \char`\"{}en\char`\"{}
+\item 
+std\+::string \mbox{\hyperlink{struct_c_c_1_1whisper__params_aae751449590451d63721303b85aa1d60}{model\+\_\+wsp}} = \char`\"{}../models/ggml-\/base.\+en.\+bin\char`\"{}
+\item 
+std\+::string \mbox{\hyperlink{struct_c_c_1_1whisper__params_ab7cfbc7645174f0927ef35691a11593c}{model\+\_\+llama}} = \char`\"{}../models/llm.\+bin\char`\"{}
+\item 
+std\+::string \mbox{\hyperlink{struct_c_c_1_1whisper__params_a813826e80618ea09cb3afda70586b46e}{speak}} = \char`\"{}say\char`\"{}
+\item 
+std\+::string \mbox{\hyperlink{struct_c_c_1_1whisper__params_a6bf0776f252d6dad0252cf591c365136}{prompt}} = \char`\"{}\char`\"{}
+\item 
+std\+::string \mbox{\hyperlink{struct_c_c_1_1whisper__params_aae27556b149a40d53be9b2b485166b38}{fname\+\_\+out}}
+\item 
+std\+::string \mbox{\hyperlink{struct_c_c_1_1whisper__params_acf290ebddf331f3f83c5782c25651391}{path\+\_\+session}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 17 of file speech\+\_\+recognizer.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_c_c_1_1whisper__params_a903a6bbbed7c104847c8e6e78e29a18f}\label{struct_c_c_1_1whisper__params_a903a6bbbed7c104847c8e6e78e29a18f}} 
+\index{CC::whisper\_params@{CC::whisper\_params}!audio\_ctx@{audio\_ctx}}
+\index{audio\_ctx@{audio\_ctx}!CC::whisper\_params@{CC::whisper\_params}}
+\doxysubsubsection{\texorpdfstring{audio\_ctx}{audio\_ctx}}
+{\footnotesize\ttfamily int32\+\_\+t CC\+::whisper\+\_\+params\+::audio\+\_\+ctx = 0}
+
+
+
+Definition at line 24 of file speech\+\_\+recognizer.\+h.
+
+\mbox{\Hypertarget{struct_c_c_1_1whisper__params_ae6ae389432cacf51b37f54a8116f27b8}\label{struct_c_c_1_1whisper__params_ae6ae389432cacf51b37f54a8116f27b8}} 
+\index{CC::whisper\_params@{CC::whisper\_params}!capture\_id@{capture\_id}}
+\index{capture\_id@{capture\_id}!CC::whisper\_params@{CC::whisper\_params}}
+\doxysubsubsection{\texorpdfstring{capture\_id}{capture\_id}}
+{\footnotesize\ttfamily int32\+\_\+t CC\+::whisper\+\_\+params\+::capture\+\_\+id = -\/1}
+
+
+
+Definition at line 22 of file speech\+\_\+recognizer.\+h.
+
+\mbox{\Hypertarget{struct_c_c_1_1whisper__params_aae27556b149a40d53be9b2b485166b38}\label{struct_c_c_1_1whisper__params_aae27556b149a40d53be9b2b485166b38}} 
+\index{CC::whisper\_params@{CC::whisper\_params}!fname\_out@{fname\_out}}
+\index{fname\_out@{fname\_out}!CC::whisper\_params@{CC::whisper\_params}}
+\doxysubsubsection{\texorpdfstring{fname\_out}{fname\_out}}
+{\footnotesize\ttfamily std\+::string CC\+::whisper\+\_\+params\+::fname\+\_\+out}
+
+
+
+Definition at line 42 of file speech\+\_\+recognizer.\+h.
+
+\mbox{\Hypertarget{struct_c_c_1_1whisper__params_ac8665fb0de2f105f8616288900d5fe0c}\label{struct_c_c_1_1whisper__params_ac8665fb0de2f105f8616288900d5fe0c}} 
+\index{CC::whisper\_params@{CC::whisper\_params}!freq\_thold@{freq\_thold}}
+\index{freq\_thold@{freq\_thold}!CC::whisper\_params@{CC::whisper\_params}}
+\doxysubsubsection{\texorpdfstring{freq\_thold}{freq\_thold}}
+{\footnotesize\ttfamily float CC\+::whisper\+\_\+params\+::freq\+\_\+thold = 100.\+0f}
+
+
+
+Definition at line 27 of file speech\+\_\+recognizer.\+h.
+
+\mbox{\Hypertarget{struct_c_c_1_1whisper__params_ae3b78834fbfd2063e837332df71c30ac}\label{struct_c_c_1_1whisper__params_ae3b78834fbfd2063e837332df71c30ac}} 
+\index{CC::whisper\_params@{CC::whisper\_params}!language@{language}}
+\index{language@{language}!CC::whisper\_params@{CC::whisper\_params}}
+\doxysubsubsection{\texorpdfstring{language}{language}}
+{\footnotesize\ttfamily std\+::string CC\+::whisper\+\_\+params\+::language = \char`\"{}en\char`\"{}}
+
+
+
+Definition at line 37 of file speech\+\_\+recognizer.\+h.
+
+\mbox{\Hypertarget{struct_c_c_1_1whisper__params_a8b1e1dca25c7721169e8dd14f1338fed}\label{struct_c_c_1_1whisper__params_a8b1e1dca25c7721169e8dd14f1338fed}} 
+\index{CC::whisper\_params@{CC::whisper\_params}!max\_tokens@{max\_tokens}}
+\index{max\_tokens@{max\_tokens}!CC::whisper\_params@{CC::whisper\_params}}
+\doxysubsubsection{\texorpdfstring{max\_tokens}{max\_tokens}}
+{\footnotesize\ttfamily int32\+\_\+t CC\+::whisper\+\_\+params\+::max\+\_\+tokens = 32}
+
+
+
+Definition at line 23 of file speech\+\_\+recognizer.\+h.
+
+\mbox{\Hypertarget{struct_c_c_1_1whisper__params_ab7cfbc7645174f0927ef35691a11593c}\label{struct_c_c_1_1whisper__params_ab7cfbc7645174f0927ef35691a11593c}} 
+\index{CC::whisper\_params@{CC::whisper\_params}!model\_llama@{model\_llama}}
+\index{model\_llama@{model\_llama}!CC::whisper\_params@{CC::whisper\_params}}
+\doxysubsubsection{\texorpdfstring{model\_llama}{model\_llama}}
+{\footnotesize\ttfamily std\+::string CC\+::whisper\+\_\+params\+::model\+\_\+llama = \char`\"{}../models/llm.\+bin\char`\"{}}
+
+
+
+Definition at line 39 of file speech\+\_\+recognizer.\+h.
+
+\mbox{\Hypertarget{struct_c_c_1_1whisper__params_aae751449590451d63721303b85aa1d60}\label{struct_c_c_1_1whisper__params_aae751449590451d63721303b85aa1d60}} 
+\index{CC::whisper\_params@{CC::whisper\_params}!model\_wsp@{model\_wsp}}
+\index{model\_wsp@{model\_wsp}!CC::whisper\_params@{CC::whisper\_params}}
+\doxysubsubsection{\texorpdfstring{model\_wsp}{model\_wsp}}
+{\footnotesize\ttfamily std\+::string CC\+::whisper\+\_\+params\+::model\+\_\+wsp = \char`\"{}../models/ggml-\/base.\+en.\+bin\char`\"{}}
+
+
+
+Definition at line 38 of file speech\+\_\+recognizer.\+h.
+
+\mbox{\Hypertarget{struct_c_c_1_1whisper__params_a52083342c327c365130052cce99534b8}\label{struct_c_c_1_1whisper__params_a52083342c327c365130052cce99534b8}} 
+\index{CC::whisper\_params@{CC::whisper\_params}!n\_threads@{n\_threads}}
+\index{n\_threads@{n\_threads}!CC::whisper\_params@{CC::whisper\_params}}
+\doxysubsubsection{\texorpdfstring{n\_threads}{n\_threads}}
+{\footnotesize\ttfamily int32\+\_\+t CC\+::whisper\+\_\+params\+::n\+\_\+threads = std\+::min(4, (int32\+\_\+t)std\+::thread\+::hardware\+\_\+concurrency())}
+
+
+
+Definition at line 20 of file speech\+\_\+recognizer.\+h.
+
+\mbox{\Hypertarget{struct_c_c_1_1whisper__params_af80c4e27240a145820fd70cc778a2c50}\label{struct_c_c_1_1whisper__params_af80c4e27240a145820fd70cc778a2c50}} 
+\index{CC::whisper\_params@{CC::whisper\_params}!no\_timestamps@{no\_timestamps}}
+\index{no\_timestamps@{no\_timestamps}!CC::whisper\_params@{CC::whisper\_params}}
+\doxysubsubsection{\texorpdfstring{no\_timestamps}{no\_timestamps}}
+{\footnotesize\ttfamily bool CC\+::whisper\+\_\+params\+::no\+\_\+timestamps = true}
+
+
+
+Definition at line 33 of file speech\+\_\+recognizer.\+h.
+
+\mbox{\Hypertarget{struct_c_c_1_1whisper__params_acf290ebddf331f3f83c5782c25651391}\label{struct_c_c_1_1whisper__params_acf290ebddf331f3f83c5782c25651391}} 
+\index{CC::whisper\_params@{CC::whisper\_params}!path\_session@{path\_session}}
+\index{path\_session@{path\_session}!CC::whisper\_params@{CC::whisper\_params}}
+\doxysubsubsection{\texorpdfstring{path\_session}{path\_session}}
+{\footnotesize\ttfamily std\+::string CC\+::whisper\+\_\+params\+::path\+\_\+session}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{      \textcolor{stringliteral}{"{}"{}}}
+
+\end{DoxyCode}
+
+
+Definition at line 43 of file speech\+\_\+recognizer.\+h.
+
+\mbox{\Hypertarget{struct_c_c_1_1whisper__params_a7dc20e472274a66bf44993e56f725cef}\label{struct_c_c_1_1whisper__params_a7dc20e472274a66bf44993e56f725cef}} 
+\index{CC::whisper\_params@{CC::whisper\_params}!person@{person}}
+\index{person@{person}!CC::whisper\_params@{CC::whisper\_params}}
+\doxysubsubsection{\texorpdfstring{person}{person}}
+{\footnotesize\ttfamily std\+::string CC\+::whisper\+\_\+params\+::person = \char`\"{}User\char`\"{}}
+
+
+
+Definition at line 36 of file speech\+\_\+recognizer.\+h.
+
+\mbox{\Hypertarget{struct_c_c_1_1whisper__params_af2c4e9ccdcd352ecb3b25ca355f6e387}\label{struct_c_c_1_1whisper__params_af2c4e9ccdcd352ecb3b25ca355f6e387}} 
+\index{CC::whisper\_params@{CC::whisper\_params}!print\_energy@{print\_energy}}
+\index{print\_energy@{print\_energy}!CC::whisper\_params@{CC::whisper\_params}}
+\doxysubsubsection{\texorpdfstring{print\_energy}{print\_energy}}
+{\footnotesize\ttfamily bool CC\+::whisper\+\_\+params\+::print\+\_\+energy = false}
+
+
+
+Definition at line 32 of file speech\+\_\+recognizer.\+h.
+
+\mbox{\Hypertarget{struct_c_c_1_1whisper__params_a01af71e6b2cf929d8c1f7ac2c617d983}\label{struct_c_c_1_1whisper__params_a01af71e6b2cf929d8c1f7ac2c617d983}} 
+\index{CC::whisper\_params@{CC::whisper\_params}!print\_special@{print\_special}}
+\index{print\_special@{print\_special}!CC::whisper\_params@{CC::whisper\_params}}
+\doxysubsubsection{\texorpdfstring{print\_special}{print\_special}}
+{\footnotesize\ttfamily bool CC\+::whisper\+\_\+params\+::print\+\_\+special = false}
+
+
+
+Definition at line 31 of file speech\+\_\+recognizer.\+h.
+
+\mbox{\Hypertarget{struct_c_c_1_1whisper__params_a41a09fe4998c2aeb224b625ec4a18af0}\label{struct_c_c_1_1whisper__params_a41a09fe4998c2aeb224b625ec4a18af0}} 
+\index{CC::whisper\_params@{CC::whisper\_params}!prob0@{prob0}}
+\index{prob0@{prob0}!CC::whisper\_params@{CC::whisper\_params}}
+\doxysubsubsection{\texorpdfstring{prob0}{prob0}}
+{\footnotesize\ttfamily float CC\+::whisper\+\_\+params\+::prob0}
+
+
+
+Definition at line 18 of file speech\+\_\+recognizer.\+h.
+
+\mbox{\Hypertarget{struct_c_c_1_1whisper__params_a6bf0776f252d6dad0252cf591c365136}\label{struct_c_c_1_1whisper__params_a6bf0776f252d6dad0252cf591c365136}} 
+\index{CC::whisper\_params@{CC::whisper\_params}!prompt@{prompt}}
+\index{prompt@{prompt}!CC::whisper\_params@{CC::whisper\_params}}
+\doxysubsubsection{\texorpdfstring{prompt}{prompt}}
+{\footnotesize\ttfamily std\+::string CC\+::whisper\+\_\+params\+::prompt = \char`\"{}\char`\"{}}
+
+
+
+Definition at line 41 of file speech\+\_\+recognizer.\+h.
+
+\mbox{\Hypertarget{struct_c_c_1_1whisper__params_a813826e80618ea09cb3afda70586b46e}\label{struct_c_c_1_1whisper__params_a813826e80618ea09cb3afda70586b46e}} 
+\index{CC::whisper\_params@{CC::whisper\_params}!speak@{speak}}
+\index{speak@{speak}!CC::whisper\_params@{CC::whisper\_params}}
+\doxysubsubsection{\texorpdfstring{speak}{speak}}
+{\footnotesize\ttfamily std\+::string CC\+::whisper\+\_\+params\+::speak = \char`\"{}say\char`\"{}}
+
+
+
+Definition at line 40 of file speech\+\_\+recognizer.\+h.
+
+\mbox{\Hypertarget{struct_c_c_1_1whisper__params_a8ad79c88d7bfa06a490a778dcb88d14f}\label{struct_c_c_1_1whisper__params_a8ad79c88d7bfa06a490a778dcb88d14f}} 
+\index{CC::whisper\_params@{CC::whisper\_params}!speed\_up@{speed\_up}}
+\index{speed\_up@{speed\_up}!CC::whisper\_params@{CC::whisper\_params}}
+\doxysubsubsection{\texorpdfstring{speed\_up}{speed\_up}}
+{\footnotesize\ttfamily bool CC\+::whisper\+\_\+params\+::speed\+\_\+up = false}
+
+
+
+Definition at line 29 of file speech\+\_\+recognizer.\+h.
+
+\mbox{\Hypertarget{struct_c_c_1_1whisper__params_ae4a01e23552504449def07ad3024f86f}\label{struct_c_c_1_1whisper__params_ae4a01e23552504449def07ad3024f86f}} 
+\index{CC::whisper\_params@{CC::whisper\_params}!translate@{translate}}
+\index{translate@{translate}!CC::whisper\_params@{CC::whisper\_params}}
+\doxysubsubsection{\texorpdfstring{translate}{translate}}
+{\footnotesize\ttfamily bool CC\+::whisper\+\_\+params\+::translate = false}
+
+
+
+Definition at line 30 of file speech\+\_\+recognizer.\+h.
+
+\mbox{\Hypertarget{struct_c_c_1_1whisper__params_a175be1882d2f16e1913a7c019ee98138}\label{struct_c_c_1_1whisper__params_a175be1882d2f16e1913a7c019ee98138}} 
+\index{CC::whisper\_params@{CC::whisper\_params}!vad\_thold@{vad\_thold}}
+\index{vad\_thold@{vad\_thold}!CC::whisper\_params@{CC::whisper\_params}}
+\doxysubsubsection{\texorpdfstring{vad\_thold}{vad\_thold}}
+{\footnotesize\ttfamily float CC\+::whisper\+\_\+params\+::vad\+\_\+thold = 0.\+6f}
+
+
+
+Definition at line 26 of file speech\+\_\+recognizer.\+h.
+
+\mbox{\Hypertarget{struct_c_c_1_1whisper__params_a372bfc22c2a3878886e20a04d6d38e77}\label{struct_c_c_1_1whisper__params_a372bfc22c2a3878886e20a04d6d38e77}} 
+\index{CC::whisper\_params@{CC::whisper\_params}!verbose\_prompt@{verbose\_prompt}}
+\index{verbose\_prompt@{verbose\_prompt}!CC::whisper\_params@{CC::whisper\_params}}
+\doxysubsubsection{\texorpdfstring{verbose\_prompt}{verbose\_prompt}}
+{\footnotesize\ttfamily bool CC\+::whisper\+\_\+params\+::verbose\+\_\+prompt = false}
+
+
+
+Definition at line 34 of file speech\+\_\+recognizer.\+h.
+
+\mbox{\Hypertarget{struct_c_c_1_1whisper__params_a1d9330a4565ac5dff9e09ed827958f57}\label{struct_c_c_1_1whisper__params_a1d9330a4565ac5dff9e09ed827958f57}} 
+\index{CC::whisper\_params@{CC::whisper\_params}!voice\_ms@{voice\_ms}}
+\index{voice\_ms@{voice\_ms}!CC::whisper\_params@{CC::whisper\_params}}
+\doxysubsubsection{\texorpdfstring{voice\_ms}{voice\_ms}}
+{\footnotesize\ttfamily int32\+\_\+t CC\+::whisper\+\_\+params\+::voice\+\_\+ms = 10000}
+
+
+
+Definition at line 21 of file speech\+\_\+recognizer.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+speech\+\_\+recognizer.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,25 @@
+var struct_c_c_1_1whisper__params =
+[
+    [ "audio_ctx", "struct_c_c_1_1whisper__params.html#a903a6bbbed7c104847c8e6e78e29a18f", null ],
+    [ "capture_id", "struct_c_c_1_1whisper__params.html#ae6ae389432cacf51b37f54a8116f27b8", null ],
+    [ "fname_out", "struct_c_c_1_1whisper__params.html#aae27556b149a40d53be9b2b485166b38", null ],
+    [ "freq_thold", "struct_c_c_1_1whisper__params.html#ac8665fb0de2f105f8616288900d5fe0c", null ],
+    [ "language", "struct_c_c_1_1whisper__params.html#ae3b78834fbfd2063e837332df71c30ac", null ],
+    [ "max_tokens", "struct_c_c_1_1whisper__params.html#a8b1e1dca25c7721169e8dd14f1338fed", null ],
+    [ "model_llama", "struct_c_c_1_1whisper__params.html#ab7cfbc7645174f0927ef35691a11593c", null ],
+    [ "model_wsp", "struct_c_c_1_1whisper__params.html#aae751449590451d63721303b85aa1d60", null ],
+    [ "n_threads", "struct_c_c_1_1whisper__params.html#a52083342c327c365130052cce99534b8", null ],
+    [ "no_timestamps", "struct_c_c_1_1whisper__params.html#af80c4e27240a145820fd70cc778a2c50", null ],
+    [ "path_session", "struct_c_c_1_1whisper__params.html#acf290ebddf331f3f83c5782c25651391", null ],
+    [ "person", "struct_c_c_1_1whisper__params.html#a7dc20e472274a66bf44993e56f725cef", null ],
+    [ "print_energy", "struct_c_c_1_1whisper__params.html#af2c4e9ccdcd352ecb3b25ca355f6e387", null ],
+    [ "print_special", "struct_c_c_1_1whisper__params.html#a01af71e6b2cf929d8c1f7ac2c617d983", null ],
+    [ "prob0", "struct_c_c_1_1whisper__params.html#a41a09fe4998c2aeb224b625ec4a18af0", null ],
+    [ "prompt", "struct_c_c_1_1whisper__params.html#a6bf0776f252d6dad0252cf591c365136", null ],
+    [ "speak", "struct_c_c_1_1whisper__params.html#a813826e80618ea09cb3afda70586b46e", null ],
+    [ "speed_up", "struct_c_c_1_1whisper__params.html#a8ad79c88d7bfa06a490a778dcb88d14f", null ],
+    [ "translate", "struct_c_c_1_1whisper__params.html#ae4a01e23552504449def07ad3024f86f", null ],
+    [ "vad_thold", "struct_c_c_1_1whisper__params.html#a175be1882d2f16e1913a7c019ee98138", null ],
+    [ "verbose_prompt", "struct_c_c_1_1whisper__params.html#a372bfc22c2a3878886e20a04d6d38e77", null ],
+    [ "voice_ms", "struct_c_c_1_1whisper__params.html#a1d9330a4565ac5dff9e09ed827958f57", null ]
+];
