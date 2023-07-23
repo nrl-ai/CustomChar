@@ -34,6 +34,10 @@ Your customized AI characters on commodity hardware. This project aims to be a f
   - [ ] Iron Man
   - [ ] Batman
   - [ ] Superman
+- [ ] Add bindings to other languages:
+  - [ ] Python
+  - [ ] C# (Unity)
+  - [ ] Javscript (On-browser)
 
 ## Build
 
