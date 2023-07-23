@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['fname_5fout_82',['fname_out',['../struct_c_c_1_1whisper__params.html#aae27556b149a40d53be9b2b485166b38',1,'CC::whisper_params']]],
-  ['freq_5fthold_83',['freq_thold',['../struct_c_c_1_1whisper__params.html#ac8665fb0de2f105f8616288900d5fe0c',1,'CC::whisper_params']]]
+  ['capture_5fid_78',['capture_id',['../struct_c_c_1_1_c_c_params.html#a087c0599589fffa0308fb9329809e024',1,'CC::CCParams']]],
+  ['chat_5fsymb_79',['chat_symb',['../struct_c_c_1_1_c_c_params.html#acbe2fb1200c3caf2148af6f1b4dada2b',1,'CC::CCParams']]]
 ];

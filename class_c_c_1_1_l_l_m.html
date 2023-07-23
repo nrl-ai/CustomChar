@@ -97,27 +97,33 @@ $(document).ready(function(){initNavTree('class_c_c_1_1_l_l_m.html',''); initRes
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a14b32ef96c0a294928710ce696b137f2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1_l_l_m.html#a14b32ef96c0a294928710ce696b137f2">LLM</a> ()</td></tr>
-<tr class="separator:a14b32ef96c0a294928710ce696b137f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62934eb91a69d319f5c7f1d6f8f49624"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1_l_l_m.html#a62934eb91a69d319f5c7f1d6f8f49624">LLM</a> (const std::string &amp;model_path, const std::string &amp;path_session=&quot;&quot;, const std::string &amp;person=&quot;User&quot;, const std::string &amp;bot_name=&quot;CustomChar&quot;)</td></tr>
+<tr class="memdesc:a62934eb91a69d319f5c7f1d6f8f49624"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="class_c_c_1_1_l_l_m.html#a62934eb91a69d319f5c7f1d6f8f49624">More...</a><br /></td></tr>
+<tr class="separator:a62934eb91a69d319f5c7f1d6f8f49624"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4720adfef94d91c917974000c6959575"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1_l_l_m.html#a4720adfef94d91c917974000c6959575">~LLM</a> ()</td></tr>
 <tr class="separator:a4720adfef94d91c917974000c6959575"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a555b895486455181b746a8d76e9f2e45"><td class="memItemLeft" align="right" valign="top">std::vector&lt; llama_token &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1_l_l_m.html#a555b895486455181b746a8d76e9f2e45">tokenize</a> (const std::string &amp;text, bool add_bos)</td></tr>
-<tr class="separator:a555b895486455181b746a8d76e9f2e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95b18be6eb0c1f13005100d59dcc5db3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1_l_l_m.html#a95b18be6eb0c1f13005100d59dcc5db3">add_tokens_to_current_session</a> (const std::vector&lt; llama_token &gt; &amp;tokens)</td></tr>
-<tr class="separator:a95b18be6eb0c1f13005100d59dcc5db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a840f7ff1bfc10422827dd111be34449f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1_l_l_m.html#a840f7ff1bfc10422827dd111be34449f">load_session</a> (std::string path_session)</td></tr>
-<tr class="separator:a840f7ff1bfc10422827dd111be34449f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa808ab8fe6b3a3223a07330ae9205b9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1_l_l_m.html#aa808ab8fe6b3a3223a07330ae9205b9c">eval_model</a> ()</td></tr>
+<tr class="memdesc:aa808ab8fe6b3a3223a07330ae9205b9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the model. Run this function before inference.  <a href="class_c_c_1_1_l_l_m.html#aa808ab8fe6b3a3223a07330ae9205b9c">More...</a><br /></td></tr>
 <tr class="separator:aa808ab8fe6b3a3223a07330ae9205b9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada26e4a903d30780cfff0cd85b8c33c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1_l_l_m.html#ada26e4a903d30780cfff0cd85b8c33c5">load_session</a> (const std::string &amp;path_session)</td></tr>
+<tr class="memdesc:ada26e4a903d30780cfff0cd85b8c33c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load session from file.  <a href="class_c_c_1_1_l_l_m.html#ada26e4a903d30780cfff0cd85b8c33c5">More...</a><br /></td></tr>
+<tr class="separator:ada26e4a903d30780cfff0cd85b8c33c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95b18be6eb0c1f13005100d59dcc5db3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1_l_l_m.html#a95b18be6eb0c1f13005100d59dcc5db3">add_tokens_to_current_session</a> (const std::vector&lt; llama_token &gt; &amp;tokens)</td></tr>
+<tr class="memdesc:a95b18be6eb0c1f13005100d59dcc5db3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add new tokens to the sessions.  <a href="class_c_c_1_1_l_l_m.html#a95b18be6eb0c1f13005100d59dcc5db3">More...</a><br /></td></tr>
+<tr class="separator:a95b18be6eb0c1f13005100d59dcc5db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a555b895486455181b746a8d76e9f2e45"><td class="memItemLeft" align="right" valign="top">std::vector&lt; llama_token &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1_l_l_m.html#a555b895486455181b746a8d76e9f2e45">tokenize</a> (const std::string &amp;text, bool add_bos)</td></tr>
+<tr class="memdesc:a555b895486455181b746a8d76e9f2e45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tokenize text.  <a href="class_c_c_1_1_l_l_m.html#a555b895486455181b746a8d76e9f2e45">More...</a><br /></td></tr>
+<tr class="separator:a555b895486455181b746a8d76e9f2e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a35f9fa237b314d8402d14e035b9d76"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1_l_l_m.html#a2a35f9fa237b314d8402d14e035b9d76">get_answer</a> (std::vector&lt; llama_token &gt; &amp;embd)</td></tr>
+<tr class="memdesc:a2a35f9fa237b314d8402d14e035b9d76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get answer from <a class="el" href="class_c_c_1_1_l_l_m.html">LLM</a>.  <a href="class_c_c_1_1_l_l_m.html#a2a35f9fa237b314d8402d14e035b9d76">More...</a><br /></td></tr>
 <tr class="separator:a2a35f9fa237b314d8402d14e035b9d76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="llm_8h_source.html#l00037">37</a> of file <a class="el" href="llm_8h_source.html">llm.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a14b32ef96c0a294928710ce696b137f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14b32ef96c0a294928710ce696b137f2">&#9670;&nbsp;</a></span>LLM()</h2>
+<a id="a62934eb91a69d319f5c7f1d6f8f49624"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62934eb91a69d319f5c7f1d6f8f49624">&#9670;&nbsp;</a></span>LLM()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -125,13 +131,45 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">LLM::LLM </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>model_path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>path_session</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>person</em> = <code>&quot;User&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>bot_name</em> = <code>&quot;CustomChar&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="llm_8cpp_source.html#l00004">4</a> of file <a class="el" href="llm_8cpp_source.html">llm.cpp</a>.</p>
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">model_path</td><td>Path to the model </td></tr>
+    <tr><td class="paramname">path_session</td><td>Path to the session </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="llm_8cpp_source.html#l00005">5</a> of file <a class="el" href="llm_8cpp_source.html">llm.cpp</a>.</p>
 
 </div>
 </div>
@@ -150,7 +188,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="llm_8cpp_source.html#l00032">32</a> of file <a class="el" href="llm_8cpp_source.html">llm.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="llm_8cpp_source.html#l00039">39</a> of file <a class="el" href="llm_8cpp_source.html">llm.cpp</a>.</p>
 
 </div>
 </div>
@@ -171,7 +209,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="llm_8cpp_source.html#l00086">86</a> of file <a class="el" href="llm_8cpp_source.html">llm.cpp</a>.</p>
+<p>Add new tokens to the sessions. </p>
+
+<p class="definition">Definition at line <a class="el" href="llm_8cpp_source.html#l00093">93</a> of file <a class="el" href="llm_8cpp_source.html">llm.cpp</a>.</p>
 
 </div>
 </div>
@@ -190,7 +230,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="llm_8cpp_source.html#l00124">124</a> of file <a class="el" href="llm_8cpp_source.html">llm.cpp</a>.</p>
+<p>Evaluate the model. Run this function before inference. </p>
+
+<p class="definition">Definition at line <a class="el" href="llm_8cpp_source.html#l00135">135</a> of file <a class="el" href="llm_8cpp_source.html">llm.cpp</a>.</p>
 
 </div>
 </div>
@@ -210,12 +252,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="llm_8cpp_source.html#l00171">171</a> of file <a class="el" href="llm_8cpp_source.html">llm.cpp</a>.</p>
+<p>Get answer from <a class="el" href="class_c_c_1_1_l_l_m.html">LLM</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="llm_8cpp_source.html#l00182">182</a> of file <a class="el" href="llm_8cpp_source.html">llm.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a840f7ff1bfc10422827dd111be34449f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a840f7ff1bfc10422827dd111be34449f">&#9670;&nbsp;</a></span>load_session()</h2>
+<a id="ada26e4a903d30780cfff0cd85b8c33c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada26e4a903d30780cfff0cd85b8c33c5">&#9670;&nbsp;</a></span>load_session()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -223,14 +267,22 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void LLM::load_session </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>path_session</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="llm_8cpp_source.html#l00094">94</a> of file <a class="el" href="llm_8cpp_source.html">llm.cpp</a>.</p>
+<p>Load session from file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path_session</td><td>Path to the session </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="llm_8cpp_source.html#l00101">101</a> of file <a class="el" href="llm_8cpp_source.html">llm.cpp</a>.</p>
 
 </div>
 </div>
@@ -260,7 +312,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="llm_8cpp_source.html#l00075">75</a> of file <a class="el" href="llm_8cpp_source.html">llm.cpp</a>.</p>
+<p>Tokenize text. </p>
+
+<p class="definition">Definition at line <a class="el" href="llm_8cpp_source.html#l00082">82</a> of file <a class="el" href="llm_8cpp_source.html">llm.cpp</a>.</p>
 
 </div>
 </div>

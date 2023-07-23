@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['k_5fprompt_5fllama_84',['k_prompt_llama',['../namespace_c_c.html#a62409065eb4aad6c43acbc5c25987923',1,'CC']]]
+  ['fname_5fout_80',['fname_out',['../struct_c_c_1_1_c_c_params.html#a3c6e96d397d15be82ee3a47e7ccc30b2',1,'CC::CCParams']]],
+  ['freq_5fthold_81',['freq_thold',['../struct_c_c_1_1_c_c_params.html#a50623e94d1ad4f68ecb031071b51fc28',1,'CC::CCParams']]]
 ];

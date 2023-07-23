@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['voicerecoder_52',['VoiceRecoder',['../class_c_c_1_1_voice_recoder.html',1,'CC']]],
-  ['voicesynthesizer_53',['VoiceSynthesizer',['../class_c_c_1_1_voice_synthesizer.html',1,'CC']]]
+  ['speechrecognizer_51',['SpeechRecognizer',['../class_c_c_1_1_speech_recognizer.html',1,'CC']]]
 ];

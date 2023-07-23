@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['max_5ftokens_17',['max_tokens',['../struct_c_c_1_1whisper__params.html#a8b1e1dca25c7721169e8dd14f1338fed',1,'CC::whisper_params']]],
-  ['model_5fllama_18',['model_llama',['../struct_c_c_1_1whisper__params.html#ab7cfbc7645174f0927ef35691a11593c',1,'CC::whisper_params']]],
-  ['model_5fwsp_19',['model_wsp',['../struct_c_c_1_1whisper__params.html#aae751449590451d63721303b85aa1d60',1,'CC::whisper_params']]]
+  ['language_19',['language',['../struct_c_c_1_1_c_c_params.html#aed170d8fea3b187c318f43f20558a83d',1,'CC::CCParams']]],
+  ['llm_20',['LLM',['../class_c_c_1_1_l_l_m.html',1,'CC::LLM'],['../class_c_c_1_1_l_l_m.html#a62934eb91a69d319f5c7f1d6f8f49624',1,'CC::LLM::LLM()']]],
+  ['llm_5fmodel_5fpath_21',['llm_model_path',['../struct_c_c_1_1_c_c_params.html#a1f231a0fb0fc154cea0cf574134687d4',1,'CC::CCParams']]],
+  ['load_5fsession_22',['load_session',['../class_c_c_1_1_l_l_m.html#ada26e4a903d30780cfff0cd85b8c33c5',1,'CC::LLM']]]
 ];

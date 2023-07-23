@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['postprocess_65',['postprocess',['../class_c_c_1_1_speech_recognizer.html#a658036f58091cc4b9784d62d94c6e48f',1,'CC::SpeechRecognizer']]],
-  ['preprocess_66',['preprocess',['../class_c_c_1_1_voice_synthesizer.html#a0eff7a510d5ed9b23694821adc86a233',1,'CC::VoiceSynthesizer']]]
+  ['recognize_66',['recognize',['../class_c_c_1_1_speech_recognizer.html#a0d5969d56d9830e607f4daef65d53aca',1,'CC::SpeechRecognizer']]],
+  ['replace_67',['replace',['../namespace_c_c_1_1common.html#a07b857d084cdfa2513e6b0c309b7e132',1,'CC::common']]]
 ];

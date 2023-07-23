@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['capture_5fid_81',['capture_id',['../struct_c_c_1_1whisper__params.html#ae6ae389432cacf51b37f54a8116f27b8',1,'CC::whisper_params']]]
+  ['bot_5fname_77',['bot_name',['../struct_c_c_1_1_c_c_params.html#a63637678c4ea11b4663ae6afa69d18a9',1,'CC::CCParams']]]
 ];

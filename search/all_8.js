@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['n_5fthreads_20',['n_threads',['../struct_c_c_1_1whisper__params.html#a52083342c327c365130052cce99534b8',1,'CC::whisper_params']]],
-  ['no_5ftimestamps_21',['no_timestamps',['../struct_c_c_1_1whisper__params.html#af80c4e27240a145820fd70cc778a2c50',1,'CC::whisper_params']]]
+  ['max_5ftokens_23',['max_tokens',['../struct_c_c_1_1_c_c_params.html#a597a475d2af5a832c6716d2e468e051c',1,'CC::CCParams']]]
 ];
