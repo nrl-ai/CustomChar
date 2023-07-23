@@ -7,8 +7,8 @@ DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = "CustomChar"
 PROJECT_NUMBER         = 0.0.1
 PROJECT_BRIEF          = "Your customized AI characters"
-PROJECT_LOGO           = ./logo.svg
-OUTPUT_DIRECTORY       = ../docs/_build
+PROJECT_LOGO           = ./docs/logo.svg
+OUTPUT_DIRECTORY       = ./docs/_build
 CREATE_SUBDIRS         = NO
 ALLOW_UNICODE_NAMES    = NO
 OUTPUT_LANGUAGE        = English
@@ -112,8 +112,8 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 # Configuration options related to the input files
 #---------------------------------------------------------------------------
-INPUT                  =../README.md \
-                        ../customchar
+INPUT                  =./README.md \
+                        ./customchar
 
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          = *.c \
@@ -161,19 +161,19 @@ FILE_PATTERNS          = *.c \
                          *.ucf \
                          *.qsf
 RECURSIVE              = YES
-EXCLUDE                = ../docs/doxygen-awesome-css
+EXCLUDE                = ./docs/doxygen-awesome-css
 EXCLUDE_SYMLINKS       = NO
 EXCLUDE_PATTERNS       = thirdparties
 EXCLUDE_SYMBOLS        =
 EXAMPLE_PATH           =
 EXAMPLE_PATTERNS       = *
 EXAMPLE_RECURSIVE      = NO
-IMAGE_PATH             = .. ../docs
+IMAGE_PATH             = . ./docs
 INPUT_FILTER           =
 FILTER_PATTERNS        =
 FILTER_SOURCE_FILES    = NO
 FILTER_SOURCE_PATTERNS =
-USE_MDFILE_AS_MAINPAGE = ../README.md
+USE_MDFILE_AS_MAINPAGE = ./README.md
 #---------------------------------------------------------------------------
 # Configuration options related to source browsing
 #---------------------------------------------------------------------------
@@ -204,8 +204,8 @@ HTML_HEADER            =
 HTML_FOOTER            =
 HTML_STYLESHEET        =
 HTML_EXTRA_FILES       =
-HTML_EXTRA_STYLESHEET  = ../docs/doxygen-awesome-css/doxygen-awesome.css \
-                         ../docs/doxygen-custom/custom.css
+HTML_EXTRA_STYLESHEET  = ./docs/doxygen-awesome-css/doxygen-awesome.css \
+                         ./docs/doxygen-custom/custom.css
 HTML_COLORSTYLE_HUE    = 13
 HTML_COLORSTYLE_SAT    = 0
 HTML_COLORSTYLE_GAMMA  = 173

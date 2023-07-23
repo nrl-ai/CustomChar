@@ -76,7 +76,6 @@ Run the program:
 - Step 2: Build the documentation:
 
 ```bash
-cd docs
 doxygen Doxyfile.in
 ```
 
