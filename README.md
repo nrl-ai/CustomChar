@@ -7,12 +7,12 @@
 
 Your customized AI characters on commodity hardware. This project aims to be a framework to enable the creation of AI characters that can be used in games, simulations, virtual assistants, and other applications without depending on specific platforms, cloud services, or specialized hardware.
 
-**Some of applications you can build with CustomChar:**
+**Some of the applications you can build with CustomChar:**
 
 - Game characters that can talk to you and interact with you.
 - Your customized virtual assistant. Think about a [JARVIS](https://en.wikipedia.org/wiki/J.A.R.V.I.S.) version on your computer.
-- Online education experience with virtual friends / teachers.
-- Cloud services which enable users to create their own virtual characters.
+- Online education experience with virtual friends/teachers.
+- Cloud services that enable users to create their own virtual characters.
 
 **Note:** This project is still in the early stage of development. We are working hard to make it available as soon as possible. Star this project 🌟🌟🌟 to follow our progress and encourage us to make it happen.
 
@@ -27,7 +27,7 @@ Your customized AI characters on commodity hardware. This project aims to be a f
 
 ## 3. Features
 
-- [ ] Build AI characters from knowledge database 💬💬💬 :
+- [ ] Build AI characters from the knowledge database 💬💬💬 :
   - [x] LLamaCpp for LLM. Chat with Llama-V2 on all platforms.
   - [ ] Knowledge indexing and searching.
 - [x] Talk to your character 🎤🎤🎤 :
@@ -39,7 +39,7 @@ Your customized AI characters on commodity hardware. This project aims to be a f
 - [ ] 3D visualization of the character.
 - [ ] Add a GUI for the character interaction.
 - [ ] Add a GUI for the character creation.
-- [ ] Create virual characters that can be used in games, simulations, and other applications.
+- [ ] Create virtual characters that can be used in games, simulations, and other applications.
   - [ ] Elon Musk
   - [ ] Iron Man
   - [ ] Batman
@@ -47,7 +47,7 @@ Your customized AI characters on commodity hardware. This project aims to be a f
 - [ ] Add bindings to other languages:
   - [ ] Python
   - [ ] C# (Unity)
-  - [ ] Javscript (On-browser)
+  - [ ] Javascript (On-browser)
 
 ## 4. Build
 
@@ -96,14 +96,14 @@ doxygen Doxyfile.in
 
 - Step 3: Deploy html documentation from `docs/_build/html`.
 
-- Step 4: Our lastest documentation is deployed at <https://docs.customchar.com>.
+- Step 4: Our latest documentation is deployed at <https://docs.customchar.com>.
 
 ## 7. Contribution
 
 We welcome all contributions to this project.
 
 - For coding style, please follow the style of the existing code.
-- We use format tool for auto formating the code. You can use the following command to format code before commiting:
+- We use a format tool for auto formatting the code. You can use the following command to format code before committing:
 
 ```bash
 pre-commit install # Install pre-commit hook
