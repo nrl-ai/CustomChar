@@ -28,6 +28,14 @@ std::string VoiceSynthesizer::preprocess(const std::string& text) {
   result = common::replace(result, "\'", " ");
   result = common::replace(result, "(", " ");
   result = common::replace(result, ")", " ");
+  result = common::replace(result, "`", " ");
+  result = common::replace(result, "$", " ");
+  result = common::replace(result, "&", " ");
+  result = common::replace(result, "!", " ");
+  result = common::replace(result, "#", " ");
+  result = common::replace(result, "@", " ");
+  result = common::replace(result, "%", " ");
+  result = common::replace(result, ";", " ");
 
   // Remove multiple spaces
   result = common::replace(result, "  ", " ");

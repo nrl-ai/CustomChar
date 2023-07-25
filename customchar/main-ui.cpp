@@ -63,6 +63,17 @@ bool handleSend(char* text, std::shared_ptr<ChatHistory> history) {
 }
 
 /**
+ * @brief Checks if IP_ADDRESS and PORT global variables are valid
+ *
+ * @return true If both are valid
+ * @return false If at least one is invalid
+ */
+bool connectionDataIsValid() {
+  // TODO: Check IP_ADDRESS and PORT are valid in format
+  return true;
+}
+
+/**
  * @brief Main ImGUI loop
  */
 void runImgui(std::shared_ptr<ChatHistory> history) {
@@ -134,7 +145,7 @@ void runImgui(std::shared_ptr<ChatHistory> history) {
   // - Remember that in C/C++ if you want to include a backslash \ in a string
   // literal you need to write a double backslash \\ !
   // io.Fonts->AddFontDefault();
-  // io.Fonts->AddFontFromFileTTF("BaiJamjuree-Regular.ttf", 16.0f);
+  // io.Fonts->AddFontFromFileTTF("../../misc/fonts/Roboto-Medium.ttf", 16.0f);
   // io.Fonts->AddFontFromFileTTF("../../misc/fonts/Cousine-Regular.ttf", 15.0f);
   // io.Fonts->AddFontFromFileTTF("../../misc/fonts/DroidSans.ttf", 16.0f);
   // io.Fonts->AddFontFromFileTTF("../../misc/fonts/ProggyTiny.ttf", 10.0f);
@@ -173,6 +184,7 @@ void runImgui(std::shared_ptr<ChatHistory> history) {
      * @brief Shows connection window if not connected, otherwise show
      * basic chat window
      */
+
     // Is connected
     int TEXTBOX_HEIGHT = ImGui::GetTextLineHeight() * 4;
 
@@ -211,6 +223,7 @@ void runImgui(std::shared_ptr<ChatHistory> history) {
     ImGui::PopStyleVar();
 
     // Text input area flags
+    // Capture input from IME (for Asian languages, Windows OS)
     ImGuiInputTextFlags input_flags = ImGuiInputTextFlags_EnterReturnsTrue |
                                       ImGuiInputTextFlags_CtrlEnterForNewLine |
                                       ImGuiInputTextFlags_AllowTabInput |
@@ -230,7 +243,6 @@ void runImgui(std::shared_ptr<ChatHistory> history) {
     };
 
     ImGui::End();
-    break;
 
     // Rendering
     ImGui::Render();
@@ -244,6 +256,8 @@ void runImgui(std::shared_ptr<ChatHistory> history) {
 
     glfwSwapBuffers(window);
   }
+
+  std::cout << "Main ImGUI loop ended" << std::endl;
 
   ImGui_ImplOpenGL3_Shutdown();
   ImGui_ImplGlfw_Shutdown();
