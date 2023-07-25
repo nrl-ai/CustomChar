@@ -99,12 +99,16 @@ $(document).ready(function(){initNavTree('class_c_c_1_1_character.html',''); ini
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aec56c1109fdc834ce9f5b3d28157376f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1_character.html#aec56c1109fdc834ce9f5b3d28157376f">Character</a> (<a class="el" href="struct_c_c_1_1_c_c_params.html">CCParams</a> init_params)</td></tr>
 <tr class="separator:aec56c1109fdc834ce9f5b3d28157376f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82e66d0947d27aaed23357392db09f0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1_character.html#a82e66d0947d27aaed23357392db09f0c">set_on_user_message</a> (std::function&lt; void(std::string)&gt; on_user_message)</td></tr>
+<tr class="separator:a82e66d0947d27aaed23357392db09f0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abef380a746af81136530b1795487fb22"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1_character.html#abef380a746af81136530b1795487fb22">set_on_bot_message</a> (std::function&lt; void(std::string)&gt; on_bot_message)</td></tr>
+<tr class="separator:abef380a746af81136530b1795487fb22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ac55e9180d2164dffc9f1cf1c0213b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1_character.html#a0ac55e9180d2164dffc9f1cf1c0213b5">run</a> ()</td></tr>
 <tr class="separator:a0ac55e9180d2164dffc9f1cf1c0213b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="character_8h_source.html#l00020">20</a> of file <a class="el" href="character_8h_source.html">character.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="character_8h_source.html#l00021">21</a> of file <a class="el" href="character_8h_source.html">character.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aec56c1109fdc834ce9f5b3d28157376f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aec56c1109fdc834ce9f5b3d28157376f">&#9670;&nbsp;</a></span>Character()</h2>
@@ -130,7 +134,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="character_8h_source.html#l00029">29</a> of file <a class="el" href="character_8h_source.html">character.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="character_8h_source.html#l00033">33</a> of file <a class="el" href="character_8h_source.html">character.h</a>.</p>
 
 </div>
 </div>
@@ -158,7 +162,63 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="character_8h_source.html#l00046">46</a> of file <a class="el" href="character_8h_source.html">character.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="character_8h_source.html#l00058">58</a> of file <a class="el" href="character_8h_source.html">character.h</a>.</p>
+
+</div>
+</div>
+<a id="abef380a746af81136530b1795487fb22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abef380a746af81136530b1795487fb22">&#9670;&nbsp;</a></span>set_on_bot_message()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CC::Character::set_on_bot_message </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; void(std::string)&gt;&#160;</td>
+          <td class="paramname"><em>on_bot_message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="character_8h_source.html#l00054">54</a> of file <a class="el" href="character_8h_source.html">character.h</a>.</p>
+
+</div>
+</div>
+<a id="a82e66d0947d27aaed23357392db09f0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82e66d0947d27aaed23357392db09f0c">&#9670;&nbsp;</a></span>set_on_user_message()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CC::Character::set_on_user_message </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; void(std::string)&gt;&#160;</td>
+          <td class="paramname"><em>on_user_message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="character_8h_source.html#l00050">50</a> of file <a class="el" href="character_8h_source.html">character.h</a>.</p>
 
 </div>
 </div>
