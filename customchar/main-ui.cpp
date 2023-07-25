@@ -1,6 +1,7 @@
 #include <stdio.h>
-
-#include <iostream>  // TODO: Remove later when not needed
+#include <iostream>
+#include <mutex>
+#include <thread>
 
 #include <semaphore>
 #include "imgui.h"
@@ -16,6 +17,12 @@
 
 #include "chat_history.h"
 #include "chat_message.h"
+
+#include "customchar/character.h"
+#include "customchar/common.h"
+#include "customchar/helpers.h"
+
+using namespace CC;
 
 // [Win32] Our example includes a copy of glfw3.lib pre-compiled with VS2010 to
 // maximize ease of testing and compatibility with old VS compilers. To link
@@ -40,36 +47,12 @@ static void glfw_error_callback(int error, const char* description) {
   fprintf(stderr, "Glfw Error %d: %s\n", error, description);
 }
 
-/**
- * @brief Function to handle sending the chat message
- *
- * @param text Char array of text to be sent
- * @param history The chatlog as a shared_ptr<ChatHistory>
- * @return true if successfully sent
- */
-bool my_turn = true;
-bool handleSend(char* text, std::shared_ptr<ChatHistory> history) {
-  // TODO: Probably want to only add to chat history once the message has been
-  // sent. Also don't hardcode "Me" as the sender
-  if (text[0] != '\0')
-    history->add_message(text, my_turn ? "Me" : "CustomChar");
-  my_turn = !my_turn;
-
-  // Clear text input area
-  strncpy(text, "", TEXT_MESSAGE_SIZE);
-
-  // If successfully sent return true
-  return true;
-}
-
-/**
- * @brief Checks if IP_ADDRESS and PORT global variables are valid
- *
- * @return true If both are valid
- * @return false If at least one is invalid
- */
-bool connectionDataIsValid() {
-  // TODO: Check IP_ADDRESS and PORT are valid in format
+std::mutex mtx;
+bool on_new_message(const std::string& text, const std::string& sender,
+                    std::shared_ptr<ChatHistory> history) {
+  mtx.lock();
+  history->add_message(text, sender);
+  mtx.unlock();
   return true;
 }
 
@@ -223,11 +206,8 @@ void runImgui(std::shared_ptr<ChatHistory> history) {
     ImGui::PopStyleVar();
 
     // Text input area flags
-    // Capture input from IME (for Asian languages, Windows OS)
-    ImGuiInputTextFlags input_flags = ImGuiInputTextFlags_EnterReturnsTrue |
-                                      ImGuiInputTextFlags_CtrlEnterForNewLine |
-                                      ImGuiInputTextFlags_AllowTabInput |
-                                      ImGuiInputTextFlags_CtrlEnterForNewLine;
+    // Prevent user from inputting characters
+    ImGuiInputTextFlags input_flags = ImGuiInputTextFlags_ReadOnly;
 
     // Refocus text area if text was just sent
     if (justSent) {
@@ -236,10 +216,11 @@ void runImgui(std::shared_ptr<ChatHistory> history) {
     }
 
     // Create text area and send button
+    strcpy(text, "Say something...");
     if (ImGui::InputTextMultiline("##source", text, IM_ARRAYSIZE(text),
                                   ImVec2(-FLT_MIN, TEXTBOX_HEIGHT),
                                   input_flags)) {
-      justSent = handleSend(text, history);
+      justSent = on_new_message(text, "User", history);
     };
 
     ImGui::End();
@@ -267,9 +248,33 @@ void runImgui(std::shared_ptr<ChatHistory> history) {
   glfwTerminate();
 }
 
-int main() {
+int main(int argc, char** argv) {
+  // Parse command line arguments
+  CCParams params;
+  if (cc_params_parse(argc, argv, params) == false) {
+    exit(1);
+  }
+  if (whisper_lang_id(params.language.c_str()) == -1) {
+    fprintf(stderr, "error: unknown language '%s'\n", params.language.c_str());
+    cc_print_usage(argc, argv, params);
+    exit(1);
+  }
+
   // Initialize chat history
   std::shared_ptr<ChatHistory> history = std::make_shared<ChatHistory>();
+
+  // Create character
+  Character character(params);
+
+  // Set message callbacks
+  character.set_on_user_message(
+      std::bind(on_new_message, std::placeholders::_1, "User", history));
+  character.set_on_bot_message(
+      std::bind(on_new_message, std::placeholders::_1, "CustomChar", history));
+
+  // Start character in a new thread
+  std::thread character_thread(&Character::run, &character);
+  character_thread.detach();
 
   // Main GUI loop
   runImgui(history);

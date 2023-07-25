@@ -10,6 +10,7 @@
 #include <cassert>
 #include <cstdio>
 #include <fstream>
+#include <functional>
 #include <regex>
 #include <string>
 #include <thread>
@@ -24,6 +25,9 @@ class Character {
   std::shared_ptr<VoiceRecorder> voice_recoder;
   std::shared_ptr<VoiceSynthesizer> voice_synthesizer;
   std::shared_ptr<LLM> llm;
+
+  std::function<void(std::string)> on_user_message;
+  std::function<void(std::string)> on_bot_message;
 
  public:
   Character(CCParams init_params) {
@@ -41,6 +45,14 @@ class Character {
     llm = std::make_shared<LLM>(params.llm_model_path, params.path_session,
                                 params.person, params.bot_name);
     llm->eval_model();
+  }
+
+  void set_on_user_message(std::function<void(std::string)> on_user_message) {
+    this->on_user_message = on_user_message;
+  }
+
+  void set_on_bot_message(std::function<void(std::string)> on_bot_message) {
+    this->on_bot_message = on_bot_message;
   }
 
   void run() {
@@ -91,6 +103,11 @@ class Character {
         continue;
       }
 
+      // Callback for user message
+      if (on_user_message) {
+        on_user_message(text_heard);
+      }
+
       // Append the new input tokens to the session_tokens vector
       llm->add_tokens_to_current_session(tokens);
 
@@ -105,6 +122,11 @@ class Character {
 
       // Get answer from LLM
       std::string text_to_speak = llm->get_answer(embd);
+
+      // Callback for bot message
+      if (on_bot_message) {
+        on_bot_message(text_to_speak);
+      }
 
       // Play speak
       voice_synthesizer->say(text_to_speak);
