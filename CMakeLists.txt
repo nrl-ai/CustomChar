@@ -90,10 +90,9 @@ if (BUILD_GUI)
     add_executable(
         customchar
         customchar/main-ui.cpp
-        customchar/gui/chat_history.cpp
-        customchar/gui/chat_message.cpp
+        customchar/chat_history.cpp
+        customchar/chat_message.cpp
     )
-    include_directories(customchar/gui)
     target_link_libraries(customchar customchar-core imgui)
 
 endif()
