@@ -4,6 +4,7 @@ var namespace_c_c =
       [ "replace", "namespace_c_c_1_1common.html#a07b857d084cdfa2513e6b0c309b7e132", null ]
     ] ],
     [ "embeddb", "namespace_c_c_1_1embeddb.html", "namespace_c_c_1_1embeddb" ],
+    [ "Character", "class_c_c_1_1_character.html", "class_c_c_1_1_character" ],
     [ "CCParams", "struct_c_c_1_1_c_c_params.html", "struct_c_c_1_1_c_c_params" ],
     [ "LLM", "class_c_c_1_1_l_l_m.html", "class_c_c_1_1_l_l_m" ],
     [ "SpeechRecognizer", "class_c_c_1_1_speech_recognizer.html", "class_c_c_1_1_speech_recognizer" ],
