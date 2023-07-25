@@ -7,7 +7,9 @@
 
 Your customized AI characters on commodity hardware. This project aims to be a framework to enable the creation of AI characters that can be used in games, simulations, virtual assistants, and other applications without depending on specific platforms, cloud services, or specialized hardware.
 
-**Some of the applications you can build with CustomChar:**
+![](docs/customchar.png)
+
+**Some of applications you can build with CustomChar:**
 
 - Game characters that can talk to you and interact with you.
 - Your customized virtual assistant. Think about a [JARVIS](https://en.wikipedia.org/wiki/J.A.R.V.I.S.) version on your computer.
