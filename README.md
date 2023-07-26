@@ -9,12 +9,16 @@ Your customized AI characters on commodity hardware. This project aims to be a f
 
 ![](docs/customchar.png)
 
-**Some of applications you can build with CustomChar:**
+**Some of the applications you can build with CustomChar:**
 
 - Game characters that can talk to you and interact with you.
 - Your customized virtual assistant. Think about a [JARVIS](https://en.wikipedia.org/wiki/J.A.R.V.I.S.) version on your computer.
 - Online education experience with virtual friends/teachers.
 - Cloud services that enable users to create their own virtual characters.
+
+**Our very early experiment with CustomChar**
+
+https://github.com/vietanhdev/CustomChar/assets/18329471/4674efe7-6d7f-4e5e-9b28-ad2c92027fa9
 
 **Note:** This project is still in the early stage of development. We are working hard to make it available as soon as possible. Star this project 🌟🌟🌟 to follow our progress and encourage us to make it happen.
 
