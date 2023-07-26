@@ -46,7 +46,7 @@ target_link_libraries(${TARGET} PUBLIC ${SDL2_LIBRARIES} ${CMAKE_THREAD_LIBS_INI
 # CustomChar - cli
 add_executable(
     customchar-cli
-    customchar/main.cpp
+    customchar/main_cli.cpp
 )
 target_link_libraries(customchar-cli customchar-core)
 
@@ -89,7 +89,7 @@ if (BUILD_GUI)
 
     add_executable(
         customchar
-        customchar/main-ui.cpp
+        customchar/main.cpp
         customchar/chat_history.cpp
         customchar/chat_message.cpp
     )
