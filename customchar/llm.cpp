@@ -181,6 +181,8 @@ void LLM::eval_model() {
 
 std::string LLM::get_answer(std::vector<llama_token>& embd) {
   bool done = false;
+  int last_length = 0;
+  int loop_count = 0;
   std::string text_to_speak;
   while (true) {
     if (embd.size() > 0) {
@@ -316,9 +318,18 @@ std::string LLM::get_answer(std::vector<llama_token>& embd) {
       }
     }
 
-    if (!sdl_poll_events()) {
+    // Break to avoid infinite loop
+    // TODO: Fix this bug
+    if ((int)text_to_speak.length() == last_length + 1 &&
+        text_to_speak[text_to_speak.length() - 1] == '\n') {
+      ++loop_count;
+    } else {
+      loop_count = 0;
+    }
+    if (loop_count > 5) {
       break;
     }
+    last_length = text_to_speak.length();
   }
 
   return text_to_speak;

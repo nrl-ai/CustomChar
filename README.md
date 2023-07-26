@@ -116,3 +116,7 @@ bash scripts/format-code.sh # Format code (C++ styling)
 ## 8. Star history
 
 [![Star History Chart](https://api.star-history.com/svg?repos=vietanhdev/CustomChar&type=Date)](https://star-history.com/#vietanhdev/CustomChar)
+
+## 9. References
+
+- https://github.com/dalerank/imspinner

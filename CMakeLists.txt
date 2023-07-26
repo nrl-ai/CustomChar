@@ -9,8 +9,8 @@ set(CMAKE_PROJECT_VERSION_MAJOR 0)
 set(CMAKE_PROJECT_VERSION_MINOR 1)
 set(CMAKE_PROJECT_VERSION_PATCH 0)
 
-# Using C++11
-set(CMAKE_CXX_STANDARD 11)
+# Using C++14
+set(CMAKE_CXX_STANDARD 14)
 
 # SDL2
 find_package(SDL2 REQUIRED)
@@ -94,5 +94,10 @@ if (BUILD_GUI)
         customchar/chat_message.cpp
     )
     target_link_libraries(customchar customchar-core imgui)
+
+    # Copy the fonts to the build directory
+    add_custom_command(TARGET customchar POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/fonts $<TARGET_FILE_DIR:customchar>/fonts)
 
 endif()

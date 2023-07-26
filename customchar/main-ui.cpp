@@ -21,6 +21,8 @@
 #include "customchar/character.h"
 #include "customchar/common.h"
 #include "customchar/helpers.h"
+#include "imgui_internal.h"
+#include "imspinner/imspinner.h"
 
 using namespace CC;
 
@@ -40,7 +42,7 @@ using namespace CC;
 // everytime user sends message, IMGUI sets global variable to message
 // signal client server ... lock/unlock mutex
 constexpr int TEXT_MESSAGE_SIZE = 1024 * 8;
-constexpr int INIT_WINDOW_WIDTH = 720;
+constexpr int INIT_WINDOW_WIDTH = 450;
 constexpr int INIT_WINDOW_HEIGHT = 400;
 
 static void glfw_error_callback(int error, const char* description) {
@@ -111,30 +113,11 @@ void runImgui(std::shared_ptr<ChatHistory> history) {
   ImGui_ImplGlfw_InitForOpenGL(window, true);
   ImGui_ImplOpenGL3_Init(glsl_version);
 
-  // Load Fonts
-  // - If no fonts are loaded, dear imgui will use the default font. You can
-  // also load multiple fonts and use ImGui::PushFont()/PopFont() to select
-  // them.
-  // - AddFontFromFileTTF() will return the ImFont* so you can store it if you
-  // need to select the font among multiple.
-  // - If the file cannot be loaded, the function will return NULL. Please
-  // handle those errors in your application (e.g. use an assertion, or
-  // display an error and quit).
-  // - The fonts will be rasterized at a given size (w/ oversampling) and
-  // stored into a texture when calling
-  // ImFontAtlas::Build()/GetTexDataAsXXXX(), which ImGui_ImplXXXX_NewFrame
-  // below will call.
-  // - Read 'docs/FONTS.md' for more instructions and details.
-  // - Remember that in C/C++ if you want to include a backslash \ in a string
-  // literal you need to write a double backslash \\ !
-  // io.Fonts->AddFontDefault();
-  // io.Fonts->AddFontFromFileTTF("../../misc/fonts/Roboto-Medium.ttf", 16.0f);
-  // io.Fonts->AddFontFromFileTTF("../../misc/fonts/Cousine-Regular.ttf", 15.0f);
-  // io.Fonts->AddFontFromFileTTF("../../misc/fonts/DroidSans.ttf", 16.0f);
-  // io.Fonts->AddFontFromFileTTF("../../misc/fonts/ProggyTiny.ttf", 10.0f);
-  // ImFont* font =
-  // io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\ArialUni.ttf", 18.0f,
-  // NULL, io.Fonts->GetGlyphRangesJapanese()); IM_ASSERT(font != NULL);
+  // Load Font
+  ImFont* font =
+      io.Fonts->AddFontFromFileTTF("fonts/BaiJamjuree-Medium.ttf", 18.0f, NULL,
+                                   io.Fonts->GetGlyphRangesJapanese());
+  IM_ASSERT(font != NULL);
 
   // Our state
   ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
@@ -163,13 +146,7 @@ void runImgui(std::shared_ptr<ChatHistory> history) {
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
 
-    /**
-     * @brief Shows connection window if not connected, otherwise show
-     * basic chat window
-     */
-
-    // Is connected
-    int TEXTBOX_HEIGHT = ImGui::GetTextLineHeight() * 4;
+    int TEXTBOX_HEIGHT = 40;
 
     // Make window take up full system window
     ImGui::SetNextWindowPos(ImVec2(0, 0));
@@ -215,15 +192,22 @@ void runImgui(std::shared_ptr<ChatHistory> history) {
       justSent = false;
     }
 
-    // Create text area and send button
+    // Create a spinner and text input in the same line
+    ImGui::PushItemWidth(32);
+    static float velocity = 1.f;
+    ImColor color(255, 255, 255);
+    ImSpinner::SpinnerHerbertBalls3D("Spinner", 24, 3.0f, color,
+                                     1.4f * velocity);
+    ImGui::PopItemWidth();
+    ImGui::SameLine();
     strcpy(text, "Say something...");
-    if (ImGui::InputTextMultiline("##source", text, IM_ARRAYSIZE(text),
-                                  ImVec2(-FLT_MIN, TEXTBOX_HEIGHT),
-                                  input_flags)) {
+    ImGui::PushItemWidth(ImGui::GetContentRegionAvail().x);
+    if (ImGui::InputText("##source", text, IM_ARRAYSIZE(text), input_flags)) {
       justSent = on_new_message(text, "User", history);
     };
 
-    ImGui::End();
+    // Put the cursor of InputTextMultiline at the end of the text
+    ImGui::SetKeyboardFocusHere();
 
     // Rendering
     ImGui::Render();

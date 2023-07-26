@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-// COMPILE-TIME OPTIONS FOR DEAR IMGUI
+// DEAR IMGUI COMPILE-TIME OPTIONS
 // Runtime options (clipboard callbacks, enabling various features, etc.) can
 // generally be set via the ImGuiIO structure. You can use
 // ImGui::SetAllocatorFunctions() before calling ImGui::CreateContext() to
@@ -15,7 +15,7 @@
 // _any_ of your code that uses Dear ImGui. This is because some compile-time
 // options have an affect on data structures. Defining those options in
 // imconfig.h will ensure every compilation unit gets to see the same data
-// structure layouts. Call IMGUI_CHECKVERSION() from your .cpp files to verify
+// structure layouts. Call IMGUI_CHECKVERSION() from your .cpp file to verify
 // that the data structures your files are using are matching the ones imgui.cpp
 // is using.
 //-----------------------------------------------------------------------------
@@ -40,22 +40,24 @@
 //#define IMGUI_API __declspec( dllimport )
 
 //---- Don't define obsolete functions/enums/behaviors. Consider enabling from
-// time to time after updating to avoid using soon-to-be obsolete
-// function/names. #define IMGUI_DISABLE_OBSOLETE_FUNCTIONS #define
-// IMGUI_DISABLE_OBSOLETE_KEYIO                      // 1.87: disable legacy
-// io.KeyMap[]+io.KeysDown[] in favor io.AddKeyEvent(). This will be folded into
-// IMGUI_DISABLE_OBSOLETE_FUNCTIONS in a few versions.
+// time to time after updating to clean your code of obsolete function/names.
+//#define IMGUI_DISABLE_OBSOLETE_FUNCTIONS
+//#define IMGUI_DISABLE_OBSOLETE_KEYIO                      // 1.87: disable
+// legacy io.KeyMap[]+io.KeysDown[] in favor io.AddKeyEvent(). This will be
+// folded into IMGUI_DISABLE_OBSOLETE_FUNCTIONS in a few versions.
 
-//---- Disable all of Dear ImGui or don't implement standard windows.
-// It is very strongly recommended to NOT disable the demo windows during
-// development. Please read comments in imgui_demo.cpp.
+//---- Disable all of Dear ImGui or don't implement standard windows/tools.
+// It is very strongly recommended to NOT disable the demo windows and debug
+// tool during development. They are extremely useful in day to day work. Please
+// read comments in imgui_demo.cpp.
 //#define IMGUI_DISABLE                                     // Disable
 // everything: all headers and source files will be empty. #define
 // IMGUI_DISABLE_DEMO_WINDOWS                        // Disable demo windows:
-// ShowDemoWindow()/ShowStyleEditor() will be empty. Not recommended. #define
-// IMGUI_DISABLE_METRICS_WINDOW                      // Disable metrics/debugger
+// ShowDemoWindow()/ShowStyleEditor() will be empty. #define
+// IMGUI_DISABLE_DEBUG_TOOLS                         // Disable metrics/debugger
 // and other debug tools: ShowMetricsWindow(), ShowDebugLogWindow() and
-// ShowStackToolWindow() will be empty.
+// ShowStackToolWindow() will be empty (this was called
+// IMGUI_DISABLE_METRICS_WINDOW before 1.88).
 
 //---- Don't implement some functions to reduce linkage requirements.
 //#define IMGUI_DISABLE_WIN32_DEFAULT_CLIPBOARD_FUNCTIONS   // [Win32] Don't
@@ -67,7 +69,7 @@
 //#define IMGUI_DISABLE_WIN32_DEFAULT_IME_FUNCTIONS         // [Win32] [Default
 // with non-Visual Studio compilers] Don't implement default IME handler (won't
 // require imm32.lib/.a) #define IMGUI_DISABLE_WIN32_FUNCTIONS // [Win32] Won't
-// use and link with any Win32 function (clipboard, ime). #define
+// use and link with any Win32 function (clipboard, IME). #define
 // IMGUI_ENABLE_OSX_DEFAULT_CLIPBOARD_FUNCTIONS      // [OSX] Implement default
 // OSX clipboard handler (need to link with '-framework ApplicationServices',
 // this is why this is not the default). #define
@@ -105,8 +107,11 @@
 //#define IMGUI_STB_TRUETYPE_FILENAME   "my_folder/stb_truetype.h"
 //#define IMGUI_STB_RECT_PACK_FILENAME  "my_folder/stb_rect_pack.h"
 //#define IMGUI_STB_SPRINTF_FILENAME    "my_folder/stb_sprintf.h"    // only
-// used if enabled #define IMGUI_DISABLE_STB_TRUETYPE_IMPLEMENTATION #define
-// IMGUI_DISABLE_STB_RECT_PACK_IMPLEMENTATION
+// used if IMGUI_USE_STB_SPRINTF is defined. #define
+// IMGUI_DISABLE_STB_TRUETYPE_IMPLEMENTATION #define
+// IMGUI_DISABLE_STB_RECT_PACK_IMPLEMENTATION #define
+// IMGUI_DISABLE_STB_SPRINTF_IMPLEMENTATION                   // only disabled
+// if IMGUI_USE_STB_SPRINTF is defined.
 
 //---- Use stb_sprintf.h for a faster implementation of vsnprintf instead of the
 // one from libc (unless IMGUI_DISABLE_DEFAULT_FORMAT_FUNCTIONS is defined)
@@ -140,6 +145,8 @@ MyVec2() const { return MyVec2(x,y); }
         constexpr ImVec4(const MyVec4& f) : x(f.x), y(f.y), z(f.z), w(f.w) {} \
         operator MyVec4() const { return MyVec4(x,y,z,w); }
 */
+//---- ...Or use Dear ImGui's own very basic math operators.
+//#define IMGUI_DEFINE_MATH_OPERATORS
 
 //---- Use 32-bit vertex indices (default is 16-bit) is one way to allow large
 // meshes with more than 64K vertices.
@@ -154,27 +161,21 @@ MyVec2() const { return MyVec2(x,y); }
 // (*MyImDrawCallback)(const ImDrawList* draw_list, const ImDrawCmd* cmd, void*
 // my_renderer_user_data); #define ImDrawCallback MyImDrawCallback
 
-//---- Debug Tools: Macro to break in Debugger
+//---- Debug Tools: Macro to break in Debugger (we provide a default
+// implementation of this in the codebase)
 // (use 'Metrics->Tools->Item Picker' to pick widgets with the mouse and break
 // into them for easy debugging.)
 //#define IM_DEBUG_BREAK  IM_ASSERT(0)
 //#define IM_DEBUG_BREAK  __debugbreak()
 
-//---- Debug Tools: Have the Item Picker break in the ItemAdd() function instead
-// of ItemHoverable(),
-// (which comes earlier in the code, will catch a few extra items, allow picking
-// items other than Hovered one.) This adds a small runtime cost which is why it
-// is not enabled by default.
-//#define IMGUI_DEBUG_TOOL_ITEM_PICKER_EX
-
 //---- Debug Tools: Enable slower asserts
 //#define IMGUI_DEBUG_PARANOID
 
-//---- Tip: You can add extra functions within the ImGui:: namespace, here or in
-// your own headers files.
+//---- Tip: You can add extra functions within the ImGui:: namespace from
+// anywhere (e.g. your own sources/header files)
 /*
 namespace ImGui
 {
-    void MyFunction(const char* name, const MyMatrix44& v);
+    void MyFunction(const char* name, MyMatrix44* mtx);
 }
 */

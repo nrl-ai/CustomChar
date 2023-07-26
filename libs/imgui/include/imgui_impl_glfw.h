@@ -5,8 +5,9 @@
 
 // Implemented features:
 //  [X] Platform: Clipboard support.
-//  [X] Platform: Keyboard support. Since 1.87 we are using the io.AddKeyEvent()
-//  function. Pass ImGuiKey values to all key functions e.g.
+//  [X] Platform: Mouse support. Can discriminate Mouse/TouchScreen/Pen (Windows
+//  only). [X] Platform: Keyboard support. Since 1.87 we are using the
+//  io.AddKeyEvent() function. Pass ImGuiKey values to all key functions e.g.
 //  ImGui::IsKeyPressed(ImGuiKey_Space). [Legacy GLFW_KEY_* values will also be
 //  supported unless IMGUI_DISABLE_OBSOLETE_KEYIO is set] [X] Platform: Gamepad
 //  support. Enable with 'io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad'.
@@ -21,13 +22,9 @@
 // from the docs/ folder + read the top of imgui.cpp. Read online:
 // https://github.com/ocornut/imgui/tree/master/docs
 
-// About GLSL version:
-// The 'glsl_version' initialization parameter defaults to "#version 150" if
-// NULL. Only override if your GL version doesn't handle this GLSL version. Keep
-// NULL if unsure!
-
 #pragma once
 #include "imgui.h"  // IMGUI_IMPL_API
+#ifndef IMGUI_DISABLE
 
 struct GLFWwindow;
 struct GLFWmonitor;
@@ -41,7 +38,7 @@ IMGUI_IMPL_API bool ImGui_ImplGlfw_InitForOther(GLFWwindow* window,
 IMGUI_IMPL_API void ImGui_ImplGlfw_Shutdown();
 IMGUI_IMPL_API void ImGui_ImplGlfw_NewFrame();
 
-// GLFW callbacks (installer)
+// GLFW callbacks install
 // - When calling Init with 'install_callbacks=true':
 // ImGui_ImplGlfw_InstallCallbacks() is called. GLFW callbacks will be installed
 // for you. They will chain-call user's previously installed callbacks, if any.
@@ -51,7 +48,14 @@ IMGUI_IMPL_API void ImGui_ImplGlfw_NewFrame();
 IMGUI_IMPL_API void ImGui_ImplGlfw_InstallCallbacks(GLFWwindow* window);
 IMGUI_IMPL_API void ImGui_ImplGlfw_RestoreCallbacks(GLFWwindow* window);
 
-// GLFW callbacks (individual callbacks to call if you didn't install callbacks)
+// GFLW callbacks options:
+// - Set 'chain_for_all_windows=true' to enable chaining callbacks for all
+// windows (including secondary viewports created by backends or by user)
+IMGUI_IMPL_API void ImGui_ImplGlfw_SetCallbacksChainForAllWindows(
+    bool chain_for_all_windows);
+
+// GLFW callbacks (individual callbacks to call yourself if you didn't install
+// callbacks)
 IMGUI_IMPL_API void ImGui_ImplGlfw_WindowFocusCallback(
     GLFWwindow* window, int focused);  // Since 1.84
 IMGUI_IMPL_API void ImGui_ImplGlfw_CursorEnterCallback(
@@ -72,3 +76,5 @@ IMGUI_IMPL_API void ImGui_ImplGlfw_CharCallback(GLFWwindow* window,
                                                 unsigned int c);
 IMGUI_IMPL_API void ImGui_ImplGlfw_MonitorCallback(GLFWmonitor* monitor,
                                                    int event);
+
+#endif  // #ifndef IMGUI_DISABLE
