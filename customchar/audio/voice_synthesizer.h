@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CUSTOMCHAR_AUDIO_SYNTHESIZER_H_
+#define CUSTOMCHAR_AUDIO_SYNTHESIZER_H_
 
 #include <cassert>
 #include <cstdio>
@@ -12,17 +13,19 @@ namespace CC {
 
 class VoiceSynthesizer {
  private:
-  bool is_say_supported = false;
+  bool is_say_supported_ = false;
 
   /// @brief Preprocess text
-  std::string preprocess(const std::string& text);
+  std::string PreProcess(const std::string& text);
 
  public:
   /// @brief Constructor
   VoiceSynthesizer();
 
   /// @brief Say text
-  void say(const std::string& text);
+  void Say(const std::string& text);
 };
 
 }  // namespace CC
+
+#endif  // CUSTOMCHAR_AUDIO_SYNTHESIZER_H_

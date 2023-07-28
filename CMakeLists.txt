@@ -25,12 +25,13 @@ add_subdirectory(libs/whisper-cpp)
 set(TARGET customchar-core)
 add_library(
     ${TARGET}
-    customchar/common.cpp
-    customchar/llm.cpp
-    customchar/speech_recognizer.cpp
-    customchar/voice_synthesizer.cpp
-    customchar/voice_recorder.cpp
-    customchar/helpers.cpp
+    customchar/character/character.cpp
+    customchar/common/common.cpp
+    customchar/common/helpers.cpp
+    customchar/llm/llm.cpp
+    customchar/audio/speech_recognizer.cpp
+    customchar/audio/voice_synthesizer.cpp
+    customchar/audio/voice_recorder.cpp
     libs/llama-cpp/llama.cpp
     libs/whisper-cpp/examples/common.cpp
     libs/whisper-cpp/examples/common-sdl.cpp
@@ -90,8 +91,8 @@ if (BUILD_GUI)
     add_executable(
         customchar
         customchar/main.cpp
-        customchar/chat_history.cpp
-        customchar/chat_message.cpp
+        customchar/session/chat_history.cpp
+        customchar/session/chat_message.cpp
     )
     target_link_libraries(customchar customchar-core imgui)
 

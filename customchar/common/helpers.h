@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CUSTOMCHAR_COMMON_HELPERS_H_
+#define CUSTOMCHAR_COMMON_HELPERS_H_
 
 #include <cassert>
 #include <cstdio>
@@ -47,12 +48,14 @@ struct CCParams {
 /// @param argv Arguments
 /// @param params Parsed parameters
 /// @return True if parsing was successful
-bool cc_params_parse(int argc, char** argv, CCParams& params);
+bool CCParamsParse(int argc, char** argv, CCParams& params);
 
 /// @brief Print usage
 /// @param argc Number of arguments
 /// @param argv Arguments
 /// @param params Parsed parameters
-void cc_print_usage(int /*argc*/, char** argv, const CCParams& params);
+void CCPrintUsage(int /*argc*/, char** argv, const CCParams& params);
 
 }  // namespace CC
+
+#endif  // CUSTOMCHAR_COMMON_HELPERS_H_

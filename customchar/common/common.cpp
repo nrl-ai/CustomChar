@@ -1,6 +1,6 @@
-#include "customchar/common.h"
+#include "customchar/common/common.h"
 
-std::string CC::common::replace(const std::string& s, const std::string& from,
+std::string CC::common::Replace(const std::string& s, const std::string& from,
                                 const std::string& to) {
   std::string result = s;
   size_t pos = 0;

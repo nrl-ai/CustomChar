@@ -121,9 +121,9 @@ doxygen Doxyfile.in
 
 We welcome all contributions to this project.
 
-- For coding style, please follow the style of the existing code.
-- Install [clang-format](https://clang.llvm.org/docs/ClangFormat.html).
-- We use a format tool for auto formatting the code. You can use the following command to format code before committing:
+- For coding style, please follow the style of the existing code. We basically follow the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
+- Install [clang-format](https://clang.llvm.org/docs/ClangFormat.html) for auto formatting the code.
+- Install [pre-commit](https://pre-commit.com/) for auto formatting hook or manually run the script `scripts/format-code.sh` to format the code.
 
 ```bash
 pre-commit install # Install pre-commit hook

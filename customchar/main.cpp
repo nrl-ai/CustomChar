@@ -15,12 +15,12 @@
 #endif
 #include <GLFW/glfw3.h>  // Will drag system OpenGL headers
 
-#include "chat_history.h"
-#include "chat_message.h"
+#include "customchar/character/character.h"
+#include "customchar/common/common.h"
+#include "customchar/common/helpers.h"
+#include "customchar/session/chat_history.h"
+#include "customchar/session/chat_message.h"
 
-#include "customchar/character.h"
-#include "customchar/common.h"
-#include "customchar/helpers.h"
 #include "imgui_internal.h"
 #include "imspinner/imspinner.h"
 
@@ -45,15 +45,15 @@ constexpr int TEXT_MESSAGE_SIZE = 1024 * 8;
 constexpr int INIT_WINDOW_WIDTH = 450;
 constexpr int INIT_WINDOW_HEIGHT = 400;
 
-static void glfw_error_callback(int error, const char* description) {
+static void GLFWErrorCallback(int error, const char* description) {
   fprintf(stderr, "Glfw Error %d: %s\n", error, description);
 }
 
 std::mutex mtx;
-bool on_new_message(const std::string& text, const std::string& sender,
-                    std::shared_ptr<ChatHistory> history) {
+bool OnNewMessage(const std::string& text, const std::string& sender,
+                  std::shared_ptr<ChatHistory> history) {
   mtx.lock();
-  history->add_message(text, sender);
+  history->AddMessage(text, sender);
   mtx.unlock();
   return true;
 }
@@ -63,7 +63,7 @@ bool on_new_message(const std::string& text, const std::string& sender,
  */
 void runImgui(std::shared_ptr<ChatHistory> history) {
   // Setup window
-  glfwSetErrorCallback(glfw_error_callback);
+  glfwSetErrorCallback(GLFWErrorCallback);
   if (!glfwInit()) return;
 
 // Decide GL+GLSL versions
@@ -169,13 +169,13 @@ void runImgui(std::shared_ptr<ChatHistory> history) {
     // TODO: Format chat history
     ImGui::Dummy(ImVec2(0, ImGui::GetContentRegionAvail().y));
 
-    for (ChatMessage message : history->get_char_history()) {
+    for (ChatMessage message : history->GetCharHistory()) {
       ImGui::Spacing();
-      // ImGui::TextWrapped("%s", message.get_time().c_str());
-      ImGui::TextWrapped("> %s: %s", message.get_sender().c_str(),
-                         message.get_message().c_str());
+      // ImGui::TextWrapped("%s", message.GetTime().c_str());
+      ImGui::TextWrapped("> %s: %s", message.GetSender().c_str(),
+                         message.GetMessage().c_str());
     }
-    if (history->has_new_message() || justSent) {
+    if (history->HasNewMessage() || justSent) {
       ImGui::SetScrollHereY(1.0f);
     }
 
@@ -203,7 +203,7 @@ void runImgui(std::shared_ptr<ChatHistory> history) {
     strcpy(text, "Say something...");
     ImGui::PushItemWidth(ImGui::GetContentRegionAvail().x);
     if (ImGui::InputText("##source", text, IM_ARRAYSIZE(text), input_flags)) {
-      justSent = on_new_message(text, "User", history);
+      justSent = OnNewMessage(text, "User", history);
     };
 
     // Put the cursor of InputTextMultiline at the end of the text
@@ -235,12 +235,12 @@ void runImgui(std::shared_ptr<ChatHistory> history) {
 int main(int argc, char** argv) {
   // Parse command line arguments
   CCParams params;
-  if (cc_params_parse(argc, argv, params) == false) {
+  if (CCParamsParse(argc, argv, params) == false) {
     exit(1);
   }
   if (whisper_lang_id(params.language.c_str()) == -1) {
     fprintf(stderr, "error: unknown language '%s'\n", params.language.c_str());
-    cc_print_usage(argc, argv, params);
+    CCPrintUsage(argc, argv, params);
     exit(1);
   }
 
@@ -251,13 +251,13 @@ int main(int argc, char** argv) {
   Character character(params);
 
   // Set message callbacks
-  character.set_on_user_message(
-      std::bind(on_new_message, std::placeholders::_1, "User", history));
-  character.set_on_bot_message(
-      std::bind(on_new_message, std::placeholders::_1, "CustomChar", history));
+  character.SetOnUserMessage(
+      std::bind(OnNewMessage, std::placeholders::_1, "User", history));
+  character.SetOnBotMessage(
+      std::bind(OnNewMessage, std::placeholders::_1, "CustomChar", history));
 
   // Start character in a new thread
-  std::thread character_thread(&Character::run, &character);
+  std::thread character_thread(&Character::Run, &character);
   character_thread.detach();
 
   // Main GUI loop

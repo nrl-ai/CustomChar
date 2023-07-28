@@ -1,15 +1,16 @@
-#include "customchar/speech_recognizer.h"
+#include "customchar/audio/speech_recognizer.h"
+#include "customchar/common/common.h"
 
 using namespace CC;
 
-SpeechRecognizer::SpeechRecognizer(const std::string& model_path,
+SpeechRecognizer::SpeechRecognizer(const std::string& model_path_,
                                    const std::string& language,
                                    int32_t audio_ctx, int n_threads,
                                    int max_tokens, bool translate,
                                    bool no_timestamps, bool print_special,
-                                   bool speed_up, const std::string& person,
-                                   const std::string& bot_name)
-    : model_path(model_path),
+                                   bool speed_up, const std::string& person_,
+                                   const std::string& bot_name_)
+    : model_path_(model_path_),
       language(language),
       audio_ctx(audio_ctx),
       n_threads(n_threads),
@@ -18,16 +19,16 @@ SpeechRecognizer::SpeechRecognizer(const std::string& model_path,
       no_timestamps(no_timestamps),
       print_special(print_special),
       speed_up(speed_up),
-      person(person),
-      bot_name(bot_name) {
+      person_(person_),
+      bot_name_(bot_name_) {
   // Init model
-  context = whisper_init_from_file(model_path.c_str());
+  context_ = whisper_init_from_file(model_path_.c_str());
 
   // Print information about the model
   {
     fprintf(stderr, "\n");
 
-    if (!whisper_is_multilingual(context)) {
+    if (!whisper_is_multilingual(context_)) {
       if (language != "en" || translate) {
         this->language = "en";
         translate = false;
@@ -41,25 +42,25 @@ SpeechRecognizer::SpeechRecognizer(const std::string& model_path,
             "%s: processing, %d threads, lang = %s, task = %s, timestamps = "
             "%d ...\n",
             __func__, n_threads, language.c_str(),
-            translate ? "translate" : "transcribe", no_timestamps ? 0 : 1);
+            translate ? "translate" : "Transcribe", no_timestamps ? 0 : 1);
 
     fprintf(stderr, "\n");
   }
 
-  init_prompt();
+  InitPrompt();
 }
 
 SpeechRecognizer::~SpeechRecognizer() {
-  whisper_print_timings(context);
-  whisper_free(context);
+  whisper_print_timings(context_);
+  whisper_free(context_);
 }
 
-void SpeechRecognizer::init_prompt() {
-  const std::string bot_name = "CustomChar";
-  prompt = replace(k_prompt_whisper, "{1}", bot_name);
+void SpeechRecognizer::InitPrompt() {
+  const std::string bot_name_ = "CustomChar";
+  prompt_ = common::Replace(k_prompt_whisper_, "{1}", bot_name_);
 }
 
-std::string SpeechRecognizer::postprocess(const std::string& text_heard) {
+std::string SpeechRecognizer::PostProcess(const std::string& text_heard) {
   std::string processed_text = trim(text_heard);
 
   // Remove text between brackets using regex
@@ -89,15 +90,15 @@ std::string SpeechRecognizer::postprocess(const std::string& text_heard) {
   return processed_text;
 }
 
-std::string SpeechRecognizer::recognize(const std::vector<float>& pcmf32,
+std::string SpeechRecognizer::Recognize(const std::vector<float>& pcmf32,
                                         float& prob, int64_t& t_ms) {
   std::string text_heard;
-  text_heard = transcribe(pcmf32, prob, t_ms);
-  text_heard = postprocess(text_heard);
+  text_heard = Transcribe(pcmf32, prob, t_ms);
+  text_heard = PostProcess(text_heard);
   return text_heard;
 }
 
-std::string SpeechRecognizer::transcribe(const std::vector<float>& pcmf32,
+std::string SpeechRecognizer::Transcribe(const std::vector<float>& pcmf32,
                                          float& prob, int64_t& t_ms) {
   const auto t_start = std::chrono::high_resolution_clock::now();
 
@@ -111,7 +112,7 @@ std::string SpeechRecognizer::transcribe(const std::vector<float>& pcmf32,
 
   prompt_tokens.resize(1024);
   prompt_tokens.resize(whisper_tokenize(
-      context, prompt.c_str(), prompt_tokens.data(), prompt_tokens.size()));
+      context_, prompt_.c_str(), prompt_tokens.data(), prompt_tokens.size()));
 
   wparams.print_progress = false;
   wparams.print_special = print_special;
@@ -131,22 +132,22 @@ std::string SpeechRecognizer::transcribe(const std::vector<float>& pcmf32,
   wparams.audio_ctx = audio_ctx;
   wparams.speed_up = speed_up;
 
-  if (whisper_full(context, wparams, pcmf32.data(), pcmf32.size()) != 0) {
+  if (whisper_full(context_, wparams, pcmf32.data(), pcmf32.size()) != 0) {
     return "";
   }
 
   int prob_n = 0;
   std::string result;
 
-  const int n_segments = whisper_full_n_segments(context);
+  const int n_segments = whisper_full_n_segments(context_);
   for (int i = 0; i < n_segments; ++i) {
-    const char* text = whisper_full_get_segment_text(context, i);
+    const char* text = whisper_full_get_segment_text(context_, i);
 
     result += text;
 
-    const int n_tokens = whisper_full_n_tokens(context, i);
+    const int n_tokens = whisper_full_n_tokens(context_, i);
     for (int j = 0; j < n_tokens; ++j) {
-      const auto token = whisper_full_get_token_data(context, i, j);
+      const auto token = whisper_full_get_token_data(context_, i, j);
 
       prob += token.p;
       ++prob_n;

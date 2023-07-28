@@ -1,6 +1,6 @@
-#include "customchar/character.h"
-#include "customchar/common.h"
-#include "customchar/helpers.h"
+#include "customchar/character/character.h"
+#include "customchar/common/common.h"
+#include "customchar/common/helpers.h"
 
 #include <cassert>
 #include <cstdio>
@@ -15,12 +15,12 @@ using namespace CC;
 int main(int argc, char** argv) {
   // Parse command line arguments
   CCParams params;
-  if (cc_params_parse(argc, argv, params) == false) {
+  if (CCParamsParse(argc, argv, params) == false) {
     exit(1);
   }
   if (whisper_lang_id(params.language.c_str()) == -1) {
     fprintf(stderr, "error: unknown language '%s'\n", params.language.c_str());
-    cc_print_usage(argc, argv, params);
+    CCPrintUsage(argc, argv, params);
     exit(1);
   }
 
@@ -28,7 +28,7 @@ int main(int argc, char** argv) {
   Character character(params);
 
   // Run character
-  character.run();
+  character.Run();
 
   return 0;
 }

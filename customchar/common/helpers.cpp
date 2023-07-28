@@ -1,6 +1,6 @@
-#include "customchar/helpers.h"
+#include "customchar/common/helpers.h"
 
-void CC::cc_print_usage(int /*argc*/, char** argv, const CCParams& params) {
+void CC::CCPrintUsage(int /*argc*/, char** argv, const CCParams& params) {
   fprintf(stderr, "\n");
   fprintf(stderr, "usage: %s [options]\n", argv[0]);
   fprintf(stderr, "\n");
@@ -71,12 +71,12 @@ void CC::cc_print_usage(int /*argc*/, char** argv, const CCParams& params) {
   fprintf(stderr, "\n");
 }
 
-bool CC::cc_params_parse(int argc, char** argv, CCParams& params) {
+bool CC::CCParamsParse(int argc, char** argv, CCParams& params) {
   for (int i = 1; i < argc; i++) {
     std::string arg = argv[i];
 
     if (arg == "-h" || arg == "--help") {
-      CC::cc_print_usage(argc, argv, params);
+      CC::CCPrintUsage(argc, argv, params);
       exit(0);
     } else if (arg == "-t" || arg == "--threads") {
       params.n_threads = std::stoi(argv[++i]);
@@ -125,7 +125,7 @@ bool CC::cc_params_parse(int argc, char** argv, CCParams& params) {
       params.fname_out = argv[++i];
     } else {
       fprintf(stderr, "error: unknown argument: %s\n", arg.c_str());
-      cc_print_usage(argc, argv, params);
+      CCPrintUsage(argc, argv, params);
       exit(0);
     }
   }

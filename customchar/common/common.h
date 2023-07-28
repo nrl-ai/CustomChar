@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CUSTOMCHAR_COMMON_COMMON_H_
+#define CUSTOMCHAR_COMMON_COMMON_H_
 
 #include <string>
 
@@ -10,8 +11,10 @@ namespace common {
 /// @param from Replace this substring.
 /// @param to With this substring.
 /// @return New string with all occurrences of `from` replaced with `to`.
-std::string replace(const std::string& s, const std::string& from,
+std::string Replace(const std::string& s, const std::string& from,
                     const std::string& to);
 
 }  // namespace common
 }  // namespace CC
+
+#endif  // CUSTOMCHAR_COMMON_COMMON_H_

@@ -1,9 +1,10 @@
-#pragma once
+#ifndef CUSTOMCHAR_LLM_LLM_H_
+#define CUSTOMCHAR_LLM_LLM_H_
 
 #include "llama-cpp/llama.h"
 #include "whisper-cpp/examples/common-sdl.h"  // TODO Remove this dependency
 
-#include "customchar/common.h"
+#include "customchar/common/common.h"
 
 #include <cassert>
 #include <cstdio>
@@ -15,7 +16,7 @@
 
 namespace CC {
 
-const std::string k_prompt_llama =
+const std::string kPromptLlama =
     R"(Text transcript of a dialog, where {0} interacts with an AI assistant named {1}.
 {1} is helpful, kind, honest, friendly, good at writing and never fails to answer {0}’s requests immediately and with details and precision.
 There are no annotations like (30 seconds passed...) or (to himself), just what {0} and {1} say aloud to each other.
@@ -36,33 +37,33 @@ The transcript only includes text, it does not include markup like HTML and Mark
 
 class LLM {
  private:
-  std::string model_path;
-  std::string person = "User";
-  std::string bot_name = "CustomChar";
-  const std::string chat_symb = ":";
-  bool verbose_prompt = false;
-  bool need_to_save_session = false;
+  std::string model_path_;
+  std::string person_ = "User";
+  std::string bot_name_ = "CustomChar";
+  const std::string chat_symb_ = ":";
+  bool verbose_prompt_ = false;
+  bool need_to_save_session_ = false;
 
-  int n_threads = std::min(4, (int)std::thread::hardware_concurrency());
-  std::string path_session;
-  struct llama_context_params lparams;
-  struct llama_context* ctx_llama;
+  int n_threads_ = std::min(4, (int)std::thread::hardware_concurrency());
+  std::string path_session_;
+  struct llama_context_params lparams_;
+  struct llama_context* ctx_llama_;
 
-  std::string prompt_llama;
-  std::string prompt = "";
+  std::string prompt_llama_;
+  std::string prompt_ = "";
 
-  std::vector<llama_token> embd_inp;
-  std::vector<llama_token> session_tokens;
-  std::vector<std::string> antiprompts;
+  std::vector<llama_token> embd_inp_;
+  std::vector<llama_token> session_tokens_;
+  std::vector<std::string> antiprompts_;
 
-  int n_keep;
-  int n_ctx;
-  int n_past;
-  int n_prev = 64;
-  int n_session_consumed;
+  int n_keep_;
+  int n_ctx_;
+  int n_past_;
+  int n_prev_ = 64;
+  int n_session_consumed_;
 
   /// @brief Initialize prompt
-  void init_prompt();
+  void InitPrompt();
 
  public:
   /// @brief Constructor
@@ -74,20 +75,22 @@ class LLM {
   ~LLM();
 
   /// @brief Evaluate the model. Run this function before inference.
-  void eval_model();
+  void EvalModel();
 
   /// @brief Load session from file
   /// @param path_session Path to the session
-  void load_session(const std::string& path_session);
+  void LoadSession(const std::string& path_session);
 
   /// @brief Add new tokens to the sessions
-  void add_tokens_to_current_session(const std::vector<llama_token>& tokens);
+  void AddTokensToCurrentSession(const std::vector<llama_token>& tokens);
 
   /// @brief Tokenize text
-  std::vector<llama_token> tokenize(const std::string& text, bool add_bos);
+  std::vector<llama_token> Tokenize(const std::string& text, bool add_bos);
 
   /// @brief Get answer from LLM
-  std::string get_answer(std::vector<llama_token>& embd);
+  std::string GetAnswer(std::vector<llama_token>& embd);
 };
 
 }  // namespace CC
+
+#endif  // CUSTOMCHAR_LLM_LLM_H_
