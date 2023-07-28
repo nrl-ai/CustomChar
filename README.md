@@ -43,8 +43,7 @@ https://github.com/vietanhdev/CustomChar/assets/18329471/4674efe7-6d7f-4e5e-9b28
   - [x] TTS with "say" on MacOS. **Note**: "say" is not available on other platforms (Windows, Linux)
   - [ ] TTS with bark.cpp. Expected to be available on all platforms.
 - [ ] Perception engine to see the world through the camera 📷📷📷.
-- [ ] 3D visualization of the character.
-- [ ] Add a GUI for the character interaction.
+- [x] Add a GUI for the character interaction.
 - [ ] Add a GUI for the character creation.
 - [ ] Create virtual characters that can be used in games, simulations, and other applications.
   - [ ] Elon Musk
