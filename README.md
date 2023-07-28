@@ -35,10 +35,10 @@ https://github.com/vietanhdev/CustomChar/assets/18329471/4674efe7-6d7f-4e5e-9b28
 ## 3. Features
 
 - [ ] Build AI characters from the knowledge database 💬💬💬 :
-  - [x] LLamaCpp for LLM. Chat with Llama-V2 on all platforms.
+  - [x] LLamaCpp for LLM. Chat with **Llama-V2** on **all platforms**.
   - [ ] Knowledge indexing and searching.
 - [x] Talk to your character 🎤🎤🎤 :
-  - [x] STT with whisper.cpp. Now supports speech recognition on all platforms.
+  - [x] STT with **whisper.cpp**. Now supports speech recognition **on all platforms**.
 - [ ] Hear from your character 🔊🔊🔊 :
   - [x] TTS with "say" on MacOS. **Note**: "say" is not available on other platforms (Windows, Linux)
   - [ ] TTS with bark.cpp. Expected to be available on all platforms.
@@ -57,14 +57,27 @@ https://github.com/vietanhdev/CustomChar/assets/18329471/4674efe7-6d7f-4e5e-9b28
 
 ## 4. Build
 
-**CustomChar** depends on SDL2 library to capture audio from the microphone. Install SDL2 library before building.
+Install dependencies:
+
+- [CMake](https://cmake.org/download/)
+- C++ 14 compiler
+
+On macOS:
 
 ```bash
-# Install SDL2 on Linux
-sudo apt-get install libsdl2-dev
+brew install sdl2 glew glfw3
+```
 
-# Install SDL2 on Mac OS
-brew install sdl2
+On Ubuntu:
+
+```bash
+sudo apt-get install libsdl2-dev libglew-dev libglfw3-dev
+```
+
+On Windows:
+
+```bash
+vcpkg install sdl2:x64-windows glew:x64-windows glfw3:x64-windows
 ```
 
 Build the **CustomChar** executable:
@@ -92,23 +105,24 @@ Run the program:
 
 ## 6. Build documentation
 
-- Step 1: Install **doxygen** first.
+- **Step 1:** Install **doxygen** first.
 
-- Step 2: Build the documentation:
+- **Step 2:** Build the documentation:
 
 ```bash
 doxygen Doxyfile.in
 ```
 
-- Step 3: Deploy html documentation from `docs/_build/html`.
+- **Step 3:** Deploy html documentation from `docs/_build/html`.
 
-- Step 4: Our latest documentation is deployed at <https://docs.customchar.com>.
+- **Step 4:** Our latest documentation is deployed at <https://docs.customchar.com>.
 
 ## 7. Contribution
 
 We welcome all contributions to this project.
 
 - For coding style, please follow the style of the existing code.
+- Install [clang-format](https://clang.llvm.org/docs/ClangFormat.html).
 - We use a format tool for auto formatting the code. You can use the following command to format code before committing:
 
 ```bash
@@ -122,4 +136,8 @@ bash scripts/format-code.sh # Format code (C++ styling)
 
 ## 9. References
 
-- https://github.com/dalerank/imspinner
+- Spinner: <https://github.com/dalerank/imspinner>.
+- GGML: <https://ggml.ai/>.
+- llama.cpp: <https://github.com/ggerganov/llama.cpp>.
+- whisper.cpp: <https://github.com/ggerganov/whisper.cpp>.
+- LLaMA-v2: <https://ai.meta.com/llama/>.
