@@ -183,9 +183,9 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <h1>7. Contribution</h1>
 <p>We welcome all contributions to this project.</p>
 <ul>
-<li>For coding style, please follow the style of the existing code.</li>
-<li>Install <a href="https://clang.llvm.org/docs/ClangFormat.html">clang-format</a>.</li>
-<li>We use a format tool for auto formatting the code. You can use the following command to format code before committing:</li>
+<li>For coding style, please follow the style of the existing code. We basically follow the <a href="https://google.github.io/styleguide/cppguide.html">Google C++ Style Guide</a>.</li>
+<li>Install <a href="https://clang.llvm.org/docs/ClangFormat.html">clang-format</a> for auto formatting the code.</li>
+<li>Install <a href="https://pre-commit.com/">pre-commit</a> for auto formatting hook or manually run the script <code>scripts/format-code.sh</code> to format the code.</li>
 </ul>
 <div class="fragment"><div class="line">pre-commit install # Install pre-commit hook</div>
 <div class="line">bash scripts/format-code.sh # Format code (C++ styling)</div>

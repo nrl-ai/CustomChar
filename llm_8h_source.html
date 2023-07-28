@@ -90,115 +90,118 @@ $(document).ready(function(){initNavTree('llm_8h_source.html',''); initResizable
 <div class="title">llm.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;llama-cpp/llama.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;whisper-cpp/examples/common-sdl.h&quot;</span>  <span class="comment">// TODO Remove this dependency</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;customchar/common.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;cstdio&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;regex&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;thread&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_c_c.html">CC</a> {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="namespace_c_c.html#a62409065eb4aad6c43acbc5c25987923">   18</a></span>&#160;<span class="keyword">const</span> std::string <a class="code" href="namespace_c_c.html#a62409065eb4aad6c43acbc5c25987923">k_prompt_llama</a> =</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    R<span class="stringliteral">&quot;(Text transcript of a dialog, where {0} interacts with an AI assistant named {1}.</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="stringliteral">{1} is helpful, kind, honest, friendly, good at writing and never fails to answer {0}’s requests immediately and with details and precision.</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="stringliteral">There are no annotations like (30 seconds passed...) or (to himself), just what {0} and {1} say aloud to each other.</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="stringliteral">The transcript only includes text, it does not include markup like HTML and Markdown.</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="stringliteral">{1} responds with short and concise answers.</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="stringliteral">{0}{4} Hello, {1}!</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="stringliteral">{1}{4} Hello {0}! How may I help you today?</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="stringliteral">{0}{4} What time is it?</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="stringliteral">{1}{4} It is {2} o&#39;clock.</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="stringliteral">{0}{4} What year is it?</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="stringliteral">{1}{4} We are in {3}.</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="stringliteral">{0}{4} What is a cat?</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="stringliteral">{1}{4} A cat is a domestic species of small carnivorous mammal. It is the only domesticated species in the family Felidae.</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="stringliteral">{0}{4} Name a color.</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="stringliteral">{1}{4} Blue</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="stringliteral">{0}{4})&quot;;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_c_c_1_1_l_l_m.html">   37</a></span>&#160;<span class="stringliteral"></span><span class="keyword">class </span><a class="code" href="class_c_c_1_1_l_l_m.html">LLM</a> {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  std::string model_path;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  std::string person = <span class="stringliteral">&quot;User&quot;</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  std::string bot_name = <span class="stringliteral">&quot;CustomChar&quot;</span>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">const</span> std::string chat_symb = <span class="stringliteral">&quot;:&quot;</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordtype">bool</span> verbose_prompt = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordtype">bool</span> need_to_save_session = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordtype">int</span> n_threads = std::min(4, (<span class="keywordtype">int</span>)std::thread::hardware_concurrency());</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  std::string path_session;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keyword">struct </span>llama_context_params lparams;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keyword">struct </span>llama_context* ctx_llama;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  std::string prompt_llama;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  std::string prompt = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  std::vector&lt;llama_token&gt; embd_inp;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  std::vector&lt;llama_token&gt; session_tokens;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  std::vector&lt;std::string&gt; antiprompts;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordtype">int</span> n_keep;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordtype">int</span> n_ctx;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keywordtype">int</span> n_past;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keywordtype">int</span> n_prev = 64;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keywordtype">int</span> n_session_consumed;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">  /// @brief Initialize prompt</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment"></span>  <span class="keywordtype">void</span> init_prompt();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; <span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">  /// @brief Constructor</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">  /// @param model_path Path to the model</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">  /// @param path_session Path to the session</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment"></span>  <a class="code" href="class_c_c_1_1_l_l_m.html#a62934eb91a69d319f5c7f1d6f8f49624">LLM</a>(<span class="keyword">const</span> std::string&amp; model_path, <span class="keyword">const</span> std::string&amp; path_session = <span class="stringliteral">&quot;&quot;</span>,</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <span class="keyword">const</span> std::string&amp; person = <span class="stringliteral">&quot;User&quot;</span>,</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      <span class="keyword">const</span> std::string&amp; bot_name = <span class="stringliteral">&quot;CustomChar&quot;</span>);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <a class="code" href="class_c_c_1_1_l_l_m.html#a4720adfef94d91c917974000c6959575">~LLM</a>();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">  /// @brief Evaluate the model. Run this function before inference.</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment"></span>  <span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1_l_l_m.html#aa808ab8fe6b3a3223a07330ae9205b9c">eval_model</a>();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">  /// @brief Load session from file</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">  /// @param path_session Path to the session</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment"></span>  <span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1_l_l_m.html#ada26e4a903d30780cfff0cd85b8c33c5">load_session</a>(<span class="keyword">const</span> std::string&amp; path_session);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">  /// @brief Add new tokens to the sessions</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment"></span>  <span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1_l_l_m.html#a95b18be6eb0c1f13005100d59dcc5db3">add_tokens_to_current_session</a>(<span class="keyword">const</span> std::vector&lt;llama_token&gt;&amp; tokens);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">  /// @brief Tokenize text</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"></span>  std::vector&lt;llama_token&gt; <a class="code" href="class_c_c_1_1_l_l_m.html#a555b895486455181b746a8d76e9f2e45">tokenize</a>(<span class="keyword">const</span> std::string&amp; text, <span class="keywordtype">bool</span> add_bos);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">  /// @brief Get answer from LLM</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment"></span>  std::string <a class="code" href="class_c_c_1_1_l_l_m.html#a2a35f9fa237b314d8402d14e035b9d76">get_answer</a>(std::vector&lt;llama_token&gt;&amp; embd);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;};</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}  <span class="comment">// namespace CC</span></div>
-<div class="ttc" id="aclass_c_c_1_1_l_l_m_html"><div class="ttname"><a href="class_c_c_1_1_l_l_m.html">CC::LLM</a></div><div class="ttdef"><b>Definition:</b> <a href="llm_8h_source.html#l00037">llm.h:37</a></div></div>
-<div class="ttc" id="aclass_c_c_1_1_l_l_m_html_a2a35f9fa237b314d8402d14e035b9d76"><div class="ttname"><a href="class_c_c_1_1_l_l_m.html#a2a35f9fa237b314d8402d14e035b9d76">CC::LLM::get_answer</a></div><div class="ttdeci">std::string get_answer(std::vector&lt; llama_token &gt; &amp;embd)</div><div class="ttdoc">Get answer from LLM.</div><div class="ttdef"><b>Definition:</b> <a href="llm_8cpp_source.html#l00182">llm.cpp:182</a></div></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CUSTOMCHAR_LLM_LLM_H_</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CUSTOMCHAR_LLM_LLM_H_</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;llama-cpp/llama.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;whisper-cpp/examples/common-sdl.h&quot;</span>  <span class="comment">// TODO Remove this dependency</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;customchar/common/common.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;cstdio&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;regex&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;thread&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_c_c.html">CC</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="namespace_c_c.html#aed131cb3aea1de3dfd83880bcf3c4f8f">   19</a></span>&#160;<span class="keyword">const</span> std::string <a class="code" href="namespace_c_c.html#aed131cb3aea1de3dfd83880bcf3c4f8f">kPromptLlama</a> =</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    R<span class="stringliteral">&quot;(Text transcript of a dialog, where {0} interacts with an AI assistant named {1}.</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="stringliteral">{1} is helpful, kind, honest, friendly, good at writing and never fails to answer {0}’s requests immediately and with details and precision.</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="stringliteral">There are no annotations like (30 seconds passed...) or (to himself), just what {0} and {1} say aloud to each other.</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="stringliteral">The transcript only includes text, it does not include markup like HTML and Markdown.</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="stringliteral">{1} responds with short and concise answers.</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="stringliteral">{0}{4} Hello, {1}!</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="stringliteral">{1}{4} Hello {0}! How may I help you today?</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="stringliteral">{0}{4} What time is it?</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="stringliteral">{1}{4} It is {2} o&#39;clock.</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="stringliteral">{0}{4} What year is it?</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="stringliteral">{1}{4} We are in {3}.</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="stringliteral">{0}{4} What is a cat?</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="stringliteral">{1}{4} A cat is a domestic species of small carnivorous mammal. It is the only domesticated species in the family Felidae.</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="stringliteral">{0}{4} Name a color.</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="stringliteral">{1}{4} Blue</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="stringliteral">{0}{4})&quot;;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_c_c_1_1_l_l_m.html">   38</a></span>&#160;<span class="stringliteral"></span><span class="keyword">class </span><a class="code" href="class_c_c_1_1_l_l_m.html">LLM</a> {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  std::string model_path_;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  std::string person_ = <span class="stringliteral">&quot;User&quot;</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  std::string bot_name_ = <span class="stringliteral">&quot;CustomChar&quot;</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">const</span> std::string chat_symb_ = <span class="stringliteral">&quot;:&quot;</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordtype">bool</span> verbose_prompt_ = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordtype">bool</span> need_to_save_session_ = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordtype">int</span> n_threads_ = std::min(4, (<span class="keywordtype">int</span>)std::thread::hardware_concurrency());</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  std::string path_session_;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keyword">struct </span>llama_context_params lparams_;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">struct </span>llama_context* ctx_llama_;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  std::string prompt_llama_;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  std::string prompt_ = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  std::vector&lt;llama_token&gt; embd_inp_;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  std::vector&lt;llama_token&gt; session_tokens_;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  std::vector&lt;std::string&gt; antiprompts_;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordtype">int</span> n_keep_;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keywordtype">int</span> n_ctx_;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keywordtype">int</span> n_past_;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keywordtype">int</span> n_prev_ = 64;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordtype">int</span> n_session_consumed_;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">  /// @brief Initialize prompt</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment"></span>  <span class="keywordtype">void</span> InitPrompt();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; <span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">  /// @brief Constructor</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">  /// @param model_path Path to the model</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">  /// @param path_session Path to the session</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment"></span>  <a class="code" href="class_c_c_1_1_l_l_m.html#a62934eb91a69d319f5c7f1d6f8f49624">LLM</a>(<span class="keyword">const</span> std::string&amp; model_path, <span class="keyword">const</span> std::string&amp; path_session = <span class="stringliteral">&quot;&quot;</span>,</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      <span class="keyword">const</span> std::string&amp; person = <span class="stringliteral">&quot;User&quot;</span>,</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      <span class="keyword">const</span> std::string&amp; bot_name = <span class="stringliteral">&quot;CustomChar&quot;</span>);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <a class="code" href="class_c_c_1_1_l_l_m.html#a4720adfef94d91c917974000c6959575">~LLM</a>();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">  /// @brief Evaluate the model. Run this function before inference.</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment"></span>  <span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1_l_l_m.html#abaec4579691e7361529a8443d687be14">EvalModel</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">  /// @brief Load session from file</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">  /// @param path_session Path to the session</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment"></span>  <span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1_l_l_m.html#a06970a063ad63ecb34adcefb3b5ce82e">LoadSession</a>(<span class="keyword">const</span> std::string&amp; path_session);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">  /// @brief Add new tokens to the sessions</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment"></span>  <span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1_l_l_m.html#a968cc98c7768f1d6d2c4f9208c0ed6f3">AddTokensToCurrentSession</a>(<span class="keyword">const</span> std::vector&lt;llama_token&gt;&amp; tokens);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">  /// @brief Tokenize text</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment"></span>  std::vector&lt;llama_token&gt; <a class="code" href="class_c_c_1_1_l_l_m.html#ac531616743d82ca79af649ba4d34dc55">Tokenize</a>(<span class="keyword">const</span> std::string&amp; text, <span class="keywordtype">bool</span> add_bos);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">  /// @brief Get answer from LLM</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment"></span>  std::string <a class="code" href="class_c_c_1_1_l_l_m.html#a556ae100e922158e6a466966aa50312d">GetAnswer</a>(std::vector&lt;llama_token&gt;&amp; embd);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;};</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}  <span class="comment">// namespace CC</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// CUSTOMCHAR_LLM_LLM_H_</span></div>
+<div class="ttc" id="aclass_c_c_1_1_l_l_m_html"><div class="ttname"><a href="class_c_c_1_1_l_l_m.html">CC::LLM</a></div><div class="ttdef"><b>Definition:</b> <a href="llm_8h_source.html#l00038">llm.h:38</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1_l_l_m_html_a06970a063ad63ecb34adcefb3b5ce82e"><div class="ttname"><a href="class_c_c_1_1_l_l_m.html#a06970a063ad63ecb34adcefb3b5ce82e">CC::LLM::LoadSession</a></div><div class="ttdeci">void LoadSession(const std::string &amp;path_session)</div><div class="ttdoc">Load session from file.</div><div class="ttdef"><b>Definition:</b> <a href="llm_8cpp_source.html#l00100">llm.cpp:100</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1_l_l_m_html_a4720adfef94d91c917974000c6959575"><div class="ttname"><a href="class_c_c_1_1_l_l_m.html#a4720adfef94d91c917974000c6959575">CC::LLM::~LLM</a></div><div class="ttdeci">~LLM()</div><div class="ttdef"><b>Definition:</b> <a href="llm_8cpp_source.html#l00039">llm.cpp:39</a></div></div>
-<div class="ttc" id="aclass_c_c_1_1_l_l_m_html_a555b895486455181b746a8d76e9f2e45"><div class="ttname"><a href="class_c_c_1_1_l_l_m.html#a555b895486455181b746a8d76e9f2e45">CC::LLM::tokenize</a></div><div class="ttdeci">std::vector&lt; llama_token &gt; tokenize(const std::string &amp;text, bool add_bos)</div><div class="ttdoc">Tokenize text.</div><div class="ttdef"><b>Definition:</b> <a href="llm_8cpp_source.html#l00082">llm.cpp:82</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1_l_l_m_html_a556ae100e922158e6a466966aa50312d"><div class="ttname"><a href="class_c_c_1_1_l_l_m.html#a556ae100e922158e6a466966aa50312d">CC::LLM::GetAnswer</a></div><div class="ttdeci">std::string GetAnswer(std::vector&lt; llama_token &gt; &amp;embd)</div><div class="ttdoc">Get answer from LLM.</div><div class="ttdef"><b>Definition:</b> <a href="llm_8cpp_source.html#l00183">llm.cpp:183</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1_l_l_m_html_a62934eb91a69d319f5c7f1d6f8f49624"><div class="ttname"><a href="class_c_c_1_1_l_l_m.html#a62934eb91a69d319f5c7f1d6f8f49624">CC::LLM::LLM</a></div><div class="ttdeci">LLM(const std::string &amp;model_path, const std::string &amp;path_session=&quot;&quot;, const std::string &amp;person=&quot;User&quot;, const std::string &amp;bot_name=&quot;CustomChar&quot;)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> <a href="llm_8cpp_source.html#l00005">llm.cpp:5</a></div></div>
-<div class="ttc" id="aclass_c_c_1_1_l_l_m_html_a95b18be6eb0c1f13005100d59dcc5db3"><div class="ttname"><a href="class_c_c_1_1_l_l_m.html#a95b18be6eb0c1f13005100d59dcc5db3">CC::LLM::add_tokens_to_current_session</a></div><div class="ttdeci">void add_tokens_to_current_session(const std::vector&lt; llama_token &gt; &amp;tokens)</div><div class="ttdoc">Add new tokens to the sessions.</div><div class="ttdef"><b>Definition:</b> <a href="llm_8cpp_source.html#l00093">llm.cpp:93</a></div></div>
-<div class="ttc" id="aclass_c_c_1_1_l_l_m_html_aa808ab8fe6b3a3223a07330ae9205b9c"><div class="ttname"><a href="class_c_c_1_1_l_l_m.html#aa808ab8fe6b3a3223a07330ae9205b9c">CC::LLM::eval_model</a></div><div class="ttdeci">void eval_model()</div><div class="ttdoc">Evaluate the model. Run this function before inference.</div><div class="ttdef"><b>Definition:</b> <a href="llm_8cpp_source.html#l00135">llm.cpp:135</a></div></div>
-<div class="ttc" id="aclass_c_c_1_1_l_l_m_html_ada26e4a903d30780cfff0cd85b8c33c5"><div class="ttname"><a href="class_c_c_1_1_l_l_m.html#ada26e4a903d30780cfff0cd85b8c33c5">CC::LLM::load_session</a></div><div class="ttdeci">void load_session(const std::string &amp;path_session)</div><div class="ttdoc">Load session from file.</div><div class="ttdef"><b>Definition:</b> <a href="llm_8cpp_source.html#l00101">llm.cpp:101</a></div></div>
-<div class="ttc" id="anamespace_c_c_html"><div class="ttname"><a href="namespace_c_c.html">CC</a></div><div class="ttdef"><b>Definition:</b> <a href="character_8h_source.html#l00019">character.h:19</a></div></div>
-<div class="ttc" id="anamespace_c_c_html_a62409065eb4aad6c43acbc5c25987923"><div class="ttname"><a href="namespace_c_c.html#a62409065eb4aad6c43acbc5c25987923">CC::k_prompt_llama</a></div><div class="ttdeci">const std::string k_prompt_llama</div><div class="ttdef"><b>Definition:</b> <a href="llm_8h_source.html#l00018">llm.h:18</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1_l_l_m_html_a968cc98c7768f1d6d2c4f9208c0ed6f3"><div class="ttname"><a href="class_c_c_1_1_l_l_m.html#a968cc98c7768f1d6d2c4f9208c0ed6f3">CC::LLM::AddTokensToCurrentSession</a></div><div class="ttdeci">void AddTokensToCurrentSession(const std::vector&lt; llama_token &gt; &amp;tokens)</div><div class="ttdoc">Add new tokens to the sessions.</div><div class="ttdef"><b>Definition:</b> <a href="llm_8cpp_source.html#l00093">llm.cpp:93</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1_l_l_m_html_abaec4579691e7361529a8443d687be14"><div class="ttname"><a href="class_c_c_1_1_l_l_m.html#abaec4579691e7361529a8443d687be14">CC::LLM::EvalModel</a></div><div class="ttdeci">void EvalModel()</div><div class="ttdoc">Evaluate the model. Run this function before inference.</div><div class="ttdef"><b>Definition:</b> <a href="llm_8cpp_source.html#l00134">llm.cpp:134</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1_l_l_m_html_ac531616743d82ca79af649ba4d34dc55"><div class="ttname"><a href="class_c_c_1_1_l_l_m.html#ac531616743d82ca79af649ba4d34dc55">CC::LLM::Tokenize</a></div><div class="ttdeci">std::vector&lt; llama_token &gt; Tokenize(const std::string &amp;text, bool add_bos)</div><div class="ttdoc">Tokenize text.</div><div class="ttdef"><b>Definition:</b> <a href="llm_8cpp_source.html#l00082">llm.cpp:82</a></div></div>
+<div class="ttc" id="anamespace_c_c_html"><div class="ttname"><a href="namespace_c_c.html">CC</a></div><div class="ttdef"><b>Definition:</b> <a href="speech__recognizer_8h_source.html#l00016">speech_recognizer.h:16</a></div></div>
+<div class="ttc" id="anamespace_c_c_html_aed131cb3aea1de3dfd83880bcf3c4f8f"><div class="ttname"><a href="namespace_c_c.html#aed131cb3aea1de3dfd83880bcf3c4f8f">CC::kPromptLlama</a></div><div class="ttdeci">const std::string kPromptLlama</div><div class="ttdef"><b>Definition:</b> <a href="llm_8h_source.html#l00019">llm.h:19</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_52329a553313b1bc9a682fb2a0654934.html">customchar</a></li><li class="navelem"><b>llm.h</b></li>
+    <li class="navelem"><a class="el" href="dir_52329a553313b1bc9a682fb2a0654934.html">customchar</a></li><li class="navelem"><a class="el" href="dir_da74774c9da621ca7251993075d31b18.html">llm</a></li><li class="navelem"><b>llm.h</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

@@ -90,46 +90,49 @@ $(document).ready(function(){initNavTree('chat__message_8h_source.html',''); ini
 <div class="title">chat_message.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_chat_message.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_chat_message.html">ChatMessage</a> {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <a class="code" href="class_chat_message.html#a2ed5fc0f5be09e27ca956aca65d405c8">ChatMessage</a>();</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <a class="code" href="class_chat_message.html#a2ed5fc0f5be09e27ca956aca65d405c8">ChatMessage</a>(std::string, std::string);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <a class="code" href="class_chat_message.html#aba3256c4da91654e667c3fddf1613d8d">~ChatMessage</a>();</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_chat_message.html#a676078149fdcb3796fab2b54d5d65425">set_message</a>(std::string);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_chat_message.html#a676078149fdcb3796fab2b54d5d65425">set_message</a>(std::string, std::string);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_chat_message.html#afe12efc71088e26bbc5734c914f952f4">set_sender</a>(std::string);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_chat_message.html#af557574ac56696d7d7556bda6dcfd79a">set_time</a>();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  std::string <a class="code" href="class_chat_message.html#a101d62dddb263e50e5cd3bb58e856724">get_message</a>();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  std::string <a class="code" href="class_chat_message.html#a110afa1397f6344b89315ace034f5002">get_sender</a>();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  std::string <a class="code" href="class_chat_message.html#a361907b99ad64ced52a8ee3a2afe0395">get_time</a>();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  std::string message;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  std::string sender;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  std::string timestamp;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
-<div class="ttc" id="aclass_chat_message_html"><div class="ttname"><a href="class_chat_message.html">ChatMessage</a></div><div class="ttdef"><b>Definition:</b> <a href="chat__message_8h_source.html#l00006">chat_message.h:6</a></div></div>
-<div class="ttc" id="aclass_chat_message_html_a101d62dddb263e50e5cd3bb58e856724"><div class="ttname"><a href="class_chat_message.html#a101d62dddb263e50e5cd3bb58e856724">ChatMessage::get_message</a></div><div class="ttdeci">std::string get_message()</div><div class="ttdef"><b>Definition:</b> <a href="chat__message_8cpp_source.html#l00031">chat_message.cpp:31</a></div></div>
-<div class="ttc" id="aclass_chat_message_html_a110afa1397f6344b89315ace034f5002"><div class="ttname"><a href="class_chat_message.html#a110afa1397f6344b89315ace034f5002">ChatMessage::get_sender</a></div><div class="ttdeci">std::string get_sender()</div><div class="ttdef"><b>Definition:</b> <a href="chat__message_8cpp_source.html#l00033">chat_message.cpp:33</a></div></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CUSTOMCHAR_SESSION_CHAT_MESSAGE_H_</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CUSTOMCHAR_SESSION_CHAT_MESSAGE_H_</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_chat_message.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_chat_message.html">ChatMessage</a> {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <a class="code" href="class_chat_message.html#a2ed5fc0f5be09e27ca956aca65d405c8">ChatMessage</a>();</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <a class="code" href="class_chat_message.html#a2ed5fc0f5be09e27ca956aca65d405c8">ChatMessage</a>(std::string, std::string);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <a class="code" href="class_chat_message.html#aba3256c4da91654e667c3fddf1613d8d">~ChatMessage</a>();</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_chat_message.html#a2431ce0c38edacaa19bb3f1b322ccb89">SetMessage</a>(std::string);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_chat_message.html#a2431ce0c38edacaa19bb3f1b322ccb89">SetMessage</a>(std::string, std::string);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_chat_message.html#a73c70356965877bdb487e690ef2dc50d">SetSender</a>(std::string);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_chat_message.html#aa196b8c078e56ed067042e2a5312f2f5">SetTime</a>();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  std::string <a class="code" href="class_chat_message.html#af31b0c5c8ba6047ff05715f5a0d71b77">GetMessage</a>();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  std::string <a class="code" href="class_chat_message.html#a5bbcd13223931833a6933d6c910b7770">GetSender</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  std::string <a class="code" href="class_chat_message.html#ad65cbcde5aff19f3ce77fe92bb6447a8">GetTime</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  std::string message_;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  std::string sender_;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  std::string timestamp_;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// CUSTOMCHAR_SESSION_CHAT_MESSAGE_H_</span></div>
+<div class="ttc" id="aclass_chat_message_html"><div class="ttname"><a href="class_chat_message.html">ChatMessage</a></div><div class="ttdef"><b>Definition:</b> <a href="chat__message_8h_source.html#l00007">chat_message.h:7</a></div></div>
+<div class="ttc" id="aclass_chat_message_html_a2431ce0c38edacaa19bb3f1b322ccb89"><div class="ttname"><a href="class_chat_message.html#a2431ce0c38edacaa19bb3f1b322ccb89">ChatMessage::SetMessage</a></div><div class="ttdeci">void SetMessage(std::string)</div><div class="ttdef"><b>Definition:</b> <a href="chat__message_8cpp_source.html#l00016">chat_message.cpp:16</a></div></div>
 <div class="ttc" id="aclass_chat_message_html_a2ed5fc0f5be09e27ca956aca65d405c8"><div class="ttname"><a href="class_chat_message.html#a2ed5fc0f5be09e27ca956aca65d405c8">ChatMessage::ChatMessage</a></div><div class="ttdeci">ChatMessage()</div><div class="ttdef"><b>Definition:</b> <a href="chat__message_8cpp_source.html#l00005">chat_message.cpp:5</a></div></div>
-<div class="ttc" id="aclass_chat_message_html_a361907b99ad64ced52a8ee3a2afe0395"><div class="ttname"><a href="class_chat_message.html#a361907b99ad64ced52a8ee3a2afe0395">ChatMessage::get_time</a></div><div class="ttdeci">std::string get_time()</div><div class="ttdef"><b>Definition:</b> <a href="chat__message_8cpp_source.html#l00035">chat_message.cpp:35</a></div></div>
-<div class="ttc" id="aclass_chat_message_html_a676078149fdcb3796fab2b54d5d65425"><div class="ttname"><a href="class_chat_message.html#a676078149fdcb3796fab2b54d5d65425">ChatMessage::set_message</a></div><div class="ttdeci">void set_message(std::string)</div><div class="ttdef"><b>Definition:</b> <a href="chat__message_8cpp_source.html#l00016">chat_message.cpp:16</a></div></div>
+<div class="ttc" id="aclass_chat_message_html_a5bbcd13223931833a6933d6c910b7770"><div class="ttname"><a href="class_chat_message.html#a5bbcd13223931833a6933d6c910b7770">ChatMessage::GetSender</a></div><div class="ttdeci">std::string GetSender()</div><div class="ttdef"><b>Definition:</b> <a href="chat__message_8cpp_source.html#l00033">chat_message.cpp:33</a></div></div>
+<div class="ttc" id="aclass_chat_message_html_a73c70356965877bdb487e690ef2dc50d"><div class="ttname"><a href="class_chat_message.html#a73c70356965877bdb487e690ef2dc50d">ChatMessage::SetSender</a></div><div class="ttdeci">void SetSender(std::string)</div><div class="ttdef"><b>Definition:</b> <a href="chat__message_8cpp_source.html#l00023">chat_message.cpp:23</a></div></div>
+<div class="ttc" id="aclass_chat_message_html_aa196b8c078e56ed067042e2a5312f2f5"><div class="ttname"><a href="class_chat_message.html#aa196b8c078e56ed067042e2a5312f2f5">ChatMessage::SetTime</a></div><div class="ttdeci">void SetTime()</div><div class="ttdef"><b>Definition:</b> <a href="chat__message_8cpp_source.html#l00025">chat_message.cpp:25</a></div></div>
 <div class="ttc" id="aclass_chat_message_html_aba3256c4da91654e667c3fddf1613d8d"><div class="ttname"><a href="class_chat_message.html#aba3256c4da91654e667c3fddf1613d8d">ChatMessage::~ChatMessage</a></div><div class="ttdeci">~ChatMessage()</div><div class="ttdef"><b>Definition:</b> <a href="chat__message_8cpp_source.html#l00014">chat_message.cpp:14</a></div></div>
-<div class="ttc" id="aclass_chat_message_html_af557574ac56696d7d7556bda6dcfd79a"><div class="ttname"><a href="class_chat_message.html#af557574ac56696d7d7556bda6dcfd79a">ChatMessage::set_time</a></div><div class="ttdeci">void set_time()</div><div class="ttdef"><b>Definition:</b> <a href="chat__message_8cpp_source.html#l00025">chat_message.cpp:25</a></div></div>
-<div class="ttc" id="aclass_chat_message_html_afe12efc71088e26bbc5734c914f952f4"><div class="ttname"><a href="class_chat_message.html#afe12efc71088e26bbc5734c914f952f4">ChatMessage::set_sender</a></div><div class="ttdeci">void set_sender(std::string)</div><div class="ttdef"><b>Definition:</b> <a href="chat__message_8cpp_source.html#l00023">chat_message.cpp:23</a></div></div>
+<div class="ttc" id="aclass_chat_message_html_ad65cbcde5aff19f3ce77fe92bb6447a8"><div class="ttname"><a href="class_chat_message.html#ad65cbcde5aff19f3ce77fe92bb6447a8">ChatMessage::GetTime</a></div><div class="ttdeci">std::string GetTime()</div><div class="ttdef"><b>Definition:</b> <a href="chat__message_8cpp_source.html#l00035">chat_message.cpp:35</a></div></div>
+<div class="ttc" id="aclass_chat_message_html_af31b0c5c8ba6047ff05715f5a0d71b77"><div class="ttname"><a href="class_chat_message.html#af31b0c5c8ba6047ff05715f5a0d71b77">ChatMessage::GetMessage</a></div><div class="ttdeci">std::string GetMessage()</div><div class="ttdef"><b>Definition:</b> <a href="chat__message_8cpp_source.html#l00031">chat_message.cpp:31</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_52329a553313b1bc9a682fb2a0654934.html">customchar</a></li><li class="navelem"><b>chat_message.h</b></li>
+    <li class="navelem"><a class="el" href="dir_52329a553313b1bc9a682fb2a0654934.html">customchar</a></li><li class="navelem"><a class="el" href="dir_6dd9c96eb86d64f5feeffb568b66cf7a.html">session</a></li><li class="navelem"><b>chat_message.h</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

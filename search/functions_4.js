@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['finished_5ftalking_119',['finished_talking',['../class_c_c_1_1_voice_recorder.html#a6cd3c8c8b5baa28cd04046945203258f',1,'CC::VoiceRecorder']]]
+  ['finishedtalking_119',['FinishedTalking',['../class_c_c_1_1_voice_recorder.html#afa37a38fa1931dd9f2632ac8c438c858',1,'CC::VoiceRecorder']]]
 ];

@@ -1,7 +1,7 @@
 var class_c_c_1_1_character =
 [
-    [ "Character", "class_c_c_1_1_character.html#aec56c1109fdc834ce9f5b3d28157376f", null ],
-    [ "run", "class_c_c_1_1_character.html#a0ac55e9180d2164dffc9f1cf1c0213b5", null ],
-    [ "set_on_bot_message", "class_c_c_1_1_character.html#abef380a746af81136530b1795487fb22", null ],
-    [ "set_on_user_message", "class_c_c_1_1_character.html#a82e66d0947d27aaed23357392db09f0c", null ]
+    [ "Character", "class_c_c_1_1_character.html#ac873fabae0b27d1fd07d39be894016a5", null ],
+    [ "Run", "class_c_c_1_1_character.html#a3861f4c6f3023dc83c614fa7dabb0cfb", null ],
+    [ "SetOnBotMessage", "class_c_c_1_1_character.html#a8910f29efcd8e26248661c8d059e6288", null ],
+    [ "SetOnUserMessage", "class_c_c_1_1_character.html#a541ac1dfd3adf3fcd68b63a6f8e1ffe3", null ]
 ];
