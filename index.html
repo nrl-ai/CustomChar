@@ -118,12 +118,12 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <h1>3. Features</h1>
 <ul>
 <li>[ ] Build AI characters from the knowledge database 💬💬💬 :<ul>
-<li>[x] LLamaCpp for LLM. Chat with Llama-V2 on all platforms.</li>
+<li>[x] LLamaCpp for LLM. Chat with <b>Llama-V2</b> on <b>all platforms</b>.</li>
 <li>[ ] Knowledge indexing and searching.</li>
 </ul>
 </li>
 <li>[x] Talk to your character 🎤🎤🎤 :<ul>
-<li>[x] STT with whisper.cpp. Now supports speech recognition on all platforms.</li>
+<li>[x] STT with <b>whisper.cpp</b>. Now supports speech recognition <b>on all platforms</b>.</li>
 </ul>
 </li>
 <li>[ ] Hear from your character 🔊🔊🔊 :<ul>
@@ -149,12 +149,17 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </li>
 </ul>
 <h1>4. Build</h1>
-<p><b>CustomChar</b> depends on SDL2 library to capture audio from the microphone. Install SDL2 library before building.</p>
-<div class="fragment"><div class="line"># Install SDL2 on Linux</div>
-<div class="line">sudo apt-get install libsdl2-dev</div>
-<div class="line"> </div>
-<div class="line"># Install SDL2 on Mac OS</div>
-<div class="line">brew install sdl2</div>
+<p>Install dependencies:</p>
+<ul>
+<li><a href="https://cmake.org/download/">CMake</a></li>
+<li>C++ 14 compiler</li>
+</ul>
+<p>On macOS:</p>
+<div class="fragment"><div class="line">brew install sdl2 glew glfw3</div>
+</div><!-- fragment --><p>On Ubuntu:</p>
+<div class="fragment"><div class="line">sudo apt-get install libsdl2-dev libglew-dev libglfw3-dev</div>
+</div><!-- fragment --><p>On Windows:</p>
+<div class="fragment"><div class="line">vcpkg install sdl2:x64-windows glew:x64-windows glfw3:x64-windows</div>
 </div><!-- fragment --><p>Build the <b>CustomChar</b> executable:</p>
 <div class="fragment"><div class="line">mkdir build</div>
 <div class="line">cd build</div>
@@ -167,18 +172,19 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="fragment"><div class="line">./customchar</div>
 </div><!-- fragment --><h1>6. Build documentation</h1>
 <ul>
-<li>Step 1: Install <b>doxygen</b> first.</li>
-<li>Step 2: Build the documentation:</li>
+<li><b>Step 1:</b> Install <b>doxygen</b> first.</li>
+<li><b>Step 2:</b> Build the documentation:</li>
 </ul>
 <div class="fragment"><div class="line">doxygen Doxyfile.in</div>
 </div><!-- fragment --><ul>
-<li>Step 3: Deploy html documentation from <code>docs/_build/html</code>.</li>
-<li>Step 4: Our latest documentation is deployed at <a href="https://docs.customchar.com">https://docs.customchar.com</a>.</li>
+<li><b>Step 3:</b> Deploy html documentation from <code>docs/_build/html</code>.</li>
+<li><b>Step 4:</b> Our latest documentation is deployed at <a href="https://docs.customchar.com">https://docs.customchar.com</a>.</li>
 </ul>
 <h1>7. Contribution</h1>
 <p>We welcome all contributions to this project.</p>
 <ul>
 <li>For coding style, please follow the style of the existing code.</li>
+<li>Install <a href="https://clang.llvm.org/docs/ClangFormat.html">clang-format</a>.</li>
 <li>We use a format tool for auto formatting the code. You can use the following command to format code before committing:</li>
 </ul>
 <div class="fragment"><div class="line">pre-commit install # Install pre-commit hook</div>
@@ -187,7 +193,11 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <p><a href="https://star-history.com/#vietanhdev/CustomChar"><img src="https://api.star-history.com/svg?repos=vietanhdev/CustomChar&amp;type=Date" alt="Star History Chart" class="inline"/></a></p>
 <h1>9. References</h1>
 <ul>
-<li><a href="https://github.com/dalerank/imspinner">https://github.com/dalerank/imspinner</a> </li>
+<li>Spinner: <a href="https://github.com/dalerank/imspinner">https://github.com/dalerank/imspinner</a>.</li>
+<li>GGML: <a href="https://ggml.ai/">https://ggml.ai/</a>.</li>
+<li>llama.cpp: <a href="https://github.com/ggerganov/llama.cpp">https://github.com/ggerganov/llama.cpp</a>.</li>
+<li>whisper.cpp: <a href="https://github.com/ggerganov/whisper.cpp">https://github.com/ggerganov/whisper.cpp</a>.</li>
+<li>LLaMA-v2: <a href="https://ai.meta.com/llama/">https://ai.meta.com/llama/</a>. </li>
 </ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
