@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('voice__synthesizer_8cpp_source.html','
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_c_c_1_1audio_1_1_voice_synthesizer.html#a1cd8d65da1503e72f5e848877cc661d7">    7</a></span>&#160;<a class="code" href="class_c_c_1_1audio_1_1_voice_synthesizer.html#a1cd8d65da1503e72f5e848877cc661d7">VoiceSynthesizer::VoiceSynthesizer</a>() {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <span class="comment">// Check if the Say command is supported</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  std::string command = <span class="stringliteral">&quot;Say --version&quot;</span>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  std::string command = <span class="stringliteral">&quot;which say&quot;</span>;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  FILE* pipe = popen(command.c_str(), <span class="stringliteral">&quot;r&quot;</span>);</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="keywordflow">if</span> (pipe == <span class="keyword">nullptr</span>) {</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    printf(<span class="stringliteral">&quot;Failed to run command: %s\n&quot;</span>, command.c_str());</div>

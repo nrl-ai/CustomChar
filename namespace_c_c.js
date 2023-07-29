@@ -6,5 +6,6 @@ var namespace_c_c =
     [ "embeddb", "namespace_c_c_1_1embeddb.html", "namespace_c_c_1_1embeddb" ],
     [ "executors", "namespace_c_c_1_1executors.html", "namespace_c_c_1_1executors" ],
     [ "llm", "namespace_c_c_1_1llm.html", "namespace_c_c_1_1llm" ],
-    [ "session", "namespace_c_c_1_1session.html", "namespace_c_c_1_1session" ]
+    [ "session", "namespace_c_c_1_1session.html", "namespace_c_c_1_1session" ],
+    [ "vision", "namespace_c_c_1_1vision.html", "namespace_c_c_1_1vision" ]
 ];

@@ -13,6 +13,7 @@ var hierarchy =
     ] ],
     [ "CC::executors::PluginExecutor", "class_c_c_1_1executors_1_1_plugin_executor.html", null ],
     [ "CC::audio::SpeechRecognizer", "class_c_c_1_1audio_1_1_speech_recognizer.html", null ],
+    [ "CC::vision::VideoCapture", "class_c_c_1_1vision_1_1_video_capture.html", null ],
     [ "CC::audio::VoiceRecorder", "class_c_c_1_1audio_1_1_voice_recorder.html", null ],
     [ "CC::audio::VoiceSynthesizer", "class_c_c_1_1audio_1_1_voice_synthesizer.html", null ]
 ];

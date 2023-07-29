@@ -235,28 +235,27 @@ $(document).ready(function(){initNavTree('speech__recognizer_8cpp_source.html','
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> n_segments = whisper_full_n_segments(context_);</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n_segments; ++i) {</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* text = whisper_full_get_segment_text(context_, i);</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    result += text;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> n_tokens = whisper_full_n_tokens(context_, i);</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; n_tokens; ++j) {</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> token = whisper_full_get_token_data(context_, i, j);</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      prob += token.p;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      ++prob_n;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    }</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  }</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <span class="keywordflow">if</span> (prob_n &gt; 0) {</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    prob /= prob_n;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  }</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  <span class="keyword">const</span> <span class="keyword">auto</span> t_end = std::chrono::high_resolution_clock::now();</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  t_ms = std::chrono::duration_cast&lt;std::chrono::milliseconds&gt;(t_end - t_start)</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;             .count();</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;}</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    result += text;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> n_tokens = whisper_full_n_tokens(context_, i);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; n_tokens; ++j) {</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> token = whisper_full_get_token_data(context_, i, j);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;      prob += token.p;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      ++prob_n;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    }</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  }</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  <span class="keywordflow">if</span> (prob_n &gt; 0) {</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    prob /= prob_n;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  <span class="keyword">const</span> <span class="keyword">auto</span> t_end = std::chrono::high_resolution_clock::now();</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  t_ms = std::chrono::duration_cast&lt;std::chrono::milliseconds&gt;(t_end - t_start)</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;             .count();</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;}</div>
 <div class="ttc" id="aclass_c_c_1_1audio_1_1_speech_recognizer_html_a16f29b610fd1fcd045cd02bebc3ca9c0"><div class="ttname"><a href="class_c_c_1_1audio_1_1_speech_recognizer.html#a16f29b610fd1fcd045cd02bebc3ca9c0">CC::audio::SpeechRecognizer::Recognize</a></div><div class="ttdeci">std::string Recognize(const std::vector&lt; float &gt; &amp;audio_buff, float &amp;prob, int64_t &amp;t_ms)</div><div class="ttdoc">Recognize speech.</div><div class="ttdef"><b>Definition:</b> <a href="speech__recognizer_8cpp_source.html#l00094">speech_recognizer.cpp:94</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1audio_1_1_speech_recognizer_html_a30b9d9a77b9e37be98082a6a281af7a5"><div class="ttname"><a href="class_c_c_1_1audio_1_1_speech_recognizer.html#a30b9d9a77b9e37be98082a6a281af7a5">CC::audio::SpeechRecognizer::SpeechRecognizer</a></div><div class="ttdeci">SpeechRecognizer(const std::string &amp;model_path_, const std::string &amp;language, int32_t audio_ctx=0, int n_threads=4, int max_tokens=32, bool translate=false, bool no_timestamps=true, bool print_special=false, bool speed_up=false, const std::string &amp;person_=&quot;User&quot;, const std::string &amp;bot_name_=&quot;CustomChar&quot;)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> <a href="speech__recognizer_8cpp_source.html#l00007">speech_recognizer.cpp:7</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1audio_1_1_speech_recognizer_html_ac85e4be8356808398c4e231264a8e82a"><div class="ttname"><a href="class_c_c_1_1audio_1_1_speech_recognizer.html#ac85e4be8356808398c4e231264a8e82a">CC::audio::SpeechRecognizer::~SpeechRecognizer</a></div><div class="ttdeci">~SpeechRecognizer()</div><div class="ttdef"><b>Definition:</b> <a href="speech__recognizer_8cpp_source.html#l00054">speech_recognizer.cpp:54</a></div></div>
