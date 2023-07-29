@@ -51,8 +51,6 @@ void VoiceSynthesizer::Say(const std::string& text) {
     return;
   }
 
-  const int voice_id = 2;
-  std::string command =
-      "Say " + std::to_string(voice_id) + " \"" + PreProcess(text) + "\"";
+  std::string command = "say " + PreProcess(text);
   system(command.c_str());
 }
