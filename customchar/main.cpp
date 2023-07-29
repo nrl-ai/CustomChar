@@ -25,6 +25,7 @@
 #include "imspinner/imspinner.h"
 
 using namespace CC;
+using namespace CC::character;
 
 // [Win32] Our example includes a copy of glfw3.lib pre-compiled with VS2010 to
 // maximize ease of testing and compatibility with old VS compilers. To link
@@ -51,7 +52,7 @@ static void GLFWErrorCallback(int error, const char* description) {
 
 std::mutex mtx;
 bool OnNewMessage(const std::string& text, const std::string& sender,
-                  std::shared_ptr<ChatHistory> history) {
+                  std::shared_ptr<session::ChatHistory> history) {
   mtx.lock();
   history->AddMessage(text, sender);
   mtx.unlock();
@@ -61,7 +62,7 @@ bool OnNewMessage(const std::string& text, const std::string& sender,
 /**
  * @brief Main ImGUI loop
  */
-void runImgui(std::shared_ptr<ChatHistory> history) {
+void runImgui(std::shared_ptr<session::ChatHistory> history) {
   // Setup window
   glfwSetErrorCallback(GLFWErrorCallback);
   if (!glfwInit()) return;
@@ -169,7 +170,7 @@ void runImgui(std::shared_ptr<ChatHistory> history) {
     // TODO: Format chat history
     ImGui::Dummy(ImVec2(0, ImGui::GetContentRegionAvail().y));
 
-    for (ChatMessage message : history->GetCharHistory()) {
+    for (session::ChatMessage message : history->GetCharHistory()) {
       ImGui::Spacing();
       // ImGui::TextWrapped("%s", message.GetTime().c_str());
       ImGui::TextWrapped("> %s: %s", message.GetSender().c_str(),
@@ -234,7 +235,7 @@ void runImgui(std::shared_ptr<ChatHistory> history) {
 
 int main(int argc, char** argv) {
   // Parse command line arguments
-  CCParams params;
+  common::CCParams params;
   if (CCParamsParse(argc, argv, params) == false) {
     exit(1);
   }
@@ -245,7 +246,8 @@ int main(int argc, char** argv) {
   }
 
   // Initialize chat history
-  std::shared_ptr<ChatHistory> history = std::make_shared<ChatHistory>();
+  std::shared_ptr<session::ChatHistory> history =
+      std::make_shared<session::ChatHistory>();
 
   // Create character
   Character character(params);

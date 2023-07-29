@@ -2,6 +2,9 @@
 
 #include <ctime>
 
+using namespace CC;
+using namespace CC::session;
+
 ChatMessage::ChatMessage() {
   message_ = "";
   sender_ = "Unknown";

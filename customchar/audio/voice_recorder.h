@@ -13,6 +13,7 @@
 #include <vector>
 
 namespace CC {
+namespace audio {
 
 class VoiceRecorder {
  private:
@@ -36,6 +37,7 @@ class VoiceRecorder {
   void GetAudio(std::vector<float>& result);
 };  // class VoiceRecorder
 
+}  // namespace audio
 }  // namespace CC
 
 #endif  // CUSTOMCHAR_AUDIO_SPEECH_RECOGNIZER_H_

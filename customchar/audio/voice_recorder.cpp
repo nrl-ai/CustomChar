@@ -2,6 +2,7 @@
 #include "whisper-cpp/whisper.h"
 
 using namespace CC;
+using namespace CC::audio;
 
 VoiceRecorder::VoiceRecorder() {
   audio_ = new audio_async(30 * 1000);

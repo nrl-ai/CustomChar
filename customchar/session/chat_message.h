@@ -4,6 +4,9 @@
 #include <ctime>
 #include <string>
 
+namespace CC {
+namespace session {
+
 class ChatMessage {
  public:
   ChatMessage();
@@ -24,5 +27,8 @@ class ChatMessage {
   std::string sender_;
   std::string timestamp_;
 };
+
+}  // namespace session
+}  // namespace CC
 
 #endif  // CUSTOMCHAR_SESSION_CHAT_MESSAGE_H_

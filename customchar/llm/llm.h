@@ -15,6 +15,7 @@
 #include <vector>
 
 namespace CC {
+namespace llm {
 
 const std::string kPromptLlama =
     R"(Text transcript of a dialog, where {0} interacts with an AI assistant named {1}.
@@ -91,6 +92,7 @@ class LLM {
   std::string GetAnswer(std::vector<llama_token>& embd);
 };
 
+}  // namespace llm
 }  // namespace CC
 
 #endif  // CUSTOMCHAR_LLM_LLM_H_

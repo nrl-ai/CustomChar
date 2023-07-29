@@ -14,6 +14,7 @@
 #include <vector>
 
 namespace CC {
+namespace audio {
 
 class SpeechRecognizer {
  private:
@@ -65,6 +66,7 @@ class SpeechRecognizer {
 
 };  // class SpeechRecognizer
 
+}  // namespace audio
 }  // namespace CC
 
 #endif  // CUSTOMCHAR_AUDIO_SPEECH_RECOGNIZER_H_

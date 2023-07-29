@@ -1,5 +1,8 @@
 #include "customchar/common/common.h"
 
+using namespace CC;
+using namespace CC::common;
+
 std::string CC::common::Replace(const std::string& s, const std::string& from,
                                 const std::string& to) {
   std::string result = s;

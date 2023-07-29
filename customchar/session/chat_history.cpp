@@ -1,5 +1,8 @@
 #include "chat_history.h"
 
+using namespace CC;
+using namespace CC::session;
+
 ChatHistory::ChatHistory() { old_size_ = 0; }
 
 ChatHistory::~ChatHistory() {}

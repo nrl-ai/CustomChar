@@ -11,10 +11,11 @@
 #include <vector>
 
 using namespace CC;
+using namespace CC::character;
 
 int main(int argc, char** argv) {
   // Parse command line arguments
-  CCParams params;
+  common::CCParams params;
   if (CCParamsParse(argc, argv, params) == false) {
     exit(1);
   }

@@ -19,14 +19,15 @@
 #include <vector>
 
 namespace CC {
+namespace character {
 
 class Character {
  private:
-  CCParams params_;
-  std::shared_ptr<SpeechRecognizer> speech_recognizer_;
-  std::shared_ptr<VoiceRecorder> voice_recoder_;
-  std::shared_ptr<VoiceSynthesizer> voice_synthesizer_;
-  std::shared_ptr<LLM> llm_;
+  common::CCParams params_;
+  std::shared_ptr<audio::SpeechRecognizer> speech_recognizer_;
+  std::shared_ptr<audio::VoiceRecorder> voice_recoder_;
+  std::shared_ptr<audio::VoiceSynthesizer> voice_synthesizer_;
+  std::shared_ptr<llm::LLM> llm_;
   std::shared_ptr<executors::PluginExecutor> plugin_executor_;
 
   std::function<void(std::string)> on_user_message_;
@@ -35,7 +36,7 @@ class Character {
  public:
   /// @brief Constructor
   /// @param init_params
-  Character(CCParams init_params);
+  Character(common::CCParams init_params);
 
   /// @brief Set on user message callback
   /// @param on_user_message_
@@ -49,6 +50,7 @@ class Character {
   void Run();
 };
 
+}  // namespace character
 }  // namespace CC
 
 #endif  // CUSTOMCHAR_CHARACTER_CHARACTER_H_

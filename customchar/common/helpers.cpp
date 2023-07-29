@@ -1,6 +1,9 @@
 #include "customchar/common/helpers.h"
 
-void CC::CCPrintUsage(int /*argc*/, char** argv, const CCParams& params) {
+using namespace CC;
+using namespace CC::common;
+
+void common::CCPrintUsage(int /*argc*/, char** argv, const CCParams& params) {
   fprintf(stderr, "\n");
   fprintf(stderr, "usage: %s [options]\n", argv[0]);
   fprintf(stderr, "\n");
@@ -71,12 +74,12 @@ void CC::CCPrintUsage(int /*argc*/, char** argv, const CCParams& params) {
   fprintf(stderr, "\n");
 }
 
-bool CC::CCParamsParse(int argc, char** argv, CCParams& params) {
+bool common::CCParamsParse(int argc, char** argv, CCParams& params) {
   for (int i = 1; i < argc; i++) {
     std::string arg = argv[i];
 
     if (arg == "-h" || arg == "--help") {
-      CC::CCPrintUsage(argc, argv, params);
+      common::CCPrintUsage(argc, argv, params);
       exit(0);
     } else if (arg == "-t" || arg == "--threads") {
       params.n_threads = std::stoi(argv[++i]);

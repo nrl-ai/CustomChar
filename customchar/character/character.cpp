@@ -1,21 +1,23 @@
 #include "customchar/character/character.h"
 
 using namespace CC;
+using namespace CC::character;
 
-Character::Character(CCParams init_params) {
+Character::Character(common::CCParams init_params) {
   params_ = init_params;
 
   // CC components
-  speech_recognizer_ = std::make_shared<SpeechRecognizer>(
+  speech_recognizer_ = std::make_shared<audio::SpeechRecognizer>(
       params_.sr_model_path, params_.language, params_.audio_ctx,
       params_.n_threads, params_.max_tokens, params_.translate,
       params_.no_timestamps, params_.print_special, params_.speed_up);
-  voice_recoder_ = std::make_shared<VoiceRecorder>();
-  voice_synthesizer_ = std::make_shared<VoiceSynthesizer>();
+  voice_recoder_ = std::make_shared<audio::VoiceRecorder>();
+  voice_synthesizer_ = std::make_shared<audio::VoiceSynthesizer>();
 
   // Load LLM
-  llm_ = std::make_shared<LLM>(params_.llm_model_path, params_.path_session,
-                               params_.person, params_.bot_name);
+  llm_ =
+      std::make_shared<llm::LLM>(params_.llm_model_path, params_.path_session,
+                                 params_.person, params_.bot_name);
   llm_->EvalModel();
 
   // Load plugin executor

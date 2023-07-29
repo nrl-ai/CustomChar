@@ -10,6 +10,7 @@
 #include <vector>
 
 namespace CC {
+namespace common {
 
 /// @brief Parameters for CustomChar
 struct CCParams {
@@ -56,6 +57,7 @@ bool CCParamsParse(int argc, char** argv, CCParams& params);
 /// @param params Parsed parameters
 void CCPrintUsage(int /*argc*/, char** argv, const CCParams& params);
 
+}  // namespace common
 }  // namespace CC
 
 #endif  // CUSTOMCHAR_COMMON_HELPERS_H_

@@ -6,6 +6,9 @@
 
 #include "chat_message.h"
 
+namespace CC {
+namespace session {
+
 class ChatHistory {
  public:
   ChatHistory();
@@ -19,5 +22,8 @@ class ChatHistory {
   std::vector<ChatMessage> hist_vec_;
   std::vector<ChatMessage>::size_type old_size_;
 };
+
+}  // namespace session
+}  // namespace CC
 
 #endif  // CUSTOMCHAR_SESSION_CHAT_HISTORY_H_

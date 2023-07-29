@@ -2,6 +2,7 @@
 #include "customchar/common/common.h"
 
 using namespace CC;
+using namespace CC::audio;
 
 VoiceSynthesizer::VoiceSynthesizer() {
   // Check if the Say command is supported

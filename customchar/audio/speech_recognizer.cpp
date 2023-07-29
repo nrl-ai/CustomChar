@@ -2,6 +2,7 @@
 #include "customchar/common/common.h"
 
 using namespace CC;
+using namespace CC::audio;
 
 SpeechRecognizer::SpeechRecognizer(const std::string& model_path_,
                                    const std::string& language,

@@ -1,6 +1,7 @@
 #include "customchar/llm/llm.h"
 
 using namespace CC;
+using namespace CC::llm;
 
 LLM::LLM(const std::string& model_path, const std::string& path_session,
          const std::string& person, const std::string& bot_name)

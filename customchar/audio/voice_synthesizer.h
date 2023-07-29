@@ -10,6 +10,7 @@
 #include <vector>
 
 namespace CC {
+namespace audio {
 
 class VoiceSynthesizer {
  private:
@@ -26,6 +27,7 @@ class VoiceSynthesizer {
   void Say(const std::string& text);
 };
 
+}  // namespace audio
 }  // namespace CC
 
 #endif  // CUSTOMCHAR_AUDIO_SYNTHESIZER_H_
