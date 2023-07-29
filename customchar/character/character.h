@@ -6,6 +6,7 @@
 #include "customchar/audio/voice_synthesizer.h"
 #include "customchar/common/common.h"
 #include "customchar/common/helpers.h"
+#include "customchar/executors/plugin_executor.h"
 #include "customchar/llm/llm.h"
 
 #include <cassert>
@@ -26,6 +27,7 @@ class Character {
   std::shared_ptr<VoiceRecorder> voice_recoder_;
   std::shared_ptr<VoiceSynthesizer> voice_synthesizer_;
   std::shared_ptr<LLM> llm_;
+  std::shared_ptr<executors::PluginExecutor> plugin_executor_;
 
   std::function<void(std::string)> on_user_message_;
   std::function<void(std::string)> on_bot_message_;
