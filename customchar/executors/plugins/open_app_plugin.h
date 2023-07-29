@@ -15,7 +15,6 @@ class OpenAppPlugin : public Plugin {
   OpenAppPlugin(const std::string& name) : Plugin(name){};
   bool Handle(const std::string& input, std::string& response,
               bool& finished) override {
-    std::cout << "OpenAppPlugin::Handle" << std::endl;
     std::istringstream iss(input);
     std::vector<std::string> tokens{std::istream_iterator<std::string>{iss},
                                     std::istream_iterator<std::string>{}};
@@ -35,22 +34,34 @@ class OpenAppPlugin : public Plugin {
                                   [](char c) { return !std::isalnum(c); }),
                    app_name.end());
 
-    std::cout << "App name: " << app_name << std::endl;
+#ifdef __APPLE__
+    std::string open_command = "open ";
+#elif __linux__
+    std::string open_command = "xdg-open ";
+#elif _WIN32
+    std::string open_command = "start ";
+#endif
 
-    std::string open_command;
     if (app_name == "terminal") {
-      open_command = "open -a Terminal";
+#ifdef __APPLE__
+      open_command += "-a Terminal";
+#elif __linux__
+      open_command += "gnome-terminal";
+#elif _WIN32
+      open_command += "cmd";
+#endif
     } else if (app_name == "facebook") {
-      open_command = "open -a Safari https://www.facebook.com";
+      open_command += "https://www.facebook.com";
     } else if (app_name == "youtube") {
-      open_command = "open -a Safari https://www.youtube.com";
+      open_command += "https://www.youtube.com";
     } else if (app_name == "google") {
-      open_command = "open -a Safari https://www.google.com";
+      open_command += "https://www.google.com";
     } else {
       return false;
     }
     system(open_command.c_str());
 
+    std::cout << ">> " << app_name << ": " << open_command << std::endl;
     response = "Sure. Opening " + app_name;
     finished = true;
     return true;
