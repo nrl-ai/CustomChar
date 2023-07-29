@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kpromptllama_185',['kPromptLlama',['../namespace_c_c.html#aed131cb3aea1de3dfd83880bcf3c4f8f',1,'CC']]]
+  ['kpromptllama_193',['kPromptLlama',['../namespace_c_c_1_1llm.html#a43be6cb3cd77698e5cdd3b432089de87',1,'CC::llm']]]
 ];

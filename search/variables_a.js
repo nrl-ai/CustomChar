@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['translate_200',['translate',['../struct_c_c_1_1_c_c_params.html#aee6f23705c55dd35901bea2b3df89e5f',1,'CC::CCParams']]]
+  ['translate_208',['translate',['../struct_c_c_1_1common_1_1_c_c_params.html#a22e737e8ad754dde8ac5a781a391c2fb',1,'CC::common::CCParams']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['n_5fthreads_189',['n_threads',['../struct_c_c_1_1_c_c_params.html#a54b80278845b4d6b0352d6bd664d835c',1,'CC::CCParams']]],
-  ['no_5ftimestamps_190',['no_timestamps',['../struct_c_c_1_1_c_c_params.html#ac0c1b6ba9dbf4e6a975ef8bbd3b5679d',1,'CC::CCParams']]]
+  ['n_5fthreads_197',['n_threads',['../struct_c_c_1_1common_1_1_c_c_params.html#af316de1b066d34db9573be16e192f0c8',1,'CC::common::CCParams']]],
+  ['no_5ftimestamps_198',['no_timestamps',['../struct_c_c_1_1common_1_1_c_c_params.html#af81c2bca7dea24d4b31341c71ebe8b92',1,'CC::common::CCParams']]]
 ];

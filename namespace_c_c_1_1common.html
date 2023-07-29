@@ -87,19 +87,125 @@ $(document).ready(function(){initNavTree('namespace_c_c_1_1common.html',''); ini
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">CC::common Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_c_c_1_1common_1_1_c_c_params.html">CCParams</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parameters for CustomChar.  <a href="struct_c_c_1_1common_1_1_c_c_params.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a2aee6c2bbbd4c8c2e5aa7bdc3bc81952"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1common.html#a2aee6c2bbbd4c8c2e5aa7bdc3bc81952">Replace</a> (const std::string &amp;s, const std::string &amp;from, const std::string &amp;to)</td></tr>
 <tr class="memdesc:a2aee6c2bbbd4c8c2e5aa7bdc3bc81952"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace all occurrences of a substring with another substring.  <a href="namespace_c_c_1_1common.html#a2aee6c2bbbd4c8c2e5aa7bdc3bc81952">More...</a><br /></td></tr>
 <tr class="separator:a2aee6c2bbbd4c8c2e5aa7bdc3bc81952"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a686a23afe6c1f47d95a11bd6f9e8f087"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1common.html#a686a23afe6c1f47d95a11bd6f9e8f087">CCParamsParse</a> (int argc, char **argv, <a class="el" href="struct_c_c_1_1common_1_1_c_c_params.html">CCParams</a> &amp;params)</td></tr>
+<tr class="memdesc:a686a23afe6c1f47d95a11bd6f9e8f087"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse command line arguments.  <a href="namespace_c_c_1_1common.html#a686a23afe6c1f47d95a11bd6f9e8f087">More...</a><br /></td></tr>
+<tr class="separator:a686a23afe6c1f47d95a11bd6f9e8f087"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c362c5a19f77a0d85059609686e6cd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1common.html#a0c362c5a19f77a0d85059609686e6cd6">CCPrintUsage</a> (int, char **argv, const <a class="el" href="struct_c_c_1_1common_1_1_c_c_params.html">CCParams</a> &amp;params)</td></tr>
+<tr class="memdesc:a0c362c5a19f77a0d85059609686e6cd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print usage.  <a href="namespace_c_c_1_1common.html#a0c362c5a19f77a0d85059609686e6cd6">More...</a><br /></td></tr>
+<tr class="separator:a0c362c5a19f77a0d85059609686e6cd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a686a23afe6c1f47d95a11bd6f9e8f087"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a686a23afe6c1f47d95a11bd6f9e8f087">&#9670;&nbsp;</a></span>CCParamsParse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CC::common::CCParamsParse </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_c_c_1_1common_1_1_c_c_params.html">CCParams</a> &amp;&#160;</td>
+          <td class="paramname"><em>params</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Parse command line arguments. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argc</td><td>Number of arguments </td></tr>
+    <tr><td class="paramname">argv</td><td>Arguments </td></tr>
+    <tr><td class="paramname">params</td><td>Parsed parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if parsing was successful </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="helpers_8cpp_source.html#l00077">77</a> of file <a class="el" href="helpers_8cpp_source.html">helpers.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0c362c5a19f77a0d85059609686e6cd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c362c5a19f77a0d85059609686e6cd6">&#9670;&nbsp;</a></span>CCPrintUsage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CC::common::CCPrintUsage </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_c_c_1_1common_1_1_c_c_params.html">CCParams</a> &amp;&#160;</td>
+          <td class="paramname"><em>params</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print usage. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argc</td><td>Number of arguments </td></tr>
+    <tr><td class="paramname">argv</td><td>Arguments </td></tr>
+    <tr><td class="paramname">params</td><td>Parsed parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="helpers_8cpp_source.html#l00006">6</a> of file <a class="el" href="helpers_8cpp_source.html">helpers.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a2aee6c2bbbd4c8c2e5aa7bdc3bc81952"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2aee6c2bbbd4c8c2e5aa7bdc3bc81952">&#9670;&nbsp;</a></span>Replace()</h2>
 
@@ -143,7 +249,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>New string with all occurrences of <code>from</code> replaced with <code>to</code>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="common_8cpp_source.html#l00003">3</a> of file <a class="el" href="common_8cpp_source.html">common.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="common_8cpp_source.html#l00006">6</a> of file <a class="el" href="common_8cpp_source.html">common.cpp</a>.</p>
 
 </div>
 </div>

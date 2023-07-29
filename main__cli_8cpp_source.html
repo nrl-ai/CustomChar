@@ -103,33 +103,35 @@ $(document).ready(function(){initNavTree('main__cli_8cpp_source.html',''); initR
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespace_c_c.html">CC</a>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv) {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="comment">// Parse command line arguments</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <a class="code" href="struct_c_c_1_1_c_c_params.html">CCParams</a> params;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="namespace_c_c.html#ae1c21494e935cbcd97a4e3d5b866a5c5">CCParamsParse</a>(argc, argv, params) == <span class="keyword">false</span>) {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    exit(1);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  }</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keywordflow">if</span> (whisper_lang_id(params.<a class="code" href="struct_c_c_1_1_c_c_params.html#aed170d8fea3b187c318f43f20558a83d">language</a>.c_str()) == -1) {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    fprintf(stderr, <span class="stringliteral">&quot;error: unknown language &#39;%s&#39;\n&quot;</span>, params.<a class="code" href="struct_c_c_1_1_c_c_params.html#aed170d8fea3b187c318f43f20558a83d">language</a>.c_str());</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="namespace_c_c.html#a990774f8fd414ddd67fecc59c3a7d63e">CCPrintUsage</a>(argc, argv, params);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    exit(1);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="comment">// Create character</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <a class="code" href="class_c_c_1_1_character.html">Character</a> character(params);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="comment">// Run character</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  character.Run();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
-<div class="ttc" id="aclass_c_c_1_1_character_html"><div class="ttname"><a href="class_c_c_1_1_character.html">CC::Character</a></div><div class="ttdef"><b>Definition:</b> <a href="character_8h_source.html#l00023">character.h:23</a></div></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespace_c_c_1_1character.html">CC::character</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv) {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="comment">// Parse command line arguments</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <a class="code" href="struct_c_c_1_1common_1_1_c_c_params.html">common::CCParams</a> params;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="namespace_c_c_1_1common.html#a686a23afe6c1f47d95a11bd6f9e8f087">CCParamsParse</a>(argc, argv, params) == <span class="keyword">false</span>) {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    exit(1);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keywordflow">if</span> (whisper_lang_id(params.<a class="code" href="struct_c_c_1_1common_1_1_c_c_params.html#a544e83c9149850452034432c650fe647">language</a>.c_str()) == -1) {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    fprintf(stderr, <span class="stringliteral">&quot;error: unknown language &#39;%s&#39;\n&quot;</span>, params.<a class="code" href="struct_c_c_1_1common_1_1_c_c_params.html#a544e83c9149850452034432c650fe647">language</a>.c_str());</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="namespace_c_c_1_1common.html#a0c362c5a19f77a0d85059609686e6cd6">CCPrintUsage</a>(argc, argv, params);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    exit(1);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="comment">// Create character</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <a class="code" href="class_c_c_1_1character_1_1_character.html">Character</a> character(params);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="comment">// Run character</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  character.Run();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="ttc" id="aclass_c_c_1_1character_1_1_character_html"><div class="ttname"><a href="class_c_c_1_1character_1_1_character.html">CC::character::Character</a></div><div class="ttdef"><b>Definition:</b> <a href="character_8h_source.html#l00024">character.h:24</a></div></div>
+<div class="ttc" id="anamespace_c_c_1_1character_html"><div class="ttname"><a href="namespace_c_c_1_1character.html">CC::character</a></div><div class="ttdef"><b>Definition:</b> <a href="character_8h_source.html#l00022">character.h:22</a></div></div>
+<div class="ttc" id="anamespace_c_c_1_1common_html_a0c362c5a19f77a0d85059609686e6cd6"><div class="ttname"><a href="namespace_c_c_1_1common.html#a0c362c5a19f77a0d85059609686e6cd6">CC::common::CCPrintUsage</a></div><div class="ttdeci">void CCPrintUsage(int, char **argv, const CCParams &amp;params)</div><div class="ttdoc">Print usage.</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8cpp_source.html#l00006">helpers.cpp:6</a></div></div>
+<div class="ttc" id="anamespace_c_c_1_1common_html_a686a23afe6c1f47d95a11bd6f9e8f087"><div class="ttname"><a href="namespace_c_c_1_1common.html#a686a23afe6c1f47d95a11bd6f9e8f087">CC::common::CCParamsParse</a></div><div class="ttdeci">bool CCParamsParse(int argc, char **argv, CCParams &amp;params)</div><div class="ttdoc">Parse command line arguments.</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8cpp_source.html#l00077">helpers.cpp:77</a></div></div>
 <div class="ttc" id="anamespace_c_c_html"><div class="ttname"><a href="namespace_c_c.html">CC</a></div><div class="ttdef"><b>Definition:</b> <a href="speech__recognizer_8h_source.html#l00016">speech_recognizer.h:16</a></div></div>
-<div class="ttc" id="anamespace_c_c_html_a990774f8fd414ddd67fecc59c3a7d63e"><div class="ttname"><a href="namespace_c_c.html#a990774f8fd414ddd67fecc59c3a7d63e">CC::CCPrintUsage</a></div><div class="ttdeci">void CCPrintUsage(int, char **argv, const CCParams &amp;params)</div><div class="ttdoc">Print usage.</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8cpp_source.html#l00003">helpers.cpp:3</a></div></div>
-<div class="ttc" id="anamespace_c_c_html_ae1c21494e935cbcd97a4e3d5b866a5c5"><div class="ttname"><a href="namespace_c_c.html#ae1c21494e935cbcd97a4e3d5b866a5c5">CC::CCParamsParse</a></div><div class="ttdeci">bool CCParamsParse(int argc, char **argv, CCParams &amp;params)</div><div class="ttdoc">Parse command line arguments.</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8cpp_source.html#l00074">helpers.cpp:74</a></div></div>
-<div class="ttc" id="astruct_c_c_1_1_c_c_params_html"><div class="ttname"><a href="struct_c_c_1_1_c_c_params.html">CC::CCParams</a></div><div class="ttdoc">Parameters for CustomChar.</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8h_source.html#l00015">helpers.h:15</a></div></div>
-<div class="ttc" id="astruct_c_c_1_1_c_c_params_html_aed170d8fea3b187c318f43f20558a83d"><div class="ttname"><a href="struct_c_c_1_1_c_c_params.html#aed170d8fea3b187c318f43f20558a83d">CC::CCParams::language</a></div><div class="ttdeci">std::string language</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8h_source.html#l00037">helpers.h:37</a></div></div>
+<div class="ttc" id="astruct_c_c_1_1common_1_1_c_c_params_html"><div class="ttname"><a href="struct_c_c_1_1common_1_1_c_c_params.html">CC::common::CCParams</a></div><div class="ttdoc">Parameters for CustomChar.</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8h_source.html#l00016">helpers.h:16</a></div></div>
+<div class="ttc" id="astruct_c_c_1_1common_1_1_c_c_params_html_a544e83c9149850452034432c650fe647"><div class="ttname"><a href="struct_c_c_1_1common_1_1_c_c_params.html#a544e83c9149850452034432c650fe647">CC::common::CCParams::language</a></div><div class="ttdeci">std::string language</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8h_source.html#l00038">helpers.h:38</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

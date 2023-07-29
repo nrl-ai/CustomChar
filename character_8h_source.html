@@ -111,46 +111,48 @@ $(document).ready(function(){initNavTree('character_8h_source.html',''); initRes
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_c_c.html">CC</a> {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_c_c_1_1_character.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_c_1_1_character.html">Character</a> {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <a class="code" href="struct_c_c_1_1_c_c_params.html">CCParams</a> params_;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  std::shared_ptr&lt;SpeechRecognizer&gt; speech_recognizer_;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  std::shared_ptr&lt;VoiceRecorder&gt; voice_recoder_;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  std::shared_ptr&lt;VoiceSynthesizer&gt; voice_synthesizer_;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  std::shared_ptr&lt;LLM&gt; llm_;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  std::shared_ptr&lt;executors::PluginExecutor&gt; plugin_executor_;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  std::function&lt;void(std::string)&gt; on_user_message_;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  std::function&lt;void(std::string)&gt; on_bot_message_;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; <span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">  /// @brief Constructor</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">  /// @param init_params</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"></span>  <a class="code" href="class_c_c_1_1_character.html#ac873fabae0b27d1fd07d39be894016a5">Character</a>(<a class="code" href="struct_c_c_1_1_c_c_params.html">CCParams</a> init_params);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">  /// @brief Set on user message callback</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">  /// @param on_user_message_</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"></span>  <span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1_character.html#a541ac1dfd3adf3fcd68b63a6f8e1ffe3">SetOnUserMessage</a>(std::function&lt;<span class="keywordtype">void</span>(std::string)&gt; on_user_message_);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">  /// @brief Set on bot message callback</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">  /// @param on_bot_message_</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"></span>  <span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1_character.html#a8910f29efcd8e26248661c8d059e6288">SetOnBotMessage</a>(std::function&lt;<span class="keywordtype">void</span>(std::string)&gt; on_bot_message_);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">  /// @brief Run character in a loop</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"></span>  <span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1_character.html#a3861f4c6f3023dc83c614fa7dabb0cfb">Run</a>();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}  <span class="comment">// namespace CC</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// CUSTOMCHAR_CHARACTER_CHARACTER_H_</span></div>
-<div class="ttc" id="aclass_c_c_1_1_character_html"><div class="ttname"><a href="class_c_c_1_1_character.html">CC::Character</a></div><div class="ttdef"><b>Definition:</b> <a href="character_8h_source.html#l00023">character.h:23</a></div></div>
-<div class="ttc" id="aclass_c_c_1_1_character_html_a3861f4c6f3023dc83c614fa7dabb0cfb"><div class="ttname"><a href="class_c_c_1_1_character.html#a3861f4c6f3023dc83c614fa7dabb0cfb">CC::Character::Run</a></div><div class="ttdeci">void Run()</div><div class="ttdoc">Run character in a loop.</div><div class="ttdef"><b>Definition:</b> <a href="character_8cpp_source.html#l00035">character.cpp:35</a></div></div>
-<div class="ttc" id="aclass_c_c_1_1_character_html_a541ac1dfd3adf3fcd68b63a6f8e1ffe3"><div class="ttname"><a href="class_c_c_1_1_character.html#a541ac1dfd3adf3fcd68b63a6f8e1ffe3">CC::Character::SetOnUserMessage</a></div><div class="ttdeci">void SetOnUserMessage(std::function&lt; void(std::string)&gt; on_user_message_)</div><div class="ttdoc">Set on user message callback.</div><div class="ttdef"><b>Definition:</b> <a href="character_8cpp_source.html#l00025">character.cpp:25</a></div></div>
-<div class="ttc" id="aclass_c_c_1_1_character_html_a8910f29efcd8e26248661c8d059e6288"><div class="ttname"><a href="class_c_c_1_1_character.html#a8910f29efcd8e26248661c8d059e6288">CC::Character::SetOnBotMessage</a></div><div class="ttdeci">void SetOnBotMessage(std::function&lt; void(std::string)&gt; on_bot_message_)</div><div class="ttdoc">Set on bot message callback.</div><div class="ttdef"><b>Definition:</b> <a href="character_8cpp_source.html#l00030">character.cpp:30</a></div></div>
-<div class="ttc" id="aclass_c_c_1_1_character_html_ac873fabae0b27d1fd07d39be894016a5"><div class="ttname"><a href="class_c_c_1_1_character.html#ac873fabae0b27d1fd07d39be894016a5">CC::Character::Character</a></div><div class="ttdeci">Character(CCParams init_params)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> <a href="character_8cpp_source.html#l00005">character.cpp:5</a></div></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="namespace_c_c_1_1character.html">   22</a></span>&#160;<span class="keyword">namespace </span>character {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_c_c_1_1character_1_1_character.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_c_1_1character_1_1_character.html">Character</a> {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <a class="code" href="struct_c_c_1_1common_1_1_c_c_params.html">common::CCParams</a> params_;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  std::shared_ptr&lt;audio::SpeechRecognizer&gt; speech_recognizer_;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  std::shared_ptr&lt;audio::VoiceRecorder&gt; voice_recoder_;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  std::shared_ptr&lt;audio::VoiceSynthesizer&gt; voice_synthesizer_;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  std::shared_ptr&lt;llm::LLM&gt; llm_;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  std::shared_ptr&lt;executors::PluginExecutor&gt; plugin_executor_;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  std::function&lt;void(std::string)&gt; on_user_message_;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  std::function&lt;void(std::string)&gt; on_bot_message_;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; <span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">  /// @brief Constructor</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">  /// @param init_params</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"></span>  <a class="code" href="class_c_c_1_1character_1_1_character.html#a0fffa840cfbffab1fb38b789abdf5045">Character</a>(<a class="code" href="struct_c_c_1_1common_1_1_c_c_params.html">common::CCParams</a> init_params);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">  /// @brief Set on user message callback</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">  /// @param on_user_message_</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"></span>  <span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1character_1_1_character.html#a541ac1dfd3adf3fcd68b63a6f8e1ffe3">SetOnUserMessage</a>(std::function&lt;<span class="keywordtype">void</span>(std::string)&gt; on_user_message_);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">  /// @brief Set on bot message callback</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">  /// @param on_bot_message_</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"></span>  <span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1character_1_1_character.html#a8910f29efcd8e26248661c8d059e6288">SetOnBotMessage</a>(std::function&lt;<span class="keywordtype">void</span>(std::string)&gt; on_bot_message_);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">  /// @brief Run character in a loop</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"></span>  <span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1character_1_1_character.html#a3861f4c6f3023dc83c614fa7dabb0cfb">Run</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}  <span class="comment">// namespace character</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}  <span class="comment">// namespace CC</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// CUSTOMCHAR_CHARACTER_CHARACTER_H_</span></div>
+<div class="ttc" id="aclass_c_c_1_1character_1_1_character_html"><div class="ttname"><a href="class_c_c_1_1character_1_1_character.html">CC::character::Character</a></div><div class="ttdef"><b>Definition:</b> <a href="character_8h_source.html#l00024">character.h:24</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1character_1_1_character_html_a0fffa840cfbffab1fb38b789abdf5045"><div class="ttname"><a href="class_c_c_1_1character_1_1_character.html#a0fffa840cfbffab1fb38b789abdf5045">CC::character::Character::Character</a></div><div class="ttdeci">Character(common::CCParams init_params)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> <a href="character_8cpp_source.html#l00006">character.cpp:6</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1character_1_1_character_html_a3861f4c6f3023dc83c614fa7dabb0cfb"><div class="ttname"><a href="class_c_c_1_1character_1_1_character.html#a3861f4c6f3023dc83c614fa7dabb0cfb">CC::character::Character::Run</a></div><div class="ttdeci">void Run()</div><div class="ttdoc">Run character in a loop.</div><div class="ttdef"><b>Definition:</b> <a href="character_8cpp_source.html#l00037">character.cpp:37</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1character_1_1_character_html_a541ac1dfd3adf3fcd68b63a6f8e1ffe3"><div class="ttname"><a href="class_c_c_1_1character_1_1_character.html#a541ac1dfd3adf3fcd68b63a6f8e1ffe3">CC::character::Character::SetOnUserMessage</a></div><div class="ttdeci">void SetOnUserMessage(std::function&lt; void(std::string)&gt; on_user_message_)</div><div class="ttdoc">Set on user message callback.</div><div class="ttdef"><b>Definition:</b> <a href="character_8cpp_source.html#l00027">character.cpp:27</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1character_1_1_character_html_a8910f29efcd8e26248661c8d059e6288"><div class="ttname"><a href="class_c_c_1_1character_1_1_character.html#a8910f29efcd8e26248661c8d059e6288">CC::character::Character::SetOnBotMessage</a></div><div class="ttdeci">void SetOnBotMessage(std::function&lt; void(std::string)&gt; on_bot_message_)</div><div class="ttdoc">Set on bot message callback.</div><div class="ttdef"><b>Definition:</b> <a href="character_8cpp_source.html#l00032">character.cpp:32</a></div></div>
 <div class="ttc" id="anamespace_c_c_html"><div class="ttname"><a href="namespace_c_c.html">CC</a></div><div class="ttdef"><b>Definition:</b> <a href="speech__recognizer_8h_source.html#l00016">speech_recognizer.h:16</a></div></div>
-<div class="ttc" id="astruct_c_c_1_1_c_c_params_html"><div class="ttname"><a href="struct_c_c_1_1_c_c_params.html">CC::CCParams</a></div><div class="ttdoc">Parameters for CustomChar.</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8h_source.html#l00015">helpers.h:15</a></div></div>
+<div class="ttc" id="astruct_c_c_1_1common_1_1_c_c_params_html"><div class="ttname"><a href="struct_c_c_1_1common_1_1_c_c_params.html">CC::common::CCParams</a></div><div class="ttdoc">Parameters for CustomChar.</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8h_source.html#l00016">helpers.h:16</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
