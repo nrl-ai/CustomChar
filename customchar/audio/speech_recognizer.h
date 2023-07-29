@@ -1,10 +1,6 @@
 #ifndef CUSTOMCHAR_AUDIO_SPEECH_RECOGNIZER_H_
 #define CUSTOMCHAR_AUDIO_SPEECH_RECOGNIZER_H_
 
-#include "whisper-cpp/examples/common-sdl.h"  // TODO: Move this to our lib
-#include "whisper-cpp/examples/common.h"      // TODO: Move this to our lib
-#include "whisper-cpp/whisper.h"
-
 #include <cassert>
 #include <cstdio>
 #include <fstream>
@@ -12,6 +8,10 @@
 #include <string>
 #include <thread>
 #include <vector>
+
+#include "customchar/audio/audio.h"
+#include "customchar/audio/sdl.h"
+#include "whisper-cpp/whisper.h"
 
 namespace CC {
 namespace audio {

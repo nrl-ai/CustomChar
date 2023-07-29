@@ -1,9 +1,6 @@
 #ifndef CUSTOMCHAR_AUDIO_VOICE_RECORDER_H_
 #define CUSTOMCHAR_AUDIO_VOICE_RECORDER_H_
 
-#include "whisper-cpp/examples/common-sdl.h"  // TODO: Move this to our lib
-#include "whisper-cpp/examples/common.h"
-
 #include <cassert>
 #include <cstdio>
 #include <fstream>
@@ -12,12 +9,15 @@
 #include <thread>
 #include <vector>
 
+#include "customchar/audio/audio.h"
+#include "customchar/audio/sdl.h"
+
 namespace CC {
 namespace audio {
 
 class VoiceRecorder {
  private:
-  audio_async* audio_ = nullptr;
+  AudioAsync* audio_ = nullptr;
   std::vector<float> pcmf32_cur_;
 
  public:

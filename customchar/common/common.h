@@ -14,6 +14,11 @@ namespace common {
 std::string Replace(const std::string& s, const std::string& from,
                     const std::string& to);
 
+/// @brief Trim whitespace from both ends of a string.
+/// @param s Original string.
+/// @return New string with whitespace removed from both ends.
+std::string Trim(const std::string& s);
+
 }  // namespace common
 }  // namespace CC
 

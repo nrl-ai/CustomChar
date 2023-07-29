@@ -52,7 +52,7 @@ void Character::Run() {
   bool is_running = true;
   while (is_running) {
     // Handle Ctrl + C
-    is_running = sdl_poll_events();
+    is_running = audio::SDLPollEvents();
     if (!is_running) {
       break;
     }

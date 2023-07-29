@@ -35,9 +35,9 @@ add_library(
     customchar/audio/speech_recognizer.cpp
     customchar/audio/voice_synthesizer.cpp
     customchar/audio/voice_recorder.cpp
+    customchar/audio/audio.cpp
+    customchar/audio/sdl.cpp
     libs/llama-cpp/llama.cpp
-    libs/whisper-cpp/examples/common.cpp
-    libs/whisper-cpp/examples/common-sdl.cpp
 )
 target_include_directories(
     ${TARGET} PUBLIC

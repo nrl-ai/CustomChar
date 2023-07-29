@@ -1,10 +1,8 @@
 #ifndef CUSTOMCHAR_LLM_LLM_H_
 #define CUSTOMCHAR_LLM_LLM_H_
 
-#include "llama-cpp/llama.h"
-#include "whisper-cpp/examples/common-sdl.h"  // TODO Remove this dependency
-
 #include "customchar/common/common.h"
+#include "llama-cpp/llama.h"
 
 #include <cassert>
 #include <cstdio>

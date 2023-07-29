@@ -62,7 +62,7 @@ void SpeechRecognizer::InitPrompt() {
 }
 
 std::string SpeechRecognizer::PostProcess(const std::string& text_heard) {
-  std::string processed_text = trim(text_heard);
+  std::string processed_text = common::Trim(text_heard);
 
   // Remove text between brackets using regex
   {

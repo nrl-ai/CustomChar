@@ -1,5 +1,7 @@
 #include "customchar/common/common.h"
 
+#include <regex>
+
 using namespace CC;
 using namespace CC::common;
 
@@ -12,4 +14,9 @@ std::string CC::common::Replace(const std::string& s, const std::string& from,
     pos += to.length();
   }
   return result;
+}
+
+std::string CC::common::Trim(const std::string& s) {
+  std::regex e("^\\s+|\\s+$");
+  return std::regex_replace(s, e, "");
 }
