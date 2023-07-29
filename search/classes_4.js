@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['speechrecognizer_98',['SpeechRecognizer',['../class_c_c_1_1_speech_recognizer.html',1,'CC']]]
+  ['openappplugin_105',['OpenAppPlugin',['../class_c_c_1_1executors_1_1_open_app_plugin.html',1,'CC::executors']]]
 ];

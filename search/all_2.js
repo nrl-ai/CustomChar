@@ -14,5 +14,6 @@ var searchData=
   ['common_15',['common',['../namespace_c_c_1_1common.html',1,'CC']]],
   ['create_5fcollection_16',['create_collection',['../class_c_c_1_1embeddb_1_1_embed_d_b.html#ab353ef2c8b0c13936968d671c3e9f795',1,'CC::embeddb::EmbedDB']]],
   ['customchar_20_2d_20your_20customized_20ai_20characters_17',['CustomChar - Your customized AI characters',['../index.html',1,'']]],
-  ['embeddb_18',['embeddb',['../namespace_c_c_1_1embeddb.html',1,'CC']]]
+  ['embeddb_18',['embeddb',['../namespace_c_c_1_1embeddb.html',1,'CC']]],
+  ['executors_19',['executors',['../namespace_c_c_1_1executors.html',1,'CC']]]
 ];

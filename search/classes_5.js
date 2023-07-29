@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['voicerecorder_99',['VoiceRecorder',['../class_c_c_1_1_voice_recorder.html',1,'CC']]],
-  ['voicesynthesizer_100',['VoiceSynthesizer',['../class_c_c_1_1_voice_synthesizer.html',1,'CC']]]
+  ['plugin_106',['Plugin',['../class_c_c_1_1executors_1_1_plugin.html',1,'CC::executors']]],
+  ['pluginexecutor_107',['PluginExecutor',['../class_c_c_1_1executors_1_1_plugin_executor.html',1,'CC::executors']]]
 ];

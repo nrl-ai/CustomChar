@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['vad_5fthold_81',['vad_thold',['../struct_c_c_1_1_c_c_params.html#a6352de3af05c077a884428b26f0fc26e',1,'CC::CCParams']]],
-  ['verbose_5fprompt_82',['verbose_prompt',['../struct_c_c_1_1_c_c_params.html#adb44f507be96a1d7c4cedfc9b669ae2c',1,'CC::CCParams']]],
-  ['voice_5fms_83',['voice_ms',['../struct_c_c_1_1_c_c_params.html#abc0deae23e89962cabd0f6ad8cb10182',1,'CC::CCParams']]],
-  ['voicerecorder_84',['VoiceRecorder',['../class_c_c_1_1_voice_recorder.html',1,'CC::VoiceRecorder'],['../class_c_c_1_1_voice_recorder.html#a33534f100b0cf8bf7fe431ca26ac1b7d',1,'CC::VoiceRecorder::VoiceRecorder()']]],
-  ['voicesynthesizer_85',['VoiceSynthesizer',['../class_c_c_1_1_voice_synthesizer.html',1,'CC::VoiceSynthesizer'],['../class_c_c_1_1_voice_synthesizer.html#a1cd8d65da1503e72f5e848877cc661d7',1,'CC::VoiceSynthesizer::VoiceSynthesizer()']]]
+  ['tokenize_86',['Tokenize',['../class_c_c_1_1_l_l_m.html#ac531616743d82ca79af649ba4d34dc55',1,'CC::LLM']]],
+  ['translate_87',['translate',['../struct_c_c_1_1_c_c_params.html#aee6f23705c55dd35901bea2b3df89e5f',1,'CC::CCParams']]]
 ];

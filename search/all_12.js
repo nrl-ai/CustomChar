@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['_7echathistory_86',['~ChatHistory',['../class_chat_history.html#af670947b6534b51a00e662e8b2678f75',1,'ChatHistory']]],
-  ['_7echatmessage_87',['~ChatMessage',['../class_chat_message.html#aba3256c4da91654e667c3fddf1613d8d',1,'ChatMessage']]],
-  ['_7ellm_88',['~LLM',['../class_c_c_1_1_l_l_m.html#a4720adfef94d91c917974000c6959575',1,'CC::LLM']]],
-  ['_7espeechrecognizer_89',['~SpeechRecognizer',['../class_c_c_1_1_speech_recognizer.html#ac85e4be8356808398c4e231264a8e82a',1,'CC::SpeechRecognizer']]]
+  ['vad_5fthold_88',['vad_thold',['../struct_c_c_1_1_c_c_params.html#a6352de3af05c077a884428b26f0fc26e',1,'CC::CCParams']]],
+  ['verbose_5fprompt_89',['verbose_prompt',['../struct_c_c_1_1_c_c_params.html#adb44f507be96a1d7c4cedfc9b669ae2c',1,'CC::CCParams']]],
+  ['voice_5fms_90',['voice_ms',['../struct_c_c_1_1_c_c_params.html#abc0deae23e89962cabd0f6ad8cb10182',1,'CC::CCParams']]],
+  ['voicerecorder_91',['VoiceRecorder',['../class_c_c_1_1_voice_recorder.html',1,'CC::VoiceRecorder'],['../class_c_c_1_1_voice_recorder.html#a33534f100b0cf8bf7fe431ca26ac1b7d',1,'CC::VoiceRecorder::VoiceRecorder()']]],
+  ['voicesynthesizer_92',['VoiceSynthesizer',['../class_c_c_1_1_voice_synthesizer.html',1,'CC::VoiceSynthesizer'],['../class_c_c_1_1_voice_synthesizer.html#a1cd8d65da1503e72f5e848877cc661d7',1,'CC::VoiceSynthesizer::VoiceSynthesizer()']]]
 ];
