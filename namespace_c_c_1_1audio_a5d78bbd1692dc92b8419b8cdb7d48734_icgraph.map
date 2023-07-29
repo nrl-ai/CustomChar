@@ -1,0 +1,5 @@
+<map id="CC::audio::HighPassFilter" name="CC::audio::HighPassFilter">
+<area shape="rect" id="node1" title="Apply a high&#45;pass frequency filter to PCM audio Suppresses frequencies below cutoff Hz." alt="" coords="451,13,635,39"/>
+<area shape="rect" id="node2" href="$namespace_c_c_1_1audio.html#a9951b6db11c12f3b6d4628703b6baf64" title="Basic voice activity detection (VAD) using audio energy adaptive threshold." alt="" coords="239,13,403,39"/>
+<area shape="rect" id="node3" href="$class_c_c_1_1audio_1_1_voice_recorder.html#afa37a38fa1931dd9f2632ac8c438c858" title="Check if finished talking." alt="" coords="5,5,191,47"/>
+</map>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['kpromptllama_241',['kPromptLlama',['../namespace_c_c_1_1llm.html#a43be6cb3cd77698e5cdd3b432089de87',1,'CC::llm']]]
+  ['init_5fwindow_5fheight_317',['INIT_WINDOW_HEIGHT',['../main_8cpp.html#a3e51e2b92788cb51747449e88079659c',1,'main.cpp']]],
+  ['init_5fwindow_5fwidth_318',['INIT_WINDOW_WIDTH',['../main_8cpp.html#ad63bf4a46b68ab75c178034fe7a86f1c',1,'main.cpp']]]
 ];

@@ -49,7 +49,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Search');
+  initMenu('',true,false,'search.html','Search');
   $(document).ready(function() { init_search(); });
 });
 /* @license-end */</script>
@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="title">main.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<a href="main_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;mutex&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;thread&gt;</span></div>
@@ -107,20 +107,20 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;GLFW/glfw3.h&gt;</span>  <span class="comment">// Will drag system OpenGL headers</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;customchar/character/character.h&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;customchar/common/common.h&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;customchar/common/helpers.h&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;customchar/session/chat_history.h&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;customchar/session/chat_message.h&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;customchar/vision/video_capture.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="character_8h.html">customchar/character/character.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="common_8h.html">customchar/common/common.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="helpers_8h.html">customchar/common/helpers.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="chat__history_8h.html">customchar/session/chat_history.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="chat__message_8h.html">customchar/session/chat_message.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="video__capture_8h.html">customchar/vision/video_capture.h</a>&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;imgui_internal.h&quot;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;imspinner/imspinner.h&quot;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespace_c_c.html">CC</a>;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;std::shared_ptr&lt;character::Character&gt; character_instance;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<a class="code" href="class_c_c_1_1vision_1_1_video_capture.html">vision::VideoCapture</a> video_capture;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="main_8cpp.html#aefeb86a37bb814bae1787c6e2dd7613d">   30</a></span>&#160;std::shared_ptr&lt;character::Character&gt; <a class="code" href="main_8cpp.html#aefeb86a37bb814bae1787c6e2dd7613d">character_instance</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="main_8cpp.html#a3c51df333fbf215e6279ec085709d22e">   31</a></span>&#160;<a class="code" href="class_c_c_1_1vision_1_1_video_capture.html">vision::VideoCapture</a> <a class="code" href="main_8cpp.html#a3c51df333fbf215e6279ec085709d22e">video_capture</a>;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">// [Win32] Our example includes a copy of glfw3.lib pre-compiled with VS2010 to</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">// maximize ease of testing and compatibility with old VS compilers. To link</span></div>
@@ -137,27 +137,27 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">// synchronize</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">// everytime user sends message, IMGUI sets global variable to message</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">// signal client server ... lock/unlock mutex</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;constexpr <span class="keywordtype">int</span> TEXT_MESSAGE_SIZE = 1024 * 8;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;constexpr <span class="keywordtype">int</span> INIT_WINDOW_WIDTH = 600;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;constexpr <span class="keywordtype">int</span> INIT_WINDOW_HEIGHT = 400;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="main_8cpp.html#a06701befc37b83174d2d2090fac04610">   48</a></span>&#160;constexpr <span class="keywordtype">int</span> <a class="code" href="main_8cpp.html#a06701befc37b83174d2d2090fac04610">TEXT_MESSAGE_SIZE</a> = 1024 * 8;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="main_8cpp.html#ad63bf4a46b68ab75c178034fe7a86f1c">   49</a></span>&#160;constexpr <span class="keywordtype">int</span> <a class="code" href="main_8cpp.html#ad63bf4a46b68ab75c178034fe7a86f1c">INIT_WINDOW_WIDTH</a> = 600;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="main_8cpp.html#a3e51e2b92788cb51747449e88079659c">   50</a></span>&#160;constexpr <span class="keywordtype">int</span> <a class="code" href="main_8cpp.html#a3e51e2b92788cb51747449e88079659c">INIT_WINDOW_HEIGHT</a> = 400;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> GLFWErrorCallback(<span class="keywordtype">int</span> error, <span class="keyword">const</span> <span class="keywordtype">char</span>* description) {</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  fprintf(stderr, <span class="stringliteral">&quot;Glfw Error %d: %s\n&quot;</span>, error, description);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;std::mutex mtx;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordtype">bool</span> OnNewMessage(<span class="keyword">const</span> std::string&amp; text, <span class="keyword">const</span> std::string&amp; sender,</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="main_8cpp.html#ad5e0dbd36f0d71fce9b00b7f991b2f38">   56</a></span>&#160;std::mutex <a class="code" href="main_8cpp.html#ad5e0dbd36f0d71fce9b00b7f991b2f38">mtx</a>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="main_8cpp.html#a4ca0961894e0f238fae2523f4cc7e384">   57</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="main_8cpp.html#a4ca0961894e0f238fae2523f4cc7e384">OnNewMessage</a>(<span class="keyword">const</span> std::string&amp; text, <span class="keyword">const</span> std::string&amp; sender,</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                  std::shared_ptr&lt;session::ChatHistory&gt; history) {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  mtx.lock();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <a class="code" href="main_8cpp.html#ad5e0dbd36f0d71fce9b00b7f991b2f38">mtx</a>.lock();</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  history-&gt;AddMessage(text, sender);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  mtx.unlock();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <a class="code" href="main_8cpp.html#ad5e0dbd36f0d71fce9b00b7f991b2f38">mtx</a>.unlock();</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment"> * @brief Main ImGUI loop</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordtype">void</span> runImgui(std::shared_ptr&lt;session::ChatHistory&gt; history) {</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="main_8cpp.html#a9ef0895eff6562e2de52613a05654cfe">   68</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="main_8cpp.html#a9ef0895eff6562e2de52613a05654cfe">runImgui</a>(std::shared_ptr&lt;session::ChatHistory&gt; history) {</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="comment">// Setup window</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  glfwSetErrorCallback(GLFWErrorCallback);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keywordflow">if</span> (!glfwInit()) <span class="keywordflow">return</span>;</div>
@@ -186,7 +186,7 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="comment">// Create window with graphics context</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  GLFWwindow* window = glfwCreateWindow(INIT_WINDOW_WIDTH, INIT_WINDOW_HEIGHT,</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  GLFWwindow* window = glfwCreateWindow(<a class="code" href="main_8cpp.html#ad63bf4a46b68ab75c178034fe7a86f1c">INIT_WINDOW_WIDTH</a>, <a class="code" href="main_8cpp.html#a3e51e2b92788cb51747449e88079659c">INIT_WINDOW_HEIGHT</a>,</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                                        <span class="stringliteral">&quot;CustomChar&quot;</span>, NULL, NULL);</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="keywordflow">if</span> (window == NULL) <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  glfwMakeContextCurrent(window);</div>
@@ -217,7 +217,7 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="keywordtype">bool</span> just_sent = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="comment">// Initial text</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  <span class="keywordtype">char</span> text[TEXT_MESSAGE_SIZE] = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  <span class="keywordtype">char</span> text[<a class="code" href="main_8cpp.html#a06701befc37b83174d2d2090fac04610">TEXT_MESSAGE_SIZE</a>] = <span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  GLuint texture;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  glGenTextures(1, &amp;texture);</div>
@@ -236,7 +236,7 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    glfwPollEvents();</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="comment">// Update character mute status</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    character_instance-&gt;SetMute(is_muted);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <a class="code" href="main_8cpp.html#aefeb86a37bb814bae1787c6e2dd7613d">character_instance</a>-&gt;SetMute(is_muted);</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="comment">// Start the Dear ImGui frame</span></div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    ImGui_ImplOpenGL3_NewFrame();</div>
@@ -259,16 +259,16 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="comment">// Check and start/stop camera</span></div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordflow">if</span> (last_enable_camera != enable_camera) {</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;      <span class="keywordflow">if</span> (enable_camera) {</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        video_capture.<a class="code" href="class_c_c_1_1vision_1_1_video_capture.html#ac1948f79fe3a3391e1bffbfd5f4773da">Start</a>();</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <a class="code" href="main_8cpp.html#a3c51df333fbf215e6279ec085709d22e">video_capture</a>.<a class="code" href="class_c_c_1_1vision_1_1_video_capture.html#ac1948f79fe3a3391e1bffbfd5f4773da">Start</a>();</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="comment">// Adapt window height to camera aspect ratio</span></div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="keywordtype">int</span> window_width = window_size.x;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordtype">int</span> window_height = window_width * video_capture.<a class="code" href="class_c_c_1_1vision_1_1_video_capture.html#aee47e76b6d92731a984cedb854dea56c">GetFrameHeight</a>() /</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                                video_capture.<a class="code" href="class_c_c_1_1vision_1_1_video_capture.html#a60dd553b6bcb0ee7177ce1f804e5ea95">GetFrameWidth</a>() +</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordtype">int</span> window_height = window_width * <a class="code" href="main_8cpp.html#a3c51df333fbf215e6279ec085709d22e">video_capture</a>.<a class="code" href="class_c_c_1_1vision_1_1_video_capture.html#aee47e76b6d92731a984cedb854dea56c">GetFrameHeight</a>() /</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                                <a class="code" href="main_8cpp.html#a3c51df333fbf215e6279ec085709d22e">video_capture</a>.<a class="code" href="class_c_c_1_1vision_1_1_video_capture.html#a60dd553b6bcb0ee7177ce1f804e5ea95">GetFrameWidth</a>() +</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                            200;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        glfwSetWindowSize(window, window_width, window_height);</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;      } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        video_capture.<a class="code" href="class_c_c_1_1vision_1_1_video_capture.html#a809cf127f302693c2d24b84dfcd944b4">Stop</a>();</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        glfwSetWindowSize(window, INIT_WINDOW_WIDTH, INIT_WINDOW_HEIGHT);</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <a class="code" href="main_8cpp.html#a3c51df333fbf215e6279ec085709d22e">video_capture</a>.<a class="code" href="class_c_c_1_1vision_1_1_video_capture.html#a809cf127f302693c2d24b84dfcd944b4">Stop</a>();</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        glfwSetWindowSize(window, <a class="code" href="main_8cpp.html#ad63bf4a46b68ab75c178034fe7a86f1c">INIT_WINDOW_WIDTH</a>, <a class="code" href="main_8cpp.html#a3e51e2b92788cb51747449e88079659c">INIT_WINDOW_HEIGHT</a>);</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;      }</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;      last_enable_camera = enable_camera;</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    }</div>
@@ -276,7 +276,7 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="comment">// Render camera</span></div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordflow">if</span> (enable_camera) {</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;      <span class="comment">// Resize image to fit window</span></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;      cv::Mat image = video_capture.<a class="code" href="class_c_c_1_1vision_1_1_video_capture.html#abe66813a0f64cea1cb79a4e773fd07ec">GetFrame</a>();</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;      cv::Mat image = <a class="code" href="main_8cpp.html#a3c51df333fbf215e6279ec085709d22e">video_capture</a>.<a class="code" href="class_c_c_1_1vision_1_1_video_capture.html#abe66813a0f64cea1cb79a4e773fd07ec">GetFrame</a>();</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      <span class="keywordflow">if</span> (!image.empty()) {</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        cv::Mat resized_image;</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordtype">float</span> ratio = (float)image.cols / (<span class="keywordtype">float</span>)image.rows;</div>
@@ -348,7 +348,7 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    strcpy(text, <span class="stringliteral">&quot;Say something...&quot;</span>);</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    ImGui::PushItemWidth(ImGui::GetContentRegionAvail().x);</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keywordflow">if</span> (ImGui::InputText(<span class="stringliteral">&quot;##source&quot;</span>, text, IM_ARRAYSIZE(text), input_flags)) {</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;      just_sent = OnNewMessage(text, <span class="stringliteral">&quot;User&quot;</span>, history);</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;      just_sent = <a class="code" href="main_8cpp.html#a4ca0961894e0f238fae2523f4cc7e384">OnNewMessage</a>(text, <span class="stringliteral">&quot;User&quot;</span>, history);</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    };</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="comment">// Put the cursor of InputTextMultiline at the end of the text</span></div>
@@ -377,7 +377,7 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  glfwTerminate();</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;}</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv) {</div>
+<div class="line"><a name="l00288"></a><span class="lineno"><a class="line" href="main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">  288</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv) {</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  <span class="comment">// Parse command line arguments</span></div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;  <a class="code" href="struct_c_c_1_1common_1_1_c_c_params.html">common::CCParams</a> params;</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="namespace_c_c_1_1common.html#a686a23afe6c1f47d95a11bd6f9e8f087">CCParamsParse</a>(argc, argv, params) == <span class="keyword">false</span>) {</div>
@@ -394,23 +394,26 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;      std::make_shared&lt;session::ChatHistory&gt;();</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  <span class="comment">// Create character</span></div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  character_instance = std::make_shared&lt;character::Character&gt;(params);</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  <a class="code" href="main_8cpp.html#aefeb86a37bb814bae1787c6e2dd7613d">character_instance</a> = std::make_shared&lt;character::Character&gt;(params);</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  <span class="comment">// Set message callbacks</span></div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  character_instance-&gt;SetOnUserMessage(</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      std::bind(OnNewMessage, std::placeholders::_1, <span class="stringliteral">&quot;User&quot;</span>, history));</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  character_instance-&gt;SetOnBotMessage(</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;      std::bind(OnNewMessage, std::placeholders::_1, <span class="stringliteral">&quot;CustomChar&quot;</span>, history));</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  <a class="code" href="main_8cpp.html#aefeb86a37bb814bae1787c6e2dd7613d">character_instance</a>-&gt;SetOnUserMessage(</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      std::bind(<a class="code" href="main_8cpp.html#a4ca0961894e0f238fae2523f4cc7e384">OnNewMessage</a>, std::placeholders::_1, <span class="stringliteral">&quot;User&quot;</span>, history));</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  <a class="code" href="main_8cpp.html#aefeb86a37bb814bae1787c6e2dd7613d">character_instance</a>-&gt;SetOnBotMessage(</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;      std::bind(<a class="code" href="main_8cpp.html#a4ca0961894e0f238fae2523f4cc7e384">OnNewMessage</a>, std::placeholders::_1, <span class="stringliteral">&quot;CustomChar&quot;</span>, history));</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160; </div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;  <span class="comment">// Start character in a new thread</span></div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  std::thread character_thread(&amp;<a class="code" href="class_c_c_1_1character_1_1_character.html#a3861f4c6f3023dc83c614fa7dabb0cfb">character::Character::Run</a>, character_instance);</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  std::thread character_thread(&amp;<a class="code" href="class_c_c_1_1character_1_1_character.html#a3861f4c6f3023dc83c614fa7dabb0cfb">character::Character::Run</a>, <a class="code" href="main_8cpp.html#aefeb86a37bb814bae1787c6e2dd7613d">character_instance</a>);</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;  character_thread.detach();</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; </div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;  <span class="comment">// Main GUI loop</span></div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  runImgui(history);</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  <a class="code" href="main_8cpp.html#a9ef0895eff6562e2de52613a05654cfe">runImgui</a>(history);</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160; </div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;  <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;}</div>
+<div class="ttc" id="acharacter_8h_html"><div class="ttname"><a href="character_8h.html">character.h</a></div></div>
+<div class="ttc" id="achat__history_8h_html"><div class="ttname"><a href="chat__history_8h.html">chat_history.h</a></div></div>
+<div class="ttc" id="achat__message_8h_html"><div class="ttname"><a href="chat__message_8h.html">chat_message.h</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1character_1_1_character_html_a3861f4c6f3023dc83c614fa7dabb0cfb"><div class="ttname"><a href="class_c_c_1_1character_1_1_character.html#a3861f4c6f3023dc83c614fa7dabb0cfb">CC::character::Character::Run</a></div><div class="ttdeci">void Run()</div><div class="ttdoc">Run character in a loop.</div><div class="ttdef"><b>Definition:</b> <a href="character_8cpp_source.html#l00041">character.cpp:41</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1session_1_1_chat_message_html"><div class="ttname"><a href="class_c_c_1_1session_1_1_chat_message.html">CC::session::ChatMessage</a></div><div class="ttdef"><b>Definition:</b> <a href="chat__message_8h_source.html#l00010">chat_message.h:10</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1vision_1_1_video_capture_html"><div class="ttname"><a href="class_c_c_1_1vision_1_1_video_capture.html">CC::vision::VideoCapture</a></div><div class="ttdef"><b>Definition:</b> <a href="video__capture_8h_source.html#l00014">video_capture.h:14</a></div></div>
@@ -419,17 +422,29 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="ttc" id="aclass_c_c_1_1vision_1_1_video_capture_html_abe66813a0f64cea1cb79a4e773fd07ec"><div class="ttname"><a href="class_c_c_1_1vision_1_1_video_capture.html#abe66813a0f64cea1cb79a4e773fd07ec">CC::vision::VideoCapture::GetFrame</a></div><div class="ttdeci">cv::Mat GetFrame()</div><div class="ttdoc">Get frame from queue.</div><div class="ttdef"><b>Definition:</b> <a href="video__capture_8h_source.html#l00105">video_capture.h:105</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1vision_1_1_video_capture_html_ac1948f79fe3a3391e1bffbfd5f4773da"><div class="ttname"><a href="class_c_c_1_1vision_1_1_video_capture.html#ac1948f79fe3a3391e1bffbfd5f4773da">CC::vision::VideoCapture::Start</a></div><div class="ttdeci">void Start()</div><div class="ttdoc">Start capturing frames.</div><div class="ttdef"><b>Definition:</b> <a href="video__capture_8h_source.html#l00079">video_capture.h:79</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1vision_1_1_video_capture_html_aee47e76b6d92731a984cedb854dea56c"><div class="ttname"><a href="class_c_c_1_1vision_1_1_video_capture.html#aee47e76b6d92731a984cedb854dea56c">CC::vision::VideoCapture::GetFrameHeight</a></div><div class="ttdeci">int GetFrameHeight()</div><div class="ttdoc">Get frame height.</div><div class="ttdef"><b>Definition:</b> <a href="video__capture_8h_source.html#l00054">video_capture.h:54</a></div></div>
+<div class="ttc" id="acommon_8h_html"><div class="ttname"><a href="common_8h.html">common.h</a></div></div>
+<div class="ttc" id="ahelpers_8h_html"><div class="ttname"><a href="helpers_8h.html">helpers.h</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a06701befc37b83174d2d2090fac04610"><div class="ttname"><a href="main_8cpp.html#a06701befc37b83174d2d2090fac04610">TEXT_MESSAGE_SIZE</a></div><div class="ttdeci">constexpr int TEXT_MESSAGE_SIZE</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00048">main.cpp:48</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00288">main.cpp:288</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a3c51df333fbf215e6279ec085709d22e"><div class="ttname"><a href="main_8cpp.html#a3c51df333fbf215e6279ec085709d22e">video_capture</a></div><div class="ttdeci">vision::VideoCapture video_capture</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00031">main.cpp:31</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a3e51e2b92788cb51747449e88079659c"><div class="ttname"><a href="main_8cpp.html#a3e51e2b92788cb51747449e88079659c">INIT_WINDOW_HEIGHT</a></div><div class="ttdeci">constexpr int INIT_WINDOW_HEIGHT</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00050">main.cpp:50</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a4ca0961894e0f238fae2523f4cc7e384"><div class="ttname"><a href="main_8cpp.html#a4ca0961894e0f238fae2523f4cc7e384">OnNewMessage</a></div><div class="ttdeci">bool OnNewMessage(const std::string &amp;text, const std::string &amp;sender, std::shared_ptr&lt; session::ChatHistory &gt; history)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00057">main.cpp:57</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a9ef0895eff6562e2de52613a05654cfe"><div class="ttname"><a href="main_8cpp.html#a9ef0895eff6562e2de52613a05654cfe">runImgui</a></div><div class="ttdeci">void runImgui(std::shared_ptr&lt; session::ChatHistory &gt; history)</div><div class="ttdoc">Main ImGUI loop.</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00068">main.cpp:68</a></div></div>
+<div class="ttc" id="amain_8cpp_html_ad5e0dbd36f0d71fce9b00b7f991b2f38"><div class="ttname"><a href="main_8cpp.html#ad5e0dbd36f0d71fce9b00b7f991b2f38">mtx</a></div><div class="ttdeci">std::mutex mtx</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00056">main.cpp:56</a></div></div>
+<div class="ttc" id="amain_8cpp_html_ad63bf4a46b68ab75c178034fe7a86f1c"><div class="ttname"><a href="main_8cpp.html#ad63bf4a46b68ab75c178034fe7a86f1c">INIT_WINDOW_WIDTH</a></div><div class="ttdeci">constexpr int INIT_WINDOW_WIDTH</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00049">main.cpp:49</a></div></div>
+<div class="ttc" id="amain_8cpp_html_aefeb86a37bb814bae1787c6e2dd7613d"><div class="ttname"><a href="main_8cpp.html#aefeb86a37bb814bae1787c6e2dd7613d">character_instance</a></div><div class="ttdeci">std::shared_ptr&lt; character::Character &gt; character_instance</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00030">main.cpp:30</a></div></div>
 <div class="ttc" id="anamespace_c_c_1_1common_html_a0c362c5a19f77a0d85059609686e6cd6"><div class="ttname"><a href="namespace_c_c_1_1common.html#a0c362c5a19f77a0d85059609686e6cd6">CC::common::CCPrintUsage</a></div><div class="ttdeci">void CCPrintUsage(int, char **argv, const CCParams &amp;params)</div><div class="ttdoc">Print usage.</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8cpp_source.html#l00006">helpers.cpp:6</a></div></div>
 <div class="ttc" id="anamespace_c_c_1_1common_html_a686a23afe6c1f47d95a11bd6f9e8f087"><div class="ttname"><a href="namespace_c_c_1_1common.html#a686a23afe6c1f47d95a11bd6f9e8f087">CC::common::CCParamsParse</a></div><div class="ttdeci">bool CCParamsParse(int argc, char **argv, CCParams &amp;params)</div><div class="ttdoc">Parse command line arguments.</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8cpp_source.html#l00077">helpers.cpp:77</a></div></div>
 <div class="ttc" id="anamespace_c_c_html"><div class="ttname"><a href="namespace_c_c.html">CC</a></div><div class="ttdef"><b>Definition:</b> <a href="audio_8h_source.html#l00010">audio.h:10</a></div></div>
 <div class="ttc" id="astruct_c_c_1_1common_1_1_c_c_params_html"><div class="ttname"><a href="struct_c_c_1_1common_1_1_c_c_params.html">CC::common::CCParams</a></div><div class="ttdoc">Parameters for CustomChar.</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8h_source.html#l00016">helpers.h:16</a></div></div>
 <div class="ttc" id="astruct_c_c_1_1common_1_1_c_c_params_html_a544e83c9149850452034432c650fe647"><div class="ttname"><a href="struct_c_c_1_1common_1_1_c_c_params.html#a544e83c9149850452034432c650fe647">CC::common::CCParams::language</a></div><div class="ttdeci">std::string language</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8h_source.html#l00038">helpers.h:38</a></div></div>
+<div class="ttc" id="avideo__capture_8h_html"><div class="ttname"><a href="video__capture_8h.html">video_capture.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_52329a553313b1bc9a682fb2a0654934.html">customchar</a></li><li class="navelem"><b>main.cpp</b></li>
+    <li class="navelem"><a class="el" href="dir_52329a553313b1bc9a682fb2a0654934.html">customchar</a></li><li class="navelem"><a class="el" href="main_8cpp.html">main.cpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

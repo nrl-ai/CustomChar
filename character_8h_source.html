@@ -49,7 +49,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Search');
+  initMenu('',true,false,'search.html','Search');
   $(document).ready(function() { init_search(); });
 });
 /* @license-end */</script>
@@ -90,16 +90,16 @@ $(document).ready(function(){initNavTree('character_8h_source.html',''); initRes
 <div class="title">character.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CUSTOMCHAR_CHARACTER_CHARACTER_H_</span></div>
+<a href="character_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CUSTOMCHAR_CHARACTER_CHARACTER_H_</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CUSTOMCHAR_CHARACTER_CHARACTER_H_</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;customchar/audio/speech_recognizer.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;customchar/audio/voice_recorder.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;customchar/audio/voice_synthesizer.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;customchar/common/common.h&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;customchar/common/helpers.h&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;customchar/executors/plugin_executor.h&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;customchar/llm/llm.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="speech__recognizer_8h.html">customchar/audio/speech_recognizer.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="voice__recorder_8h.html">customchar/audio/voice_recorder.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="voice__synthesizer_8h.html">customchar/audio/voice_synthesizer.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="common_8h.html">customchar/common/common.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="helpers_8h.html">customchar/common/helpers.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="plugin__executor_8h.html">customchar/executors/plugin_executor.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="llm_8h.html">customchar/llm/llm.h</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;cstdio&gt;</span></div>
@@ -161,14 +161,21 @@ $(document).ready(function(){initNavTree('character_8h_source.html',''); initRes
 <div class="ttc" id="aclass_c_c_1_1character_1_1_character_html_a8910f29efcd8e26248661c8d059e6288"><div class="ttname"><a href="class_c_c_1_1character_1_1_character.html#a8910f29efcd8e26248661c8d059e6288">CC::character::Character::SetOnBotMessage</a></div><div class="ttdeci">void SetOnBotMessage(std::function&lt; void(std::string)&gt; on_bot_message_)</div><div class="ttdoc">Set on bot message callback.</div><div class="ttdef"><b>Definition:</b> <a href="character_8cpp_source.html#l00032">character.cpp:32</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1character_1_1_character_html_a99e7d1f2be0071a186236f0c1fdb4016"><div class="ttname"><a href="class_c_c_1_1character_1_1_character.html#a99e7d1f2be0071a186236f0c1fdb4016">CC::character::Character::SetMute</a></div><div class="ttdeci">void SetMute(bool is_muted)</div><div class="ttdoc">Set mute (do not speak)</div><div class="ttdef"><b>Definition:</b> <a href="character_8cpp_source.html#l00037">character.cpp:37</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1character_1_1_character_html_ae31736240c3a4a0962968e68f6bc4e23"><div class="ttname"><a href="class_c_c_1_1character_1_1_character.html#ae31736240c3a4a0962968e68f6bc4e23">CC::character::Character::IsMuted</a></div><div class="ttdeci">bool IsMuted()</div><div class="ttdoc">Get mute status.</div><div class="ttdef"><b>Definition:</b> <a href="character_8cpp_source.html#l00039">character.cpp:39</a></div></div>
+<div class="ttc" id="acommon_8h_html"><div class="ttname"><a href="common_8h.html">common.h</a></div></div>
+<div class="ttc" id="ahelpers_8h_html"><div class="ttname"><a href="helpers_8h.html">helpers.h</a></div></div>
+<div class="ttc" id="allm_8h_html"><div class="ttname"><a href="llm_8h.html">llm.h</a></div></div>
 <div class="ttc" id="anamespace_c_c_html"><div class="ttname"><a href="namespace_c_c.html">CC</a></div><div class="ttdef"><b>Definition:</b> <a href="audio_8h_source.html#l00010">audio.h:10</a></div></div>
+<div class="ttc" id="aplugin__executor_8h_html"><div class="ttname"><a href="plugin__executor_8h.html">plugin_executor.h</a></div></div>
+<div class="ttc" id="aspeech__recognizer_8h_html"><div class="ttname"><a href="speech__recognizer_8h.html">speech_recognizer.h</a></div></div>
 <div class="ttc" id="astruct_c_c_1_1common_1_1_c_c_params_html"><div class="ttname"><a href="struct_c_c_1_1common_1_1_c_c_params.html">CC::common::CCParams</a></div><div class="ttdoc">Parameters for CustomChar.</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8h_source.html#l00016">helpers.h:16</a></div></div>
+<div class="ttc" id="avoice__recorder_8h_html"><div class="ttname"><a href="voice__recorder_8h.html">voice_recorder.h</a></div></div>
+<div class="ttc" id="avoice__synthesizer_8h_html"><div class="ttname"><a href="voice__synthesizer_8h.html">voice_synthesizer.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_52329a553313b1bc9a682fb2a0654934.html">customchar</a></li><li class="navelem"><a class="el" href="dir_05697f14c2d82fa15766574b12927b29.html">character</a></li><li class="navelem"><b>character.h</b></li>
+    <li class="navelem"><a class="el" href="dir_52329a553313b1bc9a682fb2a0654934.html">customchar</a></li><li class="navelem"><a class="el" href="dir_05697f14c2d82fa15766574b12927b29.html">character</a></li><li class="navelem"><a class="el" href="character_8h.html">character.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

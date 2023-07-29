@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['_7eaudioasync_230',['~AudioAsync',['../class_c_c_1_1audio_1_1_audio_async.html#a5e34bc9dfa2493948fc2ff36241492f4',1,'CC::audio::AudioAsync']]],
-  ['_7echathistory_231',['~ChatHistory',['../class_c_c_1_1session_1_1_chat_history.html#af670947b6534b51a00e662e8b2678f75',1,'CC::session::ChatHistory']]],
-  ['_7echatmessage_232',['~ChatMessage',['../class_c_c_1_1session_1_1_chat_message.html#aba3256c4da91654e667c3fddf1613d8d',1,'CC::session::ChatMessage']]],
-  ['_7ellm_233',['~LLM',['../class_c_c_1_1llm_1_1_l_l_m.html#a4720adfef94d91c917974000c6959575',1,'CC::llm::LLM']]],
-  ['_7espeechrecognizer_234',['~SpeechRecognizer',['../class_c_c_1_1audio_1_1_speech_recognizer.html#ac85e4be8356808398c4e231264a8e82a',1,'CC::audio::SpeechRecognizer']]]
+  ['vadsimple_301',['VADSimple',['../namespace_c_c_1_1audio.html#a9951b6db11c12f3b6d4628703b6baf64',1,'CC::audio']]],
+  ['videocapture_302',['VideoCapture',['../class_c_c_1_1vision_1_1_video_capture.html#a7a14a58d3282e65990fba33c1707513f',1,'CC::vision::VideoCapture']]],
+  ['voicerecorder_303',['VoiceRecorder',['../class_c_c_1_1audio_1_1_voice_recorder.html#a33534f100b0cf8bf7fe431ca26ac1b7d',1,'CC::audio::VoiceRecorder']]],
+  ['voicesynthesizer_304',['VoiceSynthesizer',['../class_c_c_1_1audio_1_1_voice_synthesizer.html#a1cd8d65da1503e72f5e848877cc661d7',1,'CC::audio::VoiceSynthesizer']]]
 ];

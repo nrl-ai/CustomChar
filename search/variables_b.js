@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['vad_5fthold_257',['vad_thold',['../struct_c_c_1_1common_1_1_c_c_params.html#a2d0c3c2c10bc05920f35500155c9c55c',1,'CC::common::CCParams']]],
-  ['verbose_5fprompt_258',['verbose_prompt',['../struct_c_c_1_1common_1_1_c_c_params.html#a92f3446d86bb203a4faebf8174a0182a',1,'CC::common::CCParams']]],
-  ['voice_5fms_259',['voice_ms',['../struct_c_c_1_1common_1_1_c_c_params.html#ae2fc80b19237f3489d6a307479d6b5af',1,'CC::common::CCParams']]]
+  ['text_5fmessage_5fsize_335',['TEXT_MESSAGE_SIZE',['../main_8cpp.html#a06701befc37b83174d2d2090fac04610',1,'main.cpp']]],
+  ['translate_336',['translate',['../struct_c_c_1_1common_1_1_c_c_params.html#a22e737e8ad754dde8ac5a781a391c2fb',1,'CC::common::CCParams']]]
 ];

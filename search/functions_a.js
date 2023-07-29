@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['parseandexecute_203',['ParseAndExecute',['../class_c_c_1_1executors_1_1_plugin_executor.html#a86657727152b3ac1359f1d41b928bfff',1,'CC::executors::PluginExecutor']]],
-  ['pause_204',['Pause',['../class_c_c_1_1audio_1_1_audio_async.html#a905deea128df05b4a767638a2d128e28',1,'CC::audio::AudioAsync']]],
-  ['plugin_205',['Plugin',['../class_c_c_1_1executors_1_1_plugin.html#a64b7befda94f5464341a0258c8515339',1,'CC::executors::Plugin']]]
+  ['onnewmessage_275',['OnNewMessage',['../main_8cpp.html#a4ca0961894e0f238fae2523f4cc7e384',1,'main.cpp']]],
+  ['openappplugin_276',['OpenAppPlugin',['../class_c_c_1_1executors_1_1_open_app_plugin.html#a395f0c89ca8b0c5357a923dcfe581226',1,'CC::executors::OpenAppPlugin']]]
 ];

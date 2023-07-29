@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['openappplugin_202',['OpenAppPlugin',['../class_c_c_1_1executors_1_1_open_app_plugin.html#a395f0c89ca8b0c5357a923dcfe581226',1,'CC::executors::OpenAppPlugin']]]
+  ['main_274',['main',['../main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;main.cpp'],['../main__cli_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;main_cli.cpp']]]
 ];

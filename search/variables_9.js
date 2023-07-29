@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['speak_253',['speak',['../struct_c_c_1_1common_1_1_c_c_params.html#aff63f8db043d0e581ca663169f80302a',1,'CC::common::CCParams']]],
-  ['speed_5fup_254',['speed_up',['../struct_c_c_1_1common_1_1_c_c_params.html#ade3887899fc78b58d42ccae4805a73f5',1,'CC::common::CCParams']]],
-  ['sr_5fmodel_5fpath_255',['sr_model_path',['../struct_c_c_1_1common_1_1_c_c_params.html#a7122cb105d5360b7ab27682f4c18f98b',1,'CC::common::CCParams']]]
+  ['path_5fsession_326',['path_session',['../struct_c_c_1_1common_1_1_c_c_params.html#af50cbac4fb99370cdb62fe3d6d7401f1',1,'CC::common::CCParams']]],
+  ['person_327',['person',['../struct_c_c_1_1common_1_1_c_c_params.html#a029c9413477b078bd0d950f03ebb1339',1,'CC::common::CCParams']]],
+  ['print_5fenergy_328',['print_energy',['../struct_c_c_1_1common_1_1_c_c_params.html#a7c353a667fc9bb78118e74e389d8c802',1,'CC::common::CCParams']]],
+  ['print_5fspecial_329',['print_special',['../struct_c_c_1_1common_1_1_c_c_params.html#a61bbccdbf299c7250652de1f7b5a66c8',1,'CC::common::CCParams']]],
+  ['prob0_330',['prob0',['../struct_c_c_1_1common_1_1_c_c_params.html#ab7ff24789a0a4e944b6b270be77200e3',1,'CC::common::CCParams']]],
+  ['prompt_331',['prompt',['../struct_c_c_1_1common_1_1_c_c_params.html#aab6792fea7a9a8c6e74221d982faec51',1,'CC::common::CCParams']]]
 ];

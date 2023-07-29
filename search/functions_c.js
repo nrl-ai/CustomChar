@@ -1,16 +1,9 @@
 var searchData=
 [
-  ['sampleaudio_211',['SampleAudio',['../class_c_c_1_1audio_1_1_voice_recorder.html#aa270845a1687136ceeba842ea04c50bc',1,'CC::audio::VoiceRecorder']]],
-  ['say_212',['Say',['../class_c_c_1_1audio_1_1_voice_synthesizer.html#a577bc53ecd7deb191e41c9218ea2f023',1,'CC::audio::VoiceSynthesizer']]],
-  ['sdlpollevents_213',['SDLPollEvents',['../namespace_c_c_1_1audio.html#a202b2157be4f86a38dffe97f3280e864',1,'CC::audio']]],
-  ['search_214',['search',['../class_c_c_1_1embeddb_1_1_collection.html#ae9a7add8f6c3fa624911353a74097406',1,'CC::embeddb::Collection']]],
-  ['setmessage_215',['SetMessage',['../class_c_c_1_1session_1_1_chat_message.html#a2431ce0c38edacaa19bb3f1b322ccb89',1,'CC::session::ChatMessage::SetMessage(std::string)'],['../class_c_c_1_1session_1_1_chat_message.html#afc51efd01a6f5e6cad4a01cd33ccf693',1,'CC::session::ChatMessage::SetMessage(std::string, std::string)']]],
-  ['setmute_216',['SetMute',['../class_c_c_1_1character_1_1_character.html#a99e7d1f2be0071a186236f0c1fdb4016',1,'CC::character::Character']]],
-  ['setonbotmessage_217',['SetOnBotMessage',['../class_c_c_1_1character_1_1_character.html#a8910f29efcd8e26248661c8d059e6288',1,'CC::character::Character']]],
-  ['setonusermessage_218',['SetOnUserMessage',['../class_c_c_1_1character_1_1_character.html#a541ac1dfd3adf3fcd68b63a6f8e1ffe3',1,'CC::character::Character']]],
-  ['setsender_219',['SetSender',['../class_c_c_1_1session_1_1_chat_message.html#a73c70356965877bdb487e690ef2dc50d',1,'CC::session::ChatMessage']]],
-  ['settime_220',['SetTime',['../class_c_c_1_1session_1_1_chat_message.html#aa196b8c078e56ed067042e2a5312f2f5',1,'CC::session::ChatMessage']]],
-  ['speechrecognizer_221',['SpeechRecognizer',['../class_c_c_1_1audio_1_1_speech_recognizer.html#a30b9d9a77b9e37be98082a6a281af7a5',1,'CC::audio::SpeechRecognizer']]],
-  ['start_222',['Start',['../class_c_c_1_1vision_1_1_video_capture.html#ac1948f79fe3a3391e1bffbfd5f4773da',1,'CC::vision::VideoCapture']]],
-  ['stop_223',['Stop',['../class_c_c_1_1vision_1_1_video_capture.html#a809cf127f302693c2d24b84dfcd944b4',1,'CC::vision::VideoCapture']]]
+  ['readwav_280',['ReadWav',['../namespace_c_c_1_1audio.html#ad8a2c4f7be965cb7c20486de9892ce42',1,'CC::audio']]],
+  ['recognize_281',['Recognize',['../class_c_c_1_1audio_1_1_speech_recognizer.html#a16f29b610fd1fcd045cd02bebc3ca9c0',1,'CC::audio::SpeechRecognizer']]],
+  ['replace_282',['Replace',['../namespace_c_c_1_1common.html#a2aee6c2bbbd4c8c2e5aa7bdc3bc81952',1,'CC::common']]],
+  ['resume_283',['Resume',['../class_c_c_1_1audio_1_1_audio_async.html#a5d81247e2db71696075ef7490cca89ea',1,'CC::audio::AudioAsync']]],
+  ['run_284',['Run',['../class_c_c_1_1character_1_1_character.html#a3861f4c6f3023dc83c614fa7dabb0cfb',1,'CC::character::Character']]],
+  ['runimgui_285',['runImgui',['../main_8cpp.html#a9ef0895eff6562e2de52613a05654cfe',1,'main.cpp']]]
 ];

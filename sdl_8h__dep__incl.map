@@ -1,0 +1,12 @@
+<map id="sdl.h" name="sdl.h">
+<area shape="rect" id="node1" title=" " alt="" coords="149,6,202,32"/>
+<area shape="rect" id="node2" href="$sdl_8cpp.html" title=" " alt="" coords="5,80,73,107"/>
+<area shape="rect" id="node3" href="$speech__recognizer_8h.html" title=" " alt="" coords="98,80,253,107"/>
+<area shape="rect" id="node9" href="$voice__recorder_8h.html" title=" " alt="" coords="277,80,407,107"/>
+<area shape="rect" id="node4" href="$speech__recognizer_8cpp.html" title=" " alt="" coords="24,155,193,182"/>
+<area shape="rect" id="node5" href="$character_8h.html" title=" " alt="" coords="217,155,312,182"/>
+<area shape="rect" id="node6" href="$character_8cpp.html" title=" " alt="" coords="90,230,199,256"/>
+<area shape="rect" id="node7" href="$main_8cpp.html" title=" " alt="" coords="223,230,306,256"/>
+<area shape="rect" id="node8" href="$main__cli_8cpp.html" title=" " alt="" coords="330,230,434,256"/>
+<area shape="rect" id="node10" href="$voice__recorder_8cpp.html" title=" " alt="" coords="337,155,481,182"/>
+</map>

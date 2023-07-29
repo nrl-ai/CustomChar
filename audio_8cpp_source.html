@@ -49,7 +49,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Search');
+  initMenu('',true,false,'search.html','Search');
   $(document).ready(function() { init_search(); });
 });
 /* @license-end */</script>
@@ -90,8 +90,8 @@ $(document).ready(function(){initNavTree('audio_8cpp_source.html',''); initResiz
 <div class="title">audio.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;customchar/audio/audio.h&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define DR_WAV_IMPLEMENTATION</span></div>
+<a href="audio_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="audio_8h.html">customchar/audio/audio.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno"><a class="line" href="audio_8cpp.html#a3247bf780f78dc4be31f7035ea1506ea">    2</a></span>&#160;<span class="preprocessor">#define DR_WAV_IMPLEMENTATION</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;dr_wav.h&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
@@ -102,10 +102,10 @@ $(document).ready(function(){initNavTree('audio_8cpp_source.html',''); initResiz
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;regex&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;customchar/common/common.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="common_8h.html">customchar/common/common.h</a>&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#ifndef M_PI</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define M_PI 3.14159265358979323846</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="audio_8cpp.html#ae71449b1cc6e6250b91f539153a7a0d3">   16</a></span>&#160;<span class="preprocessor">#define M_PI 3.14159265358979323846</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#if defined(_MSC_VER)</span></div>
@@ -157,9 +157,9 @@ $(document).ready(function(){initNavTree('audio_8cpp_source.html',''); initResiz
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  }</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keywordflow">if</span> (wav.sampleRate != COMMON_SAMPLE_RATE) {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keywordflow">if</span> (wav.sampleRate != <a class="code" href="audio_8h.html#ac49089f2ab82f9fd95c40fa8b1bb8724">COMMON_SAMPLE_RATE</a>) {</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    fprintf(stderr, <span class="stringliteral">&quot;%s: WAV file &#39;%s&#39; must be %i kHz\n&quot;</span>, __func__,</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            fname.c_str(), COMMON_SAMPLE_RATE / 1000);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            fname.c_str(), <a class="code" href="audio_8h.html#ac49089f2ab82f9fd95c40fa8b1bb8724">COMMON_SAMPLE_RATE</a> / 1000);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  }</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
@@ -208,7 +208,7 @@ $(document).ready(function(){initNavTree('audio_8cpp_source.html',''); initResiz
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
 <div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="namespace_c_c_1_1audio.html#a5d78bbd1692dc92b8419b8cdb7d48734">  117</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespace_c_c_1_1audio.html#a5d78bbd1692dc92b8419b8cdb7d48734">CC::audio::HighPassFilter</a>(std::vector&lt;float&gt;&amp; data, <span class="keywordtype">float</span> cutoff,</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                               <span class="keywordtype">float</span> sample_rate) {</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">float</span> rc = 1.0f / (2.0f * M_PI * cutoff);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">float</span> rc = 1.0f / (2.0f * <a class="code" href="audio_8cpp.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a> * cutoff);</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">float</span> dt = 1.0f / sample_rate;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">float</span> alpha = dt / (rc + dt);</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
@@ -262,6 +262,10 @@ $(document).ready(function(){initNavTree('audio_8cpp_source.html',''); initResiz
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;}</div>
+<div class="ttc" id="aaudio_8cpp_html_ae71449b1cc6e6250b91f539153a7a0d3"><div class="ttname"><a href="audio_8cpp.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a></div><div class="ttdeci">#define M_PI</div><div class="ttdef"><b>Definition:</b> <a href="audio_8cpp_source.html#l00016">audio.cpp:16</a></div></div>
+<div class="ttc" id="aaudio_8h_html"><div class="ttname"><a href="audio_8h.html">audio.h</a></div></div>
+<div class="ttc" id="aaudio_8h_html_ac49089f2ab82f9fd95c40fa8b1bb8724"><div class="ttname"><a href="audio_8h.html#ac49089f2ab82f9fd95c40fa8b1bb8724">COMMON_SAMPLE_RATE</a></div><div class="ttdeci">#define COMMON_SAMPLE_RATE</div><div class="ttdef"><b>Definition:</b> <a href="audio_8h_source.html#l00013">audio.h:13</a></div></div>
+<div class="ttc" id="acommon_8h_html"><div class="ttname"><a href="common_8h.html">common.h</a></div></div>
 <div class="ttc" id="anamespace_c_c_1_1audio_html"><div class="ttname"><a href="namespace_c_c_1_1audio.html">CC::audio</a></div><div class="ttdef"><b>Definition:</b> <a href="audio_8h_source.html#l00011">audio.h:11</a></div></div>
 <div class="ttc" id="anamespace_c_c_1_1audio_html_a5d78bbd1692dc92b8419b8cdb7d48734"><div class="ttname"><a href="namespace_c_c_1_1audio.html#a5d78bbd1692dc92b8419b8cdb7d48734">CC::audio::HighPassFilter</a></div><div class="ttdeci">void HighPassFilter(std::vector&lt; float &gt; &amp;data, float cutoff, float sample_rate)</div><div class="ttdoc">Apply a high-pass frequency filter to PCM audio Suppresses frequencies below cutoff Hz.</div><div class="ttdef"><b>Definition:</b> <a href="audio_8cpp_source.html#l00117">audio.cpp:117</a></div></div>
 <div class="ttc" id="anamespace_c_c_1_1audio_html_a9951b6db11c12f3b6d4628703b6baf64"><div class="ttname"><a href="namespace_c_c_1_1audio.html#a9951b6db11c12f3b6d4628703b6baf64">CC::audio::VADSimple</a></div><div class="ttdeci">bool VADSimple(std::vector&lt; float &gt; &amp;pcmf32, int sample_rate, int last_ms, float vad_thold, float freq_thold, bool verbose)</div><div class="ttdoc">Basic voice activity detection (VAD) using audio energy adaptive threshold.</div><div class="ttdef"><b>Definition:</b> <a href="audio_8cpp_source.html#l00131">audio.cpp:131</a></div></div>
@@ -272,7 +276,7 @@ $(document).ready(function(){initNavTree('audio_8cpp_source.html',''); initResiz
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_52329a553313b1bc9a682fb2a0654934.html">customchar</a></li><li class="navelem"><a class="el" href="dir_1148118e3d48ab20bf2a24a99d3c84b1.html">audio</a></li><li class="navelem"><b>audio.cpp</b></li>
+    <li class="navelem"><a class="el" href="dir_52329a553313b1bc9a682fb2a0654934.html">customchar</a></li><li class="navelem"><a class="el" href="dir_1148118e3d48ab20bf2a24a99d3c84b1.html">audio</a></li><li class="navelem"><a class="el" href="audio_8cpp.html">audio.cpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

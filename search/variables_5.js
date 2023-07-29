@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['language_242',['language',['../struct_c_c_1_1common_1_1_c_c_params.html#a544e83c9149850452034432c650fe647',1,'CC::common::CCParams']]],
-  ['llm_5fmodel_5fpath_243',['llm_model_path',['../struct_c_c_1_1common_1_1_c_c_params.html#a1b1b2f8243a5cc06938f46c107d866bd',1,'CC::common::CCParams']]]
+  ['kpromptllama_319',['kPromptLlama',['../namespace_c_c_1_1llm.html#a43be6cb3cd77698e5cdd3b432089de87',1,'CC::llm']]]
 ];
