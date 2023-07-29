@@ -18,6 +18,9 @@ string(STRIP "${SDL2_LIBRARIES}" SDL2_LIBRARIES)
 message(STATUS "SDL2_INCLUDE_DIRS = ${SDL2_INCLUDE_DIRS}")
 message(STATUS "SDL2_LIBRARIES = ${SDL2_LIBRARIES}")
 
+# OpenCV for perception module
+find_package(OpenCV REQUIRED)
+
 # Add whisper-cpp
 add_subdirectory(libs/whisper-cpp)
 
@@ -42,7 +45,7 @@ target_include_directories(
     libs
     .
 )
-target_link_libraries(${TARGET} PUBLIC ${SDL2_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} whisper)
+target_link_libraries(${TARGET} PUBLIC ${SDL2_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} ${OpenCV_LIBS} whisper)
 
 # CustomChar - cli
 add_executable(
@@ -51,9 +54,9 @@ add_executable(
 )
 target_link_libraries(customchar-cli customchar-core)
 
-
 option(BUILD_GUI "Build GUI" ON)
-if (BUILD_GUI)
+
+if(BUILD_GUI)
     find_package(OpenGL REQUIRED)
     find_package(GLEW REQUIRED)
     find_package(glfw3 REQUIRED)
@@ -72,12 +75,12 @@ if (BUILD_GUI)
     add_library(imgui STATIC ${IMGUI_SRCS})
     target_include_directories(imgui PUBLIC ${IMGUI_DIR} ${IMGUI_DIR}/backends)
 
-    if (UNIX AND NOT APPLE)
+    if(UNIX AND NOT APPLE)
         message(STATUS "Building for Linux")
         set(LINUX_GL_LIBS GL GLEW)
         target_link_libraries(${TARGET} PUBLIC ${LINUX_GL_LIBS} glfw)
         target_compile_definitions(${TARGET} PUBLIC LINUX)
-    elseif (APPLE)
+    elseif(APPLE)
         message(STATUS "Building for Mac OS X")
         target_link_libraries(${TARGET} PUBLIC "-framework OpenGL" "-framework Cocoa" "-framework IOKit" "-framework CoreVideo" glfw)
         target_compile_definitions(${TARGET} PUBLIC APPLE)
@@ -100,5 +103,4 @@ if (BUILD_GUI)
     add_custom_command(TARGET customchar POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
         ${CMAKE_SOURCE_DIR}/fonts $<TARGET_FILE_DIR:customchar>/fonts)
-
 endif()
