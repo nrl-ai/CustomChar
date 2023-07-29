@@ -47,7 +47,7 @@ vision::VideoCapture video_capture;
 // signal client server ... lock/unlock mutex
 constexpr int TEXT_MESSAGE_SIZE = 1024 * 8;
 constexpr int INIT_WINDOW_WIDTH = 600;
-constexpr int INIT_WINDOW_HEIGHT = 600;
+constexpr int INIT_WINDOW_HEIGHT = 400;
 
 static void GLFWErrorCallback(int error, const char* description) {
   fprintf(stderr, "Glfw Error %d: %s\n", error, description);
@@ -105,9 +105,6 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
   ImGui::CreateContext();
   ImGuiIO& io = ImGui::GetIO();
   (void)io;
-  // io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable
-  // Keyboard Controls io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad; //
-  // Enable Gamepad Controls
 
   // Setup Dear ImGui style
   // ImGui::StyleColorsDark();
@@ -125,7 +122,7 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
 
   // Our state
   ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-  bool justSent = true;
+  bool just_sent = true;
 
   // Initial text
   char text[TEXT_MESSAGE_SIZE] = "";
@@ -136,6 +133,9 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
   glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
+
+  bool last_enable_camera = false;
+  bool enable_camera = true;
 
   // Main loop
   while (!glfwWindowShouldClose(window)) {
@@ -157,26 +157,49 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
                  ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove |
                      ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar);
 
-    // Get window size
-    ImVec2 windowSize = ImGui::GetWindowSize();
+    ImVec2 window_size = ImGui::GetWindowSize();
 
-    // Resize image to fit window
-    cv::Mat image = video_capture.GetFrame();
-    cv::Mat resized_image;
-    float ratio = (float)image.cols / (float)image.rows;
-    int new_width = windowSize.x;
-    int new_height = new_width / ratio;
-    cv::resize(image, resized_image, cv::Size(new_width, new_height));
-    cv::cvtColor(resized_image, resized_image, cv::COLOR_BGR2RGBA);
+    // Check and start/stop camera
+    if (last_enable_camera != enable_camera) {
+      if (enable_camera) {
+        video_capture.Start();
+        // Adapt window height to camera aspect ratio
+        int window_width = window_size.x;
+        int window_height = window_width * video_capture.GetFrameHeight() /
+                                video_capture.GetFrameWidth() +
+                            200;
+        glfwSetWindowSize(window, window_width, window_height);
+      } else {
+        video_capture.Stop();
+        glfwSetWindowSize(window, INIT_WINDOW_WIDTH, INIT_WINDOW_HEIGHT);
+      }
+      last_enable_camera = enable_camera;
+    }
 
-    // Display image
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, resized_image.cols,
-                 resized_image.rows, 0, GL_RGBA, GL_UNSIGNED_BYTE,
-                 resized_image.data);
-    ImGui::Image(reinterpret_cast<void*>(static_cast<intptr_t>(texture)),
-                 ImVec2(resized_image.cols, resized_image.rows), ImVec2(0, 0),
-                 ImVec2(1, 1), ImColor(255, 255, 255, 255),
-                 ImColor(255, 255, 255, 128));
+    // Render camera
+    if (enable_camera) {
+      // Resize image to fit window
+      cv::Mat image = video_capture.GetFrame();
+      if (!image.empty()) {
+        cv::Mat resized_image;
+        float ratio = (float)image.cols / (float)image.rows;
+        int new_width = window_size.x - 20;
+        int new_height = new_width / ratio;
+        cv::resize(image, resized_image, cv::Size(new_width, new_height));
+        cv::cvtColor(resized_image, resized_image, cv::COLOR_BGR2RGBA);
+
+        // Display image
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, resized_image.cols,
+                     resized_image.rows, 0, GL_RGBA, GL_UNSIGNED_BYTE,
+                     resized_image.data);
+        ImGui::Image(reinterpret_cast<void*>(static_cast<intptr_t>(texture)),
+                     ImVec2(resized_image.cols, resized_image.rows),
+                     ImVec2(0, 0), ImVec2(1, 1), ImColor(255, 255, 255, 255),
+                     ImColor(255, 255, 255, 128));
+      }
+    }
+
+    ImGui::Checkbox("Enable Camera", &enable_camera);
 
     // Child window scrollable area
     ImGuiWindowFlags window_flags = ImGuiWindowFlags_None;
@@ -196,7 +219,7 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
       ImGui::TextWrapped("> %s: %s", message.GetSender().c_str(),
                          message.GetMessage().c_str());
     }
-    if (history->HasNewMessage() || justSent) {
+    if (history->HasNewMessage() || just_sent) {
       ImGui::SetScrollHereY(1.0f);
     }
 
@@ -208,9 +231,9 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
     ImGuiInputTextFlags input_flags = ImGuiInputTextFlags_ReadOnly;
 
     // Refocus text area if text was just sent
-    if (justSent) {
+    if (just_sent) {
       ImGui::SetKeyboardFocusHere();
-      justSent = false;
+      just_sent = false;
     }
 
     // Create a spinner and text input in the same line
@@ -224,7 +247,7 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
     strcpy(text, "Say something...");
     ImGui::PushItemWidth(ImGui::GetContentRegionAvail().x);
     if (ImGui::InputText("##source", text, IM_ARRAYSIZE(text), input_flags)) {
-      justSent = OnNewMessage(text, "User", history);
+      just_sent = OnNewMessage(text, "User", history);
     };
 
     // Put the cursor of InputTextMultiline at the end of the text
@@ -271,8 +294,6 @@ int main(int argc, char** argv) {
 
   // Create character
   Character character(params);
-
-  video_capture.Start();
 
   // Set message callbacks
   character.SetOnUserMessage(

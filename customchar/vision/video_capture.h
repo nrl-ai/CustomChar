@@ -13,25 +13,60 @@ namespace vision {
 
 class VideoCapture {
  private:
+  int device_id_;
+  bool is_capturing_;
+
   cv::VideoCapture capture_;
+  std::mutex capture_mutex_;
+
   cv::Mat frame_;
   std::mutex frame_mutex_;
   std::thread capture_thread_;
 
- public:
-  VideoCapture() {
-    capture_ = cv::VideoCapture(0);
+  /// @brief Start capturing frames from device
+  bool StartDevice() {
+    capture_ = cv::VideoCapture(device_id_);
     if (!capture_.isOpened()) {
-      std::cout << "Error opening video stream or file" << std::endl;
-      exit(-1);
+      std::cerr << "Error opening video stream or file" << std::endl;
+      return false;
+    } else {
+      return true;
     }
+  }
+
+  /// @brief Stop capturing frames from device
+  void StopDevice() {
+    if (capture_.isOpened()) capture_.release();
+  }
+
+ public:
+  VideoCapture() {}
+
+  /// @brief Get frame width
+  /// @return int
+  int GetFrameWidth() {
+    std::lock_guard<std::mutex> lock(frame_mutex_);
+    return frame_.cols;
+  }
+
+  /// @brief Get frame height
+  /// @return int
+  int GetFrameHeight() {
+    std::lock_guard<std::mutex> lock(frame_mutex_);
+    return frame_.rows;
   }
 
   /// @brief Capture frames from camera
   void Capture() {
     cv::Mat frame;
     while (true) {
-      capture_ >> frame;
+      {
+        std::lock_guard<std::mutex> lock(capture_mutex_);
+        if (!is_capturing_) {
+          break;
+        }
+        capture_ >> frame;
+      }
       if (frame.empty()) {
         break;
       }
@@ -41,10 +76,29 @@ class VideoCapture {
   }
 
   /// @brief Start capturing frames
-  void Start() { capture_thread_ = std::thread(&VideoCapture::Capture, this); }
+  void Start() {
+    {
+      std::lock_guard<std::mutex> lock(capture_mutex_);
+      if (is_capturing_) {
+        return;
+      }
+      if (!StartDevice()) return;
+      // Get first frame to initialize frame size
+      std::lock_guard<std::mutex> frame_lock(frame_mutex_);
+      capture_ >> frame_;
+      is_capturing_ = true;
+    }
+    capture_thread_ = std::thread(&VideoCapture::Capture, this);
+  }
 
-  /// @brief  Stop capturing frames
-  void Stop() { capture_thread_.join(); }
+  /// @brief Stop capturing frames
+  void Stop() {
+    std::lock_guard<std::mutex> lock(capture_mutex_);
+    if (!is_capturing_) {
+      return;
+    }
+    StopDevice();
+  }
 
   /// @brief Get frame from queue
   /// @return cv::Mat. Empty if queue is empty
