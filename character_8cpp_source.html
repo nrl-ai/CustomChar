@@ -126,98 +126,104 @@ $(document).ready(function(){initNavTree('character_8cpp_source.html',''); initR
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  this-&gt;on_bot_message_ = on_bot_message_;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_c_c_1_1character_1_1_character.html#a3861f4c6f3023dc83c614fa7dabb0cfb">   37</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1character_1_1_character.html#a3861f4c6f3023dc83c614fa7dabb0cfb">Character::Run</a>() {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="comment">// Start talking</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  printf(<span class="stringliteral">&quot;Start speaking in the microphone\n&quot;</span>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  printf(<span class="stringliteral">&quot;%s%s&quot;</span>, params_.<a class="code" href="struct_c_c_1_1common_1_1_c_c_params.html#a029c9413477b078bd0d950f03ebb1339">person</a>.c_str(), params_.<a class="code" href="struct_c_c_1_1common_1_1_c_c_params.html#a5a2dc2423942f8022ad042235dd382a3">chat_symb</a>.c_str());</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  fflush(stdout);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="comment">// Clear audio buffer to avoid processing old audio</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  voice_recoder_-&gt;ClearAudioBuffer();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  std::vector&lt;llama_token&gt; embd;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordtype">int</span> n_iter = 0;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordtype">bool</span> is_running = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordflow">while</span> (is_running) {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">// Handle Ctrl + C</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    is_running = sdl_poll_events();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">if</span> (!is_running) {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">// Delay</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    std::this_thread::sleep_for(std::chrono::milliseconds(100));</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">float</span> prob = 0.0f;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    int64_t t_ms = 0;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">// Sample audio</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    voice_recoder_-&gt;SampleAudio();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">if</span> (!voice_recoder_-&gt;FinishedTalking()) {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment">// Get recorded audio</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    std::vector&lt;float&gt; audio_buff;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    voice_recoder_-&gt;GetAudio(audio_buff);</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_c_c_1_1character_1_1_character.html#a99e7d1f2be0071a186236f0c1fdb4016">   37</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1character_1_1_character.html#a99e7d1f2be0071a186236f0c1fdb4016">Character::SetMute</a>(<span class="keywordtype">bool</span> is_muted) { is_muted_ = is_muted; }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_c_c_1_1character_1_1_character.html#ae31736240c3a4a0962968e68f6bc4e23">   39</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_c_c_1_1character_1_1_character.html#ae31736240c3a4a0962968e68f6bc4e23">Character::IsMuted</a>() { <span class="keywordflow">return</span> is_muted_; }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_c_c_1_1character_1_1_character.html#a3861f4c6f3023dc83c614fa7dabb0cfb">   41</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1character_1_1_character.html#a3861f4c6f3023dc83c614fa7dabb0cfb">Character::Run</a>() {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="comment">// Start talking</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  printf(<span class="stringliteral">&quot;Start speaking in the microphone\n&quot;</span>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  printf(<span class="stringliteral">&quot;%s%s&quot;</span>, params_.<a class="code" href="struct_c_c_1_1common_1_1_c_c_params.html#a029c9413477b078bd0d950f03ebb1339">person</a>.c_str(), params_.<a class="code" href="struct_c_c_1_1common_1_1_c_c_params.html#a5a2dc2423942f8022ad042235dd382a3">chat_symb</a>.c_str());</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  fflush(stdout);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="comment">// Clear audio buffer to avoid processing old audio</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  voice_recoder_-&gt;ClearAudioBuffer();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  std::vector&lt;llama_token&gt; embd;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keywordtype">int</span> n_iter = 0;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordtype">bool</span> is_running = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordflow">while</span> (is_running) {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">// Handle Ctrl + C</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    is_running = sdl_poll_events();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">if</span> (!is_running) {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">// Delay</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    std::this_thread::sleep_for(std::chrono::milliseconds(100));</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">float</span> prob = 0.0f;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    int64_t t_ms = 0;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">// Sample audio</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    voice_recoder_-&gt;SampleAudio();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">if</span> (!voice_recoder_-&gt;FinishedTalking()) {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">// Recognize speech</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    std::string text_heard =</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        speech_recognizer_-&gt;Recognize(audio_buff, prob, t_ms);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">// Get recorded audio</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    std::vector&lt;float&gt; audio_buff;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    voice_recoder_-&gt;GetAudio(audio_buff);</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">// Tokenize user input</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">auto</span> tokens = llm_-&gt;Tokenize(text_heard, <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">// Skip if nothing was heard</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">if</span> (text_heard.empty() || tokens.empty()) {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      printf(<span class="stringliteral">&quot;Heard nothing, skipping ...\n&quot;</span>);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      voice_recoder_-&gt;ClearAudioBuffer();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment">// Callback for user message</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">if</span> (on_user_message_) {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      on_user_message_(text_heard);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">// Print user input</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    std::string formated_text_heard = text_heard;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    formated_text_heard.insert(0, 1, <span class="charliteral">&#39; &#39;</span>);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    formated_text_heard += <span class="stringliteral">&quot;\n&quot;</span> + params_.<a class="code" href="struct_c_c_1_1common_1_1_c_c_params.html#ad9db361b85c7405b3f94a0697f6d0901">bot_name</a> + params_.<a class="code" href="struct_c_c_1_1common_1_1_c_c_params.html#a5a2dc2423942f8022ad042235dd382a3">chat_symb</a>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    printf(<span class="stringliteral">&quot;%s%s%s&quot;</span>, <span class="stringliteral">&quot;\033[1m&quot;</span>, formated_text_heard.c_str(), <span class="stringliteral">&quot;\033[0m&quot;</span>);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    fflush(stdout);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="comment">// Response from character</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="comment">// If plugin executor returns true, then it handled the user input</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">// Otherwise, LLM will handle</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    std::string response;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">if</span> (!plugin_executor_-&gt;ParseAndExecute(text_heard, response)) {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      <span class="comment">// Append the new input tokens to the session_tokens vector</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      llm_-&gt;AddTokensToCurrentSession(tokens);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      <span class="comment">// Get answer from LLM</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      embd = llm_-&gt;Tokenize(formated_text_heard, <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="comment">// Get answer from LLM</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      response = llm_-&gt;GetAnswer(embd);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      <span class="comment">// TODO: Add plugin executor response to LLM session</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="comment">// Callback for bot message</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">if</span> (on_bot_message_) {</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      on_bot_message_(response);</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    }</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="comment">// Play speak</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    voice_synthesizer_-&gt;Say(response);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="comment">// Clean up</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    voice_recoder_-&gt;ClearAudioBuffer();</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    ++n_iter;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  }</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">// Recognize speech</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    std::string text_heard =</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        speech_recognizer_-&gt;Recognize(audio_buff, prob, t_ms);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">// Tokenize user input</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">auto</span> tokens = llm_-&gt;Tokenize(text_heard, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">// Skip if nothing was heard</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">if</span> (text_heard.empty() || tokens.empty()) {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      printf(<span class="stringliteral">&quot;Heard nothing, skipping ...\n&quot;</span>);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      voice_recoder_-&gt;ClearAudioBuffer();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">// Callback for user message</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">if</span> (on_user_message_) {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      on_user_message_(text_heard);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="comment">// Print user input</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    std::string formated_text_heard = text_heard;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    formated_text_heard.insert(0, 1, <span class="charliteral">&#39; &#39;</span>);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    formated_text_heard += <span class="stringliteral">&quot;\n&quot;</span> + params_.<a class="code" href="struct_c_c_1_1common_1_1_c_c_params.html#ad9db361b85c7405b3f94a0697f6d0901">bot_name</a> + params_.<a class="code" href="struct_c_c_1_1common_1_1_c_c_params.html#a5a2dc2423942f8022ad042235dd382a3">chat_symb</a>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    printf(<span class="stringliteral">&quot;%s%s%s&quot;</span>, <span class="stringliteral">&quot;\033[1m&quot;</span>, formated_text_heard.c_str(), <span class="stringliteral">&quot;\033[0m&quot;</span>);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    fflush(stdout);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">// Response from character</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="comment">// If plugin executor returns true, then it handled the user input</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="comment">// Otherwise, LLM will handle</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    std::string response;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">if</span> (!plugin_executor_-&gt;ParseAndExecute(text_heard, response)) {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="comment">// Append the new input tokens to the session_tokens vector</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      llm_-&gt;AddTokensToCurrentSession(tokens);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      <span class="comment">// Get answer from LLM</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      embd = llm_-&gt;Tokenize(formated_text_heard, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      <span class="comment">// Get answer from LLM</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;      response = llm_-&gt;GetAnswer(embd);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      <span class="comment">// TODO: Add plugin executor response to LLM session</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="comment">// Callback for bot message</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">if</span> (on_bot_message_) {</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      on_bot_message_(response);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="comment">// Play speak</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">if</span> (!is_muted_) voice_synthesizer_-&gt;Say(response);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="comment">// Clean up</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    voice_recoder_-&gt;ClearAudioBuffer();</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    ++n_iter;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  }</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}</div>
 <div class="ttc" id="aclass_c_c_1_1character_1_1_character_html_a0fffa840cfbffab1fb38b789abdf5045"><div class="ttname"><a href="class_c_c_1_1character_1_1_character.html#a0fffa840cfbffab1fb38b789abdf5045">CC::character::Character::Character</a></div><div class="ttdeci">Character(common::CCParams init_params)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> <a href="character_8cpp_source.html#l00006">character.cpp:6</a></div></div>
-<div class="ttc" id="aclass_c_c_1_1character_1_1_character_html_a3861f4c6f3023dc83c614fa7dabb0cfb"><div class="ttname"><a href="class_c_c_1_1character_1_1_character.html#a3861f4c6f3023dc83c614fa7dabb0cfb">CC::character::Character::Run</a></div><div class="ttdeci">void Run()</div><div class="ttdoc">Run character in a loop.</div><div class="ttdef"><b>Definition:</b> <a href="character_8cpp_source.html#l00037">character.cpp:37</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1character_1_1_character_html_a3861f4c6f3023dc83c614fa7dabb0cfb"><div class="ttname"><a href="class_c_c_1_1character_1_1_character.html#a3861f4c6f3023dc83c614fa7dabb0cfb">CC::character::Character::Run</a></div><div class="ttdeci">void Run()</div><div class="ttdoc">Run character in a loop.</div><div class="ttdef"><b>Definition:</b> <a href="character_8cpp_source.html#l00041">character.cpp:41</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1character_1_1_character_html_a541ac1dfd3adf3fcd68b63a6f8e1ffe3"><div class="ttname"><a href="class_c_c_1_1character_1_1_character.html#a541ac1dfd3adf3fcd68b63a6f8e1ffe3">CC::character::Character::SetOnUserMessage</a></div><div class="ttdeci">void SetOnUserMessage(std::function&lt; void(std::string)&gt; on_user_message_)</div><div class="ttdoc">Set on user message callback.</div><div class="ttdef"><b>Definition:</b> <a href="character_8cpp_source.html#l00027">character.cpp:27</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1character_1_1_character_html_a8910f29efcd8e26248661c8d059e6288"><div class="ttname"><a href="class_c_c_1_1character_1_1_character.html#a8910f29efcd8e26248661c8d059e6288">CC::character::Character::SetOnBotMessage</a></div><div class="ttdeci">void SetOnBotMessage(std::function&lt; void(std::string)&gt; on_bot_message_)</div><div class="ttdoc">Set on bot message callback.</div><div class="ttdef"><b>Definition:</b> <a href="character_8cpp_source.html#l00032">character.cpp:32</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1character_1_1_character_html_a99e7d1f2be0071a186236f0c1fdb4016"><div class="ttname"><a href="class_c_c_1_1character_1_1_character.html#a99e7d1f2be0071a186236f0c1fdb4016">CC::character::Character::SetMute</a></div><div class="ttdeci">void SetMute(bool is_muted)</div><div class="ttdoc">Set mute (do not speak)</div><div class="ttdef"><b>Definition:</b> <a href="character_8cpp_source.html#l00037">character.cpp:37</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1character_1_1_character_html_ae31736240c3a4a0962968e68f6bc4e23"><div class="ttname"><a href="class_c_c_1_1character_1_1_character.html#ae31736240c3a4a0962968e68f6bc4e23">CC::character::Character::IsMuted</a></div><div class="ttdeci">bool IsMuted()</div><div class="ttdoc">Get mute status.</div><div class="ttdef"><b>Definition:</b> <a href="character_8cpp_source.html#l00039">character.cpp:39</a></div></div>
 <div class="ttc" id="anamespace_c_c_1_1character_html"><div class="ttname"><a href="namespace_c_c_1_1character.html">CC::character</a></div><div class="ttdef"><b>Definition:</b> <a href="character_8h_source.html#l00022">character.h:22</a></div></div>
 <div class="ttc" id="anamespace_c_c_html"><div class="ttname"><a href="namespace_c_c.html">CC</a></div><div class="ttdef"><b>Definition:</b> <a href="speech__recognizer_8h_source.html#l00016">speech_recognizer.h:16</a></div></div>
 <div class="ttc" id="astruct_c_c_1_1common_1_1_c_c_params_html"><div class="ttname"><a href="struct_c_c_1_1common_1_1_c_c_params.html">CC::common::CCParams</a></div><div class="ttdoc">Parameters for CustomChar.</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8h_source.html#l00016">helpers.h:16</a></div></div>

@@ -100,6 +100,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0fffa840cfbffab1fb38b789abdf5045"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1character_1_1_character.html#a0fffa840cfbffab1fb38b789abdf5045">Character</a> (<a class="el" href="struct_c_c_1_1common_1_1_c_c_params.html">common::CCParams</a> init_params)</td></tr>
 <tr class="memdesc:a0fffa840cfbffab1fb38b789abdf5045"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="class_c_c_1_1character_1_1_character.html#a0fffa840cfbffab1fb38b789abdf5045">More...</a><br /></td></tr>
 <tr class="separator:a0fffa840cfbffab1fb38b789abdf5045"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99e7d1f2be0071a186236f0c1fdb4016"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1character_1_1_character.html#a99e7d1f2be0071a186236f0c1fdb4016">SetMute</a> (bool is_muted)</td></tr>
+<tr class="memdesc:a99e7d1f2be0071a186236f0c1fdb4016"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set mute (do not speak)  <a href="class_c_c_1_1character_1_1_character.html#a99e7d1f2be0071a186236f0c1fdb4016">More...</a><br /></td></tr>
+<tr class="separator:a99e7d1f2be0071a186236f0c1fdb4016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae31736240c3a4a0962968e68f6bc4e23"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1character_1_1_character.html#ae31736240c3a4a0962968e68f6bc4e23">IsMuted</a> ()</td></tr>
+<tr class="memdesc:ae31736240c3a4a0962968e68f6bc4e23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get mute status.  <a href="class_c_c_1_1character_1_1_character.html#ae31736240c3a4a0962968e68f6bc4e23">More...</a><br /></td></tr>
+<tr class="separator:ae31736240c3a4a0962968e68f6bc4e23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a541ac1dfd3adf3fcd68b63a6f8e1ffe3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1character_1_1_character.html#a541ac1dfd3adf3fcd68b63a6f8e1ffe3">SetOnUserMessage</a> (std::function&lt; void(std::string)&gt; on_user_message_)</td></tr>
 <tr class="memdesc:a541ac1dfd3adf3fcd68b63a6f8e1ffe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set on user message callback.  <a href="class_c_c_1_1character_1_1_character.html#a541ac1dfd3adf3fcd68b63a6f8e1ffe3">More...</a><br /></td></tr>
 <tr class="separator:a541ac1dfd3adf3fcd68b63a6f8e1ffe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,6 +149,27 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae31736240c3a4a0962968e68f6bc4e23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae31736240c3a4a0962968e68f6bc4e23">&#9670;&nbsp;</a></span>IsMuted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Character::IsMuted </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get mute status. </p>
+
+<p class="definition">Definition at line <a class="el" href="character_8cpp_source.html#l00039">39</a> of file <a class="el" href="character_8cpp_source.html">character.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a3861f4c6f3023dc83c614fa7dabb0cfb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3861f4c6f3023dc83c614fa7dabb0cfb">&#9670;&nbsp;</a></span>Run()</h2>
 
@@ -159,6 +186,28 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Run character in a loop. </p>
+
+<p class="definition">Definition at line <a class="el" href="character_8cpp_source.html#l00041">41</a> of file <a class="el" href="character_8cpp_source.html">character.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a99e7d1f2be0071a186236f0c1fdb4016"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99e7d1f2be0071a186236f0c1fdb4016">&#9670;&nbsp;</a></span>SetMute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Character::SetMute </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>is_muted</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set mute (do not speak) </p>
 
 <p class="definition">Definition at line <a class="el" href="character_8cpp_source.html#l00037">37</a> of file <a class="el" href="character_8cpp_source.html">character.cpp</a>.</p>
 
