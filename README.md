@@ -28,6 +28,7 @@ https://github.com/vietanhdev/CustomChar/assets/18329471/4674efe7-6d7f-4e5e-9b28
 
 ## 2. Updates
 
+- 🔥 **2023-07-29:** Added a plugin executor to open apps.
 - 🔥 **2023-07-25:** Added UI with Dear ImGui.
 - 🔥 **2023-07-23:** Documentation website is online at <https://docs.customchar.com>.
 - 🔥 **2023-07-22:** Voice chat with your Llama-V2 model. TTS is supported on MacOS only.
