@@ -21,6 +21,7 @@ class OpenAppPlugin : public Plugin {
                                     std::istream_iterator<std::string>{}};
 
     if (tokens.size() < 2) {
+      finished = true;
       return false;
     }
 
@@ -51,6 +52,7 @@ class OpenAppPlugin : public Plugin {
     system(open_command.c_str());
 
     response = "Sure. Opening " + app_name;
+    finished = true;
     return true;
   }
 };
