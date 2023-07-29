@@ -6,7 +6,7 @@ using namespace CC::audio;
 
 VoiceSynthesizer::VoiceSynthesizer() {
   // Check if the Say command is supported
-  std::string command = "Say --version";
+  std::string command = "which say";
   FILE* pipe = popen(command.c_str(), "r");
   if (pipe == nullptr) {
     printf("Failed to run command: %s\n", command.c_str());

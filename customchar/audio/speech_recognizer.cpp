@@ -143,7 +143,6 @@ std::string SpeechRecognizer::Transcribe(const std::vector<float>& pcmf32,
   const int n_segments = whisper_full_n_segments(context_);
   for (int i = 0; i < n_segments; ++i) {
     const char* text = whisper_full_get_segment_text(context_, i);
-
     result += text;
 
     const int n_tokens = whisper_full_n_tokens(context_, i);
