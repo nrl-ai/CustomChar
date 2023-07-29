@@ -33,10 +33,18 @@ class Character {
   std::function<void(std::string)> on_user_message_;
   std::function<void(std::string)> on_bot_message_;
 
+  bool is_muted_ = false;
+
  public:
   /// @brief Constructor
   /// @param init_params
   Character(common::CCParams init_params);
+
+  /// @brief Set mute (do not speak)
+  void SetMute(bool is_muted);
+
+  /// @brief Get mute status
+  bool IsMuted();
 
   /// @brief Set on user message callback
   /// @param on_user_message_

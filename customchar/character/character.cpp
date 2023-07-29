@@ -34,6 +34,10 @@ void Character::SetOnBotMessage(
   this->on_bot_message_ = on_bot_message_;
 }
 
+void Character::SetMute(bool is_muted) { is_muted_ = is_muted; }
+
+bool Character::IsMuted() { return is_muted_; }
+
 void Character::Run() {
   // Start talking
   printf("Start speaking in the microphone\n");
@@ -115,7 +119,7 @@ void Character::Run() {
     }
 
     // Play speak
-    voice_synthesizer_->Say(response);
+    if (!is_muted_) voice_synthesizer_->Say(response);
 
     // Clean up
     voice_recoder_->ClearAudioBuffer();

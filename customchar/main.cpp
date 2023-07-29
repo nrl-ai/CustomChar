@@ -26,8 +26,8 @@
 #include "imspinner/imspinner.h"
 
 using namespace CC;
-using namespace CC::character;
 
+std::shared_ptr<character::Character> character_instance;
 vision::VideoCapture video_capture;
 
 // [Win32] Our example includes a copy of glfw3.lib pre-compiled with VS2010 to
@@ -134,12 +134,17 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
   glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
 
-  bool last_enable_camera = false;
-  bool enable_camera = true;
+  bool enable_camera = false;
+  bool last_enable_camera = !enable_camera;  // Force update
+  bool is_muted = false;
 
   // Main loop
   while (!glfwWindowShouldClose(window)) {
+    // Poll and handle events (inputs, window resize, etc.)
     glfwPollEvents();
+
+    // Update character mute status
+    character_instance->SetMute(is_muted);
 
     // Start the Dear ImGui frame
     ImGui_ImplOpenGL3_NewFrame();
@@ -199,7 +204,11 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
       }
     }
 
+    ImGui::PushItemWidth(32);
     ImGui::Checkbox("Enable Camera", &enable_camera);
+    ImGui::PopItemWidth();
+    ImGui::SameLine();
+    ImGui::Checkbox("Mute", &is_muted);
 
     // Child window scrollable area
     ImGuiWindowFlags window_flags = ImGuiWindowFlags_None;
@@ -293,16 +302,16 @@ int main(int argc, char** argv) {
       std::make_shared<session::ChatHistory>();
 
   // Create character
-  Character character(params);
+  character_instance = std::make_shared<character::Character>(params);
 
   // Set message callbacks
-  character.SetOnUserMessage(
+  character_instance->SetOnUserMessage(
       std::bind(OnNewMessage, std::placeholders::_1, "User", history));
-  character.SetOnBotMessage(
+  character_instance->SetOnBotMessage(
       std::bind(OnNewMessage, std::placeholders::_1, "CustomChar", history));
 
   // Start character in a new thread
-  std::thread character_thread(&Character::Run, &character);
+  std::thread character_thread(&character::Character::Run, character_instance);
   character_thread.detach();
 
   // Main GUI loop
