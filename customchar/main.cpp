@@ -130,6 +130,13 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
   // Initial text
   char text[TEXT_MESSAGE_SIZE] = "";
 
+  GLuint texture;
+  glGenTextures(1, &texture);
+  glBindTexture(GL_TEXTURE_2D, texture);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+  glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
+
   // Main loop
   while (!glfwWindowShouldClose(window)) {
     glfwPollEvents();
@@ -162,12 +169,7 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
     cv::resize(image, resized_image, cv::Size(new_width, new_height));
     cv::cvtColor(resized_image, resized_image, cv::COLOR_BGR2RGBA);
 
-    GLuint texture;
-    glGenTextures(1, &texture);
-    glBindTexture(GL_TEXTURE_2D, texture);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
+    // Display image
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, resized_image.cols,
                  resized_image.rows, 0, GL_RGBA, GL_UNSIGNED_BYTE,
                  resized_image.data);
@@ -227,6 +229,7 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
 
     // Put the cursor of InputTextMultiline at the end of the text
     ImGui::SetKeyboardFocusHere();
+    ImGui::End();
 
     // Rendering
     ImGui::Render();
@@ -241,8 +244,7 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
     glfwSwapBuffers(window);
   }
 
-  std::cout << "Main ImGUI loop ended" << std::endl;
-
+  glDeleteTextures(1, &texture);
   ImGui_ImplOpenGL3_Shutdown();
   ImGui_ImplGlfw_Shutdown();
   ImGui::DestroyContext();
