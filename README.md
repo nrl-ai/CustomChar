@@ -43,6 +43,10 @@ https://github.com/vietanhdev/CustomChar/assets/18329471/4674efe7-6d7f-4e5e-9b28
 - [ ] Hear from your character 🔊🔊🔊 :
   - [x] TTS with "say" on MacOS. **Note**: "say" is not available on other platforms (Windows, Linux)
   - [ ] TTS with bark.cpp. Expected to be available on all platforms.
+- [x] Plugin executor:
+  - [x] Open apps (WIP - Need improvement for Windows and Linux).
+  - [ ] Search on Google.
+  - [ ] Search on Youtube.
 - [ ] Perception engine to see the world through the camera 📷📷📷.
 - [x] Add a GUI for the character interaction.
 - [ ] Add a GUI for the character creation.
