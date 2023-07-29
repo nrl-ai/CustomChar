@@ -17,6 +17,9 @@ Character::Character(CCParams init_params) {
   llm_ = std::make_shared<LLM>(params_.llm_model_path, params_.path_session,
                                params_.person, params_.bot_name);
   llm_->EvalModel();
+
+  // Load plugin executor
+  plugin_executor_ = std::make_shared<executors::PluginExecutor>();
 }
 
 void Character::SetOnUserMessage(
@@ -82,28 +85,35 @@ void Character::Run() {
       on_user_message_(text_heard);
     }
 
-    // Append the new input tokens to the session_tokens vector
-    llm_->AddTokensToCurrentSession(tokens);
-
     // Print user input
-    text_heard.insert(0, 1, ' ');
-    text_heard += "\n" + params_.bot_name + params_.chat_symb;
-    printf("%s%s%s", "\033[1m", text_heard.c_str(), "\033[0m");
+    std::string formated_text_heard = text_heard;
+    formated_text_heard.insert(0, 1, ' ');
+    formated_text_heard += "\n" + params_.bot_name + params_.chat_symb;
+    printf("%s%s%s", "\033[1m", formated_text_heard.c_str(), "\033[0m");
     fflush(stdout);
 
-    // Get answer from LLM
-    embd = llm_->Tokenize(text_heard, false);
-
-    // Get answer from LLM
-    std::string text_to_speak = llm_->GetAnswer(embd);
+    // Response from character
+    // If plugin executor returns true, then it handled the user input
+    // Otherwise, LLM will handle
+    std::string response;
+    if (!plugin_executor_->ParseAndExecute(text_heard, response)) {
+      // Append the new input tokens to the session_tokens vector
+      llm_->AddTokensToCurrentSession(tokens);
+      // Get answer from LLM
+      embd = llm_->Tokenize(formated_text_heard, false);
+      // Get answer from LLM
+      response = llm_->GetAnswer(embd);
+    } else {
+      // TODO: Add plugin executor response to LLM session
+    }
 
     // Callback for bot message
     if (on_bot_message_) {
-      on_bot_message_(text_to_speak);
+      on_bot_message_(response);
     }
 
     // Play speak
-    voice_synthesizer_->Say(text_to_speak);
+    voice_synthesizer_->Say(response);
 
     // Clean up
     voice_recoder_->ClearAudioBuffer();
