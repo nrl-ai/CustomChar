@@ -87,7 +87,8 @@ $(document).ready(function(){initNavTree('namespace_c_c_1_1audio.html',''); init
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a>  </div>
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">CC::audio Namespace Reference</div>  </div>
 </div><!--header-->
@@ -95,13 +96,188 @@ $(document).ready(function(){initNavTree('namespace_c_c_1_1audio.html',''); init
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1audio_1_1_audio_async.html">AudioAsync</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio capture class.  <a href="class_c_c_1_1audio_1_1_audio_async.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1audio_1_1_speech_recognizer.html">SpeechRecognizer</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1audio_1_1_voice_recorder.html">VoiceRecorder</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1audio_1_1_voice_synthesizer.html">VoiceSynthesizer</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ad8a2c4f7be965cb7c20486de9892ce42"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1audio.html#ad8a2c4f7be965cb7c20486de9892ce42">ReadWav</a> (const std::string &amp;fname, std::vector&lt; float &gt; &amp;pcmf32, std::vector&lt; std::vector&lt; float &gt;&gt; &amp;pcmf32s, bool stereo)</td></tr>
+<tr class="memdesc:ad8a2c4f7be965cb7c20486de9892ce42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read WAV audio file and store the PCM data into pcmf32 The sample rate of the audio must be equal to COMMON_SAMPLE_RATE If stereo flag is set and the audio has 2 channels, the pcmf32s will contain 2 channel PCM.  <a href="namespace_c_c_1_1audio.html#ad8a2c4f7be965cb7c20486de9892ce42">More...</a><br /></td></tr>
+<tr class="separator:ad8a2c4f7be965cb7c20486de9892ce42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d78bbd1692dc92b8419b8cdb7d48734"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1audio.html#a5d78bbd1692dc92b8419b8cdb7d48734">HighPassFilter</a> (std::vector&lt; float &gt; &amp;data, float cutoff, float sample_rate)</td></tr>
+<tr class="memdesc:a5d78bbd1692dc92b8419b8cdb7d48734"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a high-pass frequency filter to PCM audio Suppresses frequencies below cutoff Hz.  <a href="namespace_c_c_1_1audio.html#a5d78bbd1692dc92b8419b8cdb7d48734">More...</a><br /></td></tr>
+<tr class="separator:a5d78bbd1692dc92b8419b8cdb7d48734"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9951b6db11c12f3b6d4628703b6baf64"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1audio.html#a9951b6db11c12f3b6d4628703b6baf64">VADSimple</a> (std::vector&lt; float &gt; &amp;pcmf32, int sample_rate, int last_ms, float vad_thold, float freq_thold, bool verbose)</td></tr>
+<tr class="memdesc:a9951b6db11c12f3b6d4628703b6baf64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic voice activity detection (VAD) using audio energy adaptive threshold.  <a href="namespace_c_c_1_1audio.html#a9951b6db11c12f3b6d4628703b6baf64">More...</a><br /></td></tr>
+<tr class="separator:a9951b6db11c12f3b6d4628703b6baf64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a202b2157be4f86a38dffe97f3280e864"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1audio.html#a202b2157be4f86a38dffe97f3280e864">SDLPollEvents</a> ()</td></tr>
+<tr class="separator:a202b2157be4f86a38dffe97f3280e864"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a5d78bbd1692dc92b8419b8cdb7d48734"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d78bbd1692dc92b8419b8cdb7d48734">&#9670;&nbsp;</a></span>HighPassFilter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CC::audio::HighPassFilter </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; float &gt; &amp;&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>cutoff</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>sample_rate</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Apply a high-pass frequency filter to PCM audio Suppresses frequencies below cutoff Hz. </p>
+
+<p class="definition">Definition at line <a class="el" href="audio_8cpp_source.html#l00117">117</a> of file <a class="el" href="audio_8cpp_source.html">audio.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad8a2c4f7be965cb7c20486de9892ce42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8a2c4f7be965cb7c20486de9892ce42">&#9670;&nbsp;</a></span>ReadWav()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CC::audio::ReadWav </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>fname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; float &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pcmf32</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; float &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>pcmf32s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>stereo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read WAV audio file and store the PCM data into pcmf32 The sample rate of the audio must be equal to COMMON_SAMPLE_RATE If stereo flag is set and the audio has 2 channels, the pcmf32s will contain 2 channel PCM. </p>
+
+<p class="definition">Definition at line <a class="el" href="audio_8cpp_source.html#l00026">26</a> of file <a class="el" href="audio_8cpp_source.html">audio.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a202b2157be4f86a38dffe97f3280e864"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a202b2157be4f86a38dffe97f3280e864">&#9670;&nbsp;</a></span>SDLPollEvents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CC::audio::SDLPollEvents </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sdl_8cpp_source.html#l00223">223</a> of file <a class="el" href="sdl_8cpp_source.html">sdl.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9951b6db11c12f3b6d4628703b6baf64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9951b6db11c12f3b6d4628703b6baf64">&#9670;&nbsp;</a></span>VADSimple()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CC::audio::VADSimple </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; float &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pcmf32</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sample_rate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>last_ms</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>vad_thold</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>freq_thold</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>verbose</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Basic voice activity detection (VAD) using audio energy adaptive threshold. </p>
+
+<p class="definition">Definition at line <a class="el" href="audio_8cpp_source.html#l00131">131</a> of file <a class="el" href="audio_8cpp_source.html">audio.cpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

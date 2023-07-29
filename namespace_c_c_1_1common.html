@@ -105,6 +105,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a2aee6c2bbbd4c8c2e5aa7bdc3bc81952"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1common.html#a2aee6c2bbbd4c8c2e5aa7bdc3bc81952">Replace</a> (const std::string &amp;s, const std::string &amp;from, const std::string &amp;to)</td></tr>
 <tr class="memdesc:a2aee6c2bbbd4c8c2e5aa7bdc3bc81952"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace all occurrences of a substring with another substring.  <a href="namespace_c_c_1_1common.html#a2aee6c2bbbd4c8c2e5aa7bdc3bc81952">More...</a><br /></td></tr>
 <tr class="separator:a2aee6c2bbbd4c8c2e5aa7bdc3bc81952"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1875c418e998f91d0bf70eb9a818122b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1common.html#a1875c418e998f91d0bf70eb9a818122b">Trim</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:a1875c418e998f91d0bf70eb9a818122b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trim whitespace from both ends of a string.  <a href="namespace_c_c_1_1common.html#a1875c418e998f91d0bf70eb9a818122b">More...</a><br /></td></tr>
+<tr class="separator:a1875c418e998f91d0bf70eb9a818122b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a686a23afe6c1f47d95a11bd6f9e8f087"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1common.html#a686a23afe6c1f47d95a11bd6f9e8f087">CCParamsParse</a> (int argc, char **argv, <a class="el" href="struct_c_c_1_1common_1_1_c_c_params.html">CCParams</a> &amp;params)</td></tr>
 <tr class="memdesc:a686a23afe6c1f47d95a11bd6f9e8f087"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse command line arguments.  <a href="namespace_c_c_1_1common.html#a686a23afe6c1f47d95a11bd6f9e8f087">More...</a><br /></td></tr>
 <tr class="separator:a686a23afe6c1f47d95a11bd6f9e8f087"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -249,7 +252,36 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>New string with all occurrences of <code>from</code> replaced with <code>to</code>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="common_8cpp_source.html#l00006">6</a> of file <a class="el" href="common_8cpp_source.html">common.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="common_8cpp_source.html#l00008">8</a> of file <a class="el" href="common_8cpp_source.html">common.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1875c418e998f91d0bf70eb9a818122b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1875c418e998f91d0bf70eb9a818122b">&#9670;&nbsp;</a></span>Trim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string CC::common::Trim </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Trim whitespace from both ends of a string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>Original string. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>New string with whitespace removed from both ends. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="common_8cpp_source.html#l00019">19</a> of file <a class="el" href="common_8cpp_source.html">common.cpp</a>.</p>
 
 </div>
 </div>

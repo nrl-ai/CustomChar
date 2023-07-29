@@ -92,22 +92,30 @@ $(document).ready(function(){initNavTree('common_8cpp_source.html',''); initResi
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;customchar/common/common.h&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespace_c_c.html">CC</a>;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespace_c_c_1_1common.html">CC::common</a>;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="namespace_c_c_1_1common.html#a2aee6c2bbbd4c8c2e5aa7bdc3bc81952">    6</a></span>&#160;std::string <a class="code" href="namespace_c_c_1_1common.html#a2aee6c2bbbd4c8c2e5aa7bdc3bc81952">CC::common::Replace</a>(<span class="keyword">const</span> std::string&amp; s, <span class="keyword">const</span> std::string&amp; from,</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;                                <span class="keyword">const</span> std::string&amp; to) {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  std::string result = s;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="keywordtype">size_t</span> pos = 0;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="keywordflow">while</span> ((pos = result.find(from, pos)) != std::string::npos) {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    result.replace(pos, from.length(), to);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    pos += to.length();</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  }</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;regex&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespace_c_c.html">CC</a>;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespace_c_c_1_1common.html">CC::common</a>;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="namespace_c_c_1_1common.html#a2aee6c2bbbd4c8c2e5aa7bdc3bc81952">    8</a></span>&#160;std::string <a class="code" href="namespace_c_c_1_1common.html#a2aee6c2bbbd4c8c2e5aa7bdc3bc81952">CC::common::Replace</a>(<span class="keyword">const</span> std::string&amp; s, <span class="keyword">const</span> std::string&amp; from,</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;                                <span class="keyword">const</span> std::string&amp; to) {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  std::string result = s;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="keywordtype">size_t</span> pos = 0;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="keywordflow">while</span> ((pos = result.find(from, pos)) != std::string::npos) {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    result.replace(pos, from.length(), to);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    pos += to.length();</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  }</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="namespace_c_c_1_1common.html#a1875c418e998f91d0bf70eb9a818122b">   19</a></span>&#160;std::string <a class="code" href="namespace_c_c_1_1common.html#a1875c418e998f91d0bf70eb9a818122b">CC::common::Trim</a>(<span class="keyword">const</span> std::string&amp; s) {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  std::regex e(<span class="stringliteral">&quot;^\\s+|\\s+$&quot;</span>);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keywordflow">return</span> std::regex_replace(s, e, <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
 <div class="ttc" id="anamespace_c_c_1_1common_html"><div class="ttname"><a href="namespace_c_c_1_1common.html">CC::common</a></div><div class="ttdef"><b>Definition:</b> <a href="common_8h_source.html#l00007">common.h:7</a></div></div>
-<div class="ttc" id="anamespace_c_c_1_1common_html_a2aee6c2bbbd4c8c2e5aa7bdc3bc81952"><div class="ttname"><a href="namespace_c_c_1_1common.html#a2aee6c2bbbd4c8c2e5aa7bdc3bc81952">CC::common::Replace</a></div><div class="ttdeci">std::string Replace(const std::string &amp;s, const std::string &amp;from, const std::string &amp;to)</div><div class="ttdoc">Replace all occurrences of a substring with another substring.</div><div class="ttdef"><b>Definition:</b> <a href="common_8cpp_source.html#l00006">common.cpp:6</a></div></div>
-<div class="ttc" id="anamespace_c_c_html"><div class="ttname"><a href="namespace_c_c.html">CC</a></div><div class="ttdef"><b>Definition:</b> <a href="speech__recognizer_8h_source.html#l00016">speech_recognizer.h:16</a></div></div>
+<div class="ttc" id="anamespace_c_c_1_1common_html_a1875c418e998f91d0bf70eb9a818122b"><div class="ttname"><a href="namespace_c_c_1_1common.html#a1875c418e998f91d0bf70eb9a818122b">CC::common::Trim</a></div><div class="ttdeci">std::string Trim(const std::string &amp;s)</div><div class="ttdoc">Trim whitespace from both ends of a string.</div><div class="ttdef"><b>Definition:</b> <a href="common_8cpp_source.html#l00019">common.cpp:19</a></div></div>
+<div class="ttc" id="anamespace_c_c_1_1common_html_a2aee6c2bbbd4c8c2e5aa7bdc3bc81952"><div class="ttname"><a href="namespace_c_c_1_1common.html#a2aee6c2bbbd4c8c2e5aa7bdc3bc81952">CC::common::Replace</a></div><div class="ttdeci">std::string Replace(const std::string &amp;s, const std::string &amp;from, const std::string &amp;to)</div><div class="ttdoc">Replace all occurrences of a substring with another substring.</div><div class="ttdef"><b>Definition:</b> <a href="common_8cpp_source.html#l00008">common.cpp:8</a></div></div>
+<div class="ttc" id="anamespace_c_c_html"><div class="ttname"><a href="namespace_c_c.html">CC</a></div><div class="ttdef"><b>Definition:</b> <a href="audio_8h_source.html#l00010">audio.h:10</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "CC::audio::AudioAsync", "class_c_c_1_1audio_1_1_audio_async.html", null ],
     [ "CC::common::CCParams", "struct_c_c_1_1common_1_1_c_c_params.html", null ],
     [ "CC::character::Character", "class_c_c_1_1character_1_1_character.html", null ],
     [ "CC::session::ChatHistory", "class_c_c_1_1session_1_1_chat_history.html", null ],
