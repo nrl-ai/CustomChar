@@ -20,6 +20,10 @@ Your customized AI characters - personal assistants on any hardware! This projec
 
 https://github.com/vietanhdev/CustomChar/assets/18329471/b035afb5-4440-4943-a0d9-e6b3d9f0f315
 
+**Think about your own JARVIS assistant that you can have totally inside your laptop...**
+
+https://github.com/vietanhdev/CustomChar/assets/18329471/005a2d0f-df32-4493-a391-59757d06d9a2
+
 **Note:** This project is still in the early stage of development. We are working hard to make it available as soon as possible. Star this project 🌟🌟🌟 to follow our progress and encourage us to make it happen.
 
 ## 1. Architecture
