@@ -18,7 +18,7 @@ Your customized AI characters - personal assistants on any hardware! This projec
 
 **Our very early experiment with CustomChar**
 
-https://github.com/vietanhdev/CustomChar/assets/18329471/4674efe7-6d7f-4e5e-9b28-ad2c92027fa9
+https://github.com/vietanhdev/CustomChar/assets/18329471/b200442f-a69a-42ec-972d-d6cbe5483c37
 
 **Note:** This project is still in the early stage of development. We are working hard to make it available as soon as possible. Star this project 🌟🌟🌟 to follow our progress and encourage us to make it happen.
 
@@ -138,7 +138,7 @@ We welcome all contributions to this project.
 
 - For coding style, please follow the style of the existing code. We basically follow the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
 - Install [clang-format](https://clang.llvm.org/docs/ClangFormat.html) for auto formatting the code.
-- Install [pre-commit](https://pre-commit.com/) for auto formatting hook or manually run the script `scripts/format-code.sh` to format the code.
+- Install [pre-commit](https://pre-commit.com/) for the auto-formatting hook or manually run the script `scripts/format-code.sh` to format the code.
 
 ```bash
 pre-commit install # Install pre-commit hook
