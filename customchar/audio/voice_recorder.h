@@ -35,6 +35,10 @@ class VoiceRecorder {
 
   /// @brief Get final audio_
   void GetAudio(std::vector<float>& result);
+
+  /// @brief Record speech from user
+  /// @return Audio buffer from user
+  std::vector<float> RecordSpeech();
 };  // class VoiceRecorder
 
 }  // namespace audio
