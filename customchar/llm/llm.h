@@ -87,7 +87,7 @@ class LLM {
   std::vector<llama_token> Tokenize(const std::string& text, bool add_bos);
 
   /// @brief Get answer from LLM
-  std::string GetAnswer(std::vector<llama_token>& embd);
+  std::string GetAnswer(const std::string& user_input);
 };
 
 }  // namespace llm

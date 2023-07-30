@@ -181,11 +181,21 @@ void LLM::EvalModel() {
       n_matching_session_tokens < (embd_inp_.size() * 3 / 4);
 }
 
-std::string LLM::GetAnswer(std::vector<llama_token>& embd) {
+std::string LLM::GetAnswer(const std::string& user_input) {
+  // Tokenize and put unformated tokens to the session store
+  AddTokensToCurrentSession(Tokenize(user_input, false));
+
+  // Format the input and tokenize
+  // TODO: Do it more efficient (using above output)
+  std::string formated_input = user_input;
+  formated_input.insert(0, 1, ' ');
+  formated_input += "\n" + bot_name_ + chat_symb_;
+  std::vector<llama_token> embd = Tokenize(formated_input, false);
+
   bool done = false;
   int last_length = 0;
   int loop_count = 0;
-  std::string text_to_speak;
+  std::string output_text;
   while (true) {
     if (embd.size() > 0) {
       if (n_past_ + (int)embd.size() > n_ctx_) {
@@ -297,7 +307,7 @@ std::string LLM::GetAnswer(std::vector<llama_token>& embd) {
       if (id != llama_token_eos()) {
         // add it to the context
         embd.push_back(id);
-        text_to_speak += llama_token_to_str(ctx_llama_, id);
+        output_text += llama_token_to_str(ctx_llama_, id);
         printf("%s", llama_token_to_str(ctx_llama_, id));
       }
     }
@@ -314,7 +324,7 @@ std::string LLM::GetAnswer(std::vector<llama_token>& embd) {
                              last_output.length() - antiprompt.length(),
                              antiprompt.length()) != std::string::npos) {
           done = true;
-          text_to_speak = common::Replace(text_to_speak, antiprompt, "");
+          output_text = common::Replace(output_text, antiprompt, "");
           fflush(stdout);
           need_to_save_session_ = true;
           break;
@@ -324,8 +334,8 @@ std::string LLM::GetAnswer(std::vector<llama_token>& embd) {
 
     // Break to avoid infinite loop
     // TODO: Fix this bug
-    if ((int)text_to_speak.length() == last_length + 1 &&
-        text_to_speak[text_to_speak.length() - 1] == '\n') {
+    if ((int)output_text.length() == last_length + 1 &&
+        output_text[output_text.length() - 1] == '\n') {
       ++loop_count;
     } else {
       loop_count = 0;
@@ -333,8 +343,8 @@ std::string LLM::GetAnswer(std::vector<llama_token>& embd) {
     if (loop_count > 5) {
       break;
     }
-    last_length = text_to_speak.length();
+    last_length = output_text.length();
   }
 
-  return text_to_speak;
+  return output_text;
 }

@@ -57,31 +57,20 @@ void Character::Run() {
       break;
     }
 
-    // Delay
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
-    float prob = 0.0f;
-    int64_t t_ms = 0;
-
-    // Sample audio
-    voice_recoder_->SampleAudio();
-    if (!voice_recoder_->FinishedTalking()) {
-      continue;
-    }
-
-    // Get recorded audio
-    std::vector<float> audio_buff;
-    voice_recoder_->GetAudio(audio_buff);
+    // Record speech from user
+    std::vector<float> audio_buff = voice_recoder_->RecordSpeech();
 
     // Recognize speech
+    float prob;
+    int64_t t_ms;
     std::string text_heard =
         speech_recognizer_->Recognize(audio_buff, prob, t_ms);
 
     // Tokenize user input
     auto tokens = llm_->Tokenize(text_heard, false);
 
-    // Skip if nothing was heard
+    // Start over if nothing was heard
     if (text_heard.empty() || tokens.empty()) {
-      printf("Heard nothing, skipping ...\n");
       voice_recoder_->ClearAudioBuffer();
       continue;
     }
@@ -103,12 +92,8 @@ void Character::Run() {
     // Otherwise, LLM will handle
     std::string response;
     if (!plugin_executor_->ParseAndExecute(text_heard, response)) {
-      // Append the new input tokens to the session_tokens vector
-      llm_->AddTokensToCurrentSession(tokens);
       // Get answer from LLM
-      embd = llm_->Tokenize(formated_text_heard, false);
-      // Get answer from LLM
-      response = llm_->GetAnswer(embd);
+      response = llm_->GetAnswer(text_heard);
     } else {
       // TODO: Add plugin executor response to LLM session
     }

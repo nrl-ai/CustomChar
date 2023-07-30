@@ -32,3 +32,30 @@ void VoiceRecorder::GetAudio(std::vector<float>& result) {
   audio_->Get(voice_ms, pcmf32_cur_);
   result = pcmf32_cur_;
 }
+
+std::vector<float> VoiceRecorder::RecordSpeech() {
+  bool is_running;
+  std::vector<float> audio_buff;
+  while (true) {
+    // Handle Ctrl + C
+    is_running = audio::SDLPollEvents();
+    if (!is_running) {
+      break;
+    }
+
+    // Delay
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
+    // Sample audio
+    SampleAudio();
+    if (!FinishedTalking()) {
+      continue;
+    }
+
+    // Get recorded audio
+    GetAudio(audio_buff);
+    break;
+  }
+
+  return audio_buff;
+};
