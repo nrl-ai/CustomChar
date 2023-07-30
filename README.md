@@ -67,22 +67,25 @@ Install dependencies:
 - [CMake](https://cmake.org/download/)
 - C++ 14 compiler
 
-On macOS:
+On macOS: Using [Homebrew](https://brew.sh/)
 
 ```bash
 brew install sdl2 glew glfw3
+brew install opencv
 ```
 
 On Ubuntu:
 
 ```bash
 sudo apt-get install libsdl2-dev libglew-dev libglfw3-dev
+sudo apt-get install libopencv-dev
 ```
 
-On Windows:
+On Windows: Using [vcpkg](https://github.com/microsoft/vcpkg) and [Git Bash](https://git-scm.com/downloads):
 
 ```bash
 vcpkg install sdl2:x64-windows glew:x64-windows glfw3:x64-windows
+vcpkg install opencv[contrib,nonfree,ffmpeg,ipp]:x64-windows --recurse
 ```
 
 Build the **CustomChar** executable:
