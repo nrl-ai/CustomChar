@@ -1,4 +1,5 @@
 <map id="CC::llm::LLM::Tokenize" name="CC::llm::LLM::Tokenize">
-<area shape="rect" id="node1" title="Tokenize text." alt="" coords="191,5,357,32"/>
-<area shape="rect" id="node2" href="$class_c_c_1_1llm_1_1_l_l_m.html#a62934eb91a69d319f5c7f1d6f8f49624" title="Constructor." alt="" coords="5,5,143,32"/>
+<area shape="rect" id="node1" title="Tokenize text." alt="" coords="236,31,403,57"/>
+<area shape="rect" id="node2" href="$class_c_c_1_1llm_1_1_l_l_m.html#a7b88d61ff8f114edc8789caded43a551" title="Get answer from LLM." alt="" coords="5,5,188,32"/>
+<area shape="rect" id="node3" href="$class_c_c_1_1llm_1_1_l_l_m.html#a62934eb91a69d319f5c7f1d6f8f49624" title="Constructor." alt="" coords="28,56,165,83"/>
 </map>

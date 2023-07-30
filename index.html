@@ -161,12 +161,15 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <li><a href="https://cmake.org/download/">CMake</a></li>
 <li>C++ 14 compiler</li>
 </ul>
-<p>On macOS:</p>
+<p>On macOS: Using <a href="https://brew.sh/">Homebrew</a></p>
 <div class="fragment"><div class="line">brew install sdl2 glew glfw3</div>
+<div class="line">brew install opencv</div>
 </div><!-- fragment --><p>On Ubuntu:</p>
 <div class="fragment"><div class="line">sudo apt-get install libsdl2-dev libglew-dev libglfw3-dev</div>
-</div><!-- fragment --><p>On Windows:</p>
+<div class="line">sudo apt-get install libopencv-dev</div>
+</div><!-- fragment --><p>On Windows: Using <a href="https://github.com/microsoft/vcpkg">vcpkg</a> and <a href="https://git-scm.com/downloads">Git Bash</a>:</p>
 <div class="fragment"><div class="line">vcpkg install sdl2:x64-windows glew:x64-windows glfw3:x64-windows</div>
+<div class="line">vcpkg install opencv[contrib,nonfree,ffmpeg,ipp]:x64-windows --recurse</div>
 </div><!-- fragment --><p>Build the <b>CustomChar</b> executable:</p>
 <div class="fragment"><div class="line">mkdir build</div>
 <div class="line">cd build</div>

@@ -14,7 +14,7 @@ var searchData=
   ['get_5foriginal_5fdoc_5fid_63',['get_original_doc_id',['../class_c_c_1_1embeddb_1_1_document.html#afe38b44648532276a0db009caf5bb746',1,'CC::embeddb::Document']]],
   ['get_5foriginal_5fpos_5fcol_64',['get_original_pos_col',['../class_c_c_1_1embeddb_1_1_document.html#ab53aa93144b2012782bb7574c1c2b39d',1,'CC::embeddb::Document']]],
   ['get_5foriginal_5fpos_5fline_65',['get_original_pos_line',['../class_c_c_1_1embeddb_1_1_document.html#ad8cfa483f4124084086ab61165fe6c40',1,'CC::embeddb::Document']]],
-  ['getanswer_66',['GetAnswer',['../class_c_c_1_1llm_1_1_l_l_m.html#a556ae100e922158e6a466966aa50312d',1,'CC::llm::LLM']]],
+  ['getanswer_66',['GetAnswer',['../class_c_c_1_1llm_1_1_l_l_m.html#a7b88d61ff8f114edc8789caded43a551',1,'CC::llm::LLM']]],
   ['getaudio_67',['GetAudio',['../class_c_c_1_1audio_1_1_voice_recorder.html#a8026fde52d06c27a7775b0b6331965f6',1,'CC::audio::VoiceRecorder']]],
   ['getcharhistory_68',['GetCharHistory',['../class_c_c_1_1session_1_1_chat_history.html#a1a8137605881cb793fdfdef8c7966492',1,'CC::session::ChatHistory']]],
   ['getframe_69',['GetFrame',['../class_c_c_1_1vision_1_1_video_capture.html#abe66813a0f64cea1cb79a4e773fd07ec',1,'CC::vision::VideoCapture']]],

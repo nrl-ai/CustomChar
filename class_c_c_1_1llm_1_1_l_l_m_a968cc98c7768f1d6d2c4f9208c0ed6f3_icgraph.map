@@ -1,0 +1,4 @@
+<map id="CC::llm::LLM::AddTokensToCurrentSession" name="CC::llm::LLM::AddTokensToCurrentSession">
+<area shape="rect" id="node1" title="Add new tokens to the sessions." alt="" coords="236,5,431,47"/>
+<area shape="rect" id="node2" href="$class_c_c_1_1llm_1_1_l_l_m.html#a7b88d61ff8f114edc8789caded43a551" title="Get answer from LLM." alt="" coords="5,13,188,39"/>
+</map>

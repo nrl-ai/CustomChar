@@ -1,0 +1,6 @@
+<map id="CC::llm::LLM::GetAnswer" name="CC::llm::LLM::GetAnswer">
+<area shape="rect" id="node1" title="Get answer from LLM." alt="" coords="5,71,188,98"/>
+<area shape="rect" id="node2" href="$class_c_c_1_1llm_1_1_l_l_m.html#a968cc98c7768f1d6d2c4f9208c0ed6f3" title="Add new tokens to the sessions." alt="" coords="236,5,431,47"/>
+<area shape="rect" id="node3" href="$namespace_c_c_1_1common.html#a2aee6c2bbbd4c8c2e5aa7bdc3bc81952" title="Replace all occurrences of a substring with another substring." alt="" coords="251,71,416,98"/>
+<area shape="rect" id="node4" href="$class_c_c_1_1llm_1_1_l_l_m.html#ac531616743d82ca79af649ba4d34dc55" title="Tokenize text." alt="" coords="250,122,417,149"/>
+</map>

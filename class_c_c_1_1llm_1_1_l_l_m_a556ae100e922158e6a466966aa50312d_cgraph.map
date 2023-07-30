@@ -1,4 +1,0 @@
-<map id="CC::llm::LLM::GetAnswer" name="CC::llm::LLM::GetAnswer">
-<area shape="rect" id="node1" title="Get answer from LLM." alt="" coords="5,5,188,32"/>
-<area shape="rect" id="node2" href="$namespace_c_c_1_1common.html#a2aee6c2bbbd4c8c2e5aa7bdc3bc81952" title="Replace all occurrences of a substring with another substring." alt="" coords="236,5,401,32"/>
-</map>

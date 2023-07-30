@@ -122,9 +122,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac531616743d82ca79af649ba4d34dc55"><td class="memItemLeft" align="right" valign="top">std::vector&lt; llama_token &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1llm_1_1_l_l_m.html#ac531616743d82ca79af649ba4d34dc55">Tokenize</a> (const std::string &amp;text, bool add_bos)</td></tr>
 <tr class="memdesc:ac531616743d82ca79af649ba4d34dc55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tokenize text.  <a href="class_c_c_1_1llm_1_1_l_l_m.html#ac531616743d82ca79af649ba4d34dc55">More...</a><br /></td></tr>
 <tr class="separator:ac531616743d82ca79af649ba4d34dc55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a556ae100e922158e6a466966aa50312d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1llm_1_1_l_l_m.html#a556ae100e922158e6a466966aa50312d">GetAnswer</a> (std::vector&lt; llama_token &gt; &amp;embd)</td></tr>
-<tr class="memdesc:a556ae100e922158e6a466966aa50312d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get answer from <a class="el" href="class_c_c_1_1llm_1_1_l_l_m.html">LLM</a>.  <a href="class_c_c_1_1llm_1_1_l_l_m.html#a556ae100e922158e6a466966aa50312d">More...</a><br /></td></tr>
-<tr class="separator:a556ae100e922158e6a466966aa50312d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b88d61ff8f114edc8789caded43a551"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1llm_1_1_l_l_m.html#a7b88d61ff8f114edc8789caded43a551">GetAnswer</a> (const std::string &amp;user_input)</td></tr>
+<tr class="memdesc:a7b88d61ff8f114edc8789caded43a551"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get answer from <a class="el" href="class_c_c_1_1llm_1_1_l_l_m.html">LLM</a>.  <a href="class_c_c_1_1llm_1_1_l_l_m.html#a7b88d61ff8f114edc8789caded43a551">More...</a><br /></td></tr>
+<tr class="separator:a7b88d61ff8f114edc8789caded43a551"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -230,6 +230,15 @@ Here is the call graph for this function:</div>
 <p>Add new tokens to the sessions. </p>
 
 <p class="definition">Definition at line <a class="el" href="llm_8cpp_source.html#l00094">94</a> of file <a class="el" href="llm_8cpp_source.html">llm.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_c_1_1llm_1_1_l_l_m_a968cc98c7768f1d6d2c4f9208c0ed6f3_icgraph.png" border="0" usemap="#aclass_c_c_1_1llm_1_1_l_l_m_a968cc98c7768f1d6d2c4f9208c0ed6f3_icgraph" alt=""/></div>
+<map name="aclass_c_c_1_1llm_1_1_l_l_m_a968cc98c7768f1d6d2c4f9208c0ed6f3_icgraph" id="aclass_c_c_1_1llm_1_1_l_l_m_a968cc98c7768f1d6d2c4f9208c0ed6f3_icgraph">
+<area shape="rect" title="Add new tokens to the sessions." alt="" coords="236,5,431,47"/>
+<area shape="rect" href="class_c_c_1_1llm_1_1_l_l_m.html#a7b88d61ff8f114edc8789caded43a551" title="Get answer from LLM." alt="" coords="5,13,188,39"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -254,8 +263,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a556ae100e922158e6a466966aa50312d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a556ae100e922158e6a466966aa50312d">&#9670;&nbsp;</a></span>GetAnswer()</h2>
+<a id="a7b88d61ff8f114edc8789caded43a551"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b88d61ff8f114edc8789caded43a551">&#9670;&nbsp;</a></span>GetAnswer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -263,8 +272,8 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">std::string LLM::GetAnswer </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; llama_token &gt; &amp;&#160;</td>
-          <td class="paramname"><em>embd</em></td><td>)</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>user_input</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -276,10 +285,12 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_c_c_1_1llm_1_1_l_l_m_a556ae100e922158e6a466966aa50312d_cgraph.png" border="0" usemap="#aclass_c_c_1_1llm_1_1_l_l_m_a556ae100e922158e6a466966aa50312d_cgraph" alt=""/></div>
-<map name="aclass_c_c_1_1llm_1_1_l_l_m_a556ae100e922158e6a466966aa50312d_cgraph" id="aclass_c_c_1_1llm_1_1_l_l_m_a556ae100e922158e6a466966aa50312d_cgraph">
-<area shape="rect" title="Get answer from LLM." alt="" coords="5,5,188,32"/>
-<area shape="rect" href="namespace_c_c_1_1common.html#a2aee6c2bbbd4c8c2e5aa7bdc3bc81952" title="Replace all occurrences of a substring with another substring." alt="" coords="236,5,401,32"/>
+<div class="center"><img src="class_c_c_1_1llm_1_1_l_l_m_a7b88d61ff8f114edc8789caded43a551_cgraph.png" border="0" usemap="#aclass_c_c_1_1llm_1_1_l_l_m_a7b88d61ff8f114edc8789caded43a551_cgraph" alt=""/></div>
+<map name="aclass_c_c_1_1llm_1_1_l_l_m_a7b88d61ff8f114edc8789caded43a551_cgraph" id="aclass_c_c_1_1llm_1_1_l_l_m_a7b88d61ff8f114edc8789caded43a551_cgraph">
+<area shape="rect" title="Get answer from LLM." alt="" coords="5,71,188,98"/>
+<area shape="rect" href="class_c_c_1_1llm_1_1_l_l_m.html#a968cc98c7768f1d6d2c4f9208c0ed6f3" title="Add new tokens to the sessions." alt="" coords="236,5,431,47"/>
+<area shape="rect" href="namespace_c_c_1_1common.html#a2aee6c2bbbd4c8c2e5aa7bdc3bc81952" title="Replace all occurrences of a substring with another substring." alt="" coords="251,71,416,98"/>
+<area shape="rect" href="class_c_c_1_1llm_1_1_l_l_m.html#ac531616743d82ca79af649ba4d34dc55" title="Tokenize text." alt="" coords="250,122,417,149"/>
 </map>
 </div>
 
@@ -356,8 +367,9 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_c_c_1_1llm_1_1_l_l_m_ac531616743d82ca79af649ba4d34dc55_icgraph.png" border="0" usemap="#aclass_c_c_1_1llm_1_1_l_l_m_ac531616743d82ca79af649ba4d34dc55_icgraph" alt=""/></div>
 <map name="aclass_c_c_1_1llm_1_1_l_l_m_ac531616743d82ca79af649ba4d34dc55_icgraph" id="aclass_c_c_1_1llm_1_1_l_l_m_ac531616743d82ca79af649ba4d34dc55_icgraph">
-<area shape="rect" title="Tokenize text." alt="" coords="191,5,357,32"/>
-<area shape="rect" href="class_c_c_1_1llm_1_1_l_l_m.html#a62934eb91a69d319f5c7f1d6f8f49624" title="Constructor." alt="" coords="5,5,143,32"/>
+<area shape="rect" title="Tokenize text." alt="" coords="236,31,403,57"/>
+<area shape="rect" href="class_c_c_1_1llm_1_1_l_l_m.html#a7b88d61ff8f114edc8789caded43a551" title="Get answer from LLM." alt="" coords="5,5,188,32"/>
+<area shape="rect" href="class_c_c_1_1llm_1_1_l_l_m.html#a62934eb91a69d319f5c7f1d6f8f49624" title="Constructor." alt="" coords="28,56,165,83"/>
 </map>
 </div>
 

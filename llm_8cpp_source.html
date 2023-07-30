@@ -273,167 +273,177 @@ $(document).ready(function(){initNavTree('llm_8cpp_source.html',''); initResizab
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;      n_matching_session_tokens &lt; (embd_inp_.size() * 3 / 4);</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;}</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
-<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="class_c_c_1_1llm_1_1_l_l_m.html#a556ae100e922158e6a466966aa50312d">  184</a></span>&#160;std::string <a class="code" href="class_c_c_1_1llm_1_1_l_l_m.html#a556ae100e922158e6a466966aa50312d">LLM::GetAnswer</a>(std::vector&lt;llama_token&gt;&amp; embd) {</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  <span class="keywordtype">bool</span> done = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  <span class="keywordtype">int</span> last_length = 0;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  <span class="keywordtype">int</span> loop_count = 0;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  std::string text_to_speak;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keywordflow">if</span> (embd.size() &gt; 0) {</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;      <span class="keywordflow">if</span> (n_past_ + (<span class="keywordtype">int</span>)embd.size() &gt; n_ctx_) {</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        n_past_ = n_keep_;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        <span class="comment">// Insert n_left/2 tokens at the start of embd from last_n_tokens</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        embd.insert(embd.begin(),</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                    embd_inp_.begin() + embd_inp_.size() - n_prev_,</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                    embd_inp_.end());</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="comment">// Stop saving session if we run out of context</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        path_session_ = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;      }</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      <span class="comment">// Try to reuse a matching prefix from the loaded session instead of</span></div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;      <span class="comment">// re-eval (via n_past) REVIEW</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;      <span class="keywordflow">if</span> (n_session_consumed_ &lt; (<span class="keywordtype">int</span>)session_tokens_.size()) {</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <span class="keywordtype">size_t</span> i = 0;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        <span class="keywordflow">for</span> (; i &lt; embd.size(); i++) {</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;          <span class="keywordflow">if</span> (embd[i] != session_tokens_[n_session_consumed_]) {</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;            session_tokens_.resize(n_session_consumed_);</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;          }</div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="class_c_c_1_1llm_1_1_l_l_m.html#a7b88d61ff8f114edc8789caded43a551">  184</a></span>&#160;std::string <a class="code" href="class_c_c_1_1llm_1_1_l_l_m.html#a7b88d61ff8f114edc8789caded43a551">LLM::GetAnswer</a>(<span class="keyword">const</span> std::string&amp; user_input) {</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  <span class="comment">// Tokenize and put unformated tokens to the session store</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  <a class="code" href="class_c_c_1_1llm_1_1_l_l_m.html#a968cc98c7768f1d6d2c4f9208c0ed6f3">AddTokensToCurrentSession</a>(<a class="code" href="class_c_c_1_1llm_1_1_l_l_m.html#ac531616743d82ca79af649ba4d34dc55">Tokenize</a>(user_input, <span class="keyword">false</span>));</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  <span class="comment">// Format the input and tokenize</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  <span class="comment">// TODO: Do it more efficient (using above output)</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  std::string formated_input = user_input;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  formated_input.insert(0, 1, <span class="charliteral">&#39; &#39;</span>);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  formated_input += <span class="stringliteral">&quot;\n&quot;</span> + bot_name_ + chat_symb_;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  std::vector&lt;llama_token&gt; embd = <a class="code" href="class_c_c_1_1llm_1_1_l_l_m.html#ac531616743d82ca79af649ba4d34dc55">Tokenize</a>(formated_input, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  <span class="keywordtype">bool</span> done = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  <span class="keywordtype">int</span> last_length = 0;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  <span class="keywordtype">int</span> loop_count = 0;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  std::string output_text;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordflow">if</span> (embd.size() &gt; 0) {</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      <span class="keywordflow">if</span> (n_past_ + (<span class="keywordtype">int</span>)embd.size() &gt; n_ctx_) {</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        n_past_ = n_keep_;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="comment">// Insert n_left/2 tokens at the start of embd from last_n_tokens</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        embd.insert(embd.begin(),</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                    embd_inp_.begin() + embd_inp_.size() - n_prev_,</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                    embd_inp_.end());</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="comment">// Stop saving session if we run out of context</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        path_session_ = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;      }</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;          n_past_++;</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;          n_session_consumed_++;</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;          <span class="keywordflow">if</span> (n_session_consumed_ &gt;= (<span class="keywordtype">int</span>)session_tokens_.size()) {</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            i++;</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;          }</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        }</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        <span class="keywordflow">if</span> (i &gt; 0) {</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;          embd.erase(embd.begin(), embd.begin() + i);</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        }</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;      }</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;      <span class="comment">// Try to reuse a matching prefix from the loaded session instead of</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;      <span class="comment">// re-eval (via n_past) REVIEW</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;      <span class="keywordflow">if</span> (n_session_consumed_ &lt; (<span class="keywordtype">int</span>)session_tokens_.size()) {</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="keywordtype">size_t</span> i = 0;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keywordflow">for</span> (; i &lt; embd.size(); i++) {</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;          <span class="keywordflow">if</span> (embd[i] != session_tokens_[n_session_consumed_]) {</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            session_tokens_.resize(n_session_consumed_);</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;          }</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;          n_past_++;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;          n_session_consumed_++;</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;      <span class="keywordflow">if</span> (embd.size() &gt; 0 &amp;&amp; !path_session_.empty()) {</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        session_tokens_.insert(session_tokens_.end(), embd.begin(), embd.end());</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        n_session_consumed_ = session_tokens_.size();</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;      }</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;      <span class="keywordflow">if</span> (llama_eval(ctx_llama_, embd.data(), embd.size(), n_past_,</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                     n_threads_)) {</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        fprintf(stderr, <span class="stringliteral">&quot;%s : failed to eval\n&quot;</span>, __func__);</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        exit(1);</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;      }</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    }</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    embd_inp_.insert(embd_inp_.end(), embd.begin(), embd.end());</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    n_past_ += embd.size();</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;          <span class="keywordflow">if</span> (n_session_consumed_ &gt;= (<span class="keywordtype">int</span>)session_tokens_.size()) {</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;            i++;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;          }</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        }</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <span class="keywordflow">if</span> (i &gt; 0) {</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;          embd.erase(embd.begin(), embd.begin() + i);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        }</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;      }</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;      <span class="keywordflow">if</span> (embd.size() &gt; 0 &amp;&amp; !path_session_.empty()) {</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        session_tokens_.insert(session_tokens_.end(), embd.begin(), embd.end());</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        n_session_consumed_ = session_tokens_.size();</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;      }</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    embd.clear();</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keywordflow">if</span> (done) <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    {</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;      <span class="comment">// out of user input, sample next token</span></div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">float</span> top_k = 10000;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">float</span> top_p = 0.80f;</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">float</span> temp = 0.20f;</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">float</span> repeat_penalty = 1.1f;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> repeat_last_n = 256;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;      <span class="keywordflow">if</span> (llama_eval(ctx_llama_, embd.data(), embd.size(), n_past_,</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                     n_threads_)) {</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        fprintf(stderr, <span class="stringliteral">&quot;%s : failed to eval\n&quot;</span>, __func__);</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        exit(1);</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;      }</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    }</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    embd_inp_.insert(embd_inp_.end(), embd.begin(), embd.end());</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    n_past_ += embd.size();</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    embd.clear();</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;      <span class="keywordflow">if</span> (!path_session_.empty() &amp;&amp; need_to_save_session_) {</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        need_to_save_session_ = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        llama_save_session_file(ctx_llama_, path_session_.c_str(),</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;                                session_tokens_.data(), session_tokens_.size());</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;      }</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;      llama_token <span class="keywordtype">id</span> = 0;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;      {</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        <span class="keyword">auto</span> logits = llama_get_logits(ctx_llama_);</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        <span class="keyword">auto</span> n_vocab = llama_n_vocab(ctx_llama_);</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        logits[llama_token_eos()] = 0;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160; </div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        std::vector&lt;llama_token_data&gt; candidates;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        candidates.reserve(n_vocab);</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        <span class="keywordflow">for</span> (llama_token token_id = 0; token_id &lt; n_vocab; token_id++) {</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;          candidates.emplace_back(</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;              llama_token_data{token_id, logits[token_id], 0.0f});</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        }</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        llama_token_data_array candidates_p = {candidates.data(),</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;                                               candidates.size(), <span class="keyword">false</span>};</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keywordflow">if</span> (done) <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    {</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;      <span class="comment">// out of user input, sample next token</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">float</span> top_k = 10000;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">float</span> top_p = 0.80f;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">float</span> temp = 0.20f;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">float</span> repeat_penalty = 1.1f;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> repeat_last_n = 256;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;      <span class="keywordflow">if</span> (!path_session_.empty() &amp;&amp; need_to_save_session_) {</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        need_to_save_session_ = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        llama_save_session_file(ctx_llama_, path_session_.c_str(),</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                                session_tokens_.data(), session_tokens_.size());</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;      }</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;      llama_token <span class="keywordtype">id</span> = 0;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160; </div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;      {</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        <span class="keyword">auto</span> logits = llama_get_logits(ctx_llama_);</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        <span class="keyword">auto</span> n_vocab = llama_n_vocab(ctx_llama_);</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        logits[llama_token_eos()] = 0;</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160; </div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        <span class="comment">// apply repeat penalty</span></div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">float</span> nl_logit = logits[llama_token_nl()];</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        llama_sample_repetition_penalty(</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;            ctx_llama_, &amp;candidates_p,</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;            embd_inp_.data() + std::max(0, n_past_ - repeat_last_n),</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;            repeat_last_n, repeat_penalty);</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        logits[llama_token_nl()] = nl_logit;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        std::vector&lt;llama_token_data&gt; candidates;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        candidates.reserve(n_vocab);</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        <span class="keywordflow">for</span> (llama_token token_id = 0; token_id &lt; n_vocab; token_id++) {</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;          candidates.emplace_back(</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;              llama_token_data{token_id, logits[token_id], 0.0f});</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        }</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160; </div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        llama_token_data_array candidates_p = {candidates.data(),</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;                                               candidates.size(), <span class="keyword">false</span>};</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <span class="keywordflow">if</span> (temp &lt;= 0) {</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;          <span class="comment">// Greedy sampling</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;          <span class="keywordtype">id</span> = llama_sample_token_greedy(ctx_llama_, &amp;candidates_p);</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;          <span class="comment">// Temperature sampling</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;          llama_sample_top_k(ctx_llama_, &amp;candidates_p, top_k, 1);</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;          llama_sample_top_p(ctx_llama_, &amp;candidates_p, top_p, 1);</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;          llama_sample_temperature(ctx_llama_, &amp;candidates_p, temp);</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;          <span class="keywordtype">id</span> = llama_sample_token(ctx_llama_, &amp;candidates_p);</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        }</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;      }</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;      <span class="keywordflow">if</span> (<span class="keywordtype">id</span> != llama_token_eos()) {</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        <span class="comment">// add it to the context</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        embd.push_back(<span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        text_to_speak += llama_token_to_str(ctx_llama_, <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        printf(<span class="stringliteral">&quot;%s&quot;</span>, llama_token_to_str(ctx_llama_, <span class="keywordtype">id</span>));</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;      }</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    }</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    {</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;      std::string last_output;</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = embd_inp_.size() - 16; i &lt; (<span class="keywordtype">int</span>)embd_inp_.size(); i++) {</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        last_output += llama_token_to_str(ctx_llama_, embd_inp_[i]);</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      }</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;      last_output += llama_token_to_str(ctx_llama_, embd[0]);</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160; </div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;      <span class="keywordflow">for</span> (std::string&amp; antiprompt : antiprompts_) {</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <span class="keywordflow">if</span> (last_output.find(antiprompt.c_str(),</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;                             last_output.length() - antiprompt.length(),</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;                             antiprompt.length()) != std::string::npos) {</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;          done = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;          text_to_speak = <a class="code" href="namespace_c_c_1_1common.html#a2aee6c2bbbd4c8c2e5aa7bdc3bc81952">common::Replace</a>(text_to_speak, antiprompt, <span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;          fflush(stdout);</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;          need_to_save_session_ = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;          <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        }</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;      }</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    }</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="comment">// Break to avoid infinite loop</span></div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="comment">// TODO: Fix this bug</span></div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keywordflow">if</span> ((<span class="keywordtype">int</span>)text_to_speak.length() == last_length + 1 &amp;&amp;</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        text_to_speak[text_to_speak.length() - 1] == <span class="charliteral">&#39;\n&#39;</span>) {</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;      ++loop_count;</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;      loop_count = 0;</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    }</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keywordflow">if</span> (loop_count &gt; 5) {</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;      <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    }</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    last_length = text_to_speak.length();</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;  }</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; </div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;  <span class="keywordflow">return</span> text_to_speak;</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;}</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <span class="comment">// apply repeat penalty</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">float</span> nl_logit = logits[llama_token_nl()];</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        llama_sample_repetition_penalty(</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;            ctx_llama_, &amp;candidates_p,</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;            embd_inp_.data() + std::max(0, n_past_ - repeat_last_n),</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;            repeat_last_n, repeat_penalty);</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160; </div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        logits[llama_token_nl()] = nl_logit;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; </div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        <span class="keywordflow">if</span> (temp &lt;= 0) {</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;          <span class="comment">// Greedy sampling</span></div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;          <span class="keywordtype">id</span> = llama_sample_token_greedy(ctx_llama_, &amp;candidates_p);</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;          <span class="comment">// Temperature sampling</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;          llama_sample_top_k(ctx_llama_, &amp;candidates_p, top_k, 1);</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;          llama_sample_top_p(ctx_llama_, &amp;candidates_p, top_p, 1);</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;          llama_sample_temperature(ctx_llama_, &amp;candidates_p, temp);</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;          <span class="keywordtype">id</span> = llama_sample_token(ctx_llama_, &amp;candidates_p);</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        }</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;      }</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;      <span class="keywordflow">if</span> (<span class="keywordtype">id</span> != llama_token_eos()) {</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <span class="comment">// add it to the context</span></div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        embd.push_back(<span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        output_text += llama_token_to_str(ctx_llama_, <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        printf(<span class="stringliteral">&quot;%s&quot;</span>, llama_token_to_str(ctx_llama_, <span class="keywordtype">id</span>));</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;      }</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    }</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160; </div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    {</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;      std::string last_output;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = embd_inp_.size() - 16; i &lt; (<span class="keywordtype">int</span>)embd_inp_.size(); i++) {</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        last_output += llama_token_to_str(ctx_llama_, embd_inp_[i]);</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      }</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;      last_output += llama_token_to_str(ctx_llama_, embd[0]);</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160; </div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;      <span class="keywordflow">for</span> (std::string&amp; antiprompt : antiprompts_) {</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        <span class="keywordflow">if</span> (last_output.find(antiprompt.c_str(),</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;                             last_output.length() - antiprompt.length(),</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;                             antiprompt.length()) != std::string::npos) {</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;          done = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;          output_text = <a class="code" href="namespace_c_c_1_1common.html#a2aee6c2bbbd4c8c2e5aa7bdc3bc81952">common::Replace</a>(output_text, antiprompt, <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;          fflush(stdout);</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;          need_to_save_session_ = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;          <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        }</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;      }</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    }</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160; </div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="comment">// Break to avoid infinite loop</span></div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="comment">// TODO: Fix this bug</span></div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keywordflow">if</span> ((<span class="keywordtype">int</span>)output_text.length() == last_length + 1 &amp;&amp;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        output_text[output_text.length() - 1] == <span class="charliteral">&#39;\n&#39;</span>) {</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;      ++loop_count;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;      loop_count = 0;</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    }</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keywordflow">if</span> (loop_count &gt; 5) {</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;      <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    }</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    last_length = output_text.length();</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;  }</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;  <span class="keywordflow">return</span> output_text;</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;}</div>
 <div class="ttc" id="aclass_c_c_1_1llm_1_1_l_l_m_html_a06970a063ad63ecb34adcefb3b5ce82e"><div class="ttname"><a href="class_c_c_1_1llm_1_1_l_l_m.html#a06970a063ad63ecb34adcefb3b5ce82e">CC::llm::LLM::LoadSession</a></div><div class="ttdeci">void LoadSession(const std::string &amp;path_session)</div><div class="ttdoc">Load session from file.</div><div class="ttdef"><b>Definition:</b> <a href="llm_8cpp_source.html#l00101">llm.cpp:101</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1llm_1_1_l_l_m_html_a4720adfef94d91c917974000c6959575"><div class="ttname"><a href="class_c_c_1_1llm_1_1_l_l_m.html#a4720adfef94d91c917974000c6959575">CC::llm::LLM::~LLM</a></div><div class="ttdeci">~LLM()</div><div class="ttdef"><b>Definition:</b> <a href="llm_8cpp_source.html#l00040">llm.cpp:40</a></div></div>
-<div class="ttc" id="aclass_c_c_1_1llm_1_1_l_l_m_html_a556ae100e922158e6a466966aa50312d"><div class="ttname"><a href="class_c_c_1_1llm_1_1_l_l_m.html#a556ae100e922158e6a466966aa50312d">CC::llm::LLM::GetAnswer</a></div><div class="ttdeci">std::string GetAnswer(std::vector&lt; llama_token &gt; &amp;embd)</div><div class="ttdoc">Get answer from LLM.</div><div class="ttdef"><b>Definition:</b> <a href="llm_8cpp_source.html#l00184">llm.cpp:184</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1llm_1_1_l_l_m_html_a62934eb91a69d319f5c7f1d6f8f49624"><div class="ttname"><a href="class_c_c_1_1llm_1_1_l_l_m.html#a62934eb91a69d319f5c7f1d6f8f49624">CC::llm::LLM::LLM</a></div><div class="ttdeci">LLM(const std::string &amp;model_path, const std::string &amp;path_session=&quot;&quot;, const std::string &amp;person=&quot;User&quot;, const std::string &amp;bot_name=&quot;CustomChar&quot;)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> <a href="llm_8cpp_source.html#l00006">llm.cpp:6</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1llm_1_1_l_l_m_html_a7b88d61ff8f114edc8789caded43a551"><div class="ttname"><a href="class_c_c_1_1llm_1_1_l_l_m.html#a7b88d61ff8f114edc8789caded43a551">CC::llm::LLM::GetAnswer</a></div><div class="ttdeci">std::string GetAnswer(const std::string &amp;user_input)</div><div class="ttdoc">Get answer from LLM.</div><div class="ttdef"><b>Definition:</b> <a href="llm_8cpp_source.html#l00184">llm.cpp:184</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1llm_1_1_l_l_m_html_a968cc98c7768f1d6d2c4f9208c0ed6f3"><div class="ttname"><a href="class_c_c_1_1llm_1_1_l_l_m.html#a968cc98c7768f1d6d2c4f9208c0ed6f3">CC::llm::LLM::AddTokensToCurrentSession</a></div><div class="ttdeci">void AddTokensToCurrentSession(const std::vector&lt; llama_token &gt; &amp;tokens)</div><div class="ttdoc">Add new tokens to the sessions.</div><div class="ttdef"><b>Definition:</b> <a href="llm_8cpp_source.html#l00094">llm.cpp:94</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1llm_1_1_l_l_m_html_abaec4579691e7361529a8443d687be14"><div class="ttname"><a href="class_c_c_1_1llm_1_1_l_l_m.html#abaec4579691e7361529a8443d687be14">CC::llm::LLM::EvalModel</a></div><div class="ttdeci">void EvalModel()</div><div class="ttdoc">Evaluate the model. Run this function before inference.</div><div class="ttdef"><b>Definition:</b> <a href="llm_8cpp_source.html#l00135">llm.cpp:135</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1llm_1_1_l_l_m_html_ac531616743d82ca79af649ba4d34dc55"><div class="ttname"><a href="class_c_c_1_1llm_1_1_l_l_m.html#ac531616743d82ca79af649ba4d34dc55">CC::llm::LLM::Tokenize</a></div><div class="ttdeci">std::vector&lt; llama_token &gt; Tokenize(const std::string &amp;text, bool add_bos)</div><div class="ttdoc">Tokenize text.</div><div class="ttdef"><b>Definition:</b> <a href="llm_8cpp_source.html#l00083">llm.cpp:83</a></div></div>
