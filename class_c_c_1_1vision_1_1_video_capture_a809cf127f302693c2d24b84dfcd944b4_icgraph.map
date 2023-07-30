@@ -1,0 +1,7 @@
+<map id="CC::vision::VideoCapture::Stop" name="CC::vision::VideoCapture::Stop">
+<area shape="rect" id="node1" title="Stop capturing frames." alt="" coords="692,39,875,80"/>
+<area shape="rect" id="node2" href="$class_c_c_1_1vision_1_1_video_capture.html#a3f824f1f6a17cd22c8f54f79722ea82b" title="Start recording frames to file." alt="" coords="461,8,644,49"/>
+<area shape="rect" id="node5" href="$class_c_c_1_1character_1_1_character.html#a51ab1d34c23b547e01ede42d90e0d710" title="Stop video capture." alt="" coords="233,71,413,112"/>
+<area shape="rect" id="node3" href="$class_c_c_1_1character_1_1_character.html#ad58691e222bffb1e0ea1608a023f1ee5" title="Record video." alt="" coords="233,5,413,47"/>
+<area shape="rect" id="node4" href="$class_c_c_1_1character_1_1_character.html#a0fffa840cfbffab1fb38b789abdf5045" title="Constructor." alt="" coords="5,39,185,80"/>
+</map>

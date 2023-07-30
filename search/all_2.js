@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['audio_7',['audio',['../namespace_c_c_1_1audio.html',1,'CC']]],
-  ['callback_8',['Callback',['../class_c_c_1_1audio_1_1_audio_async.html#a188bc12b6a5f1d6f91b2837a83866e7d',1,'CC::audio::AudioAsync']]],
-  ['capture_9',['Capture',['../class_c_c_1_1vision_1_1_video_capture.html#a122a668e2f98ea888c6711f0823f3870',1,'CC::vision::VideoCapture']]],
+  ['audio_8',['audio',['../namespace_c_c_1_1audio.html',1,'CC']]],
+  ['callback_9',['Callback',['../class_c_c_1_1audio_1_1_audio_async.html#a188bc12b6a5f1d6f91b2837a83866e7d',1,'CC::audio::AudioAsync']]],
   ['capture_5fid_10',['capture_id',['../struct_c_c_1_1common_1_1_c_c_params.html#a1f2d774b62ed027f0cfc980007eb3ae8',1,'CC::common::CCParams']]],
   ['cc_11',['CC',['../namespace_c_c.html',1,'']]],
   ['ccparams_12',['CCParams',['../struct_c_c_1_1common_1_1_c_c_params.html',1,'CC::common']]],

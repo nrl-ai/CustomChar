@@ -99,21 +99,25 @@ Collaboration diagram for CC::executors::PluginExecutor:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_c_c_1_1executors_1_1_plugin_executor__coll__graph.png" border="0" usemap="#a_c_c_1_1executors_1_1_plugin_executor_coll__map" alt="Collaboration graph"/></div>
 <map name="a_c_c_1_1executors_1_1_plugin_executor_coll__map" id="a_c_c_1_1executors_1_1_plugin_executor_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,220,83"/>
+<area shape="rect" title=" " alt="" coords="5,5,220,97"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a86657727152b3ac1359f1d41b928bfff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1executors_1_1_plugin_executor.html#a86657727152b3ac1359f1d41b928bfff">ParseAndExecute</a> (const std::string &amp;input, std::string &amp;response)</td></tr>
-<tr class="separator:a86657727152b3ac1359f1d41b928bfff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9f689510a021f5ad52c5ef24c3388b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1executors_1_1_plugin_executor.html#ac9f689510a021f5ad52c5ef24c3388b8">PluginExecutor</a> (std::function&lt; bool()&gt; IsRecording, std::function&lt; void(const std::string &amp;filename)&gt; StartVideoRecoding, std::function&lt; void()&gt; StopVideoCapture)</td></tr>
+<tr class="memdesc:ac9f689510a021f5ad52c5ef24c3388b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="class_c_c_1_1executors_1_1_plugin_executor.html#ac9f689510a021f5ad52c5ef24c3388b8">More...</a><br /></td></tr>
+<tr class="separator:ac9f689510a021f5ad52c5ef24c3388b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a359043281b963573d837dc087916691b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1executors_1_1_plugin_executor.html#a359043281b963573d837dc087916691b">ParseAndExecute</a> (const std::string &amp;input, std::string &amp;response)</td></tr>
+<tr class="memdesc:a359043281b963573d837dc087916691b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse and execute input.  <a href="class_c_c_1_1executors_1_1_plugin_executor.html#a359043281b963573d837dc087916691b">More...</a><br /></td></tr>
+<tr class="separator:a359043281b963573d837dc087916691b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="plugin__executor_8h_source.html#l00019">19</a> of file <a class="el" href="plugin__executor_8h_source.html">plugin_executor.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a86657727152b3ac1359f1d41b928bfff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86657727152b3ac1359f1d41b928bfff">&#9670;&nbsp;</a></span>ParseAndExecute()</h2>
+<p class="definition">Definition at line <a class="el" href="plugin__executor_8h_source.html#l00022">22</a> of file <a class="el" href="plugin__executor_8h_source.html">plugin_executor.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ac9f689510a021f5ad52c5ef24c3388b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9f689510a021f5ad52c5ef24c3388b8">&#9670;&nbsp;</a></span>PluginExecutor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -122,7 +126,51 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool CC::executors::PluginExecutor::ParseAndExecute </td>
+          <td class="memname">CC::executors::PluginExecutor::PluginExecutor </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; bool()&gt;&#160;</td>
+          <td class="paramname"><em>IsRecording</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const std::string &amp;filename)&gt;&#160;</td>
+          <td class="paramname"><em>StartVideoRecoding</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void()&gt;&#160;</td>
+          <td class="paramname"><em>StopVideoCapture</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+
+<p class="definition">Definition at line <a class="el" href="plugin__executor_8h_source.html#l00054">54</a> of file <a class="el" href="plugin__executor_8h_source.html">plugin_executor.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a359043281b963573d837dc087916691b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a359043281b963573d837dc087916691b">&#9670;&nbsp;</a></span>ParseAndExecute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PluginExecutor::ParseAndExecute </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>input</em>, </td>
@@ -139,19 +187,25 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="plugin__executor_8h_source.html#l00049">49</a> of file <a class="el" href="plugin__executor_8h_source.html">plugin_executor.h</a>.</p>
+<p>Parse and execute input. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>user input string </td></tr>
+    <tr><td class="paramname">response</td><td>response string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if handled, false otherwise </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="plugin__executor_8cpp_source.html#l00013">13</a> of file <a class="el" href="plugin__executor_8cpp_source.html">plugin_executor.cpp</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="plugin__executor_8h_source.html">plugin_executor.h</a></li>
+<li><a class="el" href="plugin__executor_8cpp_source.html">plugin_executor.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

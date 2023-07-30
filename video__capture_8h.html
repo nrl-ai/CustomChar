@@ -88,27 +88,33 @@ $(document).ready(function(){initNavTree('video__capture_8h.html',''); initResiz
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">video_capture.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;queue&gt;</code><br />
+<div class="textblock"><code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;queue&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;thread&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;opencv2/opencv.hpp&gt;</code><br />
+<code>#include &lt;subprocess.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for video_capture.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="video__capture_8h__incl.png" border="0" usemap="#avideo__capture_8h" alt=""/></div>
 <map name="avideo__capture_8h" id="avideo__capture_8h">
-<area shape="rect" title=" " alt="" coords="144,5,271,32"/>
-<area shape="rect" title=" " alt="" coords="5,80,68,107"/>
-<area shape="rect" title=" " alt="" coords="93,80,151,107"/>
-<area shape="rect" title=" " alt="" coords="175,80,239,107"/>
-<area shape="rect" title=" " alt="" coords="264,80,327,107"/>
-<area shape="rect" title=" " alt="" coords="351,80,506,107"/>
+<area shape="rect" title=" " alt="" coords="243,5,370,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,80,107"/>
+<area shape="rect" title=" " alt="" coords="105,80,167,107"/>
+<area shape="rect" title=" " alt="" coords="192,80,251,107"/>
+<area shape="rect" title=" " alt="" coords="275,80,339,107"/>
+<area shape="rect" title=" " alt="" coords="363,80,426,107"/>
+<area shape="rect" title=" " alt="" coords="451,80,605,107"/>
+<area shape="rect" title=" " alt="" coords="629,80,752,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -116,8 +122,11 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="video__capture_8h__dep__incl.png" border="0" usemap="#avideo__capture_8hdep" alt=""/></div>
 <map name="avideo__capture_8hdep" id="avideo__capture_8hdep">
-<area shape="rect" title=" " alt="" coords="5,5,132,32"/>
-<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="27,80,110,107"/>
+<area shape="rect" title=" " alt="" coords="117,5,243,32"/>
+<area shape="rect" href="character_8h.html" title=" " alt="" coords="133,80,227,107"/>
+<area shape="rect" href="character_8cpp.html" title=" " alt="" coords="5,155,115,181"/>
+<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="139,155,221,181"/>
+<area shape="rect" href="main__cli_8cpp.html" title=" " alt="" coords="245,155,349,181"/>
 </map>
 </div>
 </div>
@@ -126,6 +135,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1vision_1_1_video_capture.html">CC::vision::VideoCapture</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_c_c_1_1vision_1_1_video_capture.html" title="VideoCapture class.">VideoCapture</a> class.  <a href="class_c_c_1_1vision_1_1_video_capture.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -134,7 +144,59 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespace_c_c_1_1vision"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1vision.html">CC::vision</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a69df9f9a6deb3ff2f80eba580ec97fe8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="video__capture_8h.html#a69df9f9a6deb3ff2f80eba580ec97fe8">SET_BINARY_MODE</a>(handle)&#160;&#160;&#160;((void)0)</td></tr>
+<tr class="separator:a69df9f9a6deb3ff2f80eba580ec97fe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeca034f67218340ecb2261a22c2f3dcd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="video__capture_8h.html#aeca034f67218340ecb2261a22c2f3dcd">BUFSIZE</a>&#160;&#160;&#160;10240</td></tr>
+<tr class="separator:aeca034f67218340ecb2261a22c2f3dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ab5aa02f765efca17cd6bf9116ae45805"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1vision.html#ab5aa02f765efca17cd6bf9116ae45805">CC::vision::VideoCaptureMode</a> { <a class="el" href="namespace_c_c_1_1vision.html#ab5aa02f765efca17cd6bf9116ae45805a35c3ace1970663a16e5c65baa5941b13">CC::vision::kNone</a>
+, <a class="el" href="namespace_c_c_1_1vision.html#ab5aa02f765efca17cd6bf9116ae45805a04f3c1767a20309503733b624716d00c">CC::vision::kOpenCV</a>
+, <a class="el" href="namespace_c_c_1_1vision.html#ab5aa02f765efca17cd6bf9116ae45805a4a6a2b1db7ff22ae1b950a456d02604c">CC::vision::kFFmpeg</a>
+ }</td></tr>
+<tr class="separator:ab5aa02f765efca17cd6bf9116ae45805"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="aeca034f67218340ecb2261a22c2f3dcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeca034f67218340ecb2261a22c2f3dcd">&#9670;&nbsp;</a></span>BUFSIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BUFSIZE&#160;&#160;&#160;10240</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="video__capture_8h_source.html#l00025">25</a> of file <a class="el" href="video__capture_8h_source.html">video_capture.h</a>.</p>
+
+</div>
+</div>
+<a id="a69df9f9a6deb3ff2f80eba580ec97fe8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69df9f9a6deb3ff2f80eba580ec97fe8">&#9670;&nbsp;</a></span>SET_BINARY_MODE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SET_BINARY_MODE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">handle</td><td>)</td>
+          <td>&#160;&#160;&#160;((void)0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="video__capture_8h_source.html#l00023">23</a> of file <a class="el" href="video__capture_8h_source.html">video_capture.h</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

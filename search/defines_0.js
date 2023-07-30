@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['common_5fsample_5frate_343',['COMMON_SAMPLE_RATE',['../audio_8h.html#ac49089f2ab82f9fd95c40fa8b1bb8724',1,'audio.h']]]
+  ['bufsize_375',['BUFSIZE',['../video__capture_8h.html#aeca034f67218340ecb2261a22c2f3dcd',1,'video_capture.h']]]
 ];

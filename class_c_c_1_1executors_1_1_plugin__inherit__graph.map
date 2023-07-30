@@ -1,4 +1,5 @@
 <map id="CC::executors::Plugin" name="CC::executors::Plugin">
-<area shape="rect" id="node1" title=" " alt="" coords="35,5,194,112"/>
-<area shape="rect" id="node2" href="$class_c_c_1_1executors_1_1_open_app_plugin.html" title="Plugin for opening applications." alt="" coords="5,160,224,252"/>
+<area shape="rect" id="node1" title=" " alt="" coords="153,5,311,112"/>
+<area shape="rect" id="node2" href="$class_c_c_1_1executors_1_1_open_app_plugin.html" title="Plugin for opening applications." alt="" coords="5,167,224,259"/>
+<area shape="rect" id="node3" href="$class_c_c_1_1executors_1_1_video_record_plugin.html" title="Plugin for record videos." alt="" coords="249,160,450,267"/>
 </map>

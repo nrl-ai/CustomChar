@@ -1,0 +1,4 @@
+<map id="CC::vision::VideoCapture::Start" name="CC::vision::VideoCapture::Start">
+<area shape="rect" id="node1" title="Start capturing frames." alt="" coords="233,5,416,47"/>
+<area shape="rect" id="node2" href="$class_c_c_1_1character_1_1_character.html#ab1329bb5892ccaa165d17e9ec645f078" title="Start video capture." alt="" coords="5,5,185,47"/>
+</map>

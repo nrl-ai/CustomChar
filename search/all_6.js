@@ -23,5 +23,7 @@ var searchData=
   ['getmessage_72',['GetMessage',['../class_c_c_1_1session_1_1_chat_message.html#af31b0c5c8ba6047ff05715f5a0d71b77',1,'CC::session::ChatMessage']]],
   ['getname_73',['GetName',['../class_c_c_1_1executors_1_1_plugin.html#a0451d6b5104a2fd68d4251bb18f4451d',1,'CC::executors::Plugin']]],
   ['getsender_74',['GetSender',['../class_c_c_1_1session_1_1_chat_message.html#a5bbcd13223931833a6933d6c910b7770',1,'CC::session::ChatMessage']]],
-  ['gettime_75',['GetTime',['../class_c_c_1_1session_1_1_chat_message.html#ad65cbcde5aff19f3ce77fe92bb6447a8',1,'CC::session::ChatMessage']]]
+  ['gettime_75',['GetTime',['../class_c_c_1_1session_1_1_chat_message.html#ad65cbcde5aff19f3ce77fe92bb6447a8',1,'CC::session::ChatMessage']]],
+  ['getvideocapture_76',['GetVideoCapture',['../class_c_c_1_1character_1_1_character.html#a64e96bcc5f438ea5a2437c2ba46159b1',1,'CC::character::Character']]],
+  ['getvisualizedframe_77',['GetVisualizedFrame',['../class_c_c_1_1character_1_1_character.html#abd0c6886343adff1e26bbb649646893e',1,'CC::character::Character']]]
 ];

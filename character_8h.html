@@ -93,14 +93,7 @@ $(document).ready(function(){initNavTree('character_8h.html',''); initResizable(
 <div class="title">character.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="speech__recognizer_8h_source.html">customchar/audio/speech_recognizer.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="voice__recorder_8h_source.html">customchar/audio/voice_recorder.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="voice__synthesizer_8h_source.html">customchar/audio/voice_synthesizer.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="common_8h_source.html">customchar/common/common.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="helpers_8h_source.html">customchar/common/helpers.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="plugin__executor_8h_source.html">customchar/executors/plugin_executor.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="llm_8h_source.html">customchar/llm/llm.h</a>&quot;</code><br />
-<code>#include &lt;cassert&gt;</code><br />
+<div class="textblock"><code>#include &lt;cassert&gt;</code><br />
 <code>#include &lt;cstdio&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;functional&gt;</code><br />
@@ -108,43 +101,58 @@ $(document).ready(function(){initNavTree('character_8h.html',''); initResizable(
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;thread&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;opencv2/opencv.hpp&gt;</code><br />
+<code>#include &quot;<a class="el" href="speech__recognizer_8h_source.html">customchar/audio/speech_recognizer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="voice__recorder_8h_source.html">customchar/audio/voice_recorder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="voice__synthesizer_8h_source.html">customchar/audio/voice_synthesizer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="common_8h_source.html">customchar/common/common.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="helpers_8h_source.html">customchar/common/helpers.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="plugin__executor_8h_source.html">customchar/executors/plugin_executor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="llm_8h_source.html">customchar/llm/llm.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="video__capture_8h_source.html">customchar/vision/video_capture.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for character.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="character_8h__incl.png" border="0" usemap="#acharacter_8h" alt=""/></div>
 <map name="acharacter_8h" id="acharacter_8h">
-<area shape="rect" title=" " alt="" coords="1171,5,1266,32"/>
-<area shape="rect" href="speech__recognizer_8h.html" title=" " alt="" coords="563,80,751,121"/>
-<area shape="rect" title=" " alt="" coords="1027,177,1096,203"/>
-<area shape="rect" title=" " alt="" coords="1120,177,1181,203"/>
-<area shape="rect" title=" " alt="" coords="1441,177,1514,203"/>
-<area shape="rect" title=" " alt="" coords="1357,177,1416,203"/>
-<area shape="rect" title=" " alt="" coords="1675,348,1733,375"/>
-<area shape="rect" title=" " alt="" coords="789,266,853,293"/>
-<area shape="rect" title=" " alt="" coords="958,266,1021,293"/>
-<area shape="rect" href="voice__recorder_8h.html" title=" " alt="" coords="775,80,953,121"/>
-<area shape="rect" href="voice__synthesizer_8h.html" title=" " alt="" coords="1130,80,1307,121"/>
-<area shape="rect" href="common_8h.html" title=" " alt="" coords="2008,177,2240,203"/>
-<area shape="rect" href="helpers_8h.html" title=" " alt="" coords="1382,87,1605,114"/>
-<area shape="rect" href="plugin__executor_8h.html" title=" " alt="" coords="2296,80,2461,121"/>
-<area shape="rect" href="llm_8h.html" title=" " alt="" coords="1679,87,1839,114"/>
-<area shape="rect" title=" " alt="" coords="2486,87,2573,114"/>
-<area shape="rect" href="audio_8h.html" title=" " alt="" coords="558,177,749,203"/>
-<area shape="rect" href="sdl_8h.html" title=" " alt="" coords="285,177,459,203"/>
-<area shape="rect" title=" " alt="" coords="43,177,210,203"/>
-<area shape="rect" title=" " alt="" coords="1812,266,1863,293"/>
-<area shape="rect" title=" " alt="" coords="643,266,715,293"/>
-<area shape="rect" title=" " alt="" coords="515,266,618,293"/>
-<area shape="rect" title=" " alt="" coords="245,266,312,293"/>
-<area shape="rect" title=" " alt="" coords="336,266,403,293"/>
-<area shape="rect" title=" " alt="" coords="427,266,491,293"/>
-<area shape="rect" title=" " alt="" coords="2467,177,2533,203"/>
-<area shape="rect" title=" " alt="" coords="2557,177,2616,203"/>
-<area shape="rect" title=" " alt="" coords="2545,266,2625,293"/>
-<area shape="rect" title=" " alt="" coords="2745,266,2820,293"/>
-<area shape="rect" href="plugin_8h.html" title=" " alt="" coords="2296,259,2461,300"/>
-<area shape="rect" href="open__app__plugin_8h.html" title=" " alt="" coords="2639,169,2838,211"/>
-<area shape="rect" title=" " alt="" coords="1793,177,1933,203"/>
+<area shape="rect" title=" " alt="" coords="1562,5,1657,32"/>
+<area shape="rect" title=" " alt="" coords="958,184,1027,211"/>
+<area shape="rect" title=" " alt="" coords="1051,184,1112,211"/>
+<area shape="rect" title=" " alt="" coords="1422,184,1496,211"/>
+<area shape="rect" title=" " alt="" coords="3013,281,3100,307"/>
+<area shape="rect" title=" " alt="" coords="1288,184,1347,211"/>
+<area shape="rect" title=" " alt="" coords="2076,363,2135,389"/>
+<area shape="rect" title=" " alt="" coords="968,281,1032,307"/>
+<area shape="rect" title=" " alt="" coords="1396,281,1458,307"/>
+<area shape="rect" title=" " alt="" coords="3624,281,3779,307"/>
+<area shape="rect" href="speech__recognizer_8h.html" title=" " alt="" coords="582,80,770,121"/>
+<area shape="rect" href="voice__recorder_8h.html" title=" " alt="" coords="794,80,972,121"/>
+<area shape="rect" href="voice__synthesizer_8h.html" title=" " alt="" coords="1394,80,1572,121"/>
+<area shape="rect" href="common_8h.html" title=" " alt="" coords="1990,184,2222,211"/>
+<area shape="rect" href="helpers_8h.html" title=" " alt="" coords="1097,87,1320,114"/>
+<area shape="rect" href="plugin__executor_8h.html" title=" " alt="" coords="2386,80,2551,121"/>
+<area shape="rect" href="llm_8h.html" title=" " alt="" coords="1647,87,1807,114"/>
+<area shape="rect" href="video__capture_8h.html" title=" " alt="" coords="3286,177,3467,218"/>
+<area shape="rect" href="audio_8h.html" title=" " alt="" coords="590,184,781,211"/>
+<area shape="rect" href="sdl_8h.html" title=" " alt="" coords="216,184,390,211"/>
+<area shape="rect" title=" " alt="" coords="25,184,192,211"/>
+<area shape="rect" title=" " alt="" coords="1794,281,1844,307"/>
+<area shape="rect" title=" " alt="" coords="723,281,795,307"/>
+<area shape="rect" title=" " alt="" coords="220,281,322,307"/>
+<area shape="rect" title=" " alt="" coords="347,281,414,307"/>
+<area shape="rect" title=" " alt="" coords="40,281,107,307"/>
+<area shape="rect" title=" " alt="" coords="131,281,195,307"/>
+<area shape="rect" title=" " alt="" coords="3094,184,3160,211"/>
+<area shape="rect" title=" " alt="" coords="2347,184,2406,211"/>
+<area shape="rect" title=" " alt="" coords="2723,281,2803,307"/>
+<area shape="rect" title=" " alt="" coords="2827,281,2902,307"/>
+<area shape="rect" href="plugin_8h.html" title=" " alt="" coords="2480,273,2646,315"/>
+<area shape="rect" href="open__app__plugin_8h.html" title=" " alt="" coords="2530,177,2729,218"/>
+<area shape="rect" href="video__record__plugin_8h.html" title=" " alt="" coords="2803,169,2968,225"/>
+<area shape="rect" title=" " alt="" coords="1724,184,1864,211"/>
+<area shape="rect" title=" " alt="" coords="3291,281,3366,307"/>
+<area shape="rect" title=" " alt="" coords="3390,281,3453,307"/>
+<area shape="rect" title=" " alt="" coords="3478,281,3600,307"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">

@@ -33,6 +33,7 @@ var files_dup =
     [ "plugin.h", "plugin_8h.html", [
       [ "Plugin", "class_c_c_1_1executors_1_1_plugin.html", "class_c_c_1_1executors_1_1_plugin" ]
     ] ],
+    [ "plugin_executor.cpp", "plugin__executor_8cpp.html", null ],
     [ "plugin_executor.h", "plugin__executor_8h.html", [
       [ "PluginExecutor", "class_c_c_1_1executors_1_1_plugin_executor.html", "class_c_c_1_1executors_1_1_plugin_executor" ]
     ] ],
@@ -42,8 +43,9 @@ var files_dup =
     [ "speech_recognizer.h", "speech__recognizer_8h.html", [
       [ "SpeechRecognizer", "class_c_c_1_1audio_1_1_speech_recognizer.html", "class_c_c_1_1audio_1_1_speech_recognizer" ]
     ] ],
-    [ "video_capture.h", "video__capture_8h.html", [
-      [ "VideoCapture", "class_c_c_1_1vision_1_1_video_capture.html", "class_c_c_1_1vision_1_1_video_capture" ]
+    [ "video_capture.h", "video__capture_8h.html", "video__capture_8h" ],
+    [ "video_record_plugin.h", "video__record__plugin_8h.html", [
+      [ "VideoRecordPlugin", "class_c_c_1_1executors_1_1_video_record_plugin.html", "class_c_c_1_1executors_1_1_video_record_plugin" ]
     ] ],
     [ "voice_recorder.cpp", "voice__recorder_8cpp.html", null ],
     [ "voice_recorder.h", "voice__recorder_8h.html", [

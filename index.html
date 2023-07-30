@@ -111,6 +111,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <p><img src="architecture.svg" alt="" style="pointer-events: none;" class="inline" title="CustomChar Architecture"/></p>
 <h1>2. Updates</h1>
 <ul>
+<li>🔥 <b>2023-07-30:</b> Record a video with "record a video" and "stop recording".</li>
 <li>🔥 <b>2023-07-30:</b> Added OpenCV + camera view.</li>
 <li>🔥 <b>2023-07-29:</b> Added a plugin executor to open apps.</li>
 <li>🔥 <b>2023-07-25:</b> Added UI with Dear ImGui.</li>
@@ -168,10 +169,12 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <p>On macOS: Using <a href="https://brew.sh/">Homebrew</a></p>
 <div class="fragment"><div class="line">brew install sdl2 glew glfw3</div>
 <div class="line">brew install opencv</div>
+<div class="line">brew install ffmpeg # For video recording</div>
 </div><!-- fragment --><p>On Ubuntu:</p>
 <div class="fragment"><div class="line">sudo apt-get install libsdl2-dev libglew-dev libglfw3-dev</div>
 <div class="line">sudo apt-get install libopencv-dev</div>
-</div><!-- fragment --><p>On Windows: Using <a href="https://github.com/microsoft/vcpkg">vcpkg</a> and <a href="https://git-scm.com/downloads">Git Bash</a>:</p>
+<div class="line">sudo apt-get install ffmpeg # For video recording</div>
+</div><!-- fragment --><p>On Windows: Using <a href="https://github.com/microsoft/vcpkg">vcpkg</a>, <a href="https://git-scm.com/downloads">Git Bash</a>, and <a href="https://www.wikihow.com/Install-FFmpeg-on-Windows">FFmpeg</a>.</p>
 <div class="fragment"><div class="line">vcpkg install sdl2:x64-windows glew:x64-windows glfw3:x64-windows</div>
 <div class="line">vcpkg install opencv[contrib,nonfree,ffmpeg,ipp]:x64-windows --recurse</div>
 </div><!-- fragment --><p>Build the <b>CustomChar</b> executable:</p>

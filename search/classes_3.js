@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['embeddb_174',['EmbedDB',['../class_c_c_1_1embeddb_1_1_embed_d_b.html',1,'CC::embeddb']]]
+  ['embeddb_190',['EmbedDB',['../class_c_c_1_1embeddb_1_1_embed_d_b.html',1,'CC::embeddb']]]
 ];

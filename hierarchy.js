@@ -10,7 +10,8 @@ var hierarchy =
     [ "CC::embeddb::EmbedDB", "class_c_c_1_1embeddb_1_1_embed_d_b.html", null ],
     [ "CC::llm::LLM", "class_c_c_1_1llm_1_1_l_l_m.html", null ],
     [ "CC::executors::Plugin", "class_c_c_1_1executors_1_1_plugin.html", [
-      [ "CC::executors::OpenAppPlugin", "class_c_c_1_1executors_1_1_open_app_plugin.html", null ]
+      [ "CC::executors::OpenAppPlugin", "class_c_c_1_1executors_1_1_open_app_plugin.html", null ],
+      [ "CC::executors::VideoRecordPlugin", "class_c_c_1_1executors_1_1_video_record_plugin.html", null ]
     ] ],
     [ "CC::executors::PluginExecutor", "class_c_c_1_1executors_1_1_plugin_executor.html", null ],
     [ "CC::audio::SpeechRecognizer", "class_c_c_1_1audio_1_1_speech_recognizer.html", null ],

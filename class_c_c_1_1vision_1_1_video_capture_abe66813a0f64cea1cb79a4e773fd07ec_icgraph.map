@@ -1,0 +1,4 @@
+<map id="CC::vision::VideoCapture::GetFrame" name="CC::vision::VideoCapture::GetFrame">
+<area shape="rect" id="node1" title="Get frame from queue." alt="" coords="233,5,416,47"/>
+<area shape="rect" id="node2" href="$class_c_c_1_1character_1_1_character.html#abd0c6886343adff1e26bbb649646893e" title="Get visualized frame." alt="" coords="5,5,185,47"/>
+</map>

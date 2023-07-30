@@ -1,0 +1,5 @@
+<map id="CC::character::Character::GetVisualizedFrame" name="CC::character::Character::GetVisualizedFrame">
+<area shape="rect" id="node1" title="Get visualized frame." alt="" coords="5,39,185,80"/>
+<area shape="rect" id="node2" href="$class_c_c_1_1vision_1_1_video_capture.html#abe66813a0f64cea1cb79a4e773fd07ec" title="Get frame from queue." alt="" coords="233,5,416,47"/>
+<area shape="rect" id="node3" href="$class_c_c_1_1vision_1_1_video_capture.html#a35d8eb97d181e7ad1981cdb2e9b3c482" title="Check if is recording." alt="" coords="233,71,416,112"/>
+</map>
