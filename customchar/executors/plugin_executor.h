@@ -4,14 +4,17 @@
 #include <cstdlib>
 #include <ctime>
 #include <fstream>
+#include <functional>
 #include <iostream>
 #include <map>
 #include <regex>
 #include <sstream>
 #include <string>
 #include <vector>
+
 #include "customchar/executors/plugin.h"
 #include "customchar/executors/plugins/open_app_plugin.h"
+#include "customchar/executors/plugins/video_record_plugin.h"
 
 namespace CC {
 namespace executors {
@@ -28,84 +31,40 @@ class PluginExecutor {
   std::vector<std::vector<std::string>> pairs_ = {
       {"open (.*)", "OPEN_APP"},
       {"open (.*) app", "OPEN_APP"},
-      {"(.*)who\\s+.*\\s+created\\s+.*\\?",
-       "I was created by CustomChar team."},
-  };
+      {"(.*)record video(.*)", "VIDEO_RECORD"},
+      {"(.*)stop recording(.*)", "VIDEO_RECORD"},
+      {"(.*)stop video recording(.*)", "VIDEO_RECORD"},
+      {"(.*)record (a|some) video(.*)", "VIDEO_RECORD"}};
 
-  std::string Reflect(const std::string& word) {
-    auto it = reflections_.find(word);
-    if (it != reflections_.end()) {
-      return it->second;
-    }
-    return word;
-  }
+  std::function<bool()> IsRecording_;
+  std::function<void(const std::string& filename)> StartVideoRecoding_;
+  std::function<void()> StopVideoCapture_;
 
   std::vector<std::shared_ptr<Plugin>> plugins_ = {
       std::make_shared<OpenAppPlugin>("OPEN_APP"),
-  };
+      std::make_shared<VideoRecordPlugin>("VIDEO_RECORD", IsRecording_,
+                                          StartVideoRecoding_,
+                                          StopVideoCapture_)};
   std::shared_ptr<Plugin> current_plugin_;
 
+  std::string Reflect(const std::string& word);
+
  public:
-  bool ParseAndExecute(const std::string& input, std::string& response) {
-    // Continue with current plugin
-    if (current_plugin_) {
-      bool finished = false;
-      bool handled = current_plugin_->Handle(input, response, finished);
-      if (finished) {
-        current_plugin_ = nullptr;
-      }
-      if (handled) {
-        return true;
-      }
-    }
+  /// @brief Constructor
+  PluginExecutor(
+      std::function<bool()> IsRecording,
+      std::function<void(const std::string& filename)> StartVideoRecoding,
+      std::function<void()> StopVideoCapture)
+      : IsRecording_(IsRecording),
+        StartVideoRecoding_(StartVideoRecoding),
+        StopVideoCapture_(StopVideoCapture) {}
 
-    // Check if input matches any pattern
-    bool pattern_matched = false;
-    for (const auto& pair : pairs_) {
-      std::regex pattern(pair[0], std::regex_constants::icase);
-      std::smatch matches;
-      if (std::regex_match(input, matches, pattern)) {
-        pattern_matched = true;
-        std::string plugin_name = pair[1];
-
-        // std::regex word_regex("(%\\d+)");
-        // std::sregex_iterator it(raw_response.begin(), raw_response.end(),
-        //                         word_regex);
-        // std::sregex_iterator end;
-        // while (it != end) {
-        //   std::smatch match = *it;
-        //   std::string match_str = match.str();
-        //   int match_index = std::stoi(match_str.substr(1));
-        //   std::string reflection = Reflect(matches.str(match_index));
-        //   raw_response = std::regex_replace(raw_response,
-        //   std::regex(match_str),
-        //                                     reflection);
-        //   ++it;
-        // }
-
-        // Run executor here
-        for (const auto& plugin : plugins_) {
-          if (plugin->GetName() == plugin_name) {
-            current_plugin_ = plugin;
-            bool finished = false;
-            bool handled = current_plugin_->Handle(input, response, finished);
-            if (finished) {
-              current_plugin_ = nullptr;
-            }
-            if (handled) {
-              return true;
-            }
-          }
-        }
-
-        response = plugin_name;
-        return true;
-      }
-    }
-
-    return false;
-  }
-};
+  /// @brief Parse and execute input
+  /// @param input user input string
+  /// @param response response string
+  /// @return true if handled, false otherwise
+  bool ParseAndExecute(const std::string& input, std::string& response);
+};  // namespace executors
 
 }  // namespace executors
 }  // namespace CC
