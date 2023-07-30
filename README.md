@@ -62,6 +62,13 @@ https://github.com/vietanhdev/CustomChar/assets/18329471/4674efe7-6d7f-4e5e-9b28
 
 ## 4. Build
 
+Clone the repository:
+
+```bash
+git clone https://github.com/vietanhdev/CustomChar --recursive
+cd CustomChar
+```
+
 Install dependencies:
 
 - [CMake](https://cmake.org/download/)
