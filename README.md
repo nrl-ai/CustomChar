@@ -28,6 +28,7 @@ https://github.com/vietanhdev/CustomChar/assets/18329471/b200442f-a69a-42ec-972d
 
 ## 2. Updates
 
+- 🔥 **2023-07-30:** Record a video with "record a video" and "stop recording".
 - 🔥 **2023-07-30:** Added OpenCV + camera view.
 - 🔥 **2023-07-29:** Added a plugin executor to open apps.
 - 🔥 **2023-07-25:** Added UI with Dear ImGui.
@@ -80,6 +81,7 @@ On macOS: Using [Homebrew](https://brew.sh/)
 ```bash
 brew install sdl2 glew glfw3
 brew install opencv
+brew install ffmpeg # For video recording
 ```
 
 On Ubuntu:
@@ -87,9 +89,10 @@ On Ubuntu:
 ```bash
 sudo apt-get install libsdl2-dev libglew-dev libglfw3-dev
 sudo apt-get install libopencv-dev
+sudo apt-get install ffmpeg # For video recording
 ```
 
-On Windows: Using [vcpkg](https://github.com/microsoft/vcpkg) and [Git Bash](https://git-scm.com/downloads):
+On Windows: Using [vcpkg](https://github.com/microsoft/vcpkg), [Git Bash](https://git-scm.com/downloads), and [FFmpeg](https://www.wikihow.com/Install-FFmpeg-on-Windows).
 
 ```bash
 vcpkg install sdl2:x64-windows glew:x64-windows glfw3:x64-windows
