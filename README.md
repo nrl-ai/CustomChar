@@ -18,7 +18,11 @@ Your customized AI characters - personal assistants on any hardware! This projec
 
 **Our very early experiment with CustomChar**
 
-https://github.com/vietanhdev/CustomChar/assets/18329471/4674efe7-6d7f-4e5e-9b28-ad2c92027fa9
+https://github.com/vietanhdev/CustomChar/assets/18329471/b035afb5-4440-4943-a0d9-e6b3d9f0f315
+
+**Think about your own JARVIS assistant that you can have totally inside your laptop...**
+
+https://github.com/vietanhdev/CustomChar/assets/18329471/005a2d0f-df32-4493-a391-59757d06d9a2
 
 **Note:** This project is still in the early stage of development. We are working hard to make it available as soon as possible. Star this project 🌟🌟🌟 to follow our progress and encourage us to make it happen.
 
@@ -28,6 +32,8 @@ https://github.com/vietanhdev/CustomChar/assets/18329471/4674efe7-6d7f-4e5e-9b28
 
 ## 2. Updates
 
+- 🔥 **2023-07-30:** Record a video with "record a video" and "stop recording".
+- 🔥 **2023-07-30:** Added OpenCV + camera view.
 - 🔥 **2023-07-29:** Added a plugin executor to open apps.
 - 🔥 **2023-07-25:** Added UI with Dear ImGui.
 - 🔥 **2023-07-23:** Documentation website is online at <https://docs.customchar.com>.
@@ -62,27 +68,39 @@ https://github.com/vietanhdev/CustomChar/assets/18329471/4674efe7-6d7f-4e5e-9b28
 
 ## 4. Build
 
+Clone the repository:
+
+```bash
+git clone https://github.com/vietanhdev/CustomChar --recursive
+cd CustomChar
+```
+
 Install dependencies:
 
 - [CMake](https://cmake.org/download/)
 - C++ 14 compiler
 
-On macOS:
+On macOS: Using [Homebrew](https://brew.sh/)
 
 ```bash
 brew install sdl2 glew glfw3
+brew install opencv
+brew install ffmpeg # For video recording
 ```
 
 On Ubuntu:
 
 ```bash
 sudo apt-get install libsdl2-dev libglew-dev libglfw3-dev
+sudo apt-get install libopencv-dev
+sudo apt-get install ffmpeg # For video recording
 ```
 
-On Windows:
+On Windows: Using [vcpkg](https://github.com/microsoft/vcpkg), [Git Bash](https://git-scm.com/downloads), and [FFmpeg](https://www.wikihow.com/Install-FFmpeg-on-Windows).
 
 ```bash
 vcpkg install sdl2:x64-windows glew:x64-windows glfw3:x64-windows
+vcpkg install opencv[contrib,nonfree,ffmpeg,ipp]:x64-windows --recurse
 ```
 Install OpenCV C++:
 
@@ -147,7 +165,7 @@ We welcome all contributions to this project.
 
 - For coding style, please follow the style of the existing code. We basically follow the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
 - Install [clang-format](https://clang.llvm.org/docs/ClangFormat.html) for auto formatting the code.
-- Install [pre-commit](https://pre-commit.com/) for auto formatting hook or manually run the script `scripts/format-code.sh` to format the code.
+- Install [pre-commit](https://pre-commit.com/) for the auto-formatting hook or manually run the script `scripts/format-code.sh` to format the code.
 
 ```bash
 pre-commit install # Install pre-commit hook

@@ -1,10 +1,8 @@
 #ifndef CUSTOMCHAR_LLM_LLM_H_
 #define CUSTOMCHAR_LLM_LLM_H_
 
-#include "llama-cpp/llama.h"
-#include "whisper-cpp/examples/common-sdl.h"  // TODO Remove this dependency
-
 #include "customchar/common/common.h"
+#include "llama-cpp/llama.h"
 
 #include <cassert>
 #include <cstdio>
@@ -89,7 +87,7 @@ class LLM {
   std::vector<llama_token> Tokenize(const std::string& text, bool add_bos);
 
   /// @brief Get answer from LLM
-  std::string GetAnswer(std::vector<llama_token>& embd);
+  std::string GetAnswer(const std::string& user_input);
 };
 
 }  // namespace llm
