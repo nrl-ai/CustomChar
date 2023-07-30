@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <unistd.h>
+#include <iostream>
 
 using namespace cv;
 
@@ -19,10 +20,9 @@ using namespace cv;
 #define BUFSIZE 10240
 
 int main(int argc, char** argv) {
-  SET_BINARY_MODE(fileno(stdin));
   auto ffmpeg_pipe = popen(
-      "ffmpeg -y -f avfoundation -ac 2 -framerate 30 -i \"0:0\" -c:a aac -ab "
-      "96k -f matroska output.mkv -vcodec mjpeg -f image2pipe -framerate 30 -",
+      "ffmpeg -y -f avfoundation -r 30  -i \"1:0\" -f matroska output.mkv "
+      "-vcodec mjpeg -f image2pipe -pix_fmt bgr0 -framerate 30 -",
       "r");
   SET_BINARY_MODE(fileno(ffmpeg_pipe));
 
@@ -43,6 +43,7 @@ int main(int argc, char** argv) {
     uchar c;
     if (readbytes != 0) {
       readbytes = read(fileno(ffmpeg_pipe), ca, BUFSIZE);
+      std::cout << readbytes << std::endl;
       //   readbytes = read(0, ca, BUFSIZE);
       for (int i = 0; i < readbytes; i++) {
         c = ca[i];

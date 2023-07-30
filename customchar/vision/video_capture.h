@@ -8,6 +8,7 @@
 #include <vector>
 
 #include <opencv2/opencv.hpp>
+#include <subprocess.hpp>
 
 namespace CC {
 namespace vision {
@@ -22,6 +23,11 @@ namespace vision {
 #define SET_BINARY_MODE(handle) ((void)0)
 #endif
 #define BUFSIZE 10240
+
+using subprocess::CompletedProcess;
+using subprocess::PipeOption;
+using subprocess::Popen;
+using subprocess::RunBuilder;
 
 enum class VideoCaptureMode {
   kNone,
@@ -84,19 +90,19 @@ class VideoCapture {
 
   void CaptureFFmpeg() {
     std::stringstream ss;
-    ss << "ffmpeg -y -f avfoundation -ac 2 -framerate 30 -i \"0:0\" -c:a aac "
-          "-ab "
+    ss << "ffmpeg -y -f avfoundation -ac 2 -framerate 30 -i 0:0 -c:a aac -ab "
           "96k -f matroska "
        << save_video_path_ << " -vcodec mjpeg -f image2pipe -framerate 30 -";
-    auto ffmpeg_pipe = popen(ss.str().c_str(), "r");
-    SET_BINARY_MODE(fileno(ffmpeg_pipe));
 
-    // Prevent ffmpeg from buffering
-    // setvbuf(ffmpeg_pipe, NULL, _IONBF, 0);
-
-    // // Prevent ffmpeg from outputting to stdout
-    // dup2(fileno(ffmpeg_pipe), fileno(stdout));
-    // dup2(fileno(ffmpeg_pipe), fileno(stderr));
+    std::vector<std::string> args;
+    std::string arg;
+    while (ss >> arg) {
+      args.push_back(arg);
+    }
+    Popen popen = subprocess::RunBuilder(args)
+                      .cout(PipeOption::pipe)
+                      .cin(PipeOption::pipe)
+                      .popen();
 
     std::vector<char> data;
     bool skip = true;
@@ -107,7 +113,7 @@ class VideoCapture {
       char ca[BUFSIZE];
       uchar c;
       if (readbytes != 0) {
-        readbytes = read(fileno(ffmpeg_pipe), ca, BUFSIZE);
+        readbytes = subprocess::pipe_read(popen.cout, ca, BUFSIZE);
         for (int i = 0; i < readbytes; i++) {
           c = ca[i];
           if (ff && c == (uchar)0xd8) {
@@ -138,12 +144,13 @@ class VideoCapture {
           }
         }
       } else {
-        std::cerr << "zero byte read" << std::endl;
+        // std::cerr << "zero byte read" << std::endl;
       }
     }
 
     // Close ffmpeg pipe
-    pclose(ffmpeg_pipe);
+    subprocess::pipe_write(popen.cin, "q\n", std::strlen("q\n"));
+    popen.terminate();
   }
 
  public:
@@ -169,6 +176,7 @@ class VideoCapture {
     if (is_capturing_) Stop();
     is_capturing_ = true;
     save_video_path_ = output_path;
+    mode_ = VideoCaptureMode::kFFmpeg;
     capture_thread_ = std::thread(&VideoCapture::CaptureFFmpeg, this);
   }
 

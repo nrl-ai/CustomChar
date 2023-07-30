@@ -29,7 +29,16 @@ class VideoRecordPlugin : public Plugin {
         StopVideoCapture_(StopVideoCapture) {}
   bool Handle(const std::string& input, std::string& response,
               bool& finished) override {
-    bool contains_stop = input.find("stop") != std::string::npos;
+    // Normalize app name
+    std::string normalized_input = input;
+    std::transform(normalized_input.begin(), normalized_input.end(),
+                   normalized_input.begin(),
+                   [](unsigned char c) { return std::tolower(c); });
+
+    std::cout << normalized_input << std::endl;
+    bool contains_stop = normalized_input.find("stop") != std::string::npos ||
+                         normalized_input.find("end") != std::string::npos ||
+                         normalized_input.find("finish") != std::string::npos;
     if (contains_stop) {
       if (!IsRecording_()) {
         finished = true;
@@ -51,7 +60,7 @@ class VideoRecordPlugin : public Plugin {
     ss << "video_" << std::time(nullptr) << ".mkv";
 
     StartVideoRecoding_(ss.str());
-    response = "Starting video recording to " + ss.str();
+    response = "Starting video recording...";
     finished = true;
     return true;
   }

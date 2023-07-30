@@ -9,8 +9,8 @@ set(CMAKE_PROJECT_VERSION_MAJOR 0)
 set(CMAKE_PROJECT_VERSION_MINOR 1)
 set(CMAKE_PROJECT_VERSION_PATCH 0)
 
-# Using C++14
-set(CMAKE_CXX_STANDARD 14)
+# Using C++17
+set(CMAKE_CXX_STANDARD 17)
 
 # SDL2
 find_package(SDL2 REQUIRED)
@@ -21,8 +21,9 @@ message(STATUS "SDL2_LIBRARIES = ${SDL2_LIBRARIES}")
 # OpenCV for perception module
 find_package(OpenCV REQUIRED)
 
-# Add whisper-cpp
+# Build submodules
 add_subdirectory(libs/whisper-cpp)
+add_subdirectory(libs/subprocess)
 
 # Build CustomChar-core
 set(TARGET customchar-core)
@@ -46,7 +47,7 @@ target_include_directories(
     libs
     .
 )
-target_link_libraries(${TARGET} PUBLIC ${SDL2_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} ${OpenCV_LIBS} whisper)
+target_link_libraries(${TARGET} PUBLIC ${SDL2_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} ${OpenCV_LIBS} whisper subprocess)
 
 # CustomChar - cli
 add_executable(

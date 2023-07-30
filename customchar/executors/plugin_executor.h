@@ -31,10 +31,10 @@ class PluginExecutor {
   std::vector<std::vector<std::string>> pairs_ = {
       {"open (.*)", "OPEN_APP"},
       {"open (.*) app", "OPEN_APP"},
-      {"record video(.*)", "VIDEO_RECORD"},
-      {"stop recording(.*)", "VIDEO_RECORD"},
-      {"stop video recording(.*)", "VIDEO_RECORD"},
-      {"record (a|some) video(.*)", "VIDEO_RECORD"}};
+      {"(.*)record video(.*)", "VIDEO_RECORD"},
+      {"(.*)stop recording(.*)", "VIDEO_RECORD"},
+      {"(.*)stop video recording(.*)", "VIDEO_RECORD"},
+      {"(.*)record (a|some) video(.*)", "VIDEO_RECORD"}};
 
   std::function<bool()> IsRecording_;
   std::function<void(const std::string& filename)> StartVideoRecoding_;

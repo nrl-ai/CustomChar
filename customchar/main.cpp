@@ -135,6 +135,7 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
   bool enable_camera = false;
   bool last_enable_camera = !enable_camera;  // Force update
   bool is_muted = false;
+  bool need_refresh_window_size = false;
 
   character_instance->SetOpenCameraView([&]() { enable_camera = true; });
   character_instance->SetCloseCameraView([&]() { enable_camera = false; });
@@ -168,15 +169,9 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
     // Check and start/stop camera
     if (last_enable_camera != enable_camera) {
       if (enable_camera) {
-        character_instance->StartVideoCapture();
-        // Adapt window height to camera aspect ratio
-        int window_width = window_size.x;
-        int window_height =
-            window_width *
-                character_instance->GetVideoCapture().GetFrameHeight() /
-                character_instance->GetVideoCapture().GetFrameWidth() +
-            200;
-        glfwSetWindowSize(window, window_width, window_height);
+        if (!character_instance->GetVideoCapture().IsRecording())
+          character_instance->StartVideoCapture();
+        need_refresh_window_size = true;
       } else {
         character_instance->StopVideoCapture();
         glfwSetWindowSize(window, INIT_WINDOW_WIDTH, INIT_WINDOW_HEIGHT);
@@ -189,6 +184,17 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
       // Resize image to fit window
       cv::Mat image = character_instance->GetVisualizedFrame();
       if (!image.empty()) {
+        if (need_refresh_window_size) {
+          // Adapt window height to camera aspect ratio
+          int window_width = window_size.x;
+          int window_height =
+              window_width *
+                  character_instance->GetVideoCapture().GetFrameHeight() /
+                  character_instance->GetVideoCapture().GetFrameWidth() +
+              200;
+          glfwSetWindowSize(window, window_width, window_height);
+        }
+
         cv::Mat resized_image;
         float ratio = (float)image.cols / (float)image.rows;
         int new_width = window_size.x - 20;
