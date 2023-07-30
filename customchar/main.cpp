@@ -20,7 +20,6 @@
 #include "customchar/common/helpers.h"
 #include "customchar/session/chat_history.h"
 #include "customchar/session/chat_message.h"
-#include "customchar/vision/video_capture.h"
 
 #include "imgui_internal.h"
 #include "imspinner/imspinner.h"
@@ -28,7 +27,6 @@
 using namespace CC;
 
 std::shared_ptr<character::Character> character_instance;
-vision::VideoCapture video_capture;
 
 // [Win32] Our example includes a copy of glfw3.lib pre-compiled with VS2010 to
 // maximize ease of testing and compatibility with old VS compilers. To link
@@ -138,6 +136,9 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
   bool last_enable_camera = !enable_camera;  // Force update
   bool is_muted = false;
 
+  character_instance->SetOpenCameraView([&]() { enable_camera = true; });
+  character_instance->SetCloseCameraView([&]() { enable_camera = false; });
+
   // Main loop
   while (!glfwWindowShouldClose(window)) {
     // Poll and handle events (inputs, window resize, etc.)
@@ -167,15 +168,17 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
     // Check and start/stop camera
     if (last_enable_camera != enable_camera) {
       if (enable_camera) {
-        video_capture.Start();
+        character_instance->StartVideoCapture();
         // Adapt window height to camera aspect ratio
         int window_width = window_size.x;
-        int window_height = window_width * video_capture.GetFrameHeight() /
-                                video_capture.GetFrameWidth() +
-                            200;
+        int window_height =
+            window_width *
+                character_instance->GetVideoCapture().GetFrameHeight() /
+                character_instance->GetVideoCapture().GetFrameWidth() +
+            200;
         glfwSetWindowSize(window, window_width, window_height);
       } else {
-        video_capture.Stop();
+        character_instance->StopVideoCapture();
         glfwSetWindowSize(window, INIT_WINDOW_WIDTH, INIT_WINDOW_HEIGHT);
       }
       last_enable_camera = enable_camera;
@@ -184,7 +187,7 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
     // Render camera
     if (enable_camera) {
       // Resize image to fit window
-      cv::Mat image = video_capture.GetFrame();
+      cv::Mat image = character_instance->GetVisualizedFrame();
       if (!image.empty()) {
         cv::Mat resized_image;
         float ratio = (float)image.cols / (float)image.rows;

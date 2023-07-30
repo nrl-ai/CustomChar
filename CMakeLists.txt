@@ -37,6 +37,7 @@ add_library(
     customchar/audio/voice_recorder.cpp
     customchar/audio/audio.cpp
     customchar/audio/sdl.cpp
+    customchar/executors/plugin_executor.cpp
     libs/llama-cpp/llama.cpp
 )
 target_include_directories(
@@ -104,3 +105,9 @@ if(BUILD_GUI)
         COMMAND ${CMAKE_COMMAND} -E copy_directory
         ${CMAKE_SOURCE_DIR}/fonts $<TARGET_FILE_DIR:customchar>/fonts)
 endif()
+
+
+add_executable(
+    test_ffmpeg_as_input tests/test_ffmpeg_as_input.cpp
+)
+target_link_libraries(test_ffmpeg_as_input ${OpenCV_LIBS})

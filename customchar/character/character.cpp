@@ -21,17 +21,20 @@ Character::Character(common::CCParams init_params) {
   llm_->EvalModel();
 
   // Load plugin executor
-  plugin_executor_ = std::make_shared<executors::PluginExecutor>();
+  plugin_executor_ = std::make_shared<executors::PluginExecutor>(
+      std::bind(&Character::IsRecording, this),
+      std::bind(&Character::StartVideoRecoding, this, std::placeholders::_1),
+      std::bind(&Character::StopVideoCapture, this));
 }
 
 void Character::SetOnUserMessage(
-    std::function<void(std::string)> on_user_message_) {
-  this->on_user_message_ = on_user_message_;
+    std::function<void(std::string)> OnUserMessage_) {
+  this->OnUserMessage_ = OnUserMessage_;
 }
 
 void Character::SetOnBotMessage(
-    std::function<void(std::string)> on_bot_message_) {
-  this->on_bot_message_ = on_bot_message_;
+    std::function<void(std::string)> OnBotMessage_) {
+  this->OnBotMessage_ = OnBotMessage_;
 }
 
 void Character::SetMute(bool is_muted) { is_muted_ = is_muted; }
@@ -76,8 +79,8 @@ void Character::Run() {
     }
 
     // Callback for user message
-    if (on_user_message_) {
-      on_user_message_(text_heard);
+    if (OnUserMessage_) {
+      OnUserMessage_(text_heard);
     }
 
     // Print user input
@@ -99,8 +102,8 @@ void Character::Run() {
     }
 
     // Callback for bot message
-    if (on_bot_message_) {
-      on_bot_message_(response);
+    if (OnBotMessage_) {
+      OnBotMessage_(response);
     }
 
     // Play speak
