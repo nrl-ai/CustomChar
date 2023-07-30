@@ -18,7 +18,7 @@ Your customized AI characters - personal assistants on any hardware! This projec
 
 **Our very early experiment with CustomChar**
 
-https://github.com/vietanhdev/CustomChar/assets/18329471/b200442f-a69a-42ec-972d-d6cbe5483c37
+https://github.com/vietanhdev/CustomChar/assets/18329471/b035afb5-4440-4943-a0d9-e6b3d9f0f315
 
 **Note:** This project is still in the early stage of development. We are working hard to make it available as soon as possible. Star this project 🌟🌟🌟 to follow our progress and encourage us to make it happen.
 
