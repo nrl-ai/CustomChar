@@ -28,6 +28,7 @@ https://github.com/vietanhdev/CustomChar/assets/18329471/b200442f-a69a-42ec-972d
 
 ## 2. Updates
 
+- 🔥 **2023-07-30:** Added OpenCV + camera view.
 - 🔥 **2023-07-29:** Added a plugin executor to open apps.
 - 🔥 **2023-07-25:** Added UI with Dear ImGui.
 - 🔥 **2023-07-23:** Documentation website is online at <https://docs.customchar.com>.
