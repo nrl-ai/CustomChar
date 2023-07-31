@@ -2,7 +2,7 @@
 
 ![](/docs/banner.svg)
 
-- **Repository:** [https://github.com/vietanhdev/CustomChar](https://github.com/vietanhdev/CustomChar).
+- **Repository:** [https://github.com/nrl-ai/CustomChar](https://github.com/nrl-ai/CustomChar).
 - **Built With:** [GGML](https://github.com/ggerganov/ggml), [llama.cpp](https://github.com/ggerganov/llama.cpp) (LLM, with [LLaMA-v2](https://ai.meta.com/llama/)), [whisper.cpp](https://github.com/ggerganov/whisper.cpp) (speech recognition).
 
 Your customized AI characters - personal assistants on any hardware! This project aims to be a framework to enable the creation of AI characters that can be used in games, simulations, virtual assistants, and other applications without depending on specific platforms, cloud services, or specialized hardware.
@@ -18,11 +18,11 @@ Your customized AI characters - personal assistants on any hardware! This projec
 
 **Our very early experiment with CustomChar**
 
-https://github.com/vietanhdev/CustomChar/assets/18329471/b035afb5-4440-4943-a0d9-e6b3d9f0f315
+https://github.com/nrl-ai/CustomChar/assets/18329471/b035afb5-4440-4943-a0d9-e6b3d9f0f315
 
 **Think about your own JARVIS assistant that you can have totally inside your laptop...**
 
-https://github.com/vietanhdev/CustomChar/assets/18329471/005a2d0f-df32-4493-a391-59757d06d9a2
+https://github.com/nrl-ai/CustomChar/assets/18329471/005a2d0f-df32-4493-a391-59757d06d9a2
 
 **Note:** This project is still in the early stage of development. We are working hard to make it available as soon as possible. Star this project 🌟🌟🌟 to follow our progress and encourage us to make it happen.
 
@@ -71,7 +71,7 @@ https://github.com/vietanhdev/CustomChar/assets/18329471/005a2d0f-df32-4493-a391
 Clone the repository:
 
 ```bash
-git clone https://github.com/vietanhdev/CustomChar --recursive
+git clone https://github.com/nrl-ai/CustomChar --recursive
 cd CustomChar
 ```
 
@@ -155,7 +155,7 @@ bash scripts/format-code.sh # Format code (C++ styling)
 
 ## 8. Star history
 
-[![Star History Chart](https://api.star-history.com/svg?repos=vietanhdev/CustomChar&type=Date)](https://star-history.com/#vietanhdev/CustomChar)
+[![Star History Chart](https://api.star-history.com/svg?repos=nrl-ai/CustomChar&type=Date)](https://star-history.com/#nrl-ai/CustomChar)
 
 ## 9. References
 
