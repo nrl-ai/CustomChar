@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DOCUMENT_H_
+#define DOCUMENT_H_
 
 #include <string>
 #include <vector>
@@ -44,3 +45,4 @@ class Document {
 };
 }  // namespace embeddb
 }  // namespace CC
+#endif  // DOCUMENT_H_
