@@ -102,25 +102,6 @@ On Windows: Using [vcpkg](https://github.com/microsoft/vcpkg), [Git Bash](https:
 vcpkg install sdl2:x64-windows glew:x64-windows glfw3:x64-windows
 vcpkg install opencv[contrib,nonfree,ffmpeg,ipp]:x64-windows --recurse
 ```
-Install OpenCV C++:
-
-```bash
-git clone https://github.com/opencv/opencv.git
-mkdir build
-cd build
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local ..
-```
-
-- "-DCMAKE_BUILD_TYPE=Release": This specifies a release build with optimizations. You can use Debug for a debug build.
-
-- "-DCMAKE_INSTALL_PREFIX=/usr/local": This sets the installation path. You can change it to any directory you prefer.
-
-- "..": The two dots indicate the path to the OpenCV source directory.
-
-```bash
-cmake --build .
-sodo make install
-```
 
 Build the **CustomChar** executable:
 
