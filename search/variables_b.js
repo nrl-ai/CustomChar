@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['text_5fmessage_5fsize_366',['TEXT_MESSAGE_SIZE',['../main_8cpp.html#a06701befc37b83174d2d2090fac04610',1,'main.cpp']]],
-  ['translate_367',['translate',['../struct_c_c_1_1common_1_1_c_c_params.html#a22e737e8ad754dde8ac5a781a391c2fb',1,'CC::common::CCParams']]]
+  ['n_5fthreads_632',['n_threads',['../struct_c_c_1_1common_1_1_c_c_params.html#af316de1b066d34db9573be16e192f0c8',1,'CC::common::CCParams']]],
+  ['no_5ftimestamps_633',['no_timestamps',['../struct_c_c_1_1common_1_1_c_c_params.html#af81c2bca7dea24d4b31341c71ebe8b92',1,'CC::common::CCParams']]],
+  ['num_5fdeleted_5f_634',['num_deleted_',['../classhnswlib_1_1_hierarchical_n_s_w.html#a0353acb70796ee2eb088a84e37dde206',1,'hnswlib::HierarchicalNSW']]],
+  ['numelements_635',['numelements',['../classhnswlib_1_1_visited_list.html#a3adb24dd7dd5b25145347e77dee8be25',1,'hnswlib::VisitedList']]]
 ];

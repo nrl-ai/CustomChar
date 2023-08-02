@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('plugin__executor_8cpp_source.html','')
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespace_c_c_1_1executors.html">CC::executors</a>;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;std::string PluginExecutor::Reflect(<span class="keyword">const</span> std::string&amp; word) {</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;std::string PluginExecutor::reflect(<span class="keyword">const</span> std::string&amp; word) {</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;  <span class="keyword">auto</span> it = reflections_.find(word);</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;  <span class="keywordflow">if</span> (it != reflections_.end()) {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keywordflow">return</span> it-&gt;second;</div>
@@ -102,12 +102,12 @@ $(document).ready(function(){initNavTree('plugin__executor_8cpp_source.html','')
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="keywordflow">return</span> word;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_c_c_1_1executors_1_1_plugin_executor.html#a359043281b963573d837dc087916691b">   13</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_c_c_1_1executors_1_1_plugin_executor.html#a359043281b963573d837dc087916691b">PluginExecutor::ParseAndExecute</a>(<span class="keyword">const</span> std::string&amp; input,</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                                     std::string&amp; response) {</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_c_c_1_1executors_1_1_plugin_executor.html#ae9673e0b685e2e5f814c5eacae216fc3">   13</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_c_c_1_1executors_1_1_plugin_executor.html#ae9673e0b685e2e5f814c5eacae216fc3">PluginExecutor::parse_and_execute</a>(<span class="keyword">const</span> std::string&amp; input,</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                                       std::string&amp; response) {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="comment">// Continue with current plugin</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keywordflow">if</span> (current_plugin_) {</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">bool</span> finished = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">bool</span> handled = current_plugin_-&gt;Handle(input, response, finished);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">bool</span> handled = current_plugin_-&gt;handle(input, response, finished);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">if</span> (finished) {</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;      current_plugin_ = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
@@ -127,10 +127,10 @@ $(document).ready(function(){initNavTree('plugin__executor_8cpp_source.html','')
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      <span class="comment">// Run executor here</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; plugin : plugins_) {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">if</span> (plugin-&gt;GetName() == plugin_name) {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">if</span> (plugin-&gt;get_name() == plugin_name) {</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;          current_plugin_ = plugin;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;          <span class="keywordtype">bool</span> finished = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;          <span class="keywordtype">bool</span> handled = current_plugin_-&gt;Handle(input, response, finished);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;          <span class="keywordtype">bool</span> handled = current_plugin_-&gt;handle(input, response, finished);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;          <span class="keywordflow">if</span> (finished) {</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            current_plugin_ = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;          }</div>
@@ -147,7 +147,7 @@ $(document).ready(function(){initNavTree('plugin__executor_8cpp_source.html','')
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
-<div class="ttc" id="aclass_c_c_1_1executors_1_1_plugin_executor_html_a359043281b963573d837dc087916691b"><div class="ttname"><a href="class_c_c_1_1executors_1_1_plugin_executor.html#a359043281b963573d837dc087916691b">CC::executors::PluginExecutor::ParseAndExecute</a></div><div class="ttdeci">bool ParseAndExecute(const std::string &amp;input, std::string &amp;response)</div><div class="ttdoc">Parse and execute input.</div><div class="ttdef"><b>Definition:</b> <a href="plugin__executor_8cpp_source.html#l00013">plugin_executor.cpp:13</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1executors_1_1_plugin_executor_html_ae9673e0b685e2e5f814c5eacae216fc3"><div class="ttname"><a href="class_c_c_1_1executors_1_1_plugin_executor.html#ae9673e0b685e2e5f814c5eacae216fc3">CC::executors::PluginExecutor::parse_and_execute</a></div><div class="ttdeci">bool parse_and_execute(const std::string &amp;input, std::string &amp;response)</div><div class="ttdoc">Parse and execute input.</div><div class="ttdef"><b>Definition:</b> <a href="plugin__executor_8cpp_source.html#l00013">plugin_executor.cpp:13</a></div></div>
 <div class="ttc" id="anamespace_c_c_1_1executors_html"><div class="ttname"><a href="namespace_c_c_1_1executors.html">CC::executors</a></div><div class="ttdef"><b>Definition:</b> <a href="plugin_8h_source.html#l00007">plugin.h:7</a></div></div>
 <div class="ttc" id="aplugin__executor_8h_html"><div class="ttname"><a href="plugin__executor_8h.html">plugin_executor.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

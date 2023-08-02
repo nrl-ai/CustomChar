@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['vad_5fthold_368',['vad_thold',['../struct_c_c_1_1common_1_1_c_c_params.html#a2d0c3c2c10bc05920f35500155c9c55c',1,'CC::common::CCParams']]],
-  ['verbose_5fprompt_369',['verbose_prompt',['../struct_c_c_1_1common_1_1_c_c_params.html#a92f3446d86bb203a4faebf8174a0182a',1,'CC::common::CCParams']]],
-  ['voice_5fms_370',['voice_ms',['../struct_c_c_1_1common_1_1_c_c_params.html#ae2fc80b19237f3489d6a307479d6b5af',1,'CC::common::CCParams']]]
+  ['offsetdata_5f_636',['offsetData_',['../classhnswlib_1_1_hierarchical_n_s_w.html#a48594a1213ed1b4ad7fbeca53b896c39',1,'hnswlib::HierarchicalNSW']]],
+  ['offsetlevel0_5f_637',['offsetLevel0_',['../classhnswlib_1_1_hierarchical_n_s_w.html#a0aed42fd29a7f382db0411de6e267bb1',1,'hnswlib::HierarchicalNSW']]]
 ];

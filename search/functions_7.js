@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['init_290',['Init',['../class_c_c_1_1audio_1_1_audio_async.html#ac9a4157f0959a43c8300018a753560b7',1,'CC::audio::AudioAsync']]],
-  ['insert_5fdoc_291',['insert_doc',['../class_c_c_1_1embeddb_1_1_collection.html#ae253ff62851498f14ade222fd8efe4df',1,'CC::embeddb::Collection']]],
-  ['ismuted_292',['IsMuted',['../class_c_c_1_1character_1_1_character.html#ae31736240c3a4a0962968e68f6bc4e23',1,'CC::character::Character']]],
-  ['isrecording_293',['IsRecording',['../class_c_c_1_1character_1_1_character.html#a35c31f33c00c29baf50df90aeadbd85f',1,'CC::character::Character::IsRecording()'],['../class_c_c_1_1vision_1_1_video_capture.html#a35d8eb97d181e7ad1981cdb2e9b3c482',1,'CC::vision::VideoCapture::IsRecording()']]]
+  ['handle_484',['handle',['../class_c_c_1_1executors_1_1_plugin.html#a5849c36fa48e3034e1c5470911cd6a39',1,'CC::executors::Plugin::handle()'],['../class_c_c_1_1executors_1_1_open_app_plugin.html#ac10d402ab9133b90b74937282d4de07f',1,'CC::executors::OpenAppPlugin::handle()'],['../class_c_c_1_1executors_1_1_video_record_plugin.html#ac30aa70bc298c965980c8905b92f6160',1,'CC::executors::VideoRecordPlugin::handle()']]],
+  ['has_5fcollection_485',['has_collection',['../class_c_c_1_1embeddb_1_1_embed_d_b.html#a8666494ec6692434766041e94f971afa',1,'CC::embeddb::EmbedDB']]],
+  ['has_5fnew_5fmessage_486',['has_new_message',['../class_c_c_1_1session_1_1_chat_history.html#a4b0d08fcf2f5d7ae69bfecbe36ff9607',1,'CC::session::ChatHistory']]],
+  ['hierarchicalnsw_487',['HierarchicalNSW',['../classhnswlib_1_1_hierarchical_n_s_w.html#a6eaa5ea5faf1ed0abc1abf76eb21e209',1,'hnswlib::HierarchicalNSW::HierarchicalNSW(SpaceInterface&lt; dist_t &gt; *s)'],['../classhnswlib_1_1_hierarchical_n_s_w.html#a4c88a8be10e395a391b273196ad1f86c',1,'hnswlib::HierarchicalNSW::HierarchicalNSW(SpaceInterface&lt; dist_t &gt; *s, const std::string &amp;location, bool nmslib=false, size_t max_elements=0, bool allow_replace_deleted=false)'],['../classhnswlib_1_1_hierarchical_n_s_w.html#a5f3c9787de7081bfc6c41f30ccfe472a',1,'hnswlib::HierarchicalNSW::HierarchicalNSW(SpaceInterface&lt; dist_t &gt; *s, size_t max_elements, size_t M=16, size_t ef_construction=200, size_t random_seed=100, bool allow_replace_deleted=false)']]],
+  ['high_5fpass_5ffilter_488',['high_pass_filter',['../namespace_c_c_1_1audio.html#a63b7691d8c9b1eed1eb74d61510528d1',1,'CC::audio']]]
 ];

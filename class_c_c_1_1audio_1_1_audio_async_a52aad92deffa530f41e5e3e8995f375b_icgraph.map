@@ -1,4 +1,0 @@
-<map id="CC::audio::AudioAsync::Clear" name="CC::audio::AudioAsync::Clear">
-<area shape="rect" id="node1" title=" " alt="" coords="239,5,407,47"/>
-<area shape="rect" id="node2" href="$class_c_c_1_1audio_1_1_voice_recorder.html#ae92d7ae6fa3548ab5ebd58af8302d692" title="Clear audio_ buffer to prepare for new recording." alt="" coords="5,5,191,47"/>
-</map>

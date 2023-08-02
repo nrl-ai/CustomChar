@@ -1,8 +1,19 @@
 var searchData=
 [
-  ['delete_5fall_5fdocs_41',['delete_all_docs',['../class_c_c_1_1embeddb_1_1_collection.html#ada0149eb0030e57370db058e753f4bc8',1,'CC::embeddb::Collection']]],
-  ['delete_5fcollection_42',['delete_collection',['../class_c_c_1_1embeddb_1_1_embed_d_b.html#a7456f1f414d8eb47afe5891d95a5266f',1,'CC::embeddb::EmbedDB']]],
-  ['delete_5fdoc_43',['delete_doc',['../class_c_c_1_1embeddb_1_1_collection.html#ac4be225a5eb14902dacfb73f1ad09198',1,'CC::embeddb::Collection']]],
-  ['document_44',['Document',['../class_c_c_1_1embeddb_1_1_document.html',1,'CC::embeddb::Document'],['../class_c_c_1_1embeddb_1_1_document.html#a5a62b9f36e3cb3d09220ceb3105c733d',1,'CC::embeddb::Document::Document()']]],
-  ['dr_5fwav_5fimplementation_45',['DR_WAV_IMPLEMENTATION',['../audio_8cpp.html#a3247bf780f78dc4be31f7035ea1506ea',1,'audio.cpp']]]
+  ['data_5f_53',['data_',['../classhnswlib_1_1_bruteforce_search.html#a384c25e2031641baaee5a8b6421db67f',1,'hnswlib::BruteforceSearch']]],
+  ['data_5flevel0_5fmemory_5f_54',['data_level0_memory_',['../classhnswlib_1_1_hierarchical_n_s_w.html#a02efdf72bdfc21e5f3958b993242bcfc',1,'hnswlib::HierarchicalNSW']]],
+  ['data_5fsize_5f_55',['data_size_',['../classhnswlib_1_1_bruteforce_search.html#aaf5b8954f0f2df85d9680b0fb049547c',1,'hnswlib::BruteforceSearch::data_size_()'],['../classhnswlib_1_1_hierarchical_n_s_w.html#a2b1acbf1acf34a543348dc8bdb809f35',1,'hnswlib::HierarchicalNSW::data_size_()']]],
+  ['delete_5fall_5fdocs_56',['delete_all_docs',['../class_c_c_1_1embeddb_1_1_collection.html#ada0149eb0030e57370db058e753f4bc8',1,'CC::embeddb::Collection']]],
+  ['delete_5fcollection_57',['delete_collection',['../class_c_c_1_1embeddb_1_1_embed_d_b.html#a7456f1f414d8eb47afe5891d95a5266f',1,'CC::embeddb::EmbedDB']]],
+  ['delete_5fdoc_58',['delete_doc',['../class_c_c_1_1embeddb_1_1_collection.html#ac4be225a5eb14902dacfb73f1ad09198',1,'CC::embeddb::Collection']]],
+  ['delete_5fmark_59',['DELETE_MARK',['../classhnswlib_1_1_hierarchical_n_s_w.html#a0d34e9bd86d3aacbfd2e27eae5664360',1,'hnswlib::HierarchicalNSW']]],
+  ['deleted_5felements_60',['deleted_elements',['../classhnswlib_1_1_hierarchical_n_s_w.html#a3cb9ba00587ff8c4809193f8fcd8d6df',1,'hnswlib::HierarchicalNSW']]],
+  ['deleted_5felements_5flock_61',['deleted_elements_lock',['../classhnswlib_1_1_hierarchical_n_s_w.html#a42bb32014279eb60587288b48fbd8f11',1,'hnswlib::HierarchicalNSW']]],
+  ['dict_5fexternal_5fto_5finternal_62',['dict_external_to_internal',['../classhnswlib_1_1_bruteforce_search.html#aa953e3568275f2e75fd5bfdca4c88820',1,'hnswlib::BruteforceSearch']]],
+  ['dist_5ffunc_5fparam_5f_63',['dist_func_param_',['../classhnswlib_1_1_hierarchical_n_s_w.html#a3ea6b145f11fcbb1c87d656f55dc98e7',1,'hnswlib::HierarchicalNSW::dist_func_param_()'],['../classhnswlib_1_1_bruteforce_search.html#a11669fafc96c30b45c94e22e4a456f72',1,'hnswlib::BruteforceSearch::dist_func_param_()']]],
+  ['distfunc_64',['DISTFUNC',['../namespacehnswlib.html#a7e4234c934340bdf24ce347588e1a690',1,'hnswlib']]],
+  ['document_65',['Document',['../class_c_c_1_1embeddb_1_1_document.html',1,'CC::embeddb::Document'],['../class_c_c_1_1embeddb_1_1_document.html#a7773cde0416549d780d8c184b9d379bc',1,'CC::embeddb::Document::Document()']]],
+  ['document_2ecpp_66',['document.cpp',['../document_8cpp.html',1,'']]],
+  ['document_2eh_67',['document.h',['../document_8h.html',1,'']]],
+  ['dr_5fwav_5fimplementation_68',['DR_WAV_IMPLEMENTATION',['../audio_8cpp.html#a3247bf780f78dc4be31f7035ea1506ea',1,'audio.cpp']]]
 ];

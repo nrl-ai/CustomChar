@@ -1,0 +1,5 @@
+<map id="CC::audio::VoiceRecorder::finished_talking" name="CC::audio::VoiceRecorder::finished_talking">
+<area shape="rect" id="node1" title="Check if finished talking." alt="" coords="5,5,191,47"/>
+<area shape="rect" id="node2" href="$namespace_c_c_1_1audio.html#a502a8bbc1efe9680444773de81b373b5" title="Basic voice activity detection (VAD) using audio energy adaptive threshold." alt="" coords="239,13,405,39"/>
+<area shape="rect" id="node3" href="$namespace_c_c_1_1audio.html#a63b7691d8c9b1eed1eb74d61510528d1" title="Apply a high&#45;pass frequency filter to PCM audio Suppresses frequencies below cutoff Hz." alt="" coords="453,5,611,47"/>
+</map>

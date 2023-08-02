@@ -1,0 +1,4 @@
+<map id="CC::audio::VoiceRecorder::finished_talking" name="CC::audio::VoiceRecorder::finished_talking">
+<area shape="rect" id="node1" title="Check if finished talking." alt="" coords="239,5,424,47"/>
+<area shape="rect" id="node2" href="$class_c_c_1_1audio_1_1_voice_recorder.html#aa89eedc4564fae970df934594328b2aa" title="Record speech from user." alt="" coords="5,5,191,47"/>
+</map>

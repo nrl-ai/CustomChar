@@ -1,6 +1,0 @@
-<map id="CC::vision::VideoCapture::IsRecording" name="CC::vision::VideoCapture::IsRecording">
-<area shape="rect" id="node1" title="Check if is recording." alt="" coords="461,39,644,80"/>
-<area shape="rect" id="node2" href="$class_c_c_1_1character_1_1_character.html#abd0c6886343adff1e26bbb649646893e" title="Get visualized frame." alt="" coords="233,5,413,47"/>
-<area shape="rect" id="node3" href="$class_c_c_1_1character_1_1_character.html#a35c31f33c00c29baf50df90aeadbd85f" title="Stop recording video." alt="" coords="233,71,413,112"/>
-<area shape="rect" id="node4" href="$class_c_c_1_1character_1_1_character.html#a0fffa840cfbffab1fb38b789abdf5045" title="Constructor." alt="" coords="5,71,185,112"/>
-</map>

@@ -1,0 +1,5 @@
+<map id="CC::audio::vad_simple" name="CC::audio::vad_simple">
+<area shape="rect" id="node1" title="Basic voice activity detection (VAD) using audio energy adaptive threshold." alt="" coords="472,13,639,39"/>
+<area shape="rect" id="node2" href="$class_c_c_1_1audio_1_1_voice_recorder.html#a6cd3c8c8b5baa28cd04046945203258f" title="Check if finished talking." alt="" coords="239,5,424,47"/>
+<area shape="rect" id="node3" href="$class_c_c_1_1audio_1_1_voice_recorder.html#aa89eedc4564fae970df934594328b2aa" title="Record speech from user." alt="" coords="5,5,191,47"/>
+</map>

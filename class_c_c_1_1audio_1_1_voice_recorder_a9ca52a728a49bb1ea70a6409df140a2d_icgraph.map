@@ -1,0 +1,4 @@
+<map id="CC::audio::VoiceRecorder::get_audio" name="CC::audio::VoiceRecorder::get_audio">
+<area shape="rect" id="node1" title="Get final audio_." alt="" coords="239,5,424,47"/>
+<area shape="rect" id="node2" href="$class_c_c_1_1audio_1_1_voice_recorder.html#aa89eedc4564fae970df934594328b2aa" title="Record speech from user." alt="" coords="5,5,191,47"/>
+</map>

@@ -1,6 +1,6 @@
 <map id="CC::audio::VoiceRecorder::VoiceRecorder" name="CC::audio::VoiceRecorder::VoiceRecorder">
 <area shape="rect" id="node1" title="Constructor." alt="" coords="5,39,191,80"/>
-<area shape="rect" id="node2" href="$class_c_c_1_1audio_1_1_audio_async.html#ac9a4157f0959a43c8300018a753560b7" title=" " alt="" coords="239,5,407,47"/>
-<area shape="rect" id="node4" href="$class_c_c_1_1audio_1_1_audio_async.html#a5d81247e2db71696075ef7490cca89ea" title=" " alt="" coords="239,71,407,112"/>
-<area shape="rect" id="node3" href="$class_c_c_1_1audio_1_1_audio_async.html#a188bc12b6a5f1d6f91b2837a83866e7d" title="Callback function for SDL." alt="" coords="455,5,623,47"/>
+<area shape="rect" id="node2" href="$class_c_c_1_1audio_1_1_audio_async.html#ac6cfca36518814b9f91a8e35284c3172" title=" " alt="" coords="239,5,407,47"/>
+<area shape="rect" id="node4" href="$class_c_c_1_1audio_1_1_audio_async.html#ac467aa02ab37080335b91914220bfbda" title=" " alt="" coords="239,71,407,112"/>
+<area shape="rect" id="node3" href="$class_c_c_1_1audio_1_1_audio_async.html#aa85d7b89a60c5a3d63d5aba59e095914" title="Callback function for SDL." alt="" coords="455,5,623,47"/>
 </map>

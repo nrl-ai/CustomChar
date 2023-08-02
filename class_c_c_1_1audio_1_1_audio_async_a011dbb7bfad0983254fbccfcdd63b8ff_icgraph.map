@@ -1,6 +1,0 @@
-<map id="CC::audio::AudioAsync::Get" name="CC::audio::AudioAsync::Get">
-<area shape="rect" id="node1" title="Get audio from the circular buffer." alt="" coords="472,46,671,73"/>
-<area shape="rect" id="node2" href="$class_c_c_1_1audio_1_1_voice_recorder.html#a8026fde52d06c27a7775b0b6331965f6" title="Get final audio_." alt="" coords="239,5,424,47"/>
-<area shape="rect" id="node4" href="$class_c_c_1_1audio_1_1_voice_recorder.html#aa270845a1687136ceeba842ea04c50bc" title="Sample audio_." alt="" coords="239,71,424,112"/>
-<area shape="rect" id="node3" href="$class_c_c_1_1audio_1_1_voice_recorder.html#a0fb7bdd5f13e2ea5440bf8059a4d11ab" title="Record speech from user." alt="" coords="5,39,191,80"/>
-</map>

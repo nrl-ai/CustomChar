@@ -1,0 +1,4 @@
+<map id="CC::audio::VoiceRecorder::sample_audio" name="CC::audio::VoiceRecorder::sample_audio">
+<area shape="rect" id="node1" title="Sample audio_." alt="" coords="5,5,191,47"/>
+<area shape="rect" id="node2" href="$class_c_c_1_1audio_1_1_audio_async.html#a1b91036293ca0d557dd703e107eaccec" title="Get audio from the circular buffer." alt="" coords="239,13,436,39"/>
+</map>

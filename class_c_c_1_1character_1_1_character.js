@@ -1,17 +1,17 @@
 var class_c_c_1_1character_1_1_character =
 [
     [ "Character", "class_c_c_1_1character_1_1_character.html#a0fffa840cfbffab1fb38b789abdf5045", null ],
-    [ "GetVideoCapture", "class_c_c_1_1character_1_1_character.html#a64e96bcc5f438ea5a2437c2ba46159b1", null ],
-    [ "GetVisualizedFrame", "class_c_c_1_1character_1_1_character.html#abd0c6886343adff1e26bbb649646893e", null ],
-    [ "IsMuted", "class_c_c_1_1character_1_1_character.html#ae31736240c3a4a0962968e68f6bc4e23", null ],
-    [ "IsRecording", "class_c_c_1_1character_1_1_character.html#a35c31f33c00c29baf50df90aeadbd85f", null ],
+    [ "get_video_capture", "class_c_c_1_1character_1_1_character.html#aec11c8d2fdf746a3a1c0e4a67ea70151", null ],
+    [ "get_visualized_frame", "class_c_c_1_1character_1_1_character.html#a5ba9de3b29d5f5cda3787269c8f3245b", null ],
+    [ "is_muted", "class_c_c_1_1character_1_1_character.html#a3a9e959fbbdf9f7e905d422fb162a94c", null ],
+    [ "is_recording", "class_c_c_1_1character_1_1_character.html#aa52401e1e246d04519edc76437644a7c", null ],
     [ "Run", "class_c_c_1_1character_1_1_character.html#a3861f4c6f3023dc83c614fa7dabb0cfb", null ],
-    [ "SetCloseCameraView", "class_c_c_1_1character_1_1_character.html#a4ce5c2e243025ddbd6d81f1ac728e6fd", null ],
-    [ "SetMute", "class_c_c_1_1character_1_1_character.html#a99e7d1f2be0071a186236f0c1fdb4016", null ],
-    [ "SetOnBotMessage", "class_c_c_1_1character_1_1_character.html#a1efc2781cbbf771be941e01ff9d80c6a", null ],
-    [ "SetOnUserMessage", "class_c_c_1_1character_1_1_character.html#a30c97461af315d1fe29acd84822a8829", null ],
-    [ "SetOpenCameraView", "class_c_c_1_1character_1_1_character.html#ad2714337feac78d31cdae24429b681a6", null ],
-    [ "StartVideoCapture", "class_c_c_1_1character_1_1_character.html#ab1329bb5892ccaa165d17e9ec645f078", null ],
-    [ "StartVideoRecoding", "class_c_c_1_1character_1_1_character.html#ad58691e222bffb1e0ea1608a023f1ee5", null ],
-    [ "StopVideoCapture", "class_c_c_1_1character_1_1_character.html#a51ab1d34c23b547e01ede42d90e0d710", null ]
+    [ "set_close_camera_view", "class_c_c_1_1character_1_1_character.html#a8b17f94ce01ca6455a0a97ce2becd233", null ],
+    [ "set_mute", "class_c_c_1_1character_1_1_character.html#aacee6dddfd106b8ed74016ad34f71bcb", null ],
+    [ "set_on_bot_message", "class_c_c_1_1character_1_1_character.html#aff904c5890291fd9db2e8d561aaa7846", null ],
+    [ "set_on_user_message", "class_c_c_1_1character_1_1_character.html#a88b70272e72ad66434607d6ba172e23b", null ],
+    [ "set_open_camera_view", "class_c_c_1_1character_1_1_character.html#a90eecf27da583ebade8ec80edf0bb80e", null ],
+    [ "start_video_capture", "class_c_c_1_1character_1_1_character.html#a873bd7aeb9726760354c174ec83426ab", null ],
+    [ "start_video_recording", "class_c_c_1_1character_1_1_character.html#abead78f961c623fed79cdc2cc8c6b30e", null ],
+    [ "stop_video_capture", "class_c_c_1_1character_1_1_character.html#a508c8f4a490a8b75574a4a54664da961", null ]
 ];

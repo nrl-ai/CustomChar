@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['embeddb_257',['EmbedDB',['../class_c_c_1_1embeddb_1_1_embed_d_b.html#a084eb44c43a23d51d3419e16a938a503',1,'CC::embeddb::EmbedDB']]],
-  ['evalmodel_258',['EvalModel',['../class_c_c_1_1llm_1_1_l_l_m.html#abaec4579691e7361529a8443d687be14',1,'CC::llm::LLM']]]
+  ['delete_5fall_5fdocs_431',['delete_all_docs',['../class_c_c_1_1embeddb_1_1_collection.html#ada0149eb0030e57370db058e753f4bc8',1,'CC::embeddb::Collection']]],
+  ['delete_5fcollection_432',['delete_collection',['../class_c_c_1_1embeddb_1_1_embed_d_b.html#a7456f1f414d8eb47afe5891d95a5266f',1,'CC::embeddb::EmbedDB']]],
+  ['delete_5fdoc_433',['delete_doc',['../class_c_c_1_1embeddb_1_1_collection.html#ac4be225a5eb14902dacfb73f1ad09198',1,'CC::embeddb::Collection']]],
+  ['document_434',['Document',['../class_c_c_1_1embeddb_1_1_document.html#a7773cde0416549d780d8c184b9d379bc',1,'CC::embeddb::Document']]]
 ];

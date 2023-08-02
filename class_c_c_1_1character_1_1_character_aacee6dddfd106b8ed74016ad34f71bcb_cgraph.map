@@ -1,0 +1,4 @@
+<map id="CC::character::Character::set_mute" name="CC::character::Character::set_mute">
+<area shape="rect" id="node1" title="Set mute (do not speak)" alt="" coords="5,5,185,47"/>
+<area shape="rect" id="node2" href="$class_c_c_1_1character_1_1_character.html#a3a9e959fbbdf9f7e905d422fb162a94c" title="Get mute status." alt="" coords="233,5,413,47"/>
+</map>

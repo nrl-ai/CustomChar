@@ -1,7 +1,7 @@
 var audio_8h =
 [
     [ "COMMON_SAMPLE_RATE", "audio_8h.html#ac49089f2ab82f9fd95c40fa8b1bb8724", null ],
-    [ "HighPassFilter", "audio_8h.html#a5d78bbd1692dc92b8419b8cdb7d48734", null ],
-    [ "ReadWav", "audio_8h.html#ad8a2c4f7be965cb7c20486de9892ce42", null ],
-    [ "VADSimple", "audio_8h.html#a9951b6db11c12f3b6d4628703b6baf64", null ]
+    [ "high_pass_filter", "audio_8h.html#a63b7691d8c9b1eed1eb74d61510528d1", null ],
+    [ "read_wav", "audio_8h.html#a75be80789dae71b7c732878840a89377", null ],
+    [ "vad_simple", "audio_8h.html#a502a8bbc1efe9680444773de81b373b5", null ]
 ];

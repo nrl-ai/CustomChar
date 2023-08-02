@@ -1,5 +1,0 @@
-<map id="CC::character::Character::StartVideoRecoding" name="CC::character::Character::StartVideoRecoding">
-<area shape="rect" id="node1" title="Record video." alt="" coords="5,5,185,47"/>
-<area shape="rect" id="node2" href="$class_c_c_1_1vision_1_1_video_capture.html#a3f824f1f6a17cd22c8f54f79722ea82b" title="Start recording frames to file." alt="" coords="233,5,416,47"/>
-<area shape="rect" id="node3" href="$class_c_c_1_1vision_1_1_video_capture.html#a809cf127f302693c2d24b84dfcd944b4" title="Stop capturing frames." alt="" coords="464,5,647,47"/>
-</map>

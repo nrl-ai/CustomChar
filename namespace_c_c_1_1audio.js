@@ -4,8 +4,8 @@ var namespace_c_c_1_1audio =
     [ "SpeechRecognizer", "class_c_c_1_1audio_1_1_speech_recognizer.html", "class_c_c_1_1audio_1_1_speech_recognizer" ],
     [ "VoiceRecorder", "class_c_c_1_1audio_1_1_voice_recorder.html", "class_c_c_1_1audio_1_1_voice_recorder" ],
     [ "VoiceSynthesizer", "class_c_c_1_1audio_1_1_voice_synthesizer.html", "class_c_c_1_1audio_1_1_voice_synthesizer" ],
-    [ "HighPassFilter", "namespace_c_c_1_1audio.html#a5d78bbd1692dc92b8419b8cdb7d48734", null ],
-    [ "ReadWav", "namespace_c_c_1_1audio.html#ad8a2c4f7be965cb7c20486de9892ce42", null ],
-    [ "SDLPollEvents", "namespace_c_c_1_1audio.html#a202b2157be4f86a38dffe97f3280e864", null ],
-    [ "VADSimple", "namespace_c_c_1_1audio.html#a9951b6db11c12f3b6d4628703b6baf64", null ]
+    [ "high_pass_filter", "namespace_c_c_1_1audio.html#a63b7691d8c9b1eed1eb74d61510528d1", null ],
+    [ "read_wav", "namespace_c_c_1_1audio.html#a75be80789dae71b7c732878840a89377", null ],
+    [ "sdl_poll_events", "namespace_c_c_1_1audio.html#a5b0b450a58701c85e42bace4c2d468ba", null ],
+    [ "vad_simple", "namespace_c_c_1_1audio.html#a502a8bbc1efe9680444773de81b373b5", null ]
 ];

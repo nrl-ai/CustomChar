@@ -1,0 +1,10 @@
+<map id="CC::audio::VoiceRecorder::record_speech" name="CC::audio::VoiceRecorder::record_speech">
+<area shape="rect" id="node1" title="Record speech from user." alt="" coords="5,104,191,145"/>
+<area shape="rect" id="node2" href="$class_c_c_1_1audio_1_1_voice_recorder.html#a6cd3c8c8b5baa28cd04046945203258f" title="Check if finished talking." alt="" coords="239,5,424,47"/>
+<area shape="rect" id="node5" href="$class_c_c_1_1audio_1_1_voice_recorder.html#a9ca52a728a49bb1ea70a6409df140a2d" title="Get final audio_." alt="" coords="239,71,424,112"/>
+<area shape="rect" id="node7" href="$class_c_c_1_1audio_1_1_voice_recorder.html#ad4b5b09d56ddd3c2decaf5c1c0dae059" title="Sample audio_." alt="" coords="239,136,424,177"/>
+<area shape="rect" id="node8" href="$namespace_c_c_1_1audio.html#a5b0b450a58701c85e42bace4c2d468ba" title=" " alt="" coords="260,201,403,243"/>
+<area shape="rect" id="node3" href="$namespace_c_c_1_1audio.html#a502a8bbc1efe9680444773de81b373b5" title="Basic voice activity detection (VAD) using audio energy adaptive threshold." alt="" coords="487,13,654,39"/>
+<area shape="rect" id="node4" href="$namespace_c_c_1_1audio.html#a63b7691d8c9b1eed1eb74d61510528d1" title="Apply a high&#45;pass frequency filter to PCM audio Suppresses frequencies below cutoff Hz." alt="" coords="717,5,875,47"/>
+<area shape="rect" id="node6" href="$class_c_c_1_1audio_1_1_audio_async.html#a1b91036293ca0d557dd703e107eaccec" title="Get audio from the circular buffer." alt="" coords="472,110,669,137"/>
+</map>

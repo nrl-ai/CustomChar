@@ -108,27 +108,27 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad8a2c4f7be965cb7c20486de9892ce42"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1audio.html#ad8a2c4f7be965cb7c20486de9892ce42">ReadWav</a> (const std::string &amp;fname, std::vector&lt; float &gt; &amp;pcmf32, std::vector&lt; std::vector&lt; float &gt;&gt; &amp;pcmf32s, bool stereo)</td></tr>
-<tr class="memdesc:ad8a2c4f7be965cb7c20486de9892ce42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read WAV audio file and store the PCM data into pcmf32 The sample rate of the audio must be equal to COMMON_SAMPLE_RATE If stereo flag is set and the audio has 2 channels, the pcmf32s will contain 2 channel PCM.  <a href="namespace_c_c_1_1audio.html#ad8a2c4f7be965cb7c20486de9892ce42">More...</a><br /></td></tr>
-<tr class="separator:ad8a2c4f7be965cb7c20486de9892ce42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d78bbd1692dc92b8419b8cdb7d48734"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1audio.html#a5d78bbd1692dc92b8419b8cdb7d48734">HighPassFilter</a> (std::vector&lt; float &gt; &amp;data, float cutoff, float sample_rate)</td></tr>
-<tr class="memdesc:a5d78bbd1692dc92b8419b8cdb7d48734"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a high-pass frequency filter to PCM audio Suppresses frequencies below cutoff Hz.  <a href="namespace_c_c_1_1audio.html#a5d78bbd1692dc92b8419b8cdb7d48734">More...</a><br /></td></tr>
-<tr class="separator:a5d78bbd1692dc92b8419b8cdb7d48734"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9951b6db11c12f3b6d4628703b6baf64"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1audio.html#a9951b6db11c12f3b6d4628703b6baf64">VADSimple</a> (std::vector&lt; float &gt; &amp;pcmf32, int sample_rate, int last_ms, float vad_thold, float freq_thold, bool verbose)</td></tr>
-<tr class="memdesc:a9951b6db11c12f3b6d4628703b6baf64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic voice activity detection (VAD) using audio energy adaptive threshold.  <a href="namespace_c_c_1_1audio.html#a9951b6db11c12f3b6d4628703b6baf64">More...</a><br /></td></tr>
-<tr class="separator:a9951b6db11c12f3b6d4628703b6baf64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a202b2157be4f86a38dffe97f3280e864"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1audio.html#a202b2157be4f86a38dffe97f3280e864">SDLPollEvents</a> ()</td></tr>
-<tr class="separator:a202b2157be4f86a38dffe97f3280e864"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75be80789dae71b7c732878840a89377"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1audio.html#a75be80789dae71b7c732878840a89377">read_wav</a> (const std::string &amp;fname, std::vector&lt; float &gt; &amp;pcmf32, std::vector&lt; std::vector&lt; float &gt;&gt; &amp;pcmf32s, bool stereo)</td></tr>
+<tr class="memdesc:a75be80789dae71b7c732878840a89377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read WAV audio file and store the PCM data into pcmf32 The sample rate of the audio must be equal to COMMON_SAMPLE_RATE If stereo flag is set and the audio has 2 channels, the pcmf32s will contain 2 channel PCM.  <a href="namespace_c_c_1_1audio.html#a75be80789dae71b7c732878840a89377">More...</a><br /></td></tr>
+<tr class="separator:a75be80789dae71b7c732878840a89377"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63b7691d8c9b1eed1eb74d61510528d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1audio.html#a63b7691d8c9b1eed1eb74d61510528d1">high_pass_filter</a> (std::vector&lt; float &gt; &amp;data, float cutoff, float sample_rate)</td></tr>
+<tr class="memdesc:a63b7691d8c9b1eed1eb74d61510528d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a high-pass frequency filter to PCM audio Suppresses frequencies below cutoff Hz.  <a href="namespace_c_c_1_1audio.html#a63b7691d8c9b1eed1eb74d61510528d1">More...</a><br /></td></tr>
+<tr class="separator:a63b7691d8c9b1eed1eb74d61510528d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a502a8bbc1efe9680444773de81b373b5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1audio.html#a502a8bbc1efe9680444773de81b373b5">vad_simple</a> (std::vector&lt; float &gt; &amp;pcmf32, int sample_rate, int last_ms, float vad_thold, float freq_thold, bool verbose)</td></tr>
+<tr class="memdesc:a502a8bbc1efe9680444773de81b373b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic voice activity detection (VAD) using audio energy adaptive threshold.  <a href="namespace_c_c_1_1audio.html#a502a8bbc1efe9680444773de81b373b5">More...</a><br /></td></tr>
+<tr class="separator:a502a8bbc1efe9680444773de81b373b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b0b450a58701c85e42bace4c2d468ba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1audio.html#a5b0b450a58701c85e42bace4c2d468ba">sdl_poll_events</a> ()</td></tr>
+<tr class="separator:a5b0b450a58701c85e42bace4c2d468ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a5d78bbd1692dc92b8419b8cdb7d48734"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d78bbd1692dc92b8419b8cdb7d48734">&#9670;&nbsp;</a></span>HighPassFilter()</h2>
+<a id="a63b7691d8c9b1eed1eb74d61510528d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63b7691d8c9b1eed1eb74d61510528d1">&#9670;&nbsp;</a></span>high_pass_filter()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void CC::audio::HighPassFilter </td>
+          <td class="memname">void CC::audio::high_pass_filter </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; float &gt; &amp;&#160;</td>
           <td class="paramname"><em>data</em>, </td>
@@ -155,29 +155,29 @@ Functions</h2></td></tr>
 
 <p>Apply a high-pass frequency filter to PCM audio Suppresses frequencies below cutoff Hz. </p>
 
-<p class="definition">Definition at line <a class="el" href="audio_8cpp_source.html#l00117">117</a> of file <a class="el" href="audio_8cpp_source.html">audio.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="audio_8cpp_source.html#l00118">118</a> of file <a class="el" href="audio_8cpp_source.html">audio.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespace_c_c_1_1audio_a5d78bbd1692dc92b8419b8cdb7d48734_icgraph.png" border="0" usemap="#anamespace_c_c_1_1audio_a5d78bbd1692dc92b8419b8cdb7d48734_icgraph" alt=""/></div>
-<map name="anamespace_c_c_1_1audio_a5d78bbd1692dc92b8419b8cdb7d48734_icgraph" id="anamespace_c_c_1_1audio_a5d78bbd1692dc92b8419b8cdb7d48734_icgraph">
-<area shape="rect" title="Apply a high&#45;pass frequency filter to PCM audio Suppresses frequencies below cutoff Hz." alt="" coords="684,13,868,39"/>
-<area shape="rect" href="namespace_c_c_1_1audio.html#a9951b6db11c12f3b6d4628703b6baf64" title="Basic voice activity detection (VAD) using audio energy adaptive threshold." alt="" coords="472,13,636,39"/>
-<area shape="rect" href="class_c_c_1_1audio_1_1_voice_recorder.html#afa37a38fa1931dd9f2632ac8c438c858" title="Check if finished talking." alt="" coords="239,5,424,47"/>
-<area shape="rect" href="class_c_c_1_1audio_1_1_voice_recorder.html#a0fb7bdd5f13e2ea5440bf8059a4d11ab" title="Record speech from user." alt="" coords="5,5,191,47"/>
+<div class="center"><img src="namespace_c_c_1_1audio_a63b7691d8c9b1eed1eb74d61510528d1_icgraph.png" border="0" usemap="#anamespace_c_c_1_1audio_a63b7691d8c9b1eed1eb74d61510528d1_icgraph" alt=""/></div>
+<map name="anamespace_c_c_1_1audio_a63b7691d8c9b1eed1eb74d61510528d1_icgraph" id="anamespace_c_c_1_1audio_a63b7691d8c9b1eed1eb74d61510528d1_icgraph">
+<area shape="rect" title="Apply a high&#45;pass frequency filter to PCM audio Suppresses frequencies below cutoff Hz." alt="" coords="687,5,844,47"/>
+<area shape="rect" href="namespace_c_c_1_1audio.html#a502a8bbc1efe9680444773de81b373b5" title="Basic voice activity detection (VAD) using audio energy adaptive threshold." alt="" coords="472,13,639,39"/>
+<area shape="rect" href="class_c_c_1_1audio_1_1_voice_recorder.html#a6cd3c8c8b5baa28cd04046945203258f" title="Check if finished talking." alt="" coords="239,5,424,47"/>
+<area shape="rect" href="class_c_c_1_1audio_1_1_voice_recorder.html#aa89eedc4564fae970df934594328b2aa" title="Record speech from user." alt="" coords="5,5,191,47"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ad8a2c4f7be965cb7c20486de9892ce42"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8a2c4f7be965cb7c20486de9892ce42">&#9670;&nbsp;</a></span>ReadWav()</h2>
+<a id="a75be80789dae71b7c732878840a89377"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75be80789dae71b7c732878840a89377">&#9670;&nbsp;</a></span>read_wav()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool CC::audio::ReadWav </td>
+          <td class="memname">bool CC::audio::read_wav </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>fname</em>, </td>
@@ -214,14 +214,14 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a202b2157be4f86a38dffe97f3280e864"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a202b2157be4f86a38dffe97f3280e864">&#9670;&nbsp;</a></span>SDLPollEvents()</h2>
+<a id="a5b0b450a58701c85e42bace4c2d468ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b0b450a58701c85e42bace4c2d468ba">&#9670;&nbsp;</a></span>sdl_poll_events()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool CC::audio::SDLPollEvents </td>
+          <td class="memname">bool CC::audio::sdl_poll_events </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -233,10 +233,10 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespace_c_c_1_1audio_a202b2157be4f86a38dffe97f3280e864_icgraph.png" border="0" usemap="#anamespace_c_c_1_1audio_a202b2157be4f86a38dffe97f3280e864_icgraph" alt=""/></div>
-<map name="anamespace_c_c_1_1audio_a202b2157be4f86a38dffe97f3280e864_icgraph" id="anamespace_c_c_1_1audio_a202b2157be4f86a38dffe97f3280e864_icgraph">
-<area shape="rect" title=" " alt="" coords="369,42,555,69"/>
-<area shape="rect" href="class_c_c_1_1audio_1_1_voice_recorder.html#a0fb7bdd5f13e2ea5440bf8059a4d11ab" title="Record speech from user." alt="" coords="122,5,307,47"/>
+<div class="center"><img src="namespace_c_c_1_1audio_a5b0b450a58701c85e42bace4c2d468ba_icgraph.png" border="0" usemap="#anamespace_c_c_1_1audio_a5b0b450a58701c85e42bace4c2d468ba_icgraph" alt=""/></div>
+<map name="anamespace_c_c_1_1audio_a5b0b450a58701c85e42bace4c2d468ba_icgraph" id="anamespace_c_c_1_1audio_a5b0b450a58701c85e42bace4c2d468ba_icgraph">
+<area shape="rect" title=" " alt="" coords="369,35,512,76"/>
+<area shape="rect" href="class_c_c_1_1audio_1_1_voice_recorder.html#aa89eedc4564fae970df934594328b2aa" title="Record speech from user." alt="" coords="122,5,307,47"/>
 <area shape="rect" href="class_c_c_1_1character_1_1_character.html#a3861f4c6f3023dc83c614fa7dabb0cfb" title="Run character in a loop." alt="" coords="108,71,321,98"/>
 <area shape="rect" href="main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,71,60,98"/>
 </map>
@@ -244,14 +244,14 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a9951b6db11c12f3b6d4628703b6baf64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9951b6db11c12f3b6d4628703b6baf64">&#9670;&nbsp;</a></span>VADSimple()</h2>
+<a id="a502a8bbc1efe9680444773de81b373b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a502a8bbc1efe9680444773de81b373b5">&#9670;&nbsp;</a></span>vad_simple()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool CC::audio::VADSimple </td>
+          <td class="memname">bool CC::audio::vad_simple </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; float &gt; &amp;&#160;</td>
           <td class="paramname"><em>pcmf32</em>, </td>
@@ -296,24 +296,24 @@ Here is the caller graph for this function:</div>
 
 <p>Basic voice activity detection (VAD) using audio energy adaptive threshold. </p>
 
-<p class="definition">Definition at line <a class="el" href="audio_8cpp_source.html#l00131">131</a> of file <a class="el" href="audio_8cpp_source.html">audio.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="audio_8cpp_source.html#l00132">132</a> of file <a class="el" href="audio_8cpp_source.html">audio.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespace_c_c_1_1audio_a9951b6db11c12f3b6d4628703b6baf64_cgraph.png" border="0" usemap="#anamespace_c_c_1_1audio_a9951b6db11c12f3b6d4628703b6baf64_cgraph" alt=""/></div>
-<map name="anamespace_c_c_1_1audio_a9951b6db11c12f3b6d4628703b6baf64_cgraph" id="anamespace_c_c_1_1audio_a9951b6db11c12f3b6d4628703b6baf64_cgraph">
-<area shape="rect" title="Basic voice activity detection (VAD) using audio energy adaptive threshold." alt="" coords="5,5,169,32"/>
-<area shape="rect" href="namespace_c_c_1_1audio.html#a5d78bbd1692dc92b8419b8cdb7d48734" title="Apply a high&#45;pass frequency filter to PCM audio Suppresses frequencies below cutoff Hz." alt="" coords="217,5,401,32"/>
+<div class="center"><img src="namespace_c_c_1_1audio_a502a8bbc1efe9680444773de81b373b5_cgraph.png" border="0" usemap="#anamespace_c_c_1_1audio_a502a8bbc1efe9680444773de81b373b5_cgraph" alt=""/></div>
+<map name="anamespace_c_c_1_1audio_a502a8bbc1efe9680444773de81b373b5_cgraph" id="anamespace_c_c_1_1audio_a502a8bbc1efe9680444773de81b373b5_cgraph">
+<area shape="rect" title="Basic voice activity detection (VAD) using audio energy adaptive threshold." alt="" coords="5,13,172,39"/>
+<area shape="rect" href="namespace_c_c_1_1audio.html#a63b7691d8c9b1eed1eb74d61510528d1" title="Apply a high&#45;pass frequency filter to PCM audio Suppresses frequencies below cutoff Hz." alt="" coords="220,5,377,47"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespace_c_c_1_1audio_a9951b6db11c12f3b6d4628703b6baf64_icgraph.png" border="0" usemap="#anamespace_c_c_1_1audio_a9951b6db11c12f3b6d4628703b6baf64_icgraph" alt=""/></div>
-<map name="anamespace_c_c_1_1audio_a9951b6db11c12f3b6d4628703b6baf64_icgraph" id="anamespace_c_c_1_1audio_a9951b6db11c12f3b6d4628703b6baf64_icgraph">
-<area shape="rect" title="Basic voice activity detection (VAD) using audio energy adaptive threshold." alt="" coords="472,13,636,39"/>
-<area shape="rect" href="class_c_c_1_1audio_1_1_voice_recorder.html#afa37a38fa1931dd9f2632ac8c438c858" title="Check if finished talking." alt="" coords="239,5,424,47"/>
-<area shape="rect" href="class_c_c_1_1audio_1_1_voice_recorder.html#a0fb7bdd5f13e2ea5440bf8059a4d11ab" title="Record speech from user." alt="" coords="5,5,191,47"/>
+<div class="center"><img src="namespace_c_c_1_1audio_a502a8bbc1efe9680444773de81b373b5_icgraph.png" border="0" usemap="#anamespace_c_c_1_1audio_a502a8bbc1efe9680444773de81b373b5_icgraph" alt=""/></div>
+<map name="anamespace_c_c_1_1audio_a502a8bbc1efe9680444773de81b373b5_icgraph" id="anamespace_c_c_1_1audio_a502a8bbc1efe9680444773de81b373b5_icgraph">
+<area shape="rect" title="Basic voice activity detection (VAD) using audio energy adaptive threshold." alt="" coords="472,13,639,39"/>
+<area shape="rect" href="class_c_c_1_1audio_1_1_voice_recorder.html#a6cd3c8c8b5baa28cd04046945203258f" title="Check if finished talking." alt="" coords="239,5,424,47"/>
+<area shape="rect" href="class_c_c_1_1audio_1_1_voice_recorder.html#aa89eedc4564fae970df934594328b2aa" title="Record speech from user." alt="" coords="5,5,191,47"/>
 </map>
 </div>
 

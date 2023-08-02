@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['sdl_2ecpp_231',['sdl.cpp',['../sdl_8cpp.html',1,'']]],
-  ['sdl_2eh_232',['sdl.h',['../sdl_8h.html',1,'']]],
-  ['speech_5frecognizer_2ecpp_233',['speech_recognizer.cpp',['../speech__recognizer_8cpp.html',1,'']]],
-  ['speech_5frecognizer_2eh_234',['speech_recognizer.h',['../speech__recognizer_8h.html',1,'']]]
+  ['plugin_2eh_397',['plugin.h',['../plugin_8h.html',1,'']]],
+  ['plugin_5fexecutor_2ecpp_398',['plugin_executor.cpp',['../plugin__executor_8cpp.html',1,'']]],
+  ['plugin_5fexecutor_2eh_399',['plugin_executor.h',['../plugin__executor_8h.html',1,'']]]
 ];

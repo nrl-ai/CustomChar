@@ -1,4 +1,7 @@
 <map id="embed_db.h" name="embed_db.h">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,108,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="27,80,86,107"/>
+<area shape="rect" id="node1" title=" " alt="" coords="104,5,207,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="245,259,303,285"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,259,68,285"/>
+<area shape="rect" id="node4" href="$collection_8h.html" title=" " alt="" coords="74,80,237,121"/>
+<area shape="rect" id="node5" href="$document_8h.html" title=" " alt="" coords="74,169,237,211"/>
 </map>

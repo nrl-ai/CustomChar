@@ -1,0 +1,4 @@
+<map id="CC::audio::vad_simple" name="CC::audio::vad_simple">
+<area shape="rect" id="node1" title="Basic voice activity detection (VAD) using audio energy adaptive threshold." alt="" coords="5,13,172,39"/>
+<area shape="rect" id="node2" href="$namespace_c_c_1_1audio.html#a63b7691d8c9b1eed1eb74d61510528d1" title="Apply a high&#45;pass frequency filter to PCM audio Suppresses frequencies below cutoff Hz." alt="" coords="220,5,377,47"/>
+</map>

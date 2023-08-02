@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['init_5fwindow_5fheight_348',['INIT_WINDOW_HEIGHT',['../main_8cpp.html#a3e51e2b92788cb51747449e88079659c',1,'main.cpp']]],
-  ['init_5fwindow_5fwidth_349',['INIT_WINDOW_WIDTH',['../main_8cpp.html#ad63bf4a46b68ab75c178034fe7a86f1c',1,'main.cpp']]]
+  ['ef_5f_597',['ef_',['../classhnswlib_1_1_hierarchical_n_s_w.html#ab32481e5511edf3163d466cc9e50c459',1,'hnswlib::HierarchicalNSW']]],
+  ['ef_5fconstruction_5f_598',['ef_construction_',['../classhnswlib_1_1_hierarchical_n_s_w.html#a56fa5021893ef667640cc3b72fae0b03',1,'hnswlib::HierarchicalNSW']]],
+  ['element_5flevels_5f_599',['element_levels_',['../classhnswlib_1_1_hierarchical_n_s_w.html#a0f5630b697d62b821654b17b14f3c1ab',1,'hnswlib::HierarchicalNSW']]],
+  ['enterpoint_5fnode_5f_600',['enterpoint_node_',['../classhnswlib_1_1_hierarchical_n_s_w.html#aa00ead0d778d72fa8e552b879d3c1628',1,'hnswlib::HierarchicalNSW']]]
 ];

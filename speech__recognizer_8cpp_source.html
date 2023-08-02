@@ -140,7 +140,7 @@ $(document).ready(function(){initNavTree('speech__recognizer_8cpp_source.html','
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    fprintf(stderr, <span class="stringliteral">&quot;\n&quot;</span>);</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  }</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  InitPrompt();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  init_prompt();</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="class_c_c_1_1audio_1_1_speech_recognizer.html#ac85e4be8356808398c4e231264a8e82a">   54</a></span>&#160;<a class="code" href="class_c_c_1_1audio_1_1_speech_recognizer.html#ac85e4be8356808398c4e231264a8e82a">SpeechRecognizer::~SpeechRecognizer</a>() {</div>
@@ -148,13 +148,13 @@ $(document).ready(function(){initNavTree('speech__recognizer_8cpp_source.html','
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  whisper_free(context_);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">void</span> SpeechRecognizer::InitPrompt() {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">void</span> SpeechRecognizer::init_prompt() {</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">const</span> std::string bot_name_ = <span class="stringliteral">&quot;CustomChar&quot;</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  prompt_ = <a class="code" href="namespace_c_c_1_1common.html#a2aee6c2bbbd4c8c2e5aa7bdc3bc81952">common::Replace</a>(k_prompt_whisper_, <span class="stringliteral">&quot;{1}&quot;</span>, bot_name_);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  prompt_ = <a class="code" href="namespace_c_c_1_1common.html#a07b857d084cdfa2513e6b0c309b7e132">common::replace</a>(k_prompt_whisper_, <span class="stringliteral">&quot;{1}&quot;</span>, bot_name_);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;std::string SpeechRecognizer::PostProcess(<span class="keyword">const</span> std::string&amp; text_heard) {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  std::string processed_text = <a class="code" href="namespace_c_c_1_1common.html#a1875c418e998f91d0bf70eb9a818122b">common::Trim</a>(text_heard);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;std::string SpeechRecognizer::postprocess(<span class="keyword">const</span> std::string&amp; text_heard) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  std::string processed_text = <a class="code" href="namespace_c_c_1_1common.html#a63333e75a58efeaedcba259ac4b78d5d">common::trim</a>(text_heard);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="comment">// Remove text between brackets using regex</span></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  {</div>
@@ -183,15 +183,15 @@ $(document).ready(function(){initNavTree('speech__recognizer_8cpp_source.html','
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keywordflow">return</span> processed_text;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="class_c_c_1_1audio_1_1_speech_recognizer.html#a16f29b610fd1fcd045cd02bebc3ca9c0">   94</a></span>&#160;std::string <a class="code" href="class_c_c_1_1audio_1_1_speech_recognizer.html#a16f29b610fd1fcd045cd02bebc3ca9c0">SpeechRecognizer::Recognize</a>(<span class="keyword">const</span> std::vector&lt;float&gt;&amp; pcmf32,</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="class_c_c_1_1audio_1_1_speech_recognizer.html#a0d5969d56d9830e607f4daef65d53aca">   94</a></span>&#160;std::string <a class="code" href="class_c_c_1_1audio_1_1_speech_recognizer.html#a0d5969d56d9830e607f4daef65d53aca">SpeechRecognizer::recognize</a>(<span class="keyword">const</span> std::vector&lt;float&gt;&amp; pcmf32,</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                                        <span class="keywordtype">float</span>&amp; prob, int64_t&amp; t_ms) {</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  std::string text_heard;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  text_heard = Transcribe(pcmf32, prob, t_ms);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  text_heard = PostProcess(text_heard);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  text_heard = transcribe(pcmf32, prob, t_ms);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  text_heard = postprocess(text_heard);</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="keywordflow">return</span> text_heard;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;std::string SpeechRecognizer::Transcribe(<span class="keyword">const</span> std::vector&lt;float&gt;&amp; pcmf32,</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;std::string SpeechRecognizer::transcribe(<span class="keyword">const</span> std::vector&lt;float&gt;&amp; pcmf32,</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                         <span class="keywordtype">float</span>&amp; prob, int64_t&amp; t_ms) {</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="keyword">const</span> <span class="keyword">auto</span> t_start = std::chrono::high_resolution_clock::now();</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
@@ -256,13 +256,13 @@ $(document).ready(function(){initNavTree('speech__recognizer_8cpp_source.html','
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  <span class="keywordflow">return</span> result;</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;}</div>
-<div class="ttc" id="aclass_c_c_1_1audio_1_1_speech_recognizer_html_a16f29b610fd1fcd045cd02bebc3ca9c0"><div class="ttname"><a href="class_c_c_1_1audio_1_1_speech_recognizer.html#a16f29b610fd1fcd045cd02bebc3ca9c0">CC::audio::SpeechRecognizer::Recognize</a></div><div class="ttdeci">std::string Recognize(const std::vector&lt; float &gt; &amp;audio_buff, float &amp;prob, int64_t &amp;t_ms)</div><div class="ttdoc">Recognize speech.</div><div class="ttdef"><b>Definition:</b> <a href="speech__recognizer_8cpp_source.html#l00094">speech_recognizer.cpp:94</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1audio_1_1_speech_recognizer_html_a0d5969d56d9830e607f4daef65d53aca"><div class="ttname"><a href="class_c_c_1_1audio_1_1_speech_recognizer.html#a0d5969d56d9830e607f4daef65d53aca">CC::audio::SpeechRecognizer::recognize</a></div><div class="ttdeci">std::string recognize(const std::vector&lt; float &gt; &amp;audio_buff, float &amp;prob, int64_t &amp;t_ms)</div><div class="ttdoc">Recognize speech.</div><div class="ttdef"><b>Definition:</b> <a href="speech__recognizer_8cpp_source.html#l00094">speech_recognizer.cpp:94</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1audio_1_1_speech_recognizer_html_a30b9d9a77b9e37be98082a6a281af7a5"><div class="ttname"><a href="class_c_c_1_1audio_1_1_speech_recognizer.html#a30b9d9a77b9e37be98082a6a281af7a5">CC::audio::SpeechRecognizer::SpeechRecognizer</a></div><div class="ttdeci">SpeechRecognizer(const std::string &amp;model_path_, const std::string &amp;language, int32_t audio_ctx=0, int n_threads=4, int max_tokens=32, bool translate=false, bool no_timestamps=true, bool print_special=false, bool speed_up=false, const std::string &amp;person_=&quot;User&quot;, const std::string &amp;bot_name_=&quot;CustomChar&quot;)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> <a href="speech__recognizer_8cpp_source.html#l00007">speech_recognizer.cpp:7</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1audio_1_1_speech_recognizer_html_ac85e4be8356808398c4e231264a8e82a"><div class="ttname"><a href="class_c_c_1_1audio_1_1_speech_recognizer.html#ac85e4be8356808398c4e231264a8e82a">CC::audio::SpeechRecognizer::~SpeechRecognizer</a></div><div class="ttdeci">~SpeechRecognizer()</div><div class="ttdef"><b>Definition:</b> <a href="speech__recognizer_8cpp_source.html#l00054">speech_recognizer.cpp:54</a></div></div>
 <div class="ttc" id="acommon_8h_html"><div class="ttname"><a href="common_8h.html">common.h</a></div></div>
 <div class="ttc" id="anamespace_c_c_1_1audio_html"><div class="ttname"><a href="namespace_c_c_1_1audio.html">CC::audio</a></div><div class="ttdef"><b>Definition:</b> <a href="audio_8h_source.html#l00011">audio.h:11</a></div></div>
-<div class="ttc" id="anamespace_c_c_1_1common_html_a1875c418e998f91d0bf70eb9a818122b"><div class="ttname"><a href="namespace_c_c_1_1common.html#a1875c418e998f91d0bf70eb9a818122b">CC::common::Trim</a></div><div class="ttdeci">std::string Trim(const std::string &amp;s)</div><div class="ttdoc">Trim whitespace from both ends of a string.</div><div class="ttdef"><b>Definition:</b> <a href="common_8cpp_source.html#l00019">common.cpp:19</a></div></div>
-<div class="ttc" id="anamespace_c_c_1_1common_html_a2aee6c2bbbd4c8c2e5aa7bdc3bc81952"><div class="ttname"><a href="namespace_c_c_1_1common.html#a2aee6c2bbbd4c8c2e5aa7bdc3bc81952">CC::common::Replace</a></div><div class="ttdeci">std::string Replace(const std::string &amp;s, const std::string &amp;from, const std::string &amp;to)</div><div class="ttdoc">Replace all occurrences of a substring with another substring.</div><div class="ttdef"><b>Definition:</b> <a href="common_8cpp_source.html#l00008">common.cpp:8</a></div></div>
+<div class="ttc" id="anamespace_c_c_1_1common_html_a07b857d084cdfa2513e6b0c309b7e132"><div class="ttname"><a href="namespace_c_c_1_1common.html#a07b857d084cdfa2513e6b0c309b7e132">CC::common::replace</a></div><div class="ttdeci">std::string replace(const std::string &amp;s, const std::string &amp;from, const std::string &amp;to)</div><div class="ttdoc">Replace all occurrences of a substring with another substring.</div><div class="ttdef"><b>Definition:</b> <a href="common_8cpp_source.html#l00008">common.cpp:8</a></div></div>
+<div class="ttc" id="anamespace_c_c_1_1common_html_a63333e75a58efeaedcba259ac4b78d5d"><div class="ttname"><a href="namespace_c_c_1_1common.html#a63333e75a58efeaedcba259ac4b78d5d">CC::common::trim</a></div><div class="ttdeci">std::string trim(const std::string &amp;s)</div><div class="ttdoc">Trim whitespace from both ends of a string.</div><div class="ttdef"><b>Definition:</b> <a href="common_8cpp_source.html#l00019">common.cpp:19</a></div></div>
 <div class="ttc" id="anamespace_c_c_html"><div class="ttname"><a href="namespace_c_c.html">CC</a></div><div class="ttdef"><b>Definition:</b> <a href="audio_8h_source.html#l00010">audio.h:10</a></div></div>
 <div class="ttc" id="aspeech__recognizer_8h_html"><div class="ttname"><a href="speech__recognizer_8h.html">speech_recognizer.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

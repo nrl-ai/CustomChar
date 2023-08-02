@@ -144,7 +144,7 @@ $(document).ready(function(){initNavTree('video__capture_8h_source.html',''); in
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  std::string save_video_path_;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">  /// @brief Start capturing frames from device</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"></span>  <span class="keywordtype">bool</span> StartDevice() {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"></span>  <span class="keywordtype">bool</span> start_device() {</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    capture_ = cv::VideoCapture(device_id_);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">if</span> (!capture_.isOpened()) {</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      std::cerr &lt;&lt; <span class="stringliteral">&quot;Error opening video stream or file&quot;</span> &lt;&lt; std::endl;</div>
@@ -155,13 +155,13 @@ $(document).ready(function(){initNavTree('video__capture_8h_source.html',''); in
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  }</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">  /// @brief Stop capturing frames from device</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment"></span>  <span class="keywordtype">void</span> StopDevice() {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment"></span>  <span class="keywordtype">void</span> stop_device() {</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">if</span> (mode_ != <a class="code" href="namespace_c_c_1_1vision.html#ab5aa02f765efca17cd6bf9116ae45805a04f3c1767a20309503733b624716d00c">VideoCaptureMode::kOpenCV</a>) <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">if</span> (capture_.isOpened()) capture_.release();</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  }</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">  /// @brief Capture frames from camera</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment"></span>  <span class="keywordtype">void</span> CaptureOpenCV() {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment"></span>  <span class="keywordtype">void</span> capture_opencv() {</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    cv::Mat frame;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      {</div>
@@ -180,7 +180,7 @@ $(document).ready(function(){initNavTree('video__capture_8h_source.html',''); in
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  }</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keywordtype">void</span> CaptureFFmpeg() {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keywordtype">void</span> capture_ffmpeg() {</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    std::stringstream ss;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    ss &lt;&lt; <span class="stringliteral">&quot;ffmpeg -y -f avfoundation -ac 2 -framerate 30 -i 0:0 -c:a aac -ab &quot;</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;          <span class="stringliteral">&quot;96k -f matroska &quot;</span></div>
@@ -250,14 +250,14 @@ $(document).ready(function(){initNavTree('video__capture_8h_source.html',''); in
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="comment">  /// @brief Get frame width</span></div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="comment">  /// @return int</span></div>
-<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="class_c_c_1_1vision_1_1_video_capture.html#a60dd553b6bcb0ee7177ce1f804e5ea95">  161</a></span>&#160;<span class="comment"></span>  <span class="keywordtype">int</span> <a class="code" href="class_c_c_1_1vision_1_1_video_capture.html#a60dd553b6bcb0ee7177ce1f804e5ea95">GetFrameWidth</a>() {</div>
+<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="class_c_c_1_1vision_1_1_video_capture.html#a4e1660ca36c748dba6bd11706466f7ac">  161</a></span>&#160;<span class="comment"></span>  <span class="keywordtype">int</span> <a class="code" href="class_c_c_1_1vision_1_1_video_capture.html#a4e1660ca36c748dba6bd11706466f7ac">get_frame_width</a>() {</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    std::lock_guard&lt;std::mutex&gt; lock(frame_mutex_);</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordflow">return</span> frame_.cols;</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  }</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="comment">  /// @brief Get frame height</span></div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="comment">  /// @return int</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="class_c_c_1_1vision_1_1_video_capture.html#aee47e76b6d92731a984cedb854dea56c">  168</a></span>&#160;<span class="comment"></span>  <span class="keywordtype">int</span> <a class="code" href="class_c_c_1_1vision_1_1_video_capture.html#aee47e76b6d92731a984cedb854dea56c">GetFrameHeight</a>() {</div>
+<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="class_c_c_1_1vision_1_1_video_capture.html#aff9d295aaeb6d97594a92cd3bbadd08f">  168</a></span>&#160;<span class="comment"></span>  <span class="keywordtype">int</span> <a class="code" href="class_c_c_1_1vision_1_1_video_capture.html#aff9d295aaeb6d97594a92cd3bbadd08f">get_frame_height</a>() {</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    std::lock_guard&lt;std::mutex&gt; lock(frame_mutex_);</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keywordflow">return</span> frame_.rows;</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  }</div>
@@ -269,7 +269,7 @@ $(document).ready(function(){initNavTree('video__capture_8h_source.html',''); in
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    is_capturing_ = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    save_video_path_ = output_path;</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    mode_ = <a class="code" href="namespace_c_c_1_1vision.html#ab5aa02f765efca17cd6bf9116ae45805a4a6a2b1db7ff22ae1b950a456d02604c">VideoCaptureMode::kFFmpeg</a>;</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    capture_thread_ = std::thread(&amp;VideoCapture::CaptureFFmpeg, <span class="keyword">this</span>);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    capture_thread_ = std::thread(&amp;VideoCapture::capture_ffmpeg, <span class="keyword">this</span>);</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  }</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment">  /// @brief Start capturing frames</span></div>
@@ -281,7 +281,7 @@ $(document).ready(function(){initNavTree('video__capture_8h_source.html',''); in
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;      }</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    }</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordflow">if</span> (!StartDevice()) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordflow">if</span> (!start_device()) <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="comment">// Get first frame to initialize frame size</span></div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    std::lock_guard&lt;std::mutex&gt; frame_lock(frame_mutex_);</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    capture_ &gt;&gt; frame_;</div>
@@ -291,7 +291,7 @@ $(document).ready(function(){initNavTree('video__capture_8h_source.html',''); in
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    mode_ = <a class="code" href="namespace_c_c_1_1vision.html#ab5aa02f765efca17cd6bf9116ae45805a04f3c1767a20309503733b624716d00c">VideoCaptureMode::kOpenCV</a>;</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="comment">// Random a saved video path from time</span></div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    save_video_path_ = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    capture_thread_ = std::thread(&amp;VideoCapture::CaptureOpenCV, <span class="keyword">this</span>);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    capture_thread_ = std::thread(&amp;VideoCapture::capture_opencv, <span class="keyword">this</span>);</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  }</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="comment">  /// @brief Stop capturing frames</span></div>
@@ -302,7 +302,7 @@ $(document).ready(function(){initNavTree('video__capture_8h_source.html',''); in
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;      }</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    }</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    StopDevice();</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    stop_device();</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    is_capturing_ = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    mode_ = <a class="code" href="namespace_c_c_1_1vision.html#ab5aa02f765efca17cd6bf9116ae45805a35c3ace1970663a16e5c65baa5941b13">VideoCaptureMode::kNone</a>;</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    capture_thread_.join();</div>
@@ -310,7 +310,7 @@ $(document).ready(function(){initNavTree('video__capture_8h_source.html',''); in
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="comment">  /// @brief Get frame from queue</span></div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="comment">  /// @return cv::Mat. Empty if queue is empty</span></div>
-<div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="class_c_c_1_1vision_1_1_video_capture.html#abe66813a0f64cea1cb79a4e773fd07ec">  221</a></span>&#160;<span class="comment"></span>  cv::Mat <a class="code" href="class_c_c_1_1vision_1_1_video_capture.html#abe66813a0f64cea1cb79a4e773fd07ec">GetFrame</a>() {</div>
+<div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="class_c_c_1_1vision_1_1_video_capture.html#a9a35b064aab9bb2ebd890803f45405e1">  221</a></span>&#160;<span class="comment"></span>  cv::Mat <a class="code" href="class_c_c_1_1vision_1_1_video_capture.html#a9a35b064aab9bb2ebd890803f45405e1">get_frame</a>() {</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    cv::Mat frame;</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    std::lock_guard&lt;std::mutex&gt; lock(frame_mutex_);</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    frame = frame_.clone();</div>
@@ -318,7 +318,7 @@ $(document).ready(function(){initNavTree('video__capture_8h_source.html',''); in
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  }</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="comment">  /// @brief Check if is recording</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno"><a class="line" href="class_c_c_1_1vision_1_1_video_capture.html#a35d8eb97d181e7ad1981cdb2e9b3c482">  229</a></span>&#160;<span class="comment"></span>  <span class="keywordtype">bool</span> <a class="code" href="class_c_c_1_1vision_1_1_video_capture.html#a35d8eb97d181e7ad1981cdb2e9b3c482">IsRecording</a>() {</div>
+<div class="line"><a name="l00229"></a><span class="lineno"><a class="line" href="class_c_c_1_1vision_1_1_video_capture.html#a4d4521f3865efa40f3ce407704ad4c59">  229</a></span>&#160;<span class="comment"></span>  <span class="keywordtype">bool</span> <a class="code" href="class_c_c_1_1vision_1_1_video_capture.html#a4d4521f3865efa40f3ce407704ad4c59">is_recording</a>() {</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordflow">return</span> is_capturing_ &amp;&amp; mode_ == <a class="code" href="namespace_c_c_1_1vision.html#ab5aa02f765efca17cd6bf9116ae45805a4a6a2b1db7ff22ae1b950a456d02604c">VideoCaptureMode::kFFmpeg</a>;</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;  }</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;};</div>
@@ -328,14 +328,14 @@ $(document).ready(function(){initNavTree('video__capture_8h_source.html',''); in
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// CUSTOMCHAR_SESSION_CHAT_HISTORY_H_</span></div>
 <div class="ttc" id="aclass_c_c_1_1vision_1_1_video_capture_html"><div class="ttname"><a href="class_c_c_1_1vision_1_1_video_capture.html">CC::vision::VideoCapture</a></div><div class="ttdoc">VideoCapture class.</div><div class="ttdef"><b>Definition:</b> <a href="video__capture_8h_source.html#l00039">video_capture.h:39</a></div></div>
-<div class="ttc" id="aclass_c_c_1_1vision_1_1_video_capture_html_a35d8eb97d181e7ad1981cdb2e9b3c482"><div class="ttname"><a href="class_c_c_1_1vision_1_1_video_capture.html#a35d8eb97d181e7ad1981cdb2e9b3c482">CC::vision::VideoCapture::IsRecording</a></div><div class="ttdeci">bool IsRecording()</div><div class="ttdoc">Check if is recording.</div><div class="ttdef"><b>Definition:</b> <a href="video__capture_8h_source.html#l00229">video_capture.h:229</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1vision_1_1_video_capture_html_a3f824f1f6a17cd22c8f54f79722ea82b"><div class="ttname"><a href="class_c_c_1_1vision_1_1_video_capture.html#a3f824f1f6a17cd22c8f54f79722ea82b">CC::vision::VideoCapture::Record</a></div><div class="ttdeci">void Record(const std::string &amp;output_path)</div><div class="ttdoc">Start recording frames to file.</div><div class="ttdef"><b>Definition:</b> <a href="video__capture_8h_source.html#l00175">video_capture.h:175</a></div></div>
-<div class="ttc" id="aclass_c_c_1_1vision_1_1_video_capture_html_a60dd553b6bcb0ee7177ce1f804e5ea95"><div class="ttname"><a href="class_c_c_1_1vision_1_1_video_capture.html#a60dd553b6bcb0ee7177ce1f804e5ea95">CC::vision::VideoCapture::GetFrameWidth</a></div><div class="ttdeci">int GetFrameWidth()</div><div class="ttdoc">Get frame width.</div><div class="ttdef"><b>Definition:</b> <a href="video__capture_8h_source.html#l00161">video_capture.h:161</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1vision_1_1_video_capture_html_a4d4521f3865efa40f3ce407704ad4c59"><div class="ttname"><a href="class_c_c_1_1vision_1_1_video_capture.html#a4d4521f3865efa40f3ce407704ad4c59">CC::vision::VideoCapture::is_recording</a></div><div class="ttdeci">bool is_recording()</div><div class="ttdoc">Check if is recording.</div><div class="ttdef"><b>Definition:</b> <a href="video__capture_8h_source.html#l00229">video_capture.h:229</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1vision_1_1_video_capture_html_a4e1660ca36c748dba6bd11706466f7ac"><div class="ttname"><a href="class_c_c_1_1vision_1_1_video_capture.html#a4e1660ca36c748dba6bd11706466f7ac">CC::vision::VideoCapture::get_frame_width</a></div><div class="ttdeci">int get_frame_width()</div><div class="ttdoc">Get frame width.</div><div class="ttdef"><b>Definition:</b> <a href="video__capture_8h_source.html#l00161">video_capture.h:161</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1vision_1_1_video_capture_html_a7a14a58d3282e65990fba33c1707513f"><div class="ttname"><a href="class_c_c_1_1vision_1_1_video_capture.html#a7a14a58d3282e65990fba33c1707513f">CC::vision::VideoCapture::VideoCapture</a></div><div class="ttdeci">VideoCapture()</div><div class="ttdef"><b>Definition:</b> <a href="video__capture_8h_source.html#l00157">video_capture.h:157</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1vision_1_1_video_capture_html_a809cf127f302693c2d24b84dfcd944b4"><div class="ttname"><a href="class_c_c_1_1vision_1_1_video_capture.html#a809cf127f302693c2d24b84dfcd944b4">CC::vision::VideoCapture::Stop</a></div><div class="ttdeci">void Stop()</div><div class="ttdoc">Stop capturing frames.</div><div class="ttdef"><b>Definition:</b> <a href="video__capture_8h_source.html#l00206">video_capture.h:206</a></div></div>
-<div class="ttc" id="aclass_c_c_1_1vision_1_1_video_capture_html_abe66813a0f64cea1cb79a4e773fd07ec"><div class="ttname"><a href="class_c_c_1_1vision_1_1_video_capture.html#abe66813a0f64cea1cb79a4e773fd07ec">CC::vision::VideoCapture::GetFrame</a></div><div class="ttdeci">cv::Mat GetFrame()</div><div class="ttdoc">Get frame from queue.</div><div class="ttdef"><b>Definition:</b> <a href="video__capture_8h_source.html#l00221">video_capture.h:221</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1vision_1_1_video_capture_html_a9a35b064aab9bb2ebd890803f45405e1"><div class="ttname"><a href="class_c_c_1_1vision_1_1_video_capture.html#a9a35b064aab9bb2ebd890803f45405e1">CC::vision::VideoCapture::get_frame</a></div><div class="ttdeci">cv::Mat get_frame()</div><div class="ttdoc">Get frame from queue.</div><div class="ttdef"><b>Definition:</b> <a href="video__capture_8h_source.html#l00221">video_capture.h:221</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1vision_1_1_video_capture_html_ac1948f79fe3a3391e1bffbfd5f4773da"><div class="ttname"><a href="class_c_c_1_1vision_1_1_video_capture.html#ac1948f79fe3a3391e1bffbfd5f4773da">CC::vision::VideoCapture::Start</a></div><div class="ttdeci">void Start()</div><div class="ttdoc">Start capturing frames.</div><div class="ttdef"><b>Definition:</b> <a href="video__capture_8h_source.html#l00184">video_capture.h:184</a></div></div>
-<div class="ttc" id="aclass_c_c_1_1vision_1_1_video_capture_html_aee47e76b6d92731a984cedb854dea56c"><div class="ttname"><a href="class_c_c_1_1vision_1_1_video_capture.html#aee47e76b6d92731a984cedb854dea56c">CC::vision::VideoCapture::GetFrameHeight</a></div><div class="ttdeci">int GetFrameHeight()</div><div class="ttdoc">Get frame height.</div><div class="ttdef"><b>Definition:</b> <a href="video__capture_8h_source.html#l00168">video_capture.h:168</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1vision_1_1_video_capture_html_aff9d295aaeb6d97594a92cd3bbadd08f"><div class="ttname"><a href="class_c_c_1_1vision_1_1_video_capture.html#aff9d295aaeb6d97594a92cd3bbadd08f">CC::vision::VideoCapture::get_frame_height</a></div><div class="ttdeci">int get_frame_height()</div><div class="ttdoc">Get frame height.</div><div class="ttdef"><b>Definition:</b> <a href="video__capture_8h_source.html#l00168">video_capture.h:168</a></div></div>
 <div class="ttc" id="anamespace_c_c_1_1vision_html_ab5aa02f765efca17cd6bf9116ae45805"><div class="ttname"><a href="namespace_c_c_1_1vision.html#ab5aa02f765efca17cd6bf9116ae45805">CC::vision::VideoCaptureMode</a></div><div class="ttdeci">VideoCaptureMode</div><div class="ttdef"><b>Definition:</b> <a href="video__capture_8h_source.html#l00032">video_capture.h:32</a></div></div>
 <div class="ttc" id="anamespace_c_c_1_1vision_html_ab5aa02f765efca17cd6bf9116ae45805a04f3c1767a20309503733b624716d00c"><div class="ttname"><a href="namespace_c_c_1_1vision.html#ab5aa02f765efca17cd6bf9116ae45805a04f3c1767a20309503733b624716d00c">CC::vision::VideoCaptureMode::kOpenCV</a></div><div class="ttdeci">@ kOpenCV</div></div>
 <div class="ttc" id="anamespace_c_c_1_1vision_html_ab5aa02f765efca17cd6bf9116ae45805a35c3ace1970663a16e5c65baa5941b13"><div class="ttname"><a href="namespace_c_c_1_1vision.html#ab5aa02f765efca17cd6bf9116ae45805a35c3ace1970663a16e5c65baa5941b13">CC::vision::VideoCaptureMode::kNone</a></div><div class="ttdeci">@ kNone</div></div>

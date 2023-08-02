@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_c_c_1_1llm_1_1_l_l_m.html" title=" " alt="" coords="5,5,108,32"/>
+<area shape="rect" id="node1" href="$class_c_c_1_1executors_1_1_plugin.html" title=" " alt="" coords="5,35,164,61"/>
+<area shape="rect" id="node2" href="$class_c_c_1_1executors_1_1_open_app_plugin.html" title="Plugin for opening applications." alt="" coords="212,5,431,32"/>
+<area shape="rect" id="node3" href="$class_c_c_1_1executors_1_1_video_record_plugin.html" title="Plugin for record videos." alt="" coords="221,57,422,98"/>
 </map>
