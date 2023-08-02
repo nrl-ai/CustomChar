@@ -3,6 +3,7 @@
 
 namespace CC {
 namespace embeddb {
+
 struct SearchEmbedResult {
   int id;
   float score;

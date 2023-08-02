@@ -7,3 +7,6 @@
 [submodule "libs/subprocess"]
 	path = libs/subprocess
 	url = https://github.com/benman64/subprocess
+[submodule "libs/SQLiteCpp"]
+	path = libs/SQLiteCpp
+	url = https://github.com/SRombauts/SQLiteCpp

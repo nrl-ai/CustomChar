@@ -1,37 +1,36 @@
-#include "customchar/embed_search/embed_search.h"
-
+#include "embed_search.h"
 using namespace CC::embeddb;
-
 int main() {
-  EmbedSearch* es = new EmbedSearch("test.hnsw", 10, 1000);
-  std::vector<std::vector<float>> embeds;
+  EmbedSearch* es = new EmbedSearch("test/test.hnsw", 10, 1000);
+  // std::vector<std::vector<float>> embeds;
+  // // init embeds 5x10
+  // for (int i = 0; i < 5; i++) {
+  //   std::vector<float> embed;
+  //   for (int j = 0; j < 10; j++) {
+  //     embed.push_back(i * 10 + j);
+  //   }
+  //   embeds.push_back(embed);
+  // }
+  // // insert embeds
+  // std::vector<uint32_t> ids;
+  // es->insert_embeds(embeds, ids);
+  // for (int i = 0; i < ids.size(); i++) {
+  //   std::cout << ids[i] << std::endl;
+  // }
 
-  // Init embeds 5x10
-  for (int i = 0; i < 5; i++) {
-    std::vector<float> embed;
-    for (int j = 0; j < 10; j++) {
-      embed.push_back(i * 10 + j);
-    }
-    embeds.push_back(embed);
-  }
-
-  // Insert embeds
-  std::vector<uint32_t> ids;
-  es->insert_embeds(embeds, ids);
-  for (int i = 0; i < ids.size(); i++) {
-    std::cout << ids[i] << std::endl;
-  }
-
-  // Search embed
-  std::vector<SearchEmbedResult> results;
-  std::vector<float> embed;
-  for (int i = 0; i < 10; i++) {
-    embed.push_back(i);
-  }
-  es->search_embed(embed, results, 10, 10);
-  for (int i = 0; i < results.size(); i++) {
-    std::cout << results[i].id << " " << results[i].score << std::endl;
-  }
+  // // search embed
+  // std::vector<SearchEmbedResult> results;
+  // std::vector<float> embed;
+  // for (int i = 0; i < 10; i++) {
+  //   embed.push_back(i);
+  // }
+  // es->search_embed(embed, results, 10, 10);
+  // for (int i = 0; i < results.size(); i++) {
+  //   std::cout << results[i].id << " " << results[i].score << std::endl;
+  // }
+  std::cout << "current_index: " << es->get_current_index() << std::endl;
+  es->remove_embed(1);
+  std::cout << "current_index: " << es->get_current_index() << std::endl;
 
   return 0;
 }

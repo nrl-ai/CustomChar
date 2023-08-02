@@ -24,14 +24,23 @@ find_package(OpenCV REQUIRED)
 # Build submodules
 add_subdirectory(libs/whisper-cpp)
 add_subdirectory(libs/subprocess)
+add_subdirectory(libs/SQLiteCpp)
 
 include_directories(libs .)
 
-# Build embeding search library
+# Build embedding search library
 add_library(
     embeddb
     customchar/embeddb/document.cpp
     customchar/embeddb/embed_search.cpp
+    customchar/embeddb/collection.cpp
+)
+target_link_libraries(
+    embeddb
+    SQLiteCpp
+    sqlite3
+    pthread
+    dl
 )
 
 # Build CustomChar-core

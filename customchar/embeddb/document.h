@@ -31,6 +31,7 @@ class Document {
   u_int32_t original_pos_col_;
 
  public:
+  Document();
   Document(u_int32_t id, std::vector<float> embedding,
            const std::string& content, const std::string& meta,
            u_int32_t original_doc_id, u_int32_t original_pos_line,
