@@ -1,41 +1,41 @@
 <map id="character.cpp" name="character.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="1555,5,1664,32"/>
-<area shape="rect" id="node2" href="$character_8h.html" title=" " alt="" coords="1528,80,1691,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="958,273,1027,300"/>
-<area shape="rect" id="node4" title=" " alt="" coords="1051,273,1112,300"/>
-<area shape="rect" id="node5" title=" " alt="" coords="1422,273,1496,300"/>
-<area shape="rect" id="node6" title=" " alt="" coords="3013,370,3100,397"/>
-<area shape="rect" id="node7" title=" " alt="" coords="1288,273,1347,300"/>
-<area shape="rect" id="node8" title=" " alt="" coords="2076,452,2135,479"/>
-<area shape="rect" id="node9" title=" " alt="" coords="968,370,1032,397"/>
-<area shape="rect" id="node10" title=" " alt="" coords="1396,370,1458,397"/>
-<area shape="rect" id="node11" title=" " alt="" coords="3624,370,3779,397"/>
-<area shape="rect" id="node12" href="$speech__recognizer_8h.html" title=" " alt="" coords="582,169,770,211"/>
-<area shape="rect" id="node22" href="$voice__recorder_8h.html" title=" " alt="" coords="794,169,972,211"/>
-<area shape="rect" id="node23" href="$voice__synthesizer_8h.html" title=" " alt="" coords="1394,169,1572,211"/>
-<area shape="rect" id="node24" href="$common_8h.html" title=" " alt="" coords="1990,273,2222,300"/>
-<area shape="rect" id="node25" href="$helpers_8h.html" title=" " alt="" coords="1097,177,1320,203"/>
-<area shape="rect" id="node26" href="$plugin__executor_8h.html" title=" " alt="" coords="2386,169,2551,211"/>
-<area shape="rect" id="node34" href="$llm_8h.html" title=" " alt="" coords="1647,177,1807,203"/>
-<area shape="rect" id="node36" href="$video__capture_8h.html" title=" " alt="" coords="3286,266,3467,307"/>
-<area shape="rect" id="node13" href="$audio_8h.html" title=" " alt="" coords="590,273,781,300"/>
-<area shape="rect" id="node16" href="$sdl_8h.html" title=" " alt="" coords="216,273,390,300"/>
-<area shape="rect" id="node21" title=" " alt="" coords="25,273,192,300"/>
-<area shape="rect" id="node14" title=" " alt="" coords="1794,370,1844,397"/>
-<area shape="rect" id="node15" title=" " alt="" coords="723,370,795,397"/>
-<area shape="rect" id="node17" title=" " alt="" coords="220,370,322,397"/>
-<area shape="rect" id="node18" title=" " alt="" coords="347,370,414,397"/>
-<area shape="rect" id="node19" title=" " alt="" coords="40,370,107,397"/>
-<area shape="rect" id="node20" title=" " alt="" coords="131,370,195,397"/>
-<area shape="rect" id="node27" title=" " alt="" coords="3094,273,3160,300"/>
-<area shape="rect" id="node28" title=" " alt="" coords="2347,273,2406,300"/>
-<area shape="rect" id="node29" title=" " alt="" coords="2723,370,2803,397"/>
-<area shape="rect" id="node30" title=" " alt="" coords="2827,370,2902,397"/>
-<area shape="rect" id="node31" href="$plugin_8h.html" title=" " alt="" coords="2480,363,2646,404"/>
-<area shape="rect" id="node32" href="$open__app__plugin_8h.html" title=" " alt="" coords="2530,266,2729,307"/>
-<area shape="rect" id="node33" href="$video__record__plugin_8h.html" title=" " alt="" coords="2803,259,2968,315"/>
-<area shape="rect" id="node35" title=" " alt="" coords="1724,273,1864,300"/>
-<area shape="rect" id="node37" title=" " alt="" coords="3291,370,3366,397"/>
-<area shape="rect" id="node38" title=" " alt="" coords="3390,370,3453,397"/>
-<area shape="rect" id="node39" title=" " alt="" coords="3478,370,3600,397"/>
+<area shape="rect" id="node1" title=" " alt="" coords="1591,5,1701,32"/>
+<area shape="rect" id="node2" href="$character_8h.html" title=" " alt="" coords="1565,80,1727,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="1002,273,1071,300"/>
+<area shape="rect" id="node4" title=" " alt="" coords="1095,273,1157,300"/>
+<area shape="rect" id="node5" title=" " alt="" coords="1333,273,1407,300"/>
+<area shape="rect" id="node6" title=" " alt="" coords="2463,370,2549,397"/>
+<area shape="rect" id="node7" title=" " alt="" coords="1533,273,1591,300"/>
+<area shape="rect" id="node8" title=" " alt="" coords="2121,452,2179,479"/>
+<area shape="rect" id="node9" title=" " alt="" coords="1047,370,1111,397"/>
+<area shape="rect" id="node10" title=" " alt="" coords="1373,370,1436,397"/>
+<area shape="rect" id="node11" title=" " alt="" coords="3235,370,3390,397"/>
+<area shape="rect" id="node12" href="$speech__recognizer_8h.html" title=" " alt="" coords="820,169,1008,211"/>
+<area shape="rect" id="node22" href="$voice__recorder_8h.html" title=" " alt="" coords="600,169,777,211"/>
+<area shape="rect" id="node23" href="$voice__synthesizer_8h.html" title=" " alt="" coords="1431,169,1608,211"/>
+<area shape="rect" id="node24" href="$common_8h.html" title=" " alt="" coords="2034,273,2266,300"/>
+<area shape="rect" id="node25" href="$helpers_8h.html" title=" " alt="" coords="1133,177,1356,203"/>
+<area shape="rect" id="node26" href="$plugin__executor_8h.html" title=" " alt="" coords="2523,169,2689,211"/>
+<area shape="rect" id="node34" href="$llm_8h.html" title=" " alt="" coords="1683,177,1843,203"/>
+<area shape="rect" id="node36" href="$video__capture_8h.html" title=" " alt="" coords="3381,266,3562,307"/>
+<area shape="rect" id="node13" href="$audio_8h.html" title=" " alt="" coords="392,273,583,300"/>
+<area shape="rect" id="node16" href="$sdl_8h.html" title=" " alt="" coords="69,273,242,300"/>
+<area shape="rect" id="node21" title=" " alt="" coords="709,273,876,300"/>
+<area shape="rect" id="node14" title=" " alt="" coords="2023,370,2074,397"/>
+<area shape="rect" id="node15" title=" " alt="" coords="525,370,597,397"/>
+<area shape="rect" id="node17" title=" " alt="" coords="131,370,233,397"/>
+<area shape="rect" id="node18" title=" " alt="" coords="258,370,325,397"/>
+<area shape="rect" id="node19" title=" " alt="" coords="349,370,415,397"/>
+<area shape="rect" id="node20" title=" " alt="" coords="42,370,106,397"/>
+<area shape="rect" id="node27" title=" " alt="" coords="3189,273,3255,300"/>
+<area shape="rect" id="node28" title=" " alt="" coords="2543,273,2602,300"/>
+<area shape="rect" id="node29" title=" " alt="" coords="2599,370,2679,397"/>
+<area shape="rect" id="node30" title=" " alt="" coords="2943,370,3018,397"/>
+<area shape="rect" id="node31" href="$plugin_8h.html" title=" " alt="" coords="2754,363,2919,404"/>
+<area shape="rect" id="node32" href="$open__app__plugin_8h.html" title=" " alt="" coords="2916,266,3115,307"/>
+<area shape="rect" id="node33" href="$video__record__plugin_8h.html" title=" " alt="" coords="2677,259,2842,315"/>
+<area shape="rect" id="node35" title=" " alt="" coords="1768,273,1908,300"/>
+<area shape="rect" id="node37" title=" " alt="" coords="3465,370,3539,397"/>
+<area shape="rect" id="node38" title=" " alt="" coords="3564,370,3627,397"/>
+<area shape="rect" id="node39" title=" " alt="" coords="3651,370,3774,397"/>
 </map>

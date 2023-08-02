@@ -114,12 +114,13 @@ var NAVTREEINDEX0 =
 "class_c_c_1_1executors_1_1_video_record_plugin.html#ac30aa70bc298c965980c8905b92f6160":[2,0,0,4,3,1],
 "class_c_c_1_1llm_1_1_l_l_m.html":[2,0,0,5,0],
 "class_c_c_1_1llm_1_1_l_l_m.html#a4720adfef94d91c917974000c6959575":[2,0,0,5,0,1],
-"class_c_c_1_1llm_1_1_l_l_m.html#a555b895486455181b746a8d76e9f2e45":[2,0,0,5,0,6],
+"class_c_c_1_1llm_1_1_l_l_m.html#a555b895486455181b746a8d76e9f2e45":[2,0,0,5,0,7],
 "class_c_c_1_1llm_1_1_l_l_m.html#a62934eb91a69d319f5c7f1d6f8f49624":[2,0,0,5,0,0],
 "class_c_c_1_1llm_1_1_l_l_m.html#a870024da9fe5a00995446bb94b44fe6f":[2,0,0,5,0,4],
 "class_c_c_1_1llm_1_1_l_l_m.html#a95b18be6eb0c1f13005100d59dcc5db3":[2,0,0,5,0,2],
 "class_c_c_1_1llm_1_1_l_l_m.html#aa808ab8fe6b3a3223a07330ae9205b9c":[2,0,0,5,0,3],
-"class_c_c_1_1llm_1_1_l_l_m.html#ada26e4a903d30780cfff0cd85b8c33c5":[2,0,0,5,0,5],
+"class_c_c_1_1llm_1_1_l_l_m.html#ac80b3bf55b5acd26cb598381cb4557d8":[2,0,0,5,0,5],
+"class_c_c_1_1llm_1_1_l_l_m.html#ada26e4a903d30780cfff0cd85b8c33c5":[2,0,0,5,0,6],
 "class_c_c_1_1session_1_1_chat_history.html":[2,0,0,6,0],
 "class_c_c_1_1session_1_1_chat_history.html#a161f51ba58c5a12749203677e1fd11d6":[2,0,0,6,0,0],
 "class_c_c_1_1session_1_1_chat_history.html#a4b0d08fcf2f5d7ae69bfecbe36ff9607":[2,0,0,6,0,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "speech__recognizer_8h.html":[3,0,30],
 "speech__recognizer_8h_source.html":[3,0,30],
 "struct_c_c_1_1common_1_1_c_c_params.html":[2,0,0,2,0],
-"struct_c_c_1_1common_1_1_c_c_params.html#a029c9413477b078bd0d950f03ebb1339":[2,0,0,2,0,12],
-"struct_c_c_1_1common_1_1_c_c_params.html#a04752b557dfacce8153d0e0322ab2cb6":[2,0,0,2,0,0]
+"struct_c_c_1_1common_1_1_c_c_params.html#a029c9413477b078bd0d950f03ebb1339":[2,0,0,2,0,12]
 };

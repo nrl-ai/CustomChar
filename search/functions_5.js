@@ -13,7 +13,7 @@ var searchData=
   ['get_5fdocs_305',['get_docs',['../class_c_c_1_1embeddb_1_1_collection.html#a2ce9be65c63fef18daa33aaf83620cf6',1,'CC::embeddb::Collection']]],
   ['get_5fdocs_5fby_5fids_306',['get_docs_by_ids',['../class_c_c_1_1embeddb_1_1_collection.html#aa12493b434a7b2e77beebf534379ae5e',1,'CC::embeddb::Collection']]],
   ['get_5fembed_307',['get_embed',['../class_c_c_1_1embeddb_1_1_embed_search.html#aa84c5e8d382aa4ece03dc3a4bcb0d950',1,'CC::embeddb::EmbedSearch']]],
-  ['get_5fembedding_308',['get_embedding',['../class_c_c_1_1embeddb_1_1_document.html#a77b53cd988fbec408652701671eba11f',1,'CC::embeddb::Document']]],
+  ['get_5fembedding_308',['get_embedding',['../class_c_c_1_1llm_1_1_l_l_m.html#ac80b3bf55b5acd26cb598381cb4557d8',1,'CC::llm::LLM::get_embedding()'],['../class_c_c_1_1embeddb_1_1_document.html#a77b53cd988fbec408652701671eba11f',1,'CC::embeddb::Document::get_embedding()']]],
   ['get_5fframe_309',['get_frame',['../class_c_c_1_1vision_1_1_video_capture.html#a9a35b064aab9bb2ebd890803f45405e1',1,'CC::vision::VideoCapture']]],
   ['get_5fframe_5fheight_310',['get_frame_height',['../class_c_c_1_1vision_1_1_video_capture.html#aff9d295aaeb6d97594a92cd3bbadd08f',1,'CC::vision::VideoCapture']]],
   ['get_5fframe_5fwidth_311',['get_frame_width',['../class_c_c_1_1vision_1_1_video_capture.html#a4e1660ca36c748dba6bd11706466f7ac',1,'CC::vision::VideoCapture']]],
