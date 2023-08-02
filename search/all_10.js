@@ -22,7 +22,7 @@ var searchData=
   ['speak_166',['speak',['../struct_c_c_1_1common_1_1_c_c_params.html#aff63f8db043d0e581ca663169f80302a',1,'CC::common::CCParams']]],
   ['speech_5frecognizer_2ecpp_167',['speech_recognizer.cpp',['../speech__recognizer_8cpp.html',1,'']]],
   ['speech_5frecognizer_2eh_168',['speech_recognizer.h',['../speech__recognizer_8h.html',1,'']]],
-  ['speechrecognizer_169',['SpeechRecognizer',['../class_c_c_1_1audio_1_1_speech_recognizer.html',1,'CC::audio::SpeechRecognizer'],['../class_c_c_1_1audio_1_1_speech_recognizer.html#a30b9d9a77b9e37be98082a6a281af7a5',1,'CC::audio::SpeechRecognizer::SpeechRecognizer()']]],
+  ['speechrecognizer_169',['SpeechRecognizer',['../class_c_c_1_1audio_1_1_speech_recognizer.html',1,'CC::audio::SpeechRecognizer'],['../class_c_c_1_1audio_1_1_speech_recognizer.html#a935e7016b953506681e450ca0cda6089',1,'CC::audio::SpeechRecognizer::SpeechRecognizer()']]],
   ['speed_5fup_170',['speed_up',['../struct_c_c_1_1common_1_1_c_c_params.html#ade3887899fc78b58d42ccae4805a73f5',1,'CC::common::CCParams']]],
   ['sr_5fmodel_5fpath_171',['sr_model_path',['../struct_c_c_1_1common_1_1_c_c_params.html#a7122cb105d5360b7ab27682f4c18f98b',1,'CC::common::CCParams']]],
   ['start_172',['Start',['../class_c_c_1_1vision_1_1_video_capture.html#ac1948f79fe3a3391e1bffbfd5f4773da',1,'CC::vision::VideoCapture']]],
