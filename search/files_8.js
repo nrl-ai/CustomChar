@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['open_5fapp_5fplugin_2eh_396',['open_app_plugin.h',['../open__app__plugin_8h.html',1,'']]]
+  ['plugin_2eh_250',['plugin.h',['../plugin_8h.html',1,'']]],
+  ['plugin_5fexecutor_2ecpp_251',['plugin_executor.cpp',['../plugin__executor_8cpp.html',1,'']]],
+  ['plugin_5fexecutor_2eh_252',['plugin_executor.h',['../plugin__executor_8h.html',1,'']]]
 ];

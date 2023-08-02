@@ -128,15 +128,15 @@ $(document).ready(function(){initNavTree('plugin__executor_8h_source.html',''); 
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      {<span class="stringliteral">&quot;(.*)stop video recording(.*)&quot;</span>, <span class="stringliteral">&quot;VIDEO_RECORD&quot;</span>},</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      {<span class="stringliteral">&quot;(.*)record (a|some) video(.*)&quot;</span>, <span class="stringliteral">&quot;VIDEO_RECORD&quot;</span>}};</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  std::function&lt;bool()&gt; IsRecording_;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  std::function&lt;void(<span class="keyword">const</span> std::string&amp; filename)&gt; StartVideoRecoding_;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  std::function&lt;void()&gt; StopVideoCapture_;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  std::function&lt;bool()&gt; is_recording_;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  std::function&lt;void(<span class="keyword">const</span> std::string&amp; filename)&gt; start_video_recording_;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  std::function&lt;void()&gt; stop_video_capture_;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  std::vector&lt;std::shared_ptr&lt;Plugin&gt;&gt; plugins_ = {</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      std::make_shared&lt;OpenAppPlugin&gt;(<span class="stringliteral">&quot;OPEN_APP&quot;</span>),</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      std::make_shared&lt;VideoRecordPlugin&gt;(<span class="stringliteral">&quot;VIDEO_RECORD&quot;</span>, IsRecording_,</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                                          StartVideoRecoding_,</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                                          StopVideoCapture_)};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      std::make_shared&lt;VideoRecordPlugin&gt;(<span class="stringliteral">&quot;VIDEO_RECORD&quot;</span>, is_recording_,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                                          start_video_recording_,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                                          stop_video_capture_)};</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  std::shared_ptr&lt;Plugin&gt; current_plugin_;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  std::string reflect(<span class="keyword">const</span> std::string&amp; word);</div>
@@ -147,9 +147,9 @@ $(document).ready(function(){initNavTree('plugin__executor_8h_source.html',''); 
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      std::function&lt;<span class="keywordtype">bool</span>()&gt; is_recording,</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      std::function&lt;<span class="keywordtype">void</span>(<span class="keyword">const</span> std::string&amp; filename)&gt; start_video_recording,</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      std::function&lt;<span class="keywordtype">void</span>()&gt; stop_video_capture)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      : IsRecording_(is_recording),</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        StartVideoRecoding_(start_video_recording),</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        StopVideoCapture_(stop_video_capture) {}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      : is_recording_(is_recording),</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        start_video_recording_(start_video_recording),</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        stop_video_capture_(stop_video_capture) {}</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">  /// @brief Parse and execute input</span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">  /// @param input user input string</span></div>

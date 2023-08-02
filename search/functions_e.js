@@ -1,31 +1,5 @@
 var searchData=
 [
-  ['sample_5faudio_526',['sample_audio',['../class_c_c_1_1audio_1_1_voice_recorder.html#ad4b5b09d56ddd3c2decaf5c1c0dae059',1,'CC::audio::VoiceRecorder']]],
-  ['saveindex_527',['saveIndex',['../classhnswlib_1_1_bruteforce_search.html#a3279684fe1d83b5d58b95734a063da47',1,'hnswlib::BruteforceSearch::saveIndex()'],['../classhnswlib_1_1_hierarchical_n_s_w.html#a24acaa972cd6e45d0c4c33d015b94937',1,'hnswlib::HierarchicalNSW::saveIndex()'],['../classhnswlib_1_1_algorithm_interface.html#a8d0dbf65a9522a491e629bee690de7bb',1,'hnswlib::AlgorithmInterface::saveIndex()']]],
-  ['say_528',['say',['../class_c_c_1_1audio_1_1_voice_synthesizer.html#aa44c2f39247ddba635965e54c0a84d12',1,'CC::audio::VoiceSynthesizer']]],
-  ['sdl_5fpoll_5fevents_529',['sdl_poll_events',['../namespace_c_c_1_1audio.html#a5b0b450a58701c85e42bace4c2d468ba',1,'CC::audio']]],
-  ['search_530',['search',['../class_c_c_1_1embeddb_1_1_collection.html#ae9a7add8f6c3fa624911353a74097406',1,'CC::embeddb::Collection']]],
-  ['search_5fembed_531',['search_embed',['../class_c_c_1_1embeddb_1_1_embed_search.html#ae2372636a26693febdbca06206ae3686',1,'CC::embeddb::EmbedSearch']]],
-  ['search_5fembeds_532',['search_embeds',['../class_c_c_1_1embeddb_1_1_embed_search.html#a637b474347c6bc4bae93627979e3ccc1',1,'CC::embeddb::EmbedSearch']]],
-  ['searchbaselayer_533',['searchBaseLayer',['../classhnswlib_1_1_hierarchical_n_s_w.html#ac3962d9fbb20689cbf580c20e151acca',1,'hnswlib::HierarchicalNSW']]],
-  ['searchbaselayerst_534',['searchBaseLayerST',['../classhnswlib_1_1_hierarchical_n_s_w.html#ad03eff1b4497748c17b5747dc7803360',1,'hnswlib::HierarchicalNSW']]],
-  ['searchknn_535',['searchKnn',['../classhnswlib_1_1_bruteforce_search.html#a2536619a8a36418b35cec52e2d78312d',1,'hnswlib::BruteforceSearch::searchKnn()'],['../classhnswlib_1_1_algorithm_interface.html#abd2be18e2c75e390102fc60760cf9521',1,'hnswlib::AlgorithmInterface::searchKnn()'],['../classhnswlib_1_1_hierarchical_n_s_w.html#ab45aa9fdbfee61db57f7b8d57a25a74b',1,'hnswlib::HierarchicalNSW::searchKnn()']]],
-  ['searchknncloserfirst_536',['searchKnnCloserFirst',['../classhnswlib_1_1_algorithm_interface.html#a2cd9b02f6e3d47fdcd70be0ca7d109ce',1,'hnswlib::AlgorithmInterface']]],
-  ['set_5fclose_5fcamera_5fview_537',['set_close_camera_view',['../class_c_c_1_1character_1_1_character.html#a8b17f94ce01ca6455a0a97ce2becd233',1,'CC::character::Character']]],
-  ['set_5fmessage_538',['set_message',['../class_c_c_1_1session_1_1_chat_message.html#a372b6383135d1607fe411d6b8941f305',1,'CC::session::ChatMessage::set_message(std::string, std::string)'],['../class_c_c_1_1session_1_1_chat_message.html#a676078149fdcb3796fab2b54d5d65425',1,'CC::session::ChatMessage::set_message(std::string)']]],
-  ['set_5fmute_539',['set_mute',['../class_c_c_1_1character_1_1_character.html#aacee6dddfd106b8ed74016ad34f71bcb',1,'CC::character::Character']]],
-  ['set_5fon_5fbot_5fmessage_540',['set_on_bot_message',['../class_c_c_1_1character_1_1_character.html#aff904c5890291fd9db2e8d561aaa7846',1,'CC::character::Character']]],
-  ['set_5fon_5fuser_5fmessage_541',['set_on_user_message',['../class_c_c_1_1character_1_1_character.html#a88b70272e72ad66434607d6ba172e23b',1,'CC::character::Character']]],
-  ['set_5fopen_5fcamera_5fview_542',['set_open_camera_view',['../class_c_c_1_1character_1_1_character.html#a90eecf27da583ebade8ec80edf0bb80e',1,'CC::character::Character']]],
-  ['set_5fsender_543',['set_sender',['../class_c_c_1_1session_1_1_chat_message.html#afe12efc71088e26bbc5734c914f952f4',1,'CC::session::ChatMessage']]],
-  ['set_5ftime_544',['set_time',['../class_c_c_1_1session_1_1_chat_message.html#af557574ac56696d7d7556bda6dcfd79a',1,'CC::session::ChatMessage']]],
-  ['setef_545',['setEf',['../classhnswlib_1_1_hierarchical_n_s_w.html#aeb1e7761fbd4760d756a1acf9094b7b9',1,'hnswlib::HierarchicalNSW']]],
-  ['setexternallabel_546',['setExternalLabel',['../classhnswlib_1_1_hierarchical_n_s_w.html#aee0dfe2cdf16d702d46a739d334be30f',1,'hnswlib::HierarchicalNSW']]],
-  ['setlistcount_547',['setListCount',['../classhnswlib_1_1_hierarchical_n_s_w.html#af409401415042051ac58d1da46c099ee',1,'hnswlib::HierarchicalNSW']]],
-  ['speechrecognizer_548',['SpeechRecognizer',['../class_c_c_1_1audio_1_1_speech_recognizer.html#a30b9d9a77b9e37be98082a6a281af7a5',1,'CC::audio::SpeechRecognizer']]],
-  ['start_549',['Start',['../class_c_c_1_1vision_1_1_video_capture.html#ac1948f79fe3a3391e1bffbfd5f4773da',1,'CC::vision::VideoCapture']]],
-  ['start_5fvideo_5fcapture_550',['start_video_capture',['../class_c_c_1_1character_1_1_character.html#a873bd7aeb9726760354c174ec83426ab',1,'CC::character::Character']]],
-  ['start_5fvideo_5frecording_551',['start_video_recording',['../class_c_c_1_1character_1_1_character.html#abead78f961c623fed79cdc2cc8c6b30e',1,'CC::character::Character']]],
-  ['stop_552',['Stop',['../class_c_c_1_1vision_1_1_video_capture.html#a809cf127f302693c2d24b84dfcd944b4',1,'CC::vision::VideoCapture']]],
-  ['stop_5fvideo_5fcapture_553',['stop_video_capture',['../class_c_c_1_1character_1_1_character.html#a508c8f4a490a8b75574a4a54664da961',1,'CC::character::Character']]]
+  ['tokenize_359',['tokenize',['../class_c_c_1_1llm_1_1_l_l_m.html#a555b895486455181b746a8d76e9f2e45',1,'CC::llm::LLM']]],
+  ['trim_360',['trim',['../namespace_c_c_1_1common.html#a63333e75a58efeaedcba259ac4b78d5d',1,'CC::common']]]
 ];

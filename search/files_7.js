@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['main_2ecpp_394',['main.cpp',['../main_8cpp.html',1,'']]],
-  ['main_5fcli_2ecpp_395',['main_cli.cpp',['../main__cli_8cpp.html',1,'']]]
+  ['open_5fapp_5fplugin_2eh_249',['open_app_plugin.h',['../open__app__plugin_8h.html',1,'']]]
 ];

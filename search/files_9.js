@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['plugin_2eh_397',['plugin.h',['../plugin_8h.html',1,'']]],
-  ['plugin_5fexecutor_2ecpp_398',['plugin_executor.cpp',['../plugin__executor_8cpp.html',1,'']]],
-  ['plugin_5fexecutor_2eh_399',['plugin_executor.h',['../plugin__executor_8h.html',1,'']]]
+  ['readme_2emd_253',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]]
 ];

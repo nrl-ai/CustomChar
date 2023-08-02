@@ -90,8 +90,8 @@ $(document).ready(function(){initNavTree('embed__search_8h_source.html',''); ini
 <div class="title">embed_search.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="embed__search_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CUSTOMCHAR_EMBED_SEARCH_EMBED_SEARCH_H_</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CUSTOMCHAR_EMBED_SEARCH_EMBED_SEARCH_H_</span></div>
+<a href="embed__search_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CUSTOMCHAR_EMBEDDB_EMBED_SEARCH_H_</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CUSTOMCHAR_EMBEDDB_EMBED_SEARCH_H_</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
@@ -99,8 +99,8 @@ $(document).ready(function(){initNavTree('embed__search_8h_source.html',''); ini
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;customchar/embed_search/search_embed_result.h&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="hnswlib_8h.html">hnswlib/hnswlib.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="types_8h.html">customchar/embeddb/types.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;hnswlib/hnswlib.h&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_c_c.html">CC</a> {</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>embeddb {</div>
@@ -112,7 +112,7 @@ $(document).ready(function(){initNavTree('embed__search_8h_source.html',''); ini
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  uint32_t dim;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  uint32_t max_size;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  std::shared_ptr&lt;hnswlib::L2Space&gt; space;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <a class="code" href="classhnswlib_1_1_hierarchical_n_s_w.html">hnswlib::HierarchicalNSW&lt;float&gt;</a>* alg_hnsw;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  hnswlib::HierarchicalNSW&lt;float&gt;* alg_hnsw;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordtype">void</span> save_data();</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">bool</span> load_data();</div>
@@ -139,7 +139,7 @@ $(document).ready(function(){initNavTree('embed__search_8h_source.html',''); ini
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}  <span class="comment">// namespace embeddb</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}  <span class="comment">// namespace CC</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// CUSTOMCHAR_EMBED_SEARCH_EMBED_SEARCH_H_</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclass_c_c_1_1embeddb_1_1_embed_search_html"><div class="ttname"><a href="class_c_c_1_1embeddb_1_1_embed_search.html">CC::embeddb::EmbedSearch</a></div><div class="ttdef"><b>Definition:</b> <a href="embed__search_8h_source.html#l00016">embed_search.h:16</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1embeddb_1_1_embed_search_html_a637b474347c6bc4bae93627979e3ccc1"><div class="ttname"><a href="class_c_c_1_1embeddb_1_1_embed_search.html#a637b474347c6bc4bae93627979e3ccc1">CC::embeddb::EmbedSearch::search_embeds</a></div><div class="ttdeci">void search_embeds(const std::vector&lt; std::vector&lt; float &gt;&gt; &amp;embeds, std::vector&lt; std::vector&lt; SearchEmbedResult &gt;&gt; &amp;results, uint32_t top_k, float threshold)</div><div class="ttdef"><b>Definition:</b> <a href="embed__search_8cpp_source.html#l00074">embed_search.cpp:74</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1embeddb_1_1_embed_search_html_a9a274e6474557040f035f4e5f0bf7711"><div class="ttname"><a href="class_c_c_1_1embeddb_1_1_embed_search.html#a9a274e6474557040f035f4e5f0bf7711">CC::embeddb::EmbedSearch::insert_embeds</a></div><div class="ttdeci">void insert_embeds(const std::vector&lt; std::vector&lt; float &gt;&gt; &amp;embeds, std::vector&lt; uint32_t &gt; &amp;ids)</div><div class="ttdef"><b>Definition:</b> <a href="embed__search_8cpp_source.html#l00034">embed_search.cpp:34</a></div></div>
@@ -147,9 +147,8 @@ $(document).ready(function(){initNavTree('embed__search_8h_source.html',''); ini
 <div class="ttc" id="aclass_c_c_1_1embeddb_1_1_embed_search_html_ae2372636a26693febdbca06206ae3686"><div class="ttname"><a href="class_c_c_1_1embeddb_1_1_embed_search.html#ae2372636a26693febdbca06206ae3686">CC::embeddb::EmbedSearch::search_embed</a></div><div class="ttdeci">void search_embed(const std::vector&lt; float &gt; &amp;embed, std::vector&lt; SearchEmbedResult &gt; &amp;results, uint32_t top_k, float threshold)</div><div class="ttdef"><b>Definition:</b> <a href="embed__search_8cpp_source.html#l00053">embed_search.cpp:53</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1embeddb_1_1_embed_search_html_ae256e874e3e99863534927a0757f5bf9"><div class="ttname"><a href="class_c_c_1_1embeddb_1_1_embed_search.html#ae256e874e3e99863534927a0757f5bf9">CC::embeddb::EmbedSearch::remove_embeds</a></div><div class="ttdeci">void remove_embeds(const std::vector&lt; uint32_t &gt; &amp;ids)</div><div class="ttdef"><b>Definition:</b> <a href="embed__search_8cpp_source.html#l00046">embed_search.cpp:46</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1embeddb_1_1_embed_search_html_affdd61ea09e6956ac8b9d8c6a65a03ce"><div class="ttname"><a href="class_c_c_1_1embeddb_1_1_embed_search.html#affdd61ea09e6956ac8b9d8c6a65a03ce">CC::embeddb::EmbedSearch::~EmbedSearch</a></div><div class="ttdeci">~EmbedSearch()</div><div class="ttdef"><b>Definition:</b> <a href="embed__search_8cpp_source.html#l00013">embed_search.cpp:13</a></div></div>
-<div class="ttc" id="aclasshnswlib_1_1_hierarchical_n_s_w_html"><div class="ttname"><a href="classhnswlib_1_1_hierarchical_n_s_w.html">hnswlib::HierarchicalNSW&lt; float &gt;</a></div></div>
-<div class="ttc" id="ahnswlib_8h_html"><div class="ttname"><a href="hnswlib_8h.html">hnswlib.h</a></div></div>
 <div class="ttc" id="anamespace_c_c_html"><div class="ttname"><a href="namespace_c_c.html">CC</a></div><div class="ttdef"><b>Definition:</b> <a href="audio_8h_source.html#l00010">audio.h:10</a></div></div>
+<div class="ttc" id="atypes_8h_html"><div class="ttname"><a href="types_8h.html">types.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

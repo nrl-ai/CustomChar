@@ -1,7 +1,12 @@
 var searchData=
 [
-  ['parse_5fand_5fexecute_508',['parse_and_execute',['../class_c_c_1_1executors_1_1_plugin_executor.html#ae9673e0b685e2e5f814c5eacae216fc3',1,'CC::executors::PluginExecutor']]],
-  ['pause_509',['pause',['../class_c_c_1_1audio_1_1_audio_async.html#adcd90d3dc7a51185e09c8d1e1dfe4029',1,'CC::audio::AudioAsync']]],
-  ['plugin_510',['Plugin',['../class_c_c_1_1executors_1_1_plugin.html#a64b7befda94f5464341a0258c8515339',1,'CC::executors::Plugin']]],
-  ['pluginexecutor_511',['PluginExecutor',['../class_c_c_1_1executors_1_1_plugin_executor.html#a1747de5201ee9b2e8b555affc3e0aba3',1,'CC::executors::PluginExecutor']]]
+  ['read_5fwav_330',['read_wav',['../namespace_c_c_1_1audio.html#a75be80789dae71b7c732878840a89377',1,'CC::audio']]],
+  ['recognize_331',['recognize',['../class_c_c_1_1audio_1_1_speech_recognizer.html#a0d5969d56d9830e607f4daef65d53aca',1,'CC::audio::SpeechRecognizer']]],
+  ['record_332',['Record',['../class_c_c_1_1vision_1_1_video_capture.html#a3f824f1f6a17cd22c8f54f79722ea82b',1,'CC::vision::VideoCapture']]],
+  ['record_5fspeech_333',['record_speech',['../class_c_c_1_1audio_1_1_voice_recorder.html#aa89eedc4564fae970df934594328b2aa',1,'CC::audio::VoiceRecorder']]],
+  ['remove_5fembeds_334',['remove_embeds',['../class_c_c_1_1embeddb_1_1_embed_search.html#ae256e874e3e99863534927a0757f5bf9',1,'CC::embeddb::EmbedSearch']]],
+  ['replace_335',['replace',['../namespace_c_c_1_1common.html#a07b857d084cdfa2513e6b0c309b7e132',1,'CC::common']]],
+  ['resume_336',['resume',['../class_c_c_1_1audio_1_1_audio_async.html#ac467aa02ab37080335b91914220bfbda',1,'CC::audio::AudioAsync']]],
+  ['run_337',['Run',['../class_c_c_1_1character_1_1_character.html#a3861f4c6f3023dc83c614fa7dabb0cfb',1,'CC::character::Character']]],
+  ['run_5fimg_5fui_338',['run_img_ui',['../main_8cpp.html#aaf47c2ebe47c2229c33128f8aba95e09',1,'main.cpp']]]
 ];

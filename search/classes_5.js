@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['hierarchicalnsw_340',['HierarchicalNSW',['../classhnswlib_1_1_hierarchical_n_s_w.html',1,'hnswlib']]],
-  ['hierarchicalnsw_3c_20float_20_3e_341',['HierarchicalNSW&lt; float &gt;',['../classhnswlib_1_1_hierarchical_n_s_w.html',1,'hnswlib']]]
+  ['openappplugin_209',['OpenAppPlugin',['../class_c_c_1_1executors_1_1_open_app_plugin.html',1,'CC::executors']]]
 ];

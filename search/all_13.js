@@ -1,23 +1,9 @@
 var searchData=
 [
-  ['vad_5fsimple_291',['vad_simple',['../namespace_c_c_1_1audio.html#a502a8bbc1efe9680444773de81b373b5',1,'CC::audio']]],
-  ['vad_5fthold_292',['vad_thold',['../struct_c_c_1_1common_1_1_c_c_params.html#a2d0c3c2c10bc05920f35500155c9c55c',1,'CC::common::CCParams']]],
-  ['verbose_5fprompt_293',['verbose_prompt',['../struct_c_c_1_1common_1_1_c_c_params.html#a92f3446d86bb203a4faebf8174a0182a',1,'CC::common::CCParams']]],
-  ['video_5fcapture_2eh_294',['video_capture.h',['../video__capture_8h.html',1,'']]],
-  ['video_5frecord_5fplugin_2eh_295',['video_record_plugin.h',['../video__record__plugin_8h.html',1,'']]],
-  ['videocapture_296',['VideoCapture',['../class_c_c_1_1vision_1_1_video_capture.html',1,'CC::vision::VideoCapture'],['../class_c_c_1_1vision_1_1_video_capture.html#a7a14a58d3282e65990fba33c1707513f',1,'CC::vision::VideoCapture::VideoCapture()']]],
-  ['videocapturemode_297',['VideoCaptureMode',['../namespace_c_c_1_1vision.html#ab5aa02f765efca17cd6bf9116ae45805',1,'CC::vision']]],
-  ['videorecordplugin_298',['VideoRecordPlugin',['../class_c_c_1_1executors_1_1_video_record_plugin.html',1,'CC::executors::VideoRecordPlugin'],['../class_c_c_1_1executors_1_1_video_record_plugin.html#a4969f9f08a9d138c98849b0aa2fe1640',1,'CC::executors::VideoRecordPlugin::VideoRecordPlugin()']]],
-  ['visited_5flist_5fpool_2eh_299',['visited_list_pool.h',['../visited__list__pool_8h.html',1,'']]],
-  ['visited_5flist_5fpool_5f_300',['visited_list_pool_',['../classhnswlib_1_1_hierarchical_n_s_w.html#a57655819ffe57662b88bb1444c2cbcbf',1,'hnswlib::HierarchicalNSW']]],
-  ['visitedlist_301',['VisitedList',['../classhnswlib_1_1_visited_list.html',1,'hnswlib::VisitedList'],['../classhnswlib_1_1_visited_list.html#ac249d1ad0cc372ebeb988fd7ff24a9be',1,'hnswlib::VisitedList::VisitedList()']]],
-  ['visitedlistpool_302',['VisitedListPool',['../classhnswlib_1_1_visited_list_pool.html',1,'hnswlib::VisitedListPool'],['../classhnswlib_1_1_visited_list_pool.html#a9f4f5af0ed2f1f4ad7b5b0d438290a32',1,'hnswlib::VisitedListPool::VisitedListPool()']]],
-  ['vl_5ftype_303',['vl_type',['../namespacehnswlib.html#a1cb6e373e6ca06c66f921d49276b9762',1,'hnswlib']]],
-  ['voice_5fms_304',['voice_ms',['../struct_c_c_1_1common_1_1_c_c_params.html#ae2fc80b19237f3489d6a307479d6b5af',1,'CC::common::CCParams']]],
-  ['voice_5frecorder_2ecpp_305',['voice_recorder.cpp',['../voice__recorder_8cpp.html',1,'']]],
-  ['voice_5frecorder_2eh_306',['voice_recorder.h',['../voice__recorder_8h.html',1,'']]],
-  ['voice_5fsynthesizer_2ecpp_307',['voice_synthesizer.cpp',['../voice__synthesizer_8cpp.html',1,'']]],
-  ['voice_5fsynthesizer_2eh_308',['voice_synthesizer.h',['../voice__synthesizer_8h.html',1,'']]],
-  ['voicerecorder_309',['VoiceRecorder',['../class_c_c_1_1audio_1_1_voice_recorder.html',1,'CC::audio::VoiceRecorder'],['../class_c_c_1_1audio_1_1_voice_recorder.html#a33534f100b0cf8bf7fe431ca26ac1b7d',1,'CC::audio::VoiceRecorder::VoiceRecorder()']]],
-  ['voicesynthesizer_310',['VoiceSynthesizer',['../class_c_c_1_1audio_1_1_voice_synthesizer.html',1,'CC::audio::VoiceSynthesizer'],['../class_c_c_1_1audio_1_1_voice_synthesizer.html#a1cd8d65da1503e72f5e848877cc661d7',1,'CC::audio::VoiceSynthesizer::VoiceSynthesizer()']]]
+  ['_7eaudioasync_193',['~AudioAsync',['../class_c_c_1_1audio_1_1_audio_async.html#a5e34bc9dfa2493948fc2ff36241492f4',1,'CC::audio::AudioAsync']]],
+  ['_7echathistory_194',['~ChatHistory',['../class_c_c_1_1session_1_1_chat_history.html#af670947b6534b51a00e662e8b2678f75',1,'CC::session::ChatHistory']]],
+  ['_7echatmessage_195',['~ChatMessage',['../class_c_c_1_1session_1_1_chat_message.html#aba3256c4da91654e667c3fddf1613d8d',1,'CC::session::ChatMessage']]],
+  ['_7eembedsearch_196',['~EmbedSearch',['../class_c_c_1_1embeddb_1_1_embed_search.html#affdd61ea09e6956ac8b9d8c6a65a03ce',1,'CC::embeddb::EmbedSearch']]],
+  ['_7ellm_197',['~LLM',['../class_c_c_1_1llm_1_1_l_l_m.html#a4720adfef94d91c917974000c6959575',1,'CC::llm::LLM']]],
+  ['_7espeechrecognizer_198',['~SpeechRecognizer',['../class_c_c_1_1audio_1_1_speech_recognizer.html#ac85e4be8356808398c4e231264a8e82a',1,'CC::audio::SpeechRecognizer']]]
 ];
