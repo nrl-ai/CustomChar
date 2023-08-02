@@ -25,8 +25,14 @@ find_package(OpenCV REQUIRED)
 add_subdirectory(libs/whisper-cpp)
 add_subdirectory(libs/subprocess)
 
-# Build embeding search module
-add_subdirectory(customchar/embeddb)
+include_directories(libs .)
+
+# Build embeding search library
+add_library(
+    embeddb
+    customchar/embeddb/document.cpp
+    customchar/embeddb/embed_search.cpp
+)
 
 # Build CustomChar-core
 set(TARGET customchar-core)
@@ -47,10 +53,8 @@ add_library(
 target_include_directories(
     ${TARGET} PUBLIC
     ${SDL2_INCLUDE_DIRS}
-    libs
-    .
 )
-target_link_libraries(${TARGET} PUBLIC ${SDL2_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} ${OpenCV_LIBS} whisper subprocess)
+target_link_libraries(${TARGET} PUBLIC ${SDL2_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} ${OpenCV_LIBS} whisper subprocess embeddb)
 
 # Set binary output directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
@@ -112,7 +116,6 @@ if(BUILD_GUI)
         COMMAND ${CMAKE_COMMAND} -E copy_directory
         ${CMAKE_SOURCE_DIR}/fonts $<TARGET_FILE_DIR:customchar>/fonts)
 endif()
-
 
 add_executable(
     test_ffmpeg_as_input tests/test_ffmpeg_as_input.cpp

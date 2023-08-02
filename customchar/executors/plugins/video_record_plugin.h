@@ -14,9 +14,9 @@ namespace executors {
 /// @brief Plugin for record videos
 class VideoRecordPlugin : public Plugin {
  private:
-  std::function<bool()> IsRecording_;
-  std::function<void(const std::string& filename)> StartVideoRecoding_;
-  std::function<void()> StopVideoCapture_;
+  std::function<bool()> is_recording_;
+  std::function<void(const std::string& filename)> start_video_recording_;
+  std::function<void()> stop_video_capture_;
 
  public:
   VideoRecordPlugin(
@@ -24,9 +24,9 @@ class VideoRecordPlugin : public Plugin {
       std::function<void(const std::string& filename)> start_video_recording,
       std::function<void()> stop_video_capture)
       : Plugin(name),
-        IsRecording_(is_recording),
-        StartVideoRecoding_(start_video_recording),
-        StopVideoCapture_(stop_video_capture) {}
+        is_recording_(is_recording),
+        start_video_recording_(start_video_recording),
+        stop_video_capture_(stop_video_capture) {}
   bool handle(const std::string& input, std::string& response,
               bool& finished) override {
     // Normalize app name
@@ -40,17 +40,17 @@ class VideoRecordPlugin : public Plugin {
                          normalized_input.find("end") != std::string::npos ||
                          normalized_input.find("finish") != std::string::npos;
     if (contains_stop) {
-      if (!IsRecording_()) {
+      if (!is_recording_()) {
         finished = true;
         return false;
       }
-      StopVideoCapture_();
+      stop_video_capture_();
       response = "Stopping video recording";
       finished = true;
       return true;
     }
 
-    if (IsRecording_()) {
+    if (is_recording_()) {
       finished = true;
       return false;
     }
@@ -59,7 +59,7 @@ class VideoRecordPlugin : public Plugin {
     std::stringstream ss;
     ss << "video_" << std::time(nullptr) << ".mkv";
 
-    StartVideoRecoding_(ss.str());
+    start_video_recording_(ss.str());
     response = "Starting video recording...";
     finished = true;
     return true;

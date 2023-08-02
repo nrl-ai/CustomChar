@@ -1,5 +1,5 @@
-#ifndef CUSTOMCHAR_EMBEDDB_EMBED_DB_H_
-#define CUSTOMCHAR_EMBEDDB_EMBED_DB_H_
+#ifndef CUSTOMCHAR_EMBEDDB_EMBEDDB_H_
+#define CUSTOMCHAR_EMBEDDB_EMBEDDB_H_
 
 #include <string>
 #include <vector>

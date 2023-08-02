@@ -1,5 +1,5 @@
-#ifndef CUSTOMCHAR_EMBED_SEARCH_EMBED_SEARCH_H_
-#define CUSTOMCHAR_EMBED_SEARCH_EMBED_SEARCH_H_
+#ifndef CUSTOMCHAR_EMBEDDB_EMBED_SEARCH_H_
+#define CUSTOMCHAR_EMBEDDB_EMBED_SEARCH_H_
 
 #include <fstream>
 #include <iostream>
@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 
-#include "customchar/embed_search/search_embed_result.h"
+#include "customchar/embeddb/types.h"
 #include "hnswlib/hnswlib.h"
 
 namespace CC {
@@ -47,4 +47,4 @@ class EmbedSearch {
 }  // namespace embeddb
 }  // namespace CC
 
-#endif  // CUSTOMCHAR_EMBED_SEARCH_EMBED_SEARCH_H_
+#endif

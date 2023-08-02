@@ -36,15 +36,15 @@ class PluginExecutor {
       {"(.*)stop video recording(.*)", "VIDEO_RECORD"},
       {"(.*)record (a|some) video(.*)", "VIDEO_RECORD"}};
 
-  std::function<bool()> IsRecording_;
-  std::function<void(const std::string& filename)> StartVideoRecoding_;
-  std::function<void()> StopVideoCapture_;
+  std::function<bool()> is_recording_;
+  std::function<void(const std::string& filename)> start_video_recording_;
+  std::function<void()> stop_video_capture_;
 
   std::vector<std::shared_ptr<Plugin>> plugins_ = {
       std::make_shared<OpenAppPlugin>("OPEN_APP"),
-      std::make_shared<VideoRecordPlugin>("VIDEO_RECORD", IsRecording_,
-                                          StartVideoRecoding_,
-                                          StopVideoCapture_)};
+      std::make_shared<VideoRecordPlugin>("VIDEO_RECORD", is_recording_,
+                                          start_video_recording_,
+                                          stop_video_capture_)};
   std::shared_ptr<Plugin> current_plugin_;
 
   std::string reflect(const std::string& word);
@@ -55,9 +55,9 @@ class PluginExecutor {
       std::function<bool()> is_recording,
       std::function<void(const std::string& filename)> start_video_recording,
       std::function<void()> stop_video_capture)
-      : IsRecording_(is_recording),
-        StartVideoRecoding_(start_video_recording),
-        StopVideoCapture_(stop_video_capture) {}
+      : is_recording_(is_recording),
+        start_video_recording_(start_video_recording),
+        stop_video_capture_(stop_video_capture) {}
 
   /// @brief Parse and execute input
   /// @param input user input string
