@@ -35,8 +35,8 @@ uint32_t EmbedSearch::get_current_index() {
 }
 
 void EmbedSearch::insert_embed(const std::vector<float>& embed, uint32_t& id) {
-  uint32_t index = get_current_index();
-  alg_hnsw_->addPoint((void*)&embed[0], index);
+  id = get_current_index();
+  alg_hnsw_->addPoint((void*)&embed[0], id);
   save_data();
 }
 
