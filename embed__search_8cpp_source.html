@@ -96,22 +96,22 @@ $(document).ready(function(){initNavTree('embed__search_8cpp_source.html',''); i
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="class_c_c_1_1embeddb_1_1_embed_search.html#aceb35064ba2f65a9f782e4eee1b5a8f3">    5</a></span>&#160;<a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#aceb35064ba2f65a9f782e4eee1b5a8f3">EmbedSearch::EmbedSearch</a>(<span class="keyword">const</span> std::string&amp; hnsw_path, <span class="keyword">const</span> uint32_t dim,</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;                         <span class="keyword">const</span> uint32_t max_size)</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    : hnsw_path(hnsw_path), dim(dim), max_size(max_size) {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  space = std::make_shared&lt;hnswlib::L2Space&gt;(dim);</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  alg_hnsw = <span class="keyword">new</span> hnswlib::HierarchicalNSW&lt;float&gt;(&amp;*space, max_size);</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    : hnsw_path_(hnsw_path), dim_(dim), max_size_(max_size) {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  space_ = std::make_shared&lt;hnswlib::L2Space&gt;(dim);</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  alg_hnsw_ = <span class="keyword">new</span> hnswlib::HierarchicalNSW&lt;float&gt;(&amp;*space_, max_size);</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  load_data();</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_c_c_1_1embeddb_1_1_embed_search.html#affdd61ea09e6956ac8b9d8c6a65a03ce">   13</a></span>&#160;<a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#affdd61ea09e6956ac8b9d8c6a65a03ce">EmbedSearch::~EmbedSearch</a>() {</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  save_data();</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keyword">delete</span> alg_hnsw;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keyword">delete</span> alg_hnsw_;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">void</span> EmbedSearch::save_data() { alg_hnsw-&gt;saveIndex(hnsw_path); }</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">void</span> EmbedSearch::save_data() { alg_hnsw_-&gt;saveIndex(hnsw_path_); }</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">bool</span> EmbedSearch::load_data() {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keywordflow">if</span> (!check_exists_file(hnsw_path)) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  alg_hnsw-&gt;loadIndex(hnsw_path, &amp;*space, max_size);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keywordflow">if</span> (!check_exists_file(hnsw_path_)) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  alg_hnsw_-&gt;loadIndex(hnsw_path_, &amp;*space_, max_size_);</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  std::cout &lt;&lt; <span class="stringliteral">&quot;Load data success with size: &quot;</span> &lt;&lt; get_num_datas() &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
@@ -121,7 +121,7 @@ $(document).ready(function(){initNavTree('embed__search_8cpp_source.html',''); i
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordflow">return</span> f.good();</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;uint32_t EmbedSearch::get_num_datas() { <span class="keywordflow">return</span> alg_hnsw-&gt;cur_element_count; }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;uint32_t EmbedSearch::get_num_datas() { <span class="keywordflow">return</span> alg_hnsw_-&gt;cur_element_count; }</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_c_c_1_1embeddb_1_1_embed_search.html#a9a274e6474557040f035f4e5f0bf7711">   34</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#a9a274e6474557040f035f4e5f0bf7711">EmbedSearch::insert_embeds</a>(<span class="keyword">const</span> std::vector&lt;std::vector&lt;float&gt;&gt;&amp; embeds,</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                                std::vector&lt;uint32_t&gt;&amp; ids) {</div>
@@ -131,13 +131,13 @@ $(document).ready(function(){initNavTree('embed__search_8cpp_source.html',''); i
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    ids[i] = num_datas + i;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  }</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; embeds.size(); i++) {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    alg_hnsw-&gt;addPoint((<span class="keywordtype">void</span>*)&amp;embeds[i][0], ids[i]);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    alg_hnsw_-&gt;addPoint((<span class="keywordtype">void</span>*)&amp;embeds[i][0], ids[i]);</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  }</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  save_data();</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
 <div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_c_c_1_1embeddb_1_1_embed_search.html#ae256e874e3e99863534927a0757f5bf9">   46</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#ae256e874e3e99863534927a0757f5bf9">EmbedSearch::remove_embeds</a>(<span class="keyword">const</span> std::vector&lt;uint32_t&gt;&amp; ids) {</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; ids.size(); i++) {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    alg_hnsw-&gt;markDelete(ids[i]);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    alg_hnsw_-&gt;markDelete(ids[i]);</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  }</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  save_data();</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
@@ -151,7 +151,7 @@ $(document).ready(function(){initNavTree('embed__search_8cpp_source.html',''); i
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordflow">if</span> (num_datas &lt; top_k) top_k = num_datas;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">void</span>* p = embed.data();</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keyword">auto</span> gd = alg_hnsw-&gt;searchKnn(p, top_k);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keyword">auto</span> gd = alg_hnsw_-&gt;searchKnn(p, top_k);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordflow">while</span> (!gd.empty()) {</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">if</span> (gd.top().first &lt;= threshold) {</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <a class="code" href="struct_c_c_1_1embeddb_1_1_search_embed_result.html">SearchEmbedResult</a> result;</div>

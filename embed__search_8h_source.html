@@ -108,11 +108,11 @@ $(document).ready(function(){initNavTree('embed__search_8h_source.html',''); ini
 <div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_c_c_1_1embeddb_1_1_embed_search.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html">EmbedSearch</a> {</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="comment">// HNSW index path.</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  std::string hnsw_path;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  uint32_t dim;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  uint32_t max_size;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  std::shared_ptr&lt;hnswlib::L2Space&gt; space;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  hnswlib::HierarchicalNSW&lt;float&gt;* alg_hnsw;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  std::string hnsw_path_;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  uint32_t dim_;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  uint32_t max_size_;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  std::shared_ptr&lt;hnswlib::L2Space&gt; space_;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  hnswlib::HierarchicalNSW&lt;float&gt;* alg_hnsw_;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordtype">void</span> save_data();</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">bool</span> load_data();</div>

@@ -102,25 +102,25 @@ $(document).ready(function(){initNavTree('document_8h_source.html',''); initResi
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_c_c_1_1embeddb_1_1_document.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_c_1_1embeddb_1_1_document.html">Document</a> {</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="comment">// Document ID.</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  u_int32_t id;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  u_int32_t id_;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="comment">// Document embedding.</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  std::vector&lt;float&gt; embedding;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  std::vector&lt;float&gt; embedding_;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="comment">// Document content.</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  std::string content;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  std::string content_;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="comment">// Document metadata (JSON).</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  std::string meta;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  std::string meta_;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="comment">// Original document ID.</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  u_int32_t original_doc_id;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  u_int32_t original_doc_id_;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="comment">// Position of the document in the original file (line).</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  u_int32_t original_pos_line;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  u_int32_t original_pos_line_;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="comment">// Position of the document in the original file (column).</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  u_int32_t original_pos_col;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  u_int32_t original_pos_col_;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <a class="code" href="class_c_c_1_1embeddb_1_1_document.html#a7773cde0416549d780d8c184b9d379bc">Document</a>(u_int32_t <span class="keywordtype">id</span>, std::vector&lt;float&gt; embedding,</div>
