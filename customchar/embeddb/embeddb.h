@@ -12,13 +12,13 @@ namespace embeddb {
 class EmbedDB {
  private:
   // Database path.
-  std::string db_path;
+  std::string db_path_;
 
   // HNSW index path.
-  std::string hnsw_path;
+  std::string hnsw_path_;
 
   // Document database (SQLite).
-  std::string doc_db_path;
+  std::string doc_db_path_;
 
  public:
   // Database path. Containing:

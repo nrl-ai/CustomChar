@@ -16,11 +16,11 @@ namespace embeddb {
 class EmbedSearch {
  private:
   // HNSW index path.
-  std::string hnsw_path;
-  uint32_t dim;
-  uint32_t max_size;
-  std::shared_ptr<hnswlib::L2Space> space;
-  hnswlib::HierarchicalNSW<float>* alg_hnsw;
+  std::string hnsw_path_;
+  uint32_t dim_;
+  uint32_t max_size_;
+  std::shared_ptr<hnswlib::L2Space> space_;
+  hnswlib::HierarchicalNSW<float>* alg_hnsw_;
 
   void save_data();
   bool load_data();

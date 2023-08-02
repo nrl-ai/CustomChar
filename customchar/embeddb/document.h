@@ -10,25 +10,25 @@ namespace embeddb {
 class Document {
  private:
   // Document ID.
-  u_int32_t id;
+  u_int32_t id_;
 
   // Document embedding.
-  std::vector<float> embedding;
+  std::vector<float> embedding_;
 
   // Document content.
-  std::string content;
+  std::string content_;
 
   // Document metadata (JSON).
-  std::string meta;
+  std::string meta_;
 
   // Original document ID.
-  u_int32_t original_doc_id;
+  u_int32_t original_doc_id_;
 
   // Position of the document in the original file (line).
-  u_int32_t original_pos_line;
+  u_int32_t original_pos_line_;
 
   // Position of the document in the original file (column).
-  u_int32_t original_pos_col;
+  u_int32_t original_pos_col_;
 
  public:
   Document(u_int32_t id, std::vector<float> embedding,

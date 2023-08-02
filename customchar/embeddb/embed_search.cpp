@@ -4,22 +4,22 @@ using namespace CC::embeddb;
 
 EmbedSearch::EmbedSearch(const std::string& hnsw_path, const uint32_t dim,
                          const uint32_t max_size)
-    : hnsw_path(hnsw_path), dim(dim), max_size(max_size) {
-  space = std::make_shared<hnswlib::L2Space>(dim);
-  alg_hnsw = new hnswlib::HierarchicalNSW<float>(&*space, max_size);
+    : hnsw_path_(hnsw_path), dim_(dim), max_size_(max_size) {
+  space_ = std::make_shared<hnswlib::L2Space>(dim);
+  alg_hnsw_ = new hnswlib::HierarchicalNSW<float>(&*space_, max_size);
   load_data();
 }
 
 EmbedSearch::~EmbedSearch() {
   save_data();
-  delete alg_hnsw;
+  delete alg_hnsw_;
 }
 
-void EmbedSearch::save_data() { alg_hnsw->saveIndex(hnsw_path); }
+void EmbedSearch::save_data() { alg_hnsw_->saveIndex(hnsw_path_); }
 
 bool EmbedSearch::load_data() {
-  if (!check_exists_file(hnsw_path)) return false;
-  alg_hnsw->loadIndex(hnsw_path, &*space, max_size);
+  if (!check_exists_file(hnsw_path_)) return false;
+  alg_hnsw_->loadIndex(hnsw_path_, &*space_, max_size_);
   std::cout << "Load data success with size: " << get_num_datas() << std::endl;
   return true;
 }
@@ -29,7 +29,7 @@ bool EmbedSearch::check_exists_file(const std::string& name) {
   return f.good();
 }
 
-uint32_t EmbedSearch::get_num_datas() { return alg_hnsw->cur_element_count; }
+uint32_t EmbedSearch::get_num_datas() { return alg_hnsw_->cur_element_count; }
 
 void EmbedSearch::insert_embeds(const std::vector<std::vector<float>>& embeds,
                                 std::vector<uint32_t>& ids) {
@@ -39,13 +39,13 @@ void EmbedSearch::insert_embeds(const std::vector<std::vector<float>>& embeds,
     ids[i] = num_datas + i;
   }
   for (uint32_t i = 0; i < embeds.size(); i++) {
-    alg_hnsw->addPoint((void*)&embeds[i][0], ids[i]);
+    alg_hnsw_->addPoint((void*)&embeds[i][0], ids[i]);
   }
   save_data();
 }
 void EmbedSearch::remove_embeds(const std::vector<uint32_t>& ids) {
   for (uint32_t i = 0; i < ids.size(); i++) {
-    alg_hnsw->markDelete(ids[i]);
+    alg_hnsw_->markDelete(ids[i]);
   }
   save_data();
 }
@@ -59,7 +59,7 @@ void EmbedSearch::search_embed(const std::vector<float>& embed,
   if (num_datas < top_k) top_k = num_datas;
   const void* p = embed.data();
 
-  auto gd = alg_hnsw->searchKnn(p, top_k);
+  auto gd = alg_hnsw_->searchKnn(p, top_k);
   while (!gd.empty()) {
     if (gd.top().first <= threshold) {
       SearchEmbedResult result;
