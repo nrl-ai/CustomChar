@@ -127,8 +127,8 @@ $(document).ready(function(){initNavTree('embed__search_8cpp_source.html',''); i
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_c_c_1_1embeddb_1_1_embed_search.html#a39d7b98924fad76a24d7ea9d6b8efced">   37</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#a39d7b98924fad76a24d7ea9d6b8efced">EmbedSearch::insert_embed</a>(<span class="keyword">const</span> std::vector&lt;float&gt;&amp; embed, uint32_t&amp; <span class="keywordtype">id</span>) {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  uint32_t index = <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#aac95ec30c380590908bfc4cad1c9c4bf">get_current_index</a>();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  alg_hnsw_-&gt;addPoint((<span class="keywordtype">void</span>*)&amp;embed[0], index);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">id</span> = <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#aac95ec30c380590908bfc4cad1c9c4bf">get_current_index</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  alg_hnsw_-&gt;addPoint((<span class="keywordtype">void</span>*)&amp;embed[0], <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  save_data();</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
