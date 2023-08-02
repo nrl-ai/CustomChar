@@ -92,8 +92,9 @@ void run_img_ui(std::shared_ptr<session::ChatHistory> history) {
 #endif
 
   // Create window with graphics context
-  GLFWwindow* window = glfwCreateWindow(INIT_WINDOW_WIDTH, INIT_WINDOW_HEIGHT,
-                                        "CustomChar", NULL, NULL);
+  GLFWwindow* window =
+      glfwCreateWindow(INIT_WINDOW_WIDTH, INIT_WINDOW_HEIGHT,
+                       "J.A.R.V.I.S (built with CustomChar)", NULL, NULL);
   if (window == NULL) return;
   glfwMakeContextCurrent(window);
   glfwSwapInterval(1);  // Enable vsync
@@ -317,7 +318,7 @@ int main(int argc, char** argv) {
   character_instance->set_on_user_message(
       std::bind(on_new_message, std::placeholders::_1, "User", history));
   character_instance->set_on_bot_message(
-      std::bind(on_new_message, std::placeholders::_1, "CustomChar", history));
+      std::bind(on_new_message, std::placeholders::_1, "JARVIS", history));
 
   // Start character in a new thread
   std::thread character_thread(&character::Character::Run, character_instance);

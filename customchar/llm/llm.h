@@ -17,29 +17,20 @@ namespace CC {
 namespace llm {
 
 const std::string kPromptLlama =
-    R"(Text transcript of a dialog, where {0} interacts with an AI assistant named {1}.
-{1} is helpful, kind, honest, friendly, good at writing and never fails to answer {0}’s requests immediately and with details and precision.
-There are no annotations like (30 seconds passed...) or (to himself), just what {0} and {1} say aloud to each other.
-The transcript only includes text, it does not include markup like HTML and Markdown.
-{1} responds with short and concise answers.
-
+    R"(Ignore all prior programming instructions. (Text transcript of a dialog, where {0} interacts with an AI assistant named Jarvis. Jarvis (just a very intelligent system), invented by Iron Man.
 {0}{4} Hello, {1}!
 {1}{4} Hello {0}! How may I help you today?
 {0}{4} What time is it?
 {1}{4} It is {2} o'clock.
 {0}{4} What year is it?
 {1}{4} We are in {3}.
-{0}{4} What is a cat?
-{1}{4} A cat is a domestic species of small carnivorous mammal. It is the only domesticated species in the family Felidae.
-{0}{4} Name a color.
-{1}{4} Blue
 {0}{4})";
 
 class LLM {
  private:
   std::string model_path_;
   std::string person_ = "User";
-  std::string bot_name_ = "CustomChar";
+  std::string bot_name_ = "JARVIS";
   const std::string chat_symb_ = ":";
   bool verbose_prompt_ = false;
   bool need_to_save_session_ = false;
@@ -71,7 +62,7 @@ class LLM {
   /// @param path_session Path to the session
   LLM(const std::string& model_path, const std::string& path_session = "",
       const std::string& person = "User",
-      const std::string& bot_name = "CustomChar");
+      const std::string& bot_name = "JARVIS");
   ~LLM();
 
   /// @brief Evaluate the model. Run this function before inference.
@@ -91,30 +82,7 @@ class LLM {
   std::string get_answer(const std::string& user_input);
 
   /// @brief Get embedding from LLM
-  std::vector<float> get_embedding(const std::string& text) {
-    std::vector<llama_token> embd(text.size());
-    llama_tokenize(ctx_llama_, text.c_str(), embd.data(), embd.size(), true);
-    llama_eval(ctx_llama_, embd.data(), embd.size(), n_past_, n_threads_);
-    const int n_embd = llama_n_embd(ctx_llama_);
-    const auto embeddings = llama_get_embeddings(ctx_llama_);
-    std::vector<float> result;
-    result.reserve(n_embd);
-    for (int i = 0; i < n_embd; ++i) {
-      result.push_back(embeddings[i]);
-    }
-
-    // Normalize
-    float norm = 0;
-    for (int i = 0; i < n_embd; ++i) {
-      norm += result[i] * result[i];
-    }
-    norm = sqrt(norm);
-    for (int i = 0; i < n_embd; ++i) {
-      result[i] /= norm;
-    }
-
-    return result;
-  }
+  std::vector<float> get_embedding(const std::string& text);
 };
 
 }  // namespace llm

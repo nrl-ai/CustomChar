@@ -33,7 +33,7 @@ struct CCParams {
   bool verbose_prompt = false;
 
   std::string person = "User";
-  std::string bot_name = "CustomChar";
+  std::string bot_name = "JARVIS";
   std::string chat_symb = ":";
   std::string language = "en";
   std::string sr_model_path = "../models/ggml-base.en.bin";

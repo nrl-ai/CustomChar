@@ -19,7 +19,7 @@ namespace audio {
 class SpeechRecognizer {
  private:
   std::string person_ = "User";
-  std::string bot_name_ = "CustomChar";
+  std::string bot_name_ = "JARVIS";
   const std::string chat_symb_ = ":";
   const std::string k_prompt_whisper_ =
       R"(A conversation with a person_ called {1}.)";
@@ -53,7 +53,7 @@ class SpeechRecognizer {
                    int max_tokens = 32, bool translate = false,
                    bool no_timestamps = true, bool print_special = false,
                    bool speed_up = false, const std::string& person_ = "User",
-                   const std::string& bot_name_ = "CustomChar");
+                   const std::string& bot_name_ = "JARVIS");
   ~SpeechRecognizer();
 
   /// @brief Recognize speech

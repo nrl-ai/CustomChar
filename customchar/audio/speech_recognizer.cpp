@@ -57,7 +57,7 @@ SpeechRecognizer::~SpeechRecognizer() {
 }
 
 void SpeechRecognizer::init_prompt() {
-  const std::string bot_name_ = "CustomChar";
+  const std::string bot_name_ = "JARVIS";
   prompt_ = common::replace(k_prompt_whisper_, "{1}", bot_name_);
 }
 
