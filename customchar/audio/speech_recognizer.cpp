@@ -48,7 +48,7 @@ SpeechRecognizer::SpeechRecognizer(const std::string& model_path_,
     fprintf(stderr, "\n");
   }
 
-  InitPrompt();
+  init_prompt();
 }
 
 SpeechRecognizer::~SpeechRecognizer() {
@@ -56,13 +56,13 @@ SpeechRecognizer::~SpeechRecognizer() {
   whisper_free(context_);
 }
 
-void SpeechRecognizer::InitPrompt() {
+void SpeechRecognizer::init_prompt() {
   const std::string bot_name_ = "CustomChar";
-  prompt_ = common::Replace(k_prompt_whisper_, "{1}", bot_name_);
+  prompt_ = common::replace(k_prompt_whisper_, "{1}", bot_name_);
 }
 
-std::string SpeechRecognizer::PostProcess(const std::string& text_heard) {
-  std::string processed_text = common::Trim(text_heard);
+std::string SpeechRecognizer::postprocess(const std::string& text_heard) {
+  std::string processed_text = common::trim(text_heard);
 
   // Remove text between brackets using regex
   {
@@ -91,15 +91,15 @@ std::string SpeechRecognizer::PostProcess(const std::string& text_heard) {
   return processed_text;
 }
 
-std::string SpeechRecognizer::Recognize(const std::vector<float>& pcmf32,
+std::string SpeechRecognizer::recognize(const std::vector<float>& pcmf32,
                                         float& prob, int64_t& t_ms) {
   std::string text_heard;
-  text_heard = Transcribe(pcmf32, prob, t_ms);
-  text_heard = PostProcess(text_heard);
+  text_heard = transcribe(pcmf32, prob, t_ms);
+  text_heard = postprocess(text_heard);
   return text_heard;
 }
 
-std::string SpeechRecognizer::Transcribe(const std::vector<float>& pcmf32,
+std::string SpeechRecognizer::transcribe(const std::vector<float>& pcmf32,
                                          float& prob, int64_t& t_ms) {
   const auto t_start = std::chrono::high_resolution_clock::now();
 

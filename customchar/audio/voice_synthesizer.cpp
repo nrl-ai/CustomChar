@@ -17,34 +17,34 @@ VoiceSynthesizer::VoiceSynthesizer() {
   is_say_supported_ = true;
 }
 
-std::string VoiceSynthesizer::PreProcess(const std::string& text) {
+std::string VoiceSynthesizer::preprocess(const std::string& text) {
   std::string result = text;
 
   // Replace all \n with space
-  result = common::Replace(result, "\n", " ");
+  result = common::replace(result, "\n", " ");
 
   // Remove quotes and special characters to put into command line string
-  result = common::Replace(result, "\"", " ");
-  result = common::Replace(result, "\\", " ");
-  result = common::Replace(result, "\'", " ");
-  result = common::Replace(result, "(", " ");
-  result = common::Replace(result, ")", " ");
-  result = common::Replace(result, "`", " ");
-  result = common::Replace(result, "$", " ");
-  result = common::Replace(result, "&", " ");
-  result = common::Replace(result, "!", " ");
-  result = common::Replace(result, "#", " ");
-  result = common::Replace(result, "@", " ");
-  result = common::Replace(result, "%", " ");
-  result = common::Replace(result, ";", " ");
+  result = common::replace(result, "\"", " ");
+  result = common::replace(result, "\\", " ");
+  result = common::replace(result, "\'", " ");
+  result = common::replace(result, "(", " ");
+  result = common::replace(result, ")", " ");
+  result = common::replace(result, "`", " ");
+  result = common::replace(result, "$", " ");
+  result = common::replace(result, "&", " ");
+  result = common::replace(result, "!", " ");
+  result = common::replace(result, "#", " ");
+  result = common::replace(result, "@", " ");
+  result = common::replace(result, "%", " ");
+  result = common::replace(result, ";", " ");
 
   // Remove multiple spaces
-  result = common::Replace(result, "  ", " ");
+  result = common::replace(result, "  ", " ");
 
   return result;
 }
 
-void VoiceSynthesizer::Say(const std::string& text) {
+void VoiceSynthesizer::say(const std::string& text) {
   if (!is_say_supported_) {
     printf(
         "TTS is only supported on macOS at the moment. More OSes will be "
@@ -52,6 +52,6 @@ void VoiceSynthesizer::Say(const std::string& text) {
     return;
   }
 
-  std::string command = "say " + PreProcess(text);
+  std::string command = "say " + preprocess(text);
   system(command.c_str());
 }

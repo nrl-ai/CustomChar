@@ -14,9 +14,9 @@ class ChatHistory {
   ChatHistory();
   ~ChatHistory();
 
-  void AddMessage(std::string, std::string);
-  std::vector<ChatMessage> GetCharHistory();
-  bool HasNewMessage();
+  void add_message(std::string, std::string);
+  std::vector<ChatMessage> get_chat_history();
+  bool has_new_message();
 
  private:
   std::vector<ChatMessage> hist_vec_;

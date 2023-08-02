@@ -13,7 +13,7 @@ namespace executors {
 class OpenAppPlugin : public Plugin {
  public:
   OpenAppPlugin(const std::string& name) : Plugin(name){};
-  bool Handle(const std::string& input, std::string& response,
+  bool handle(const std::string& input, std::string& response,
               bool& finished) override {
     std::istringstream iss(input);
     std::vector<std::string> tokens{std::istream_iterator<std::string>{iss},

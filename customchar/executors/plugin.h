@@ -12,14 +12,14 @@ class Plugin {
 
  public:
   Plugin(const std::string& name) : name_(name){};
-  std::string& GetName() { return name_; };
+  std::string& get_name() { return name_; };
 
   /// @brief Handle input and return response
   /// @param input user input string
   /// @param response response string
   /// @param finished true if finished, false otherwise
   /// @return true if handled, false otherwise
-  virtual bool Handle(const std::string& input, std::string& response,
+  virtual bool handle(const std::string& input, std::string& response,
                       bool& finished) = 0;
 };
 

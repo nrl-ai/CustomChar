@@ -27,7 +27,7 @@ class SpeechRecognizer {
   std::string prompt_;
 
   /// @brief Initialize prompt
-  void InitPrompt();
+  void init_prompt();
 
   std::string model_path_;
   std::string language;
@@ -40,10 +40,10 @@ class SpeechRecognizer {
   bool speed_up;
 
   /// @brief  Postprocess text
-  std::string PostProcess(const std::string& text_heard);
+  std::string postprocess(const std::string& text_heard);
 
   /// @brief Transcribe speech
-  std::string Transcribe(const std::vector<float>& pcmf32, float& prob,
+  std::string transcribe(const std::vector<float>& pcmf32, float& prob,
                          int64_t& t_ms);
 
  public:
@@ -61,7 +61,7 @@ class SpeechRecognizer {
   /// @param prob Output probability
   /// @param t_ms Output time
   /// @return Recognized text
-  std::string Recognize(const std::vector<float>& audio_buff, float& prob,
+  std::string recognize(const std::vector<float>& audio_buff, float& prob,
                         int64_t& t_ms);
 
 };  // class SpeechRecognizer

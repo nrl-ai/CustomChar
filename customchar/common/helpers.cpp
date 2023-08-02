@@ -3,7 +3,8 @@
 using namespace CC;
 using namespace CC::common;
 
-void common::CCPrintUsage(int /*argc*/, char** argv, const CCParams& params) {
+void common::cc_print_params_usage(int /*argc*/, char** argv,
+                                   const CCParams& params) {
   fprintf(stderr, "\n");
   fprintf(stderr, "usage: %s [options]\n", argv[0]);
   fprintf(stderr, "\n");
@@ -74,12 +75,12 @@ void common::CCPrintUsage(int /*argc*/, char** argv, const CCParams& params) {
   fprintf(stderr, "\n");
 }
 
-bool common::CCParamsParse(int argc, char** argv, CCParams& params) {
+bool common::cc_params_parse(int argc, char** argv, CCParams& params) {
   for (int i = 1; i < argc; i++) {
     std::string arg = argv[i];
 
     if (arg == "-h" || arg == "--help") {
-      common::CCPrintUsage(argc, argv, params);
+      common::cc_print_params_usage(argc, argv, params);
       exit(0);
     } else if (arg == "-t" || arg == "--threads") {
       params.n_threads = std::stoi(argv[++i]);
@@ -128,7 +129,7 @@ bool common::CCParamsParse(int argc, char** argv, CCParams& params) {
       params.fname_out = argv[++i];
     } else {
       fprintf(stderr, "error: unknown argument: %s\n", arg.c_str());
-      CCPrintUsage(argc, argv, params);
+      cc_print_params_usage(argc, argv, params);
       exit(0);
     }
   }

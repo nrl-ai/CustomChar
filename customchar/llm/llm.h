@@ -62,7 +62,7 @@ class LLM {
   int n_session_consumed_;
 
   /// @brief Initialize prompt
-  void InitPrompt();
+  void init_prompt();
 
  public:
   /// @brief Constructor
@@ -74,20 +74,20 @@ class LLM {
   ~LLM();
 
   /// @brief Evaluate the model. Run this function before inference.
-  void EvalModel();
+  void eval_model();
 
   /// @brief Load session from file
   /// @param path_session Path to the session
-  void LoadSession(const std::string& path_session);
+  void load_session(const std::string& path_session);
 
   /// @brief Add new tokens to the sessions
-  void AddTokensToCurrentSession(const std::vector<llama_token>& tokens);
+  void add_tokens_to_current_session(const std::vector<llama_token>& tokens);
 
   /// @brief Tokenize text
-  std::vector<llama_token> Tokenize(const std::string& text, bool add_bos);
+  std::vector<llama_token> tokenize(const std::string& text, bool add_bos);
 
   /// @brief Get answer from LLM
-  std::string GetAnswer(const std::string& user_input);
+  std::string get_answer(const std::string& user_input);
 };
 
 }  // namespace llm

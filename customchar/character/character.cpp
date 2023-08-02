@@ -18,28 +18,28 @@ Character::Character(common::CCParams init_params) {
   llm_ =
       std::make_shared<llm::LLM>(params_.llm_model_path, params_.path_session,
                                  params_.person, params_.bot_name);
-  llm_->EvalModel();
+  llm_->eval_model();
 
   // Load plugin executor
   plugin_executor_ = std::make_shared<executors::PluginExecutor>(
-      std::bind(&Character::IsRecording, this),
-      std::bind(&Character::StartVideoRecoding, this, std::placeholders::_1),
-      std::bind(&Character::StopVideoCapture, this));
+      std::bind(&Character::is_recording, this),
+      std::bind(&Character::start_video_recording, this, std::placeholders::_1),
+      std::bind(&Character::stop_video_capture, this));
 }
 
-void Character::SetOnUserMessage(
-    std::function<void(std::string)> OnUserMessage_) {
-  this->OnUserMessage_ = OnUserMessage_;
+void Character::set_on_user_message(
+    std::function<void(std::string)> on_user_message_) {
+  this->on_user_message_ = on_user_message_;
 }
 
-void Character::SetOnBotMessage(
-    std::function<void(std::string)> OnBotMessage_) {
-  this->OnBotMessage_ = OnBotMessage_;
+void Character::set_on_bot_message(
+    std::function<void(std::string)> on_bot_message_) {
+  this->on_bot_message_ = on_bot_message_;
 }
 
-void Character::SetMute(bool is_muted) { is_muted_ = is_muted; }
+void Character::set_mute(bool is_muted) { is_muted_ = is_muted; }
 
-bool Character::IsMuted() { return is_muted_; }
+bool Character::is_muted() { return is_muted_; }
 
 void Character::Run() {
   // Start talking
@@ -48,39 +48,39 @@ void Character::Run() {
   fflush(stdout);
 
   // Clear audio buffer to avoid processing old audio
-  voice_recoder_->ClearAudioBuffer();
+  voice_recoder_->clear_audio_buffer();
 
   std::vector<llama_token> embd;
   int n_iter = 0;
   bool is_running = true;
   while (is_running) {
     // Handle Ctrl + C
-    is_running = audio::SDLPollEvents();
+    is_running = audio::sdl_poll_events();
     if (!is_running) {
       break;
     }
 
     // Record speech from user
-    std::vector<float> audio_buff = voice_recoder_->RecordSpeech();
+    std::vector<float> audio_buff = voice_recoder_->record_speech();
 
     // Recognize speech
     float prob;
     int64_t t_ms;
     std::string text_heard =
-        speech_recognizer_->Recognize(audio_buff, prob, t_ms);
+        speech_recognizer_->recognize(audio_buff, prob, t_ms);
 
     // Tokenize user input
-    auto tokens = llm_->Tokenize(text_heard, false);
+    auto tokens = llm_->tokenize(text_heard, false);
 
     // Start over if nothing was heard
     if (text_heard.empty() || tokens.empty()) {
-      voice_recoder_->ClearAudioBuffer();
+      voice_recoder_->clear_audio_buffer();
       continue;
     }
 
     // Callback for user message
-    if (OnUserMessage_) {
-      OnUserMessage_(text_heard);
+    if (on_user_message_) {
+      on_user_message_(text_heard);
     }
 
     // Print user input
@@ -94,23 +94,23 @@ void Character::Run() {
     // If plugin executor returns true, then it handled the user input
     // Otherwise, LLM will handle
     std::string response;
-    if (!plugin_executor_->ParseAndExecute(text_heard, response)) {
+    if (!plugin_executor_->parse_and_execute(text_heard, response)) {
       // Get answer from LLM
-      response = llm_->GetAnswer(text_heard);
+      response = llm_->get_answer(text_heard);
     } else {
       // TODO: Add plugin executor response to LLM session
     }
 
     // Callback for bot message
-    if (OnBotMessage_) {
-      OnBotMessage_(response);
+    if (on_bot_message_) {
+      on_bot_message_(response);
     }
 
     // Play speak
-    if (!is_muted_) voice_synthesizer_->Say(response);
+    if (!is_muted_) voice_synthesizer_->say(response);
 
     // Clean up
-    voice_recoder_->ClearAudioBuffer();
+    voice_recoder_->clear_audio_buffer();
     ++n_iter;
   }
 }

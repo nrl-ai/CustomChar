@@ -23,8 +23,9 @@
 using namespace CC;
 using namespace CC::audio;
 
-bool CC::audio::ReadWav(const std::string& fname, std::vector<float>& pcmf32,
-                        std::vector<std::vector<float>>& pcmf32s, bool stereo) {
+bool CC::audio::read_wav(const std::string& fname, std::vector<float>& pcmf32,
+                         std::vector<std::vector<float>>& pcmf32s,
+                         bool stereo) {
   drwav wav;
   std::vector<uint8_t> wav_data;  // used for pipe input from stdin
 
@@ -114,8 +115,8 @@ bool CC::audio::ReadWav(const std::string& fname, std::vector<float>& pcmf32,
   return true;
 }
 
-void CC::audio::HighPassFilter(std::vector<float>& data, float cutoff,
-                               float sample_rate) {
+void CC::audio::high_pass_filter(std::vector<float>& data, float cutoff,
+                                 float sample_rate) {
   const float rc = 1.0f / (2.0f * M_PI * cutoff);
   const float dt = 1.0f / sample_rate;
   const float alpha = dt / (rc + dt);
@@ -128,9 +129,9 @@ void CC::audio::HighPassFilter(std::vector<float>& data, float cutoff,
   }
 }
 
-bool CC::audio::VADSimple(std::vector<float>& pcmf32, int sample_rate,
-                          int last_ms, float vad_thold, float freq_thold,
-                          bool verbose) {
+bool CC::audio::vad_simple(std::vector<float>& pcmf32, int sample_rate,
+                           int last_ms, float vad_thold, float freq_thold,
+                           bool verbose) {
   const int n_samples = pcmf32.size();
   const int n_samples_last = (sample_rate * last_ms) / 1000;
 
@@ -140,7 +141,7 @@ bool CC::audio::VADSimple(std::vector<float>& pcmf32, int sample_rate,
   }
 
   if (freq_thold > 0.0f) {
-    CC::audio::HighPassFilter(pcmf32, freq_thold, sample_rate);
+    CC::audio::high_pass_filter(pcmf32, freq_thold, sample_rate);
   }
 
   float energy_all = 0.0f;

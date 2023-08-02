@@ -13,14 +13,14 @@ class ChatMessage {
   ChatMessage(std::string, std::string);
   ~ChatMessage();
 
-  void SetMessage(std::string);
-  void SetMessage(std::string, std::string);
-  void SetSender(std::string);
-  void SetTime();
+  void set_message(std::string);
+  void set_message(std::string, std::string);
+  void set_sender(std::string);
+  void set_time();
 
-  std::string GetMessage();
-  std::string GetSender();
-  std::string GetTime();
+  std::string get_message();
+  std::string get_sender();
+  std::string get_time();
 
  private:
   std::string message_;

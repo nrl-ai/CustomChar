@@ -49,13 +49,13 @@ struct CCParams {
 /// @param argv Arguments
 /// @param params Parsed parameters
 /// @return True if parsing was successful
-bool CCParamsParse(int argc, char** argv, CCParams& params);
+bool cc_params_parse(int argc, char** argv, CCParams& params);
 
 /// @brief Print usage
 /// @param argc Number of arguments
 /// @param argv Arguments
 /// @param params Parsed parameters
-void CCPrintUsage(int /*argc*/, char** argv, const CCParams& params);
+void cc_print_params_usage(int /*argc*/, char** argv, const CCParams& params);
 
 }  // namespace common
 }  // namespace CC

@@ -25,6 +25,9 @@ find_package(OpenCV REQUIRED)
 add_subdirectory(libs/whisper-cpp)
 add_subdirectory(libs/subprocess)
 
+# Build embeding search module
+add_subdirectory(customchar/embeddb)
+
 # Build CustomChar-core
 set(TARGET customchar-core)
 add_library(
@@ -48,6 +51,9 @@ target_include_directories(
     .
 )
 target_link_libraries(${TARGET} PUBLIC ${SDL2_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} ${OpenCV_LIBS} whisper subprocess)
+
+# Set binary output directory
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # CustomChar - cli
 add_executable(

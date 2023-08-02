@@ -52,7 +52,7 @@ class VideoCapture {
   std::string save_video_path_;
 
   /// @brief Start capturing frames from device
-  bool StartDevice() {
+  bool start_device() {
     capture_ = cv::VideoCapture(device_id_);
     if (!capture_.isOpened()) {
       std::cerr << "Error opening video stream or file" << std::endl;
@@ -63,13 +63,13 @@ class VideoCapture {
   }
 
   /// @brief Stop capturing frames from device
-  void StopDevice() {
+  void stop_device() {
     if (mode_ != VideoCaptureMode::kOpenCV) return;
     if (capture_.isOpened()) capture_.release();
   }
 
   /// @brief Capture frames from camera
-  void CaptureOpenCV() {
+  void capture_opencv() {
     cv::Mat frame;
     while (true) {
       {
@@ -88,7 +88,7 @@ class VideoCapture {
     }
   }
 
-  void CaptureFFmpeg() {
+  void capture_ffmpeg() {
     std::stringstream ss;
     ss << "ffmpeg -y -f avfoundation -ac 2 -framerate 30 -i 0:0 -c:a aac -ab "
           "96k -f matroska "
@@ -158,14 +158,14 @@ class VideoCapture {
 
   /// @brief Get frame width
   /// @return int
-  int GetFrameWidth() {
+  int get_frame_width() {
     std::lock_guard<std::mutex> lock(frame_mutex_);
     return frame_.cols;
   }
 
   /// @brief Get frame height
   /// @return int
-  int GetFrameHeight() {
+  int get_frame_height() {
     std::lock_guard<std::mutex> lock(frame_mutex_);
     return frame_.rows;
   }
@@ -177,7 +177,7 @@ class VideoCapture {
     is_capturing_ = true;
     save_video_path_ = output_path;
     mode_ = VideoCaptureMode::kFFmpeg;
-    capture_thread_ = std::thread(&VideoCapture::CaptureFFmpeg, this);
+    capture_thread_ = std::thread(&VideoCapture::capture_ffmpeg, this);
   }
 
   /// @brief Start capturing frames
@@ -189,7 +189,7 @@ class VideoCapture {
         return;
       }
     }
-    if (!StartDevice()) return;
+    if (!start_device()) return;
     // Get first frame to initialize frame size
     std::lock_guard<std::mutex> frame_lock(frame_mutex_);
     capture_ >> frame_;
@@ -199,7 +199,7 @@ class VideoCapture {
     mode_ = VideoCaptureMode::kOpenCV;
     // Random a saved video path from time
     save_video_path_ = "";
-    capture_thread_ = std::thread(&VideoCapture::CaptureOpenCV, this);
+    capture_thread_ = std::thread(&VideoCapture::capture_opencv, this);
   }
 
   /// @brief Stop capturing frames
@@ -210,7 +210,7 @@ class VideoCapture {
         return;
       }
     }
-    StopDevice();
+    stop_device();
     is_capturing_ = false;
     mode_ = VideoCaptureMode::kNone;
     capture_thread_.join();
@@ -218,7 +218,7 @@ class VideoCapture {
 
   /// @brief Get frame from queue
   /// @return cv::Mat. Empty if queue is empty
-  cv::Mat GetFrame() {
+  cv::Mat get_frame() {
     cv::Mat frame;
     std::lock_guard<std::mutex> lock(frame_mutex_);
     frame = frame_.clone();
@@ -226,7 +226,7 @@ class VideoCapture {
   }
 
   /// @brief Check if is recording
-  bool IsRecording() {
+  bool is_recording() {
     return is_capturing_ && mode_ == VideoCaptureMode::kFFmpeg;
   }
 };
