@@ -15,18 +15,18 @@ namespace embeddb {
 class Collection {
  private:
   // Collection name.
-  std::string name;
+  std::string name_;
   // Collection path.
-  std::string path;
+  std::string path_;
 
   // HNSW index path.
-  std::string hnsw_path;
-  uint32_t dim;
-  uint32_t max_size;
-  EmbedSearch* embed_search;
+  std::string hnsw_path_;
+  uint32_t dim_;
+  uint32_t max_size_;
+  EmbedSearch* embed_search_;
 
   // sqlite3 path.
-  std::string sqlite3_path;
+  std::string sqlite3_path_;
   SQLite::Database* db;
 
   void init_hnsw();

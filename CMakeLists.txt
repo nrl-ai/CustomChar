@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.11)
 project(CustomChar)
 
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # Version
 set(CMAKE_PROJECT_VERSION 0)
@@ -42,6 +43,11 @@ target_link_libraries(
     pthread
     dl
 )
+add_executable(
+    search_doc
+    examples/search_doc.cpp
+)
+target_link_libraries(search_doc embeddb)
 
 # Build CustomChar-core
 set(TARGET customchar-core)
@@ -64,9 +70,6 @@ target_include_directories(
     ${SDL2_INCLUDE_DIRS}
 )
 target_link_libraries(${TARGET} PUBLIC ${SDL2_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} ${OpenCV_LIBS} whisper subprocess embeddb)
-
-# Set binary output directory
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # CustomChar - cli
 add_executable(

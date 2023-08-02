@@ -1,26 +1,32 @@
+#include <filesystem>
+
 #include "customchar/embeddb/collection.h"
 
 using namespace CC::embeddb;
 
 Collection::Collection(const std::string& name, const std::string& path,
-                       const uint32_t dim, const uint32_t max_size)
-    : name(name), path(path), dim(dim), max_size(max_size) {
-  std::cout << "Collection::Collection" << std::endl;
-  hnsw_path = path + "/" + name + ".hnsw";
-  sqlite3_path = path + "/" + name + ".sqlite3";
+                       const uint32_t dim_, const uint32_t max_size_)
+    : name_(name), path_(path), dim_(dim_), max_size_(max_size_) {
+  // Create directory if not exists
+  if (!std::filesystem::exists(path)) {
+    std::filesystem::create_directory(path);
+  }
+
+  hnsw_path_ = path + "/" + name + ".hnsw";
+  sqlite3_path_ = path + "/" + name + ".sqlite3";
   init_hnsw();
   init_sqlite3();
 }
 
 void Collection::init_hnsw() {
-  embed_search = new EmbedSearch(hnsw_path, dim, max_size);
-  std::cout << "HNSW index file '" << hnsw_path.c_str()
+  embed_search_ = new EmbedSearch(hnsw_path_, dim_, max_size_);
+  std::cout << "HNSW index file '" << hnsw_path_.c_str()
             << "' opened successfully\n";
 }
 void Collection::init_sqlite3() {
-  db = new SQLite::Database(sqlite3_path, SQLite::OPEN_READWRITE |
-                                              SQLite::OPEN_CREATE |
-                                              SQLite::OPEN_FULLMUTEX);
+  db = new SQLite::Database(sqlite3_path_, SQLite::OPEN_READWRITE |
+                                               SQLite::OPEN_CREATE |
+                                               SQLite::OPEN_FULLMUTEX);
   std::cout << "SQLite database file '" << db->getFilename().c_str()
             << "' opened successfully\n";
   db->exec(
@@ -33,7 +39,7 @@ void Collection::init_sqlite3() {
       "original_pos_col INTEGER"
       ")");
 }
-int Collection::get_dim() { return dim; }
+int Collection::get_dim() { return dim_; }
 u_int32_t Collection::get_doc_count() {
   SQLite::Statement query(*db, "SELECT COUNT(*) FROM documents");
   query.executeStep();
@@ -47,7 +53,7 @@ u_int32_t Collection::insert_doc(std::vector<float> doc_embedding,
                                  u_int32_t original_pos_line,
                                  u_int32_t original_pos_col) {
   u_int32_t id_search;
-  embed_search->insert_embed(doc_embedding, id_search);
+  embed_search_->insert_embed(doc_embedding, id_search);
   SQLite::Statement query(*db,
                           "INSERT INTO documents (id, content, meta, "
                           "original_doc_id, original_pos_line, "
@@ -66,7 +72,7 @@ Document Collection::get_doc(u_int32_t doc_id) {
   SQLite::Statement query(*db, "SELECT * FROM documents WHERE id = ?");
   query.bind(1, doc_id);
   query.executeStep();
-  Document doc(query.getColumn(0), embed_search->get_embed(doc_id),
+  Document doc(query.getColumn(0), embed_search_->get_embed(doc_id),
                query.getColumn(1), query.getColumn(2), query.getColumn(3),
                query.getColumn(4), query.getColumn(5));
   return doc;
@@ -91,7 +97,7 @@ std::vector<Document> Collection::get_docs_by_ids(
   SQLite::Statement query(*db, query_str);
   while (query.executeStep()) {
     Document doc(query.getColumn(0),
-                 embed_search->get_embed(query.getColumn(0)),
+                 embed_search_->get_embed(query.getColumn(0)),
                  query.getColumn(1), query.getColumn(2), query.getColumn(3),
                  query.getColumn(4), query.getColumn(5));
     docs.push_back(doc);
@@ -100,7 +106,7 @@ std::vector<Document> Collection::get_docs_by_ids(
 }
 
 void Collection::delete_doc(u_int32_t doc_id) {
-  embed_search->remove_embed(doc_id);
+  embed_search_->remove_embed(doc_id);
   SQLite::Statement query(*db, "DELETE FROM documents WHERE id = ?");
   query.bind(1, doc_id);
   query.exec();
@@ -112,7 +118,7 @@ void Collection::delete_all_docs() {
   while (query.executeStep()) {
     ids.push_back(query.getColumn(0));
   }
-  embed_search->remove_embeds(ids);
+  embed_search_->remove_embeds(ids);
   SQLite::Statement remove_query(*db, "DELETE FROM documents");
   remove_query.exec();
 }
@@ -121,7 +127,7 @@ void Collection::search(std::vector<float> query_embedding, int top_k,
                         float threshold, std::vector<u_int32_t>& doc_ids,
                         std::vector<float>& distances) {
   std::vector<SearchEmbedResult> results;
-  embed_search->search_embed(query_embedding, results, top_k, threshold);
+  embed_search_->search_embed(query_embedding, results, top_k, threshold);
   doc_ids.clear();
   distances.clear();
   doc_ids.resize(results.size());
