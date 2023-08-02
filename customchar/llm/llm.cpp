@@ -20,6 +20,7 @@ LLM::LLM(const std::string& model_path, const std::string& path_session,
   lparams_.n_ctx = 2048;
   lparams_.seed = 1;
   lparams_.f16_kv = true;
+  lparams_.embedding = true;
 
   // Load model to ram
   ctx_llama_ = llama_init_from_file(model_path_.c_str(), lparams_);
@@ -348,4 +349,29 @@ std::string LLM::get_answer(const std::string& user_input) {
   }
 
   return output_text;
+}
+
+std::vector<float> LLM::get_embedding(const std::string& text) {
+  std::vector<llama_token> embd(text.size());
+  llama_tokenize(ctx_llama_, text.c_str(), embd.data(), embd.size(), true);
+  llama_eval(ctx_llama_, embd.data(), embd.size(), n_past_, n_threads_);
+  const int n_embd = llama_n_embd(ctx_llama_);
+  const auto embeddings = llama_get_embeddings(ctx_llama_);
+  std::vector<float> result;
+  result.reserve(n_embd);
+  for (int i = 0; i < n_embd; ++i) {
+    result.push_back(embeddings[i]);
+  }
+
+  // Normalize
+  float norm = 0;
+  for (int i = 0; i < n_embd; ++i) {
+    norm += result[i] * result[i];
+  }
+  norm = sqrt(norm);
+  for (int i = 0; i < n_embd; ++i) {
+    result[i] /= norm;
+  }
+
+  return result;
 }

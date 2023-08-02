@@ -43,11 +43,6 @@ target_link_libraries(
     pthread
     dl
 )
-add_executable(
-    search_doc
-    examples/search_doc.cpp
-)
-target_link_libraries(search_doc embeddb)
 
 # Build CustomChar-core
 set(TARGET customchar-core)
@@ -70,6 +65,12 @@ target_include_directories(
     ${SDL2_INCLUDE_DIRS}
 )
 target_link_libraries(${TARGET} PUBLIC ${SDL2_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} ${OpenCV_LIBS} whisper subprocess embeddb)
+
+add_executable(
+    search_doc
+    examples/search_doc.cpp
+)
+target_link_libraries(search_doc PUBLIC customchar-core)
 
 # CustomChar - cli
 add_executable(
