@@ -7,38 +7,38 @@ using namespace CC::audio;
 VoiceRecorder::VoiceRecorder() {
   audio_ = new AudioAsync(30 * 1000);
   int capture_id = 0;  // TODO: Make this configurable
-  if (!audio_->Init(capture_id, WHISPER_SAMPLE_RATE)) {
+  if (!audio_->initialize(capture_id, WHISPER_SAMPLE_RATE)) {
     fprintf(stderr, "%s: audio_->init() failed!\n", __func__);
     exit(1);
   }
 
-  audio_->Resume();
+  audio_->resume();
 }
 
-void VoiceRecorder::ClearAudioBuffer() { audio_->Clear(); }
+void VoiceRecorder::clear_audio_buffer() { audio_->clear(); }
 
-void VoiceRecorder::SampleAudio() { audio_->Get(2000, pcmf32_cur_); }
+void VoiceRecorder::sample_audio() { audio_->get(2000, pcmf32_cur_); }
 
-bool VoiceRecorder::FinishedTalking() {
+bool VoiceRecorder::finished_talking() {
   float vad_thold = 0.6f;
   float freq_thold = 100.0f;
   bool print_energy = false;
-  return VADSimple(pcmf32_cur_, WHISPER_SAMPLE_RATE, 1250, vad_thold,
-                   freq_thold, print_energy);
+  return vad_simple(pcmf32_cur_, WHISPER_SAMPLE_RATE, 1250, vad_thold,
+                    freq_thold, print_energy);
 }
 
-void VoiceRecorder::GetAudio(std::vector<float>& result) {
+void VoiceRecorder::get_audio(std::vector<float>& result) {
   int32_t voice_ms = 10000;
-  audio_->Get(voice_ms, pcmf32_cur_);
+  audio_->get(voice_ms, pcmf32_cur_);
   result = pcmf32_cur_;
 }
 
-std::vector<float> VoiceRecorder::RecordSpeech() {
+std::vector<float> VoiceRecorder::record_speech() {
   bool is_running;
   std::vector<float> audio_buff;
   while (true) {
     // Handle Ctrl + C
-    is_running = audio::SDLPollEvents();
+    is_running = audio::sdl_poll_events();
     if (!is_running) {
       break;
     }
@@ -47,13 +47,13 @@ std::vector<float> VoiceRecorder::RecordSpeech() {
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
     // Sample audio
-    SampleAudio();
-    if (!FinishedTalking()) {
+    sample_audio();
+    if (!finished_talking()) {
       continue;
     }
 
     // Get recorded audio
-    GetAudio(audio_buff);
+    get_audio(audio_buff);
     break;
   }
 

@@ -10,7 +10,7 @@ LLM::LLM(const std::string& model_path, const std::string& path_session,
       person_(person),
       bot_name_(bot_name) {
   // Init prompt
-  InitPrompt();
+  init_prompt();
 
   // Init Llama
   llama_init_backend();
@@ -24,7 +24,7 @@ LLM::LLM(const std::string& model_path, const std::string& path_session,
   // Load model to ram
   ctx_llama_ = llama_init_from_file(model_path_.c_str(), lparams_);
   n_ctx_ = llama_n_ctx(ctx_llama_);
-  embd_inp_ = Tokenize(prompt_llama_, true);
+  embd_inp_ = tokenize(prompt_llama_, true);
   n_keep_ = embd_inp_.size();
   n_past_ = n_keep_;
 
@@ -34,7 +34,7 @@ LLM::LLM(const std::string& model_path, const std::string& path_session,
   };
 
   // Load session
-  LoadSession(path_session);
+  load_session(path_session);
 }
 
 LLM::~LLM() {
@@ -42,14 +42,14 @@ LLM::~LLM() {
   llama_free(ctx_llama_);
 }
 
-void LLM::InitPrompt() {
+void LLM::init_prompt() {
   // Construct the initial prompt for LLaMA inference
   prompt_llama_ = prompt_.empty() ? kPromptLlama : prompt_;
 
   // Need to have leading ' '
   prompt_llama_.insert(0, 1, ' ');
-  prompt_llama_ = common::Replace(prompt_llama_, "{0}", person_);
-  prompt_llama_ = common::Replace(prompt_llama_, "{1}", bot_name_);
+  prompt_llama_ = common::replace(prompt_llama_, "{0}", person_);
+  prompt_llama_ = common::replace(prompt_llama_, "{1}", bot_name_);
 
   {
     // Get time string
@@ -61,7 +61,7 @@ void LLM::InitPrompt() {
       strftime(buf, sizeof(buf), "%H:%M", now);
       time_str = buf;
     }
-    prompt_llama_ = common::Replace(prompt_llama_, "{2}", time_str);
+    prompt_llama_ = common::replace(prompt_llama_, "{2}", time_str);
   }
 
   {
@@ -74,13 +74,13 @@ void LLM::InitPrompt() {
       strftime(buf, sizeof(buf), "%Y", now);
       year_str = buf;
     }
-    prompt_llama_ = common::Replace(prompt_llama_, "{3}", year_str);
+    prompt_llama_ = common::replace(prompt_llama_, "{3}", year_str);
   }
 
-  prompt_llama_ = common::Replace(prompt_llama_, "{4}", chat_symb_);
+  prompt_llama_ = common::replace(prompt_llama_, "{4}", chat_symb_);
 }
 
-std::vector<llama_token> LLM::Tokenize(const std::string& text, bool add_bos) {
+std::vector<llama_token> LLM::tokenize(const std::string& text, bool add_bos) {
   // initialize to prompt numer of chars, since n_tokens <= n_prompt_chars
   std::vector<llama_token> res(text.size() + (int)add_bos);
   int n = ::llama_tokenize(ctx_llama_, text.c_str(), res.data(), res.size(),
@@ -91,14 +91,15 @@ std::vector<llama_token> LLM::Tokenize(const std::string& text, bool add_bos) {
   return res;
 }
 
-void LLM::AddTokensToCurrentSession(const std::vector<llama_token>& tokens) {
+void LLM::add_tokens_to_current_session(
+    const std::vector<llama_token>& tokens) {
   // Append the new input tokens to the session_tokens vector
   if (!path_session_.empty()) {
     session_tokens_.insert(session_tokens_.end(), tokens.begin(), tokens.end());
   }
 }
 
-void LLM::LoadSession(const std::string& path_session) {
+void LLM::load_session(const std::string& path_session) {
   path_session_ = path_session;
   std::vector<llama_token> session_tokens;
   fprintf(stderr, "%s: attempting to load saved session from %s\n", __func__,
@@ -132,7 +133,7 @@ void LLM::LoadSession(const std::string& path_session) {
                             : 0;
 }
 
-void LLM::EvalModel() {
+void LLM::eval_model() {
   printf(
       "Initializing... This may take a few minutes, depending on the model "
       "size.\n");
@@ -181,16 +182,16 @@ void LLM::EvalModel() {
       n_matching_session_tokens < (embd_inp_.size() * 3 / 4);
 }
 
-std::string LLM::GetAnswer(const std::string& user_input) {
+std::string LLM::get_answer(const std::string& user_input) {
   // Tokenize and put unformated tokens to the session store
-  AddTokensToCurrentSession(Tokenize(user_input, false));
+  add_tokens_to_current_session(tokenize(user_input, false));
 
   // Format the input and tokenize
   // TODO: Do it more efficient (using above output)
   std::string formated_input = user_input;
   formated_input.insert(0, 1, ' ');
   formated_input += "\n" + bot_name_ + chat_symb_;
-  std::vector<llama_token> embd = Tokenize(formated_input, false);
+  std::vector<llama_token> embd = tokenize(formated_input, false);
 
   bool done = false;
   int last_length = 0;
@@ -324,7 +325,7 @@ std::string LLM::GetAnswer(const std::string& user_input) {
                              last_output.length() - antiprompt.length(),
                              antiprompt.length()) != std::string::npos) {
           done = true;
-          output_text = common::Replace(output_text, antiprompt, "");
+          output_text = common::replace(output_text, antiprompt, "");
           fflush(stdout);
           need_to_save_session_ = true;
           break;

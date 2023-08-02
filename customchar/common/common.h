@@ -11,13 +11,13 @@ namespace common {
 /// @param from Replace this substring.
 /// @param to With this substring.
 /// @return New string with all occurrences of `from` replaced with `to`.
-std::string Replace(const std::string& s, const std::string& from,
+std::string replace(const std::string& s, const std::string& from,
                     const std::string& to);
 
 /// @brief Trim whitespace from both ends of a string.
 /// @param s Original string.
 /// @return New string with whitespace removed from both ends.
-std::string Trim(const std::string& s);
+std::string trim(const std::string& s);
 
 }  // namespace common
 }  // namespace CC

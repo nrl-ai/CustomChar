@@ -1,4 +1,5 @@
-#include "document.h"
+#include "customchar/embeddb/document.h"
+
 using namespace CC::embeddb;
 
 Document::Document(u_int32_t id, std::vector<float> embedding,

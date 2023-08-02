@@ -16,17 +16,18 @@ namespace audio {
 /// The sample rate of the audio must be equal to COMMON_SAMPLE_RATE
 /// If stereo flag is set and the audio has 2 channels, the pcmf32s will contain
 /// 2 channel PCM
-bool ReadWav(const std::string& fname, std::vector<float>& pcmf32,
-             std::vector<std::vector<float>>& pcmf32s, bool stereo);
+bool read_wav(const std::string& fname, std::vector<float>& pcmf32,
+              std::vector<std::vector<float>>& pcmf32s, bool stereo);
 
 /// @brief Apply a high-pass frequency filter to PCM audio
 /// Suppresses frequencies below cutoff Hz
-void HighPassFilter(std::vector<float>& data, float cutoff, float sample_rate);
+void high_pass_filter(std::vector<float>& data, float cutoff,
+                      float sample_rate);
 
 /// @brief Basic voice activity detection (VAD) using audio energy adaptive
 /// threshold
-bool VADSimple(std::vector<float>& pcmf32, int sample_rate, int last_ms,
-               float vad_thold, float freq_thold, bool verbose);
+bool vad_simple(std::vector<float>& pcmf32, int sample_rate, int last_ms,
+                float vad_thold, float freq_thold, bool verbose);
 
 }  // namespace audio
 }  // namespace CC

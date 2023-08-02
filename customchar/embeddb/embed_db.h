@@ -1,8 +1,11 @@
-#pragma once
+#ifndef CUSTOMCHAR_EMBEDDB_EMBED_DB_H_
+#define CUSTOMCHAR_EMBEDDB_EMBED_DB_H_
 
 #include <string>
 #include <vector>
-#include "collection.h"
+
+#include "customchar/embeddb/collection.h"
+
 namespace CC {
 namespace embeddb {
 
@@ -31,3 +34,5 @@ class EmbedDB {
 
 }  // namespace embeddb
 }  // namespace CC
+
+#endif  // CUSTOMCHAR_EMBEDDB_EMBED_DB_H_

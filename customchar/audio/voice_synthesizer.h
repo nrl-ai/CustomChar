@@ -17,14 +17,14 @@ class VoiceSynthesizer {
   bool is_say_supported_ = false;
 
   /// @brief Preprocess text
-  std::string PreProcess(const std::string& text);
+  std::string preprocess(const std::string& text);
 
  public:
   /// @brief Constructor
   VoiceSynthesizer();
 
   /// @brief Say text
-  void Say(const std::string& text);
+  void say(const std::string& text);
 };
 
 }  // namespace audio

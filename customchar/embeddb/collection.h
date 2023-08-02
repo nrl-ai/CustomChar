@@ -1,54 +1,20 @@
-#pragma once
+#ifndef CUSTOMCHAR_EMBEDDB_COLLECTION_H_
+#define CUSTOMCHAR_EMBEDDB_COLLECTION_H_
 
 #include <string>
+#include <vector>
+#include "customchar/embeddb/document.h"
 
 namespace CC {
 namespace embeddb {
 
-class Document {
- private:
-  // Document ID.
-  u_int32_t id;
-
-  // Document embedding.
-  std::vector<float> embedding;
-
-  // Document content.
-  std::string content;
-
-  // Document metadata (JSON).
-  std::string meta;
-
-  // Original document ID.
-  u_int32_t original_doc_id;
-
-  // Position of the document in the original file (line).
-  u_int32_t original_pos_line;
-
-  // Position of the document in the original file (column).
-  u_int32_t original_pos_col;
-
- public:
-  Document(u_int32_t id, std::vector<float> embedding,
-           const std::string& content, const std::string& meta,
-           u_int32_t original_doc_id, u_int32_t original_pos_line,
-           u_int32_t original_pos_col);
-  u_int32_t get_id();
-  std::vector<float> get_embedding();
-  std::string get_content();
-  std::string get_meta();
-  u_int32_t get_original_doc_id();
-  u_int32_t get_original_pos_line();
-  u_int32_t get_original_pos_col();
-};
-
 class Collection {
  private:
   // Collection name.
-  std::string name;
+  std::string name_;
 
   // Collection path.
-  std::string path;
+  std::string path_;
 
  public:
   u_int32_t get_doc_count();
@@ -99,29 +65,7 @@ class Collection {
   /// @return Documents.
   std::vector<Document> get_docs(int limit = -1, int offset = 0);
 };
-
-class EmbedDB {
- private:
-  // Database path.
-  std::string db_path;
-
-  // HNSW index path.
-  std::string hnsw_path;
-
-  // Document database (SQLite).
-  std::string doc_db_path;
-
- public:
-  // Database path. Containing:
-  // + HNSW index path.
-  // + Document database (SQLite).
-  EmbedDB(const std::string& db_path);
-
-  void create_collection(const std::string& collection_name);
-  Collection get_collection(const std::string& collection_name);
-  void delete_collection(const std::string& collection_name);
-  bool has_collection(const std::string& collection_name);
-};
-
 }  // namespace embeddb
 }  // namespace CC
+
+#endif  // CUSTOMCHAR_EMBED_SEARCH_COLLECTION_H_

@@ -47,23 +47,23 @@ class PluginExecutor {
                                           StopVideoCapture_)};
   std::shared_ptr<Plugin> current_plugin_;
 
-  std::string Reflect(const std::string& word);
+  std::string reflect(const std::string& word);
 
  public:
   /// @brief Constructor
   PluginExecutor(
-      std::function<bool()> IsRecording,
-      std::function<void(const std::string& filename)> StartVideoRecoding,
-      std::function<void()> StopVideoCapture)
-      : IsRecording_(IsRecording),
-        StartVideoRecoding_(StartVideoRecoding),
-        StopVideoCapture_(StopVideoCapture) {}
+      std::function<bool()> is_recording,
+      std::function<void(const std::string& filename)> start_video_recording,
+      std::function<void()> stop_video_capture)
+      : IsRecording_(is_recording),
+        StartVideoRecoding_(start_video_recording),
+        StopVideoCapture_(stop_video_capture) {}
 
   /// @brief Parse and execute input
   /// @param input user input string
   /// @param response response string
   /// @return true if handled, false otherwise
-  bool ParseAndExecute(const std::string& input, std::string& response);
+  bool parse_and_execute(const std::string& input, std::string& response);
 };  // namespace executors
 
 }  // namespace executors

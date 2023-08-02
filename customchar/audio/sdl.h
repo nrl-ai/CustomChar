@@ -18,23 +18,23 @@ class AudioAsync {
   AudioAsync(int len_ms);
   ~AudioAsync();
 
-  bool Init(int capture_id, int sample_rate);
+  bool initialize(int capture_id, int sample_rate);
 
   /// Start capturing audio via the provided SDL callback
   /// keep last len_ms seconds of audio in a circular buffer
-  bool Resume();
-  bool Pause();
-  bool Clear();
+  bool resume();
+  bool pause();
+  bool clear();
 
   /// @brief Callback function for SDL
   /// @param stream Audio stream
   /// @param len Length of the stream
-  void Callback(uint8_t* stream, int len);
+  void callback(uint8_t* stream, int len);
 
   /// @brief  Get audio from the circular buffer
   /// @param ms Number of milliseconds to get
   /// @param audio Output audio
-  void Get(int ms, std::vector<float>& audio);
+  void get(int ms, std::vector<float>& audio);
 
  private:
   SDL_AudioDeviceID m_dev_id_in_ = 0;
@@ -52,7 +52,7 @@ class AudioAsync {
 };
 
 // Return false if need to quit
-bool SDLPollEvents();
+bool sdl_poll_events();
 
 }  // namespace audio
 }  // namespace CC

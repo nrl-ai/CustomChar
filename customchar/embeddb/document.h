@@ -1,5 +1,5 @@
-#ifndef DOCUMENT_H_
-#define DOCUMENT_H_
+#ifndef CUSTOMCHAR_EMBEDDB_DOCUMENT_H_
+#define CUSTOMCHAR_EMBEDDB_DOCUMENT_H_
 
 #include <string>
 #include <vector>
@@ -45,4 +45,5 @@ class Document {
 };
 }  // namespace embeddb
 }  // namespace CC
-#endif  // DOCUMENT_H_
+
+#endif  // CUSTOMCHAR_EMBED_SEARCH_COLLECTION_H_

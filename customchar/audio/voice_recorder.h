@@ -25,20 +25,20 @@ class VoiceRecorder {
   VoiceRecorder();
 
   /// @brief Clear audio_ buffer to prepare for new recording
-  void ClearAudioBuffer();
+  void clear_audio_buffer();
 
   /// @brief Sample audio_
-  void SampleAudio();
+  void sample_audio();
 
   /// @brief Check if finished talking
-  bool FinishedTalking();
+  bool finished_talking();
 
   /// @brief Get final audio_
-  void GetAudio(std::vector<float>& result);
+  void get_audio(std::vector<float>& result);
 
   /// @brief Record speech from user
   /// @return Audio buffer from user
-  std::vector<float> RecordSpeech();
+  std::vector<float> record_speech();
 };  // class VoiceRecorder
 
 }  // namespace audio

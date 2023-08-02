@@ -1,4 +1,5 @@
-#include "embed_search.h"
+#include "customchar/embeddb/embed_search.h"
+
 using namespace CC::embeddb;
 
 EmbedSearch::EmbedSearch(const std::string& hnsw_path, const uint32_t dim,

@@ -20,14 +20,14 @@ class VideoRecordPlugin : public Plugin {
 
  public:
   VideoRecordPlugin(
-      const std::string& name, std::function<bool()> IsRecording,
-      std::function<void(const std::string& filename)> StartVideoRecoding,
-      std::function<void()> StopVideoCapture)
+      const std::string& name, std::function<bool()> is_recording,
+      std::function<void(const std::string& filename)> start_video_recording,
+      std::function<void()> stop_video_capture)
       : Plugin(name),
-        IsRecording_(IsRecording),
-        StartVideoRecoding_(StartVideoRecoding),
-        StopVideoCapture_(StopVideoCapture) {}
-  bool Handle(const std::string& input, std::string& response,
+        IsRecording_(is_recording),
+        StartVideoRecoding_(start_video_recording),
+        StopVideoCapture_(stop_video_capture) {}
+  bool handle(const std::string& input, std::string& response,
               bool& finished) override {
     // Normalize app name
     std::string normalized_input = input;

@@ -52,10 +52,10 @@ static void GLFWErrorCallback(int error, const char* description) {
 }
 
 std::mutex mtx;
-bool OnNewMessage(const std::string& text, const std::string& sender,
-                  std::shared_ptr<session::ChatHistory> history) {
+bool on_new_message(const std::string& text, const std::string& sender,
+                    std::shared_ptr<session::ChatHistory> history) {
   mtx.lock();
-  history->AddMessage(text, sender);
+  history->add_message(text, sender);
   mtx.unlock();
   return true;
 }
@@ -63,7 +63,7 @@ bool OnNewMessage(const std::string& text, const std::string& sender,
 /**
  * @brief Main ImGUI loop
  */
-void runImgui(std::shared_ptr<session::ChatHistory> history) {
+void run_img_ui(std::shared_ptr<session::ChatHistory> history) {
   // Setup window
   glfwSetErrorCallback(GLFWErrorCallback);
   if (!glfwInit()) return;
@@ -137,8 +137,8 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
   bool is_muted = false;
   bool need_refresh_window_size = false;
 
-  character_instance->SetOpenCameraView([&]() { enable_camera = true; });
-  character_instance->SetCloseCameraView([&]() { enable_camera = false; });
+  character_instance->set_open_camera_view([&]() { enable_camera = true; });
+  character_instance->set_close_camera_view([&]() { enable_camera = false; });
 
   // Main loop
   while (!glfwWindowShouldClose(window)) {
@@ -146,7 +146,7 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
     glfwPollEvents();
 
     // Update character mute status
-    character_instance->SetMute(is_muted);
+    character_instance->set_mute(is_muted);
 
     // Start the Dear ImGui frame
     ImGui_ImplOpenGL3_NewFrame();
@@ -169,11 +169,11 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
     // Check and start/stop camera
     if (last_enable_camera != enable_camera) {
       if (enable_camera) {
-        if (!character_instance->GetVideoCapture().IsRecording())
-          character_instance->StartVideoCapture();
+        if (!character_instance->get_video_capture().is_recording())
+          character_instance->start_video_capture();
         need_refresh_window_size = true;
       } else {
-        character_instance->StopVideoCapture();
+        character_instance->stop_video_capture();
         glfwSetWindowSize(window, INIT_WINDOW_WIDTH, INIT_WINDOW_HEIGHT);
       }
       last_enable_camera = enable_camera;
@@ -182,15 +182,15 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
     // Render camera
     if (enable_camera) {
       // Resize image to fit window
-      cv::Mat image = character_instance->GetVisualizedFrame();
+      cv::Mat image = character_instance->get_visualized_frame();
       if (!image.empty()) {
         if (need_refresh_window_size) {
           // Adapt window height to camera aspect ratio
           int window_width = window_size.x;
           int window_height =
               window_width *
-                  character_instance->GetVideoCapture().GetFrameHeight() /
-                  character_instance->GetVideoCapture().GetFrameWidth() +
+                  character_instance->get_video_capture().get_frame_height() /
+                  character_instance->get_video_capture().get_frame_width() +
               200;
           glfwSetWindowSize(window, window_width, window_height);
         }
@@ -231,13 +231,13 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
     // TODO: Format chat history
     ImGui::Dummy(ImVec2(0, ImGui::GetContentRegionAvail().y));
 
-    for (session::ChatMessage message : history->GetCharHistory()) {
+    for (session::ChatMessage message : history->get_chat_history()) {
       ImGui::Spacing();
-      // ImGui::TextWrapped("%s", message.GetTime().c_str());
-      ImGui::TextWrapped("> %s: %s", message.GetSender().c_str(),
-                         message.GetMessage().c_str());
+      // ImGui::TextWrapped("%s", message.get_time().c_str());
+      ImGui::TextWrapped("> %s: %s", message.get_sender().c_str(),
+                         message.get_message().c_str());
     }
-    if (history->HasNewMessage() || just_sent) {
+    if (history->has_new_message() || just_sent) {
       ImGui::SetScrollHereY(1.0f);
     }
 
@@ -265,7 +265,7 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
     strcpy(text, "Say something...");
     ImGui::PushItemWidth(ImGui::GetContentRegionAvail().x);
     if (ImGui::InputText("##source", text, IM_ARRAYSIZE(text), input_flags)) {
-      just_sent = OnNewMessage(text, "User", history);
+      just_sent = on_new_message(text, "User", history);
     };
 
     // Put the cursor of InputTextMultiline at the end of the text
@@ -297,12 +297,12 @@ void runImgui(std::shared_ptr<session::ChatHistory> history) {
 int main(int argc, char** argv) {
   // Parse command line arguments
   common::CCParams params;
-  if (CCParamsParse(argc, argv, params) == false) {
+  if (cc_params_parse(argc, argv, params) == false) {
     exit(1);
   }
   if (whisper_lang_id(params.language.c_str()) == -1) {
     fprintf(stderr, "error: unknown language '%s'\n", params.language.c_str());
-    CCPrintUsage(argc, argv, params);
+    cc_print_params_usage(argc, argv, params);
     exit(1);
   }
 
@@ -314,17 +314,17 @@ int main(int argc, char** argv) {
   character_instance = std::make_shared<character::Character>(params);
 
   // Set message callbacks
-  character_instance->SetOnUserMessage(
-      std::bind(OnNewMessage, std::placeholders::_1, "User", history));
-  character_instance->SetOnBotMessage(
-      std::bind(OnNewMessage, std::placeholders::_1, "CustomChar", history));
+  character_instance->set_on_user_message(
+      std::bind(on_new_message, std::placeholders::_1, "User", history));
+  character_instance->set_on_bot_message(
+      std::bind(on_new_message, std::placeholders::_1, "CustomChar", history));
 
   // Start character in a new thread
   std::thread character_thread(&character::Character::Run, character_instance);
   character_thread.detach();
 
   // Main GUI loop
-  runImgui(history);
+  run_img_ui(history);
 
   return 0;
 }

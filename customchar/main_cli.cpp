@@ -16,12 +16,12 @@ using namespace CC::character;
 int main(int argc, char** argv) {
   // Parse command line arguments
   common::CCParams params;
-  if (CCParamsParse(argc, argv, params) == false) {
+  if (cc_params_parse(argc, argv, params) == false) {
     exit(1);
   }
   if (whisper_lang_id(params.language.c_str()) == -1) {
     fprintf(stderr, "error: unknown language '%s'\n", params.language.c_str());
-    CCPrintUsage(argc, argv, params);
+    cc_print_params_usage(argc, argv, params);
     exit(1);
   }
 

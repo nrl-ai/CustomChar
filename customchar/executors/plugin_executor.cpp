@@ -2,7 +2,7 @@
 
 using namespace CC::executors;
 
-std::string PluginExecutor::Reflect(const std::string& word) {
+std::string PluginExecutor::reflect(const std::string& word) {
   auto it = reflections_.find(word);
   if (it != reflections_.end()) {
     return it->second;
@@ -10,12 +10,12 @@ std::string PluginExecutor::Reflect(const std::string& word) {
   return word;
 }
 
-bool PluginExecutor::ParseAndExecute(const std::string& input,
-                                     std::string& response) {
+bool PluginExecutor::parse_and_execute(const std::string& input,
+                                       std::string& response) {
   // Continue with current plugin
   if (current_plugin_) {
     bool finished = false;
-    bool handled = current_plugin_->Handle(input, response, finished);
+    bool handled = current_plugin_->handle(input, response, finished);
     if (finished) {
       current_plugin_ = nullptr;
     }
@@ -35,10 +35,10 @@ bool PluginExecutor::ParseAndExecute(const std::string& input,
 
       // Run executor here
       for (const auto& plugin : plugins_) {
-        if (plugin->GetName() == plugin_name) {
+        if (plugin->get_name() == plugin_name) {
           current_plugin_ = plugin;
           bool finished = false;
-          bool handled = current_plugin_->Handle(input, response, finished);
+          bool handled = current_plugin_->handle(input, response, finished);
           if (finished) {
             current_plugin_ = nullptr;
           }

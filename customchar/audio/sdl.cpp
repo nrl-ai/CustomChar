@@ -13,7 +13,7 @@ AudioAsync::~AudioAsync() {
   }
 }
 
-bool AudioAsync::Init(int capture_id, int sample_rate) {
+bool AudioAsync::initialize(int capture_id, int sample_rate) {
   SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO);
 
   if (SDL_Init(SDL_INIT_AUDIO) < 0) {
@@ -47,7 +47,7 @@ bool AudioAsync::Init(int capture_id, int sample_rate) {
   capture_spec_requested.callback = [](void* userdata, uint8_t* stream,
                                        int len) {
     AudioAsync* audio = (AudioAsync*)userdata;
-    audio->Callback(stream, len);
+    audio->callback(stream, len);
   };
   capture_spec_requested.userdata = this;
 
@@ -90,7 +90,7 @@ bool AudioAsync::Init(int capture_id, int sample_rate) {
   return true;
 }
 
-bool AudioAsync::Resume() {
+bool AudioAsync::resume() {
   if (!m_dev_id_in_) {
     fprintf(stderr, "%s: no audio device to resume!\n", __func__);
     return false;
@@ -106,7 +106,7 @@ bool AudioAsync::Resume() {
   return true;
 }
 
-bool AudioAsync::Pause() {
+bool AudioAsync::pause() {
   if (!m_dev_id_in_) {
     fprintf(stderr, "%s: no audio device to pause!\n", __func__);
     return false;
@@ -123,7 +123,7 @@ bool AudioAsync::Pause() {
   return true;
 }
 
-bool AudioAsync::Clear() {
+bool AudioAsync::clear() {
   if (!m_dev_id_in_) {
     fprintf(stderr, "%s: no audio device to clear!\n", __func__);
     return false;
@@ -144,7 +144,7 @@ bool AudioAsync::Clear() {
   return true;
 }
 
-void AudioAsync::Callback(uint8_t* stream, int len) {
+void AudioAsync::callback(uint8_t* stream, int len) {
   if (!m_running_) {
     return;
   }
@@ -177,7 +177,7 @@ void AudioAsync::Callback(uint8_t* stream, int len) {
   }
 }
 
-void AudioAsync::Get(int ms, std::vector<float>& result) {
+void AudioAsync::get(int ms, std::vector<float>& result) {
   if (!m_dev_id_in_) {
     fprintf(stderr, "%s: no audio device to get audio from!\n", __func__);
     return;
@@ -220,7 +220,7 @@ void AudioAsync::Get(int ms, std::vector<float>& result) {
   }
 }
 
-bool CC::audio::SDLPollEvents() {
+bool CC::audio::sdl_poll_events() {
   SDL_Event event;
   while (SDL_PollEvent(&event)) {
     switch (event.type) {
