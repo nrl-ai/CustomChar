@@ -1,7 +1,14 @@
 <map id="embeddb.h" name="embeddb.h">
-<area shape="rect" id="node1" title=" " alt="" coords="108,5,203,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="245,259,303,285"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,259,68,285"/>
-<area shape="rect" id="node4" href="$collection_8h.html" title=" " alt="" coords="74,80,237,121"/>
-<area shape="rect" id="node5" href="$document_8h.html" title=" " alt="" coords="74,169,237,211"/>
+<area shape="rect" id="node1" title=" " alt="" coords="189,5,283,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="33,266,92,293"/>
+<area shape="rect" id="node3" title=" " alt="" coords="133,266,195,293"/>
+<area shape="rect" id="node4" href="$collection_8h.html" title=" " alt="" coords="273,80,436,121"/>
+<area shape="rect" id="node5" title=" " alt="" coords="562,177,734,203"/>
+<area shape="rect" id="node6" href="$document_8h.html" title=" " alt="" coords="36,169,199,211"/>
+<area shape="rect" id="node7" href="$embed__search_8h.html" title=" " alt="" coords="324,169,487,211"/>
+<area shape="rect" id="node11" href="$types_8h.html" title=" " alt="" coords="685,259,848,300"/>
+<area shape="rect" id="node8" title=" " alt="" coords="219,266,293,293"/>
+<area shape="rect" id="node9" title=" " alt="" coords="317,266,397,293"/>
+<area shape="rect" id="node10" title=" " alt="" coords="421,266,499,293"/>
+<area shape="rect" id="node12" title=" " alt="" coords="523,266,661,293"/>
 </map>

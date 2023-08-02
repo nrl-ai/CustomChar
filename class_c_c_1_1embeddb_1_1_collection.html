@@ -99,50 +99,88 @@ Collaboration diagram for CC::embeddb::Collection:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_c_c_1_1embeddb_1_1_collection__coll__graph.png" border="0" usemap="#a_c_c_1_1embeddb_1_1_collection_coll__map" alt="Collaboration graph"/></div>
 <map name="a_c_c_1_1embeddb_1_1_collection_coll__map" id="a_c_c_1_1embeddb_1_1_collection_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,188,200"/>
+<area shape="rect" title=" " alt="" coords="5,5,188,215"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a43f16a16008aae21456fb3e3f523ec7a"><td class="memItemLeft" align="right" valign="top">u_int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_collection.html#a43f16a16008aae21456fb3e3f523ec7a">get_doc_count</a> ()</td></tr>
-<tr class="separator:a43f16a16008aae21456fb3e3f523ec7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a677c7fbdcc7d8242a7019d03017105d0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_collection.html#a677c7fbdcc7d8242a7019d03017105d0">get_dim</a> ()</td></tr>
-<tr class="separator:a677c7fbdcc7d8242a7019d03017105d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae253ff62851498f14ade222fd8efe4df"><td class="memItemLeft" align="right" valign="top">u_int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_collection.html#ae253ff62851498f14ade222fd8efe4df">insert_doc</a> (std::vector&lt; float &gt; doc_embedding, const std::string &amp;content, const std::string &amp;meta, u_int32_t original_doc_id, u_int32_t original_pos_line, u_int32_t original_pos_col)</td></tr>
-<tr class="memdesc:ae253ff62851498f14ade222fd8efe4df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a document into the collection.  <a href="class_c_c_1_1embeddb_1_1_collection.html#ae253ff62851498f14ade222fd8efe4df">More...</a><br /></td></tr>
-<tr class="separator:ae253ff62851498f14ade222fd8efe4df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9a7add8f6c3fa624911353a74097406"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_collection.html#ae9a7add8f6c3fa624911353a74097406">search</a> (std::vector&lt; float &gt; query_embedding, int k, std::vector&lt; u_int32_t &gt; &amp;doc_ids, std::vector&lt; float &gt; &amp;distances)</td></tr>
-<tr class="memdesc:ae9a7add8f6c3fa624911353a74097406"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search for similar documents.  <a href="class_c_c_1_1embeddb_1_1_collection.html#ae9a7add8f6c3fa624911353a74097406">More...</a><br /></td></tr>
-<tr class="separator:ae9a7add8f6c3fa624911353a74097406"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9ce996cfbed2078c28274c42ad5fc9a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_c_c_1_1embeddb_1_1_document.html">Document</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_collection.html#aa9ce996cfbed2078c28274c42ad5fc9a">get_docs_by_ids</a> (std::vector&lt; u_int32_t &gt; doc_ids, int limit=-1, int offset=0)</td></tr>
-<tr class="memdesc:aa9ce996cfbed2078c28274c42ad5fc9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get documents by IDs.  <a href="class_c_c_1_1embeddb_1_1_collection.html#aa9ce996cfbed2078c28274c42ad5fc9a">More...</a><br /></td></tr>
-<tr class="separator:aa9ce996cfbed2078c28274c42ad5fc9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae93765879b33b649258b16f94ef8cee7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_c_1_1embeddb_1_1_document.html">Document</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_collection.html#ae93765879b33b649258b16f94ef8cee7">get_doc</a> (u_int32_t doc_id)</td></tr>
-<tr class="memdesc:ae93765879b33b649258b16f94ef8cee7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get document by ID.  <a href="class_c_c_1_1embeddb_1_1_collection.html#ae93765879b33b649258b16f94ef8cee7">More...</a><br /></td></tr>
-<tr class="separator:ae93765879b33b649258b16f94ef8cee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4be225a5eb14902dacfb73f1ad09198"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_collection.html#ac4be225a5eb14902dacfb73f1ad09198">delete_doc</a> (u_int32_t doc_id)</td></tr>
-<tr class="memdesc:ac4be225a5eb14902dacfb73f1ad09198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete document by ID.  <a href="class_c_c_1_1embeddb_1_1_collection.html#ac4be225a5eb14902dacfb73f1ad09198">More...</a><br /></td></tr>
-<tr class="separator:ac4be225a5eb14902dacfb73f1ad09198"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada0149eb0030e57370db058e753f4bc8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_collection.html#ada0149eb0030e57370db058e753f4bc8">delete_all_docs</a> ()</td></tr>
-<tr class="memdesc:ada0149eb0030e57370db058e753f4bc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete all documents.  <a href="class_c_c_1_1embeddb_1_1_collection.html#ada0149eb0030e57370db058e753f4bc8">More...</a><br /></td></tr>
-<tr class="separator:ada0149eb0030e57370db058e753f4bc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add0b09d3fbd61520b570fc77a0d79770"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_collection.html#add0b09d3fbd61520b570fc77a0d79770">Collection</a> (const std::string &amp;name, const std::string &amp;path, const uint32_t dim, const uint32_t max_size)</td></tr>
+<tr class="separator:add0b09d3fbd61520b570fc77a0d79770"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20030239ab8a46a0f2ca97ddca0bdf4f"><td class="memItemLeft" align="right" valign="top">u_int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_collection.html#a20030239ab8a46a0f2ca97ddca0bdf4f">get_doc_count</a> ()</td></tr>
+<tr class="separator:a20030239ab8a46a0f2ca97ddca0bdf4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa4d525cd3b7d9237a6aef851db0c592"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_collection.html#aaa4d525cd3b7d9237a6aef851db0c592">get_dim</a> ()</td></tr>
+<tr class="separator:aaa4d525cd3b7d9237a6aef851db0c592"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa944ebaa1d3d077c9aae2983c300407a"><td class="memItemLeft" align="right" valign="top">u_int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_collection.html#aa944ebaa1d3d077c9aae2983c300407a">insert_doc</a> (std::vector&lt; float &gt; doc_embedding, const std::string &amp;content, const std::string &amp;meta, u_int32_t original_doc_id, u_int32_t original_pos_line, u_int32_t original_pos_col)</td></tr>
+<tr class="separator:aa944ebaa1d3d077c9aae2983c300407a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9863e4a6c6260342c9dd0faacccef73e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_collection.html#a9863e4a6c6260342c9dd0faacccef73e">search</a> (std::vector&lt; float &gt; query_embedding, int top_k, float threshold, std::vector&lt; u_int32_t &gt; &amp;doc_ids, std::vector&lt; float &gt; &amp;distances)</td></tr>
+<tr class="separator:a9863e4a6c6260342c9dd0faacccef73e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa12493b434a7b2e77beebf534379ae5e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_c_c_1_1embeddb_1_1_document.html">Document</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_collection.html#aa12493b434a7b2e77beebf534379ae5e">get_docs_by_ids</a> (std::vector&lt; u_int32_t &gt; doc_ids, int limit=-1, int offset=0)</td></tr>
+<tr class="separator:aa12493b434a7b2e77beebf534379ae5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad75f5e8e1aee925c9919a9210832c362"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_c_1_1embeddb_1_1_document.html">Document</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_collection.html#ad75f5e8e1aee925c9919a9210832c362">get_doc</a> (u_int32_t doc_id)</td></tr>
+<tr class="separator:ad75f5e8e1aee925c9919a9210832c362"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa889656759630acd537298e9713e94d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_collection.html#aa889656759630acd537298e9713e94d0">delete_doc</a> (u_int32_t doc_id)</td></tr>
+<tr class="separator:aa889656759630acd537298e9713e94d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09d91ab889a8b084d34076f31c268d69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_collection.html#a09d91ab889a8b084d34076f31c268d69">delete_all_docs</a> ()</td></tr>
+<tr class="separator:a09d91ab889a8b084d34076f31c268d69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ce9be65c63fef18daa33aaf83620cf6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_c_c_1_1embeddb_1_1_document.html">Document</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_collection.html#a2ce9be65c63fef18daa33aaf83620cf6">get_docs</a> (int limit=-1, int offset=0)</td></tr>
-<tr class="memdesc:a2ce9be65c63fef18daa33aaf83620cf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get documents.  <a href="class_c_c_1_1embeddb_1_1_collection.html#a2ce9be65c63fef18daa33aaf83620cf6">More...</a><br /></td></tr>
 <tr class="separator:a2ce9be65c63fef18daa33aaf83620cf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="collection_8h_source.html#l00011">11</a> of file <a class="el" href="collection_8h_source.html">collection.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ada0149eb0030e57370db058e753f4bc8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada0149eb0030e57370db058e753f4bc8">&#9670;&nbsp;</a></span>delete_all_docs()</h2>
+<p class="definition">Definition at line <a class="el" href="collection_8h_source.html#l00015">15</a> of file <a class="el" href="collection_8h_source.html">collection.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="add0b09d3fbd61520b570fc77a0d79770"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add0b09d3fbd61520b570fc77a0d79770">&#9670;&nbsp;</a></span>Collection()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void CC::embeddb::Collection::delete_all_docs </td>
+          <td class="memname">Collection::Collection </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>dim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>max_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="collection_8cpp_source.html#l00005">5</a> of file <a class="el" href="collection_8cpp_source.html">collection.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a09d91ab889a8b084d34076f31c268d69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09d91ab889a8b084d34076f31c268d69">&#9670;&nbsp;</a></span>delete_all_docs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Collection::delete_all_docs </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -150,18 +188,27 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Delete all documents. </p>
+<p class="definition">Definition at line <a class="el" href="collection_8cpp_source.html#l00109">109</a> of file <a class="el" href="collection_8cpp_source.html">collection.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_c_1_1embeddb_1_1_collection_a09d91ab889a8b084d34076f31c268d69_cgraph.png" border="0" usemap="#aclass_c_c_1_1embeddb_1_1_collection_a09d91ab889a8b084d34076f31c268d69_cgraph" alt=""/></div>
+<map name="aclass_c_c_1_1embeddb_1_1_collection_a09d91ab889a8b084d34076f31c268d69_cgraph" id="aclass_c_c_1_1embeddb_1_1_collection_a09d91ab889a8b084d34076f31c268d69_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,188,47"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_embed_search.html#ae256e874e3e99863534927a0757f5bf9" title=" " alt="" coords="236,5,443,47"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="ac4be225a5eb14902dacfb73f1ad09198"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4be225a5eb14902dacfb73f1ad09198">&#9670;&nbsp;</a></span>delete_doc()</h2>
+<a id="aa889656759630acd537298e9713e94d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa889656759630acd537298e9713e94d0">&#9670;&nbsp;</a></span>delete_doc()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void CC::embeddb::Collection::delete_doc </td>
+          <td class="memname">void Collection::delete_doc </td>
           <td>(</td>
           <td class="paramtype">u_int32_t&#160;</td>
           <td class="paramname"><em>doc_id</em></td><td>)</td>
@@ -170,24 +217,27 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Delete document by ID. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">doc_id</td><td><a class="el" href="class_c_c_1_1embeddb_1_1_document.html">Document</a> ID. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p class="definition">Definition at line <a class="el" href="collection_8cpp_source.html#l00102">102</a> of file <a class="el" href="collection_8cpp_source.html">collection.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_c_1_1embeddb_1_1_collection_aa889656759630acd537298e9713e94d0_cgraph.png" border="0" usemap="#aclass_c_c_1_1embeddb_1_1_collection_aa889656759630acd537298e9713e94d0_cgraph" alt=""/></div>
+<map name="aclass_c_c_1_1embeddb_1_1_collection_aa889656759630acd537298e9713e94d0_cgraph" id="aclass_c_c_1_1embeddb_1_1_collection_aa889656759630acd537298e9713e94d0_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,188,47"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_embed_search.html#af113ecb97f12407423c8c81f694e8ef8" title=" " alt="" coords="236,5,443,47"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="a677c7fbdcc7d8242a7019d03017105d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a677c7fbdcc7d8242a7019d03017105d0">&#9670;&nbsp;</a></span>get_dim()</h2>
+<a id="aaa4d525cd3b7d9237a6aef851db0c592"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa4d525cd3b7d9237a6aef851db0c592">&#9670;&nbsp;</a></span>get_dim()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int CC::embeddb::Collection::get_dim </td>
+          <td class="memname">int Collection::get_dim </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -195,16 +245,18 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="collection_8cpp_source.html#l00036">36</a> of file <a class="el" href="collection_8cpp_source.html">collection.cpp</a>.</p>
+
 </div>
 </div>
-<a id="ae93765879b33b649258b16f94ef8cee7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae93765879b33b649258b16f94ef8cee7">&#9670;&nbsp;</a></span>get_doc()</h2>
+<a id="ad75f5e8e1aee925c9919a9210832c362"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad75f5e8e1aee925c9919a9210832c362">&#9670;&nbsp;</a></span>get_doc()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_c_c_1_1embeddb_1_1_document.html">Document</a> CC::embeddb::Collection::get_doc </td>
+          <td class="memname"><a class="el" href="class_c_c_1_1embeddb_1_1_document.html">Document</a> Collection::get_doc </td>
           <td>(</td>
           <td class="paramtype">u_int32_t&#160;</td>
           <td class="paramname"><em>doc_id</em></td><td>)</td>
@@ -213,31 +265,35 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Get document by ID. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">doc_id</td><td><a class="el" href="class_c_c_1_1embeddb_1_1_document.html">Document</a> ID. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_c_c_1_1embeddb_1_1_document.html">Document</a>. </dd></dl>
+<p class="definition">Definition at line <a class="el" href="collection_8cpp_source.html#l00065">65</a> of file <a class="el" href="collection_8cpp_source.html">collection.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_c_1_1embeddb_1_1_collection_ad75f5e8e1aee925c9919a9210832c362_cgraph.png" border="0" usemap="#aclass_c_c_1_1embeddb_1_1_collection_ad75f5e8e1aee925c9919a9210832c362_cgraph" alt=""/></div>
+<map name="aclass_c_c_1_1embeddb_1_1_collection_ad75f5e8e1aee925c9919a9210832c362_cgraph" id="aclass_c_c_1_1embeddb_1_1_collection_ad75f5e8e1aee925c9919a9210832c362_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,188,47"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_embed_search.html#aa84c5e8d382aa4ece03dc3a4bcb0d950" title=" " alt="" coords="236,5,443,47"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="a43f16a16008aae21456fb3e3f523ec7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43f16a16008aae21456fb3e3f523ec7a">&#9670;&nbsp;</a></span>get_doc_count()</h2>
+<a id="a20030239ab8a46a0f2ca97ddca0bdf4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20030239ab8a46a0f2ca97ddca0bdf4f">&#9670;&nbsp;</a></span>get_doc_count()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">u_int32_t CC::embeddb::Collection::get_doc_count </td>
+          <td class="memname">u_int32_t Collection::get_doc_count </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="collection_8cpp_source.html#l00037">37</a> of file <a class="el" href="collection_8cpp_source.html">collection.cpp</a>.</p>
 
 </div>
 </div>
@@ -267,19 +323,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Get documents. </p>
-<dl class="section return"><dt>Returns</dt><dd>Documents. </dd></dl>
-
 </div>
 </div>
-<a id="aa9ce996cfbed2078c28274c42ad5fc9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9ce996cfbed2078c28274c42ad5fc9a">&#9670;&nbsp;</a></span>get_docs_by_ids()</h2>
+<a id="aa12493b434a7b2e77beebf534379ae5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa12493b434a7b2e77beebf534379ae5e">&#9670;&nbsp;</a></span>get_docs_by_ids()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="class_c_c_1_1embeddb_1_1_document.html">Document</a>&gt; CC::embeddb::Collection::get_docs_by_ids </td>
+          <td class="memname">std::vector&lt; <a class="el" href="class_c_c_1_1embeddb_1_1_document.html">Document</a> &gt; Collection::get_docs_by_ids </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; u_int32_t &gt;&#160;</td>
           <td class="paramname"><em>doc_ids</em>, </td>
@@ -304,25 +357,36 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Get documents by IDs. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">doc_ids</td><td><a class="el" href="class_c_c_1_1embeddb_1_1_document.html">Document</a> IDs. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Documents. </dd></dl>
+<p class="definition">Definition at line <a class="el" href="collection_8cpp_source.html#l00074">74</a> of file <a class="el" href="collection_8cpp_source.html">collection.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_c_1_1embeddb_1_1_collection_aa12493b434a7b2e77beebf534379ae5e_cgraph.png" border="0" usemap="#aclass_c_c_1_1embeddb_1_1_collection_aa12493b434a7b2e77beebf534379ae5e_cgraph" alt=""/></div>
+<map name="aclass_c_c_1_1embeddb_1_1_collection_aa12493b434a7b2e77beebf534379ae5e_cgraph" id="aclass_c_c_1_1embeddb_1_1_collection_aa12493b434a7b2e77beebf534379ae5e_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,188,47"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_embed_search.html#aa84c5e8d382aa4ece03dc3a4bcb0d950" title=" " alt="" coords="236,5,443,47"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_c_1_1embeddb_1_1_collection_aa12493b434a7b2e77beebf534379ae5e_icgraph.png" border="0" usemap="#aclass_c_c_1_1embeddb_1_1_collection_aa12493b434a7b2e77beebf534379ae5e_icgraph" alt=""/></div>
+<map name="aclass_c_c_1_1embeddb_1_1_collection_aa12493b434a7b2e77beebf534379ae5e_icgraph" id="aclass_c_c_1_1embeddb_1_1_collection_aa12493b434a7b2e77beebf534379ae5e_icgraph">
+<area shape="rect" title=" " alt="" coords="108,5,291,47"/>
+<area shape="rect" href="test__collection_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,60,39"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="ae253ff62851498f14ade222fd8efe4df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae253ff62851498f14ade222fd8efe4df">&#9670;&nbsp;</a></span>insert_doc()</h2>
+<a id="aa944ebaa1d3d077c9aae2983c300407a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa944ebaa1d3d077c9aae2983c300407a">&#9670;&nbsp;</a></span>insert_doc()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">u_int32_t CC::embeddb::Collection::insert_doc </td>
+          <td class="memname">u_int32_t Collection::insert_doc </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; float &gt;&#160;</td>
           <td class="paramname"><em>doc_embedding</em>, </td>
@@ -365,30 +429,28 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Insert a document into the collection. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">doc_embedding</td><td><a class="el" href="class_c_c_1_1embeddb_1_1_document.html">Document</a> embedding. </td></tr>
-    <tr><td class="paramname">content</td><td><a class="el" href="class_c_c_1_1embeddb_1_1_document.html">Document</a> content. </td></tr>
-    <tr><td class="paramname">meta</td><td><a class="el" href="class_c_c_1_1embeddb_1_1_document.html">Document</a> metadata (JSON). </td></tr>
-    <tr><td class="paramname">original_doc_id</td><td>Original document ID. </td></tr>
-    <tr><td class="paramname">original_pos_line</td><td>Position of the document in the original file (line). </td></tr>
-    <tr><td class="paramname">original_pos_col</td><td>Position of the document in the original file (column). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_c_c_1_1embeddb_1_1_document.html">Document</a> ID. </dd></dl>
+<p class="definition">Definition at line <a class="el" href="collection_8cpp_source.html#l00043">43</a> of file <a class="el" href="collection_8cpp_source.html">collection.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_c_1_1embeddb_1_1_collection_aa944ebaa1d3d077c9aae2983c300407a_cgraph.png" border="0" usemap="#aclass_c_c_1_1embeddb_1_1_collection_aa944ebaa1d3d077c9aae2983c300407a_cgraph" alt=""/></div>
+<map name="aclass_c_c_1_1embeddb_1_1_collection_aa944ebaa1d3d077c9aae2983c300407a_cgraph" id="aclass_c_c_1_1embeddb_1_1_collection_aa944ebaa1d3d077c9aae2983c300407a_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,188,47"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_embed_search.html#a39d7b98924fad76a24d7ea9d6b8efced" title=" " alt="" coords="236,5,443,47"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_embed_search.html#aac95ec30c380590908bfc4cad1c9c4bf" title=" " alt="" coords="491,5,697,47"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="ae9a7add8f6c3fa624911353a74097406"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9a7add8f6c3fa624911353a74097406">&#9670;&nbsp;</a></span>search()</h2>
+<a id="a9863e4a6c6260342c9dd0faacccef73e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9863e4a6c6260342c9dd0faacccef73e">&#9670;&nbsp;</a></span>search()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool CC::embeddb::Collection::search </td>
+          <td class="memname">void Collection::search </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; float &gt;&#160;</td>
           <td class="paramname"><em>query_embedding</em>, </td>
@@ -397,7 +459,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>k</em>, </td>
+          <td class="paramname"><em>top_k</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>threshold</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -419,21 +487,23 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Search for similar documents. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">query_embedding</td><td>Query embedding. </td></tr>
-    <tr><td class="paramname">k</td><td>Maximum number of results. </td></tr>
-    <tr><td class="paramname">doc_ids</td><td>Found document IDs. </td></tr>
-    <tr><td class="paramname">distances</td><td>Distances. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p class="definition">Definition at line <a class="el" href="collection_8cpp_source.html#l00120">120</a> of file <a class="el" href="collection_8cpp_source.html">collection.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_c_1_1embeddb_1_1_collection_a9863e4a6c6260342c9dd0faacccef73e_cgraph.png" border="0" usemap="#aclass_c_c_1_1embeddb_1_1_collection_a9863e4a6c6260342c9dd0faacccef73e_cgraph" alt=""/></div>
+<map name="aclass_c_c_1_1embeddb_1_1_collection_a9863e4a6c6260342c9dd0faacccef73e_cgraph" id="aclass_c_c_1_1embeddb_1_1_collection_a9863e4a6c6260342c9dd0faacccef73e_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,188,47"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_embed_search.html#ae2372636a26693febdbca06206ae3686" title=" " alt="" coords="236,5,443,47"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_embed_search.html#aac95ec30c380590908bfc4cad1c9c4bf" title=" " alt="" coords="491,5,697,47"/>
+</map>
+</div>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="collection_8h_source.html">collection.h</a></li>
+<li><a class="el" href="collection_8cpp_source.html">collection.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -100,93 +100,118 @@ $(document).ready(function(){initNavTree('embed__search_8cpp_source.html',''); i
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  space_ = std::make_shared&lt;hnswlib::L2Space&gt;(dim);</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  alg_hnsw_ = <span class="keyword">new</span> hnswlib::HierarchicalNSW&lt;float&gt;(&amp;*space_, max_size);</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  load_data();</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_c_c_1_1embeddb_1_1_embed_search.html#affdd61ea09e6956ac8b9d8c6a65a03ce">   13</a></span>&#160;<a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#affdd61ea09e6956ac8b9d8c6a65a03ce">EmbedSearch::~EmbedSearch</a>() {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  save_data();</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keyword">delete</span> alg_hnsw_;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">void</span> EmbedSearch::save_data() { alg_hnsw_-&gt;saveIndex(hnsw_path_); }</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">bool</span> EmbedSearch::load_data() {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keywordflow">if</span> (!check_exists_file(hnsw_path_)) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  alg_hnsw_-&gt;loadIndex(hnsw_path_, &amp;*space_, max_size_);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  std::cout &lt;&lt; <span class="stringliteral">&quot;Load data success with size: &quot;</span> &lt;&lt; get_num_datas() &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">bool</span> EmbedSearch::check_exists_file(<span class="keyword">const</span> std::string&amp; name) {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  std::ifstream f(name.c_str());</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordflow">return</span> f.good();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;uint32_t EmbedSearch::get_num_datas() { <span class="keywordflow">return</span> alg_hnsw_-&gt;cur_element_count; }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_c_c_1_1embeddb_1_1_embed_search.html#a9a274e6474557040f035f4e5f0bf7711">   34</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#a9a274e6474557040f035f4e5f0bf7711">EmbedSearch::insert_embeds</a>(<span class="keyword">const</span> std::vector&lt;std::vector&lt;float&gt;&gt;&amp; embeds,</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                                std::vector&lt;uint32_t&gt;&amp; ids) {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  uint32_t num_datas = get_num_datas();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  ids.resize(embeds.size());</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; embeds.size(); i++) {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    ids[i] = num_datas + i;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; embeds.size(); i++) {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    alg_hnsw_-&gt;addPoint((<span class="keywordtype">void</span>*)&amp;embeds[i][0], ids[i]);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  save_data();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_c_c_1_1embeddb_1_1_embed_search.html#ae256e874e3e99863534927a0757f5bf9">   46</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#ae256e874e3e99863534927a0757f5bf9">EmbedSearch::remove_embeds</a>(<span class="keyword">const</span> std::vector&lt;uint32_t&gt;&amp; ids) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; ids.size(); i++) {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    alg_hnsw_-&gt;markDelete(ids[i]);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  save_data();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_c_c_1_1embeddb_1_1_embed_search.html#ae2372636a26693febdbca06206ae3686">   53</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#ae2372636a26693febdbca06206ae3686">EmbedSearch::search_embed</a>(<span class="keyword">const</span> std::vector&lt;float&gt;&amp; embed,</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                               std::vector&lt;SearchEmbedResult&gt;&amp; results,</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                               uint32_t top_k, <span class="keywordtype">float</span> threshold) {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  results.clear();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  uint32_t num_datas = get_num_datas();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordflow">if</span> (num_datas == 0) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordflow">if</span> (num_datas &lt; top_k) top_k = num_datas;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">void</span>* p = embed.data();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keyword">auto</span> gd = alg_hnsw_-&gt;searchKnn(p, top_k);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordflow">while</span> (!gd.empty()) {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">if</span> (gd.top().first &lt;= threshold) {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <a class="code" href="struct_c_c_1_1embeddb_1_1_search_embed_result.html">SearchEmbedResult</a> result;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      result.<a class="code" href="struct_c_c_1_1embeddb_1_1_search_embed_result.html#a19a88a9620ab90cce442d6afcabc1f72">id</a> = gd.top().second;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      result.<a class="code" href="struct_c_c_1_1embeddb_1_1_search_embed_result.html#a972f78a281c809c81f3e7e8848b11de6">score</a> = gd.top().first;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      results.emplace_back(result);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    gd.pop();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="class_c_c_1_1embeddb_1_1_embed_search.html#a637b474347c6bc4bae93627979e3ccc1">   74</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#a637b474347c6bc4bae93627979e3ccc1">EmbedSearch::search_embeds</a>(</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">const</span> std::vector&lt;std::vector&lt;float&gt;&gt;&amp; embeds,</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    std::vector&lt;std::vector&lt;SearchEmbedResult&gt;&gt;&amp; results, uint32_t top_k,</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">float</span> threshold) {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  results.resize(embeds.size());</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  uint32_t num_datas = get_num_datas();</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keywordflow">if</span> (num_datas == 0) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordflow">if</span> (num_datas &lt; top_k) top_k = num_datas;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  save_data();</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_c_c_1_1embeddb_1_1_embed_search.html#affdd61ea09e6956ac8b9d8c6a65a03ce">   14</a></span>&#160;<a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#affdd61ea09e6956ac8b9d8c6a65a03ce">EmbedSearch::~EmbedSearch</a>() {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  save_data();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keyword">delete</span> alg_hnsw_;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">void</span> EmbedSearch::save_data() { alg_hnsw_-&gt;saveIndex(hnsw_path_); }</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">bool</span> EmbedSearch::load_data() {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keywordflow">if</span> (!check_exists_file(hnsw_path_)) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  alg_hnsw_-&gt;loadIndex(hnsw_path_, &amp;*space_, max_size_);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  std::cout &lt;&lt; <span class="stringliteral">&quot;Load data success with current index&quot;</span> &lt;&lt; <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#aac95ec30c380590908bfc4cad1c9c4bf">get_current_index</a>()</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">bool</span> EmbedSearch::check_exists_file(<span class="keyword">const</span> std::string&amp; name) {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  std::ifstream f(name.c_str());</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordflow">return</span> f.good();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_c_c_1_1embeddb_1_1_embed_search.html#aac95ec30c380590908bfc4cad1c9c4bf">   33</a></span>&#160;uint32_t <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#aac95ec30c380590908bfc4cad1c9c4bf">EmbedSearch::get_current_index</a>() {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordflow">return</span> alg_hnsw_-&gt;cur_element_count;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_c_c_1_1embeddb_1_1_embed_search.html#a39d7b98924fad76a24d7ea9d6b8efced">   37</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#a39d7b98924fad76a24d7ea9d6b8efced">EmbedSearch::insert_embed</a>(<span class="keyword">const</span> std::vector&lt;float&gt;&amp; embed, uint32_t&amp; <span class="keywordtype">id</span>) {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  uint32_t index = <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#aac95ec30c380590908bfc4cad1c9c4bf">get_current_index</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  alg_hnsw_-&gt;addPoint((<span class="keywordtype">void</span>*)&amp;embed[0], index);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  save_data();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_c_c_1_1embeddb_1_1_embed_search.html#aa84c5e8d382aa4ece03dc3a4bcb0d950">   43</a></span>&#160;std::vector&lt;float&gt; <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#aa84c5e8d382aa4ece03dc3a4bcb0d950">EmbedSearch::get_embed</a>(uint32_t <span class="keywordtype">id</span>) {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  std::vector&lt;float&gt; embed;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  embed.resize(dim_);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordtype">char</span>* data = alg_hnsw_-&gt;getDataByInternalId(<span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  memcpy(&amp;embed[0], data, dim_ * <span class="keyword">sizeof</span>(<span class="keywordtype">float</span>));</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordflow">return</span> embed;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_c_c_1_1embeddb_1_1_embed_search.html#a9a274e6474557040f035f4e5f0bf7711">   51</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#a9a274e6474557040f035f4e5f0bf7711">EmbedSearch::insert_embeds</a>(<span class="keyword">const</span> std::vector&lt;std::vector&lt;float&gt;&gt;&amp; embeds,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                                std::vector&lt;uint32_t&gt;&amp; ids) {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  uint32_t current_index = <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#aac95ec30c380590908bfc4cad1c9c4bf">get_current_index</a>();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  ids.resize(embeds.size());</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; embeds.size(); i++) {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    ids[i] = current_index + i;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; embeds.size(); i++) {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    alg_hnsw_-&gt;addPoint((<span class="keywordtype">void</span>*)&amp;embeds[i][0], ids[i]);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  save_data();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="class_c_c_1_1embeddb_1_1_embed_search.html#ae256e874e3e99863534927a0757f5bf9">   63</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#ae256e874e3e99863534927a0757f5bf9">EmbedSearch::remove_embeds</a>(<span class="keyword">const</span> std::vector&lt;uint32_t&gt;&amp; ids) {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; ids.size(); i++) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    alg_hnsw_-&gt;markDelete(ids[i]);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  save_data();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_c_c_1_1embeddb_1_1_embed_search.html#af113ecb97f12407423c8c81f694e8ef8">   70</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#af113ecb97f12407423c8c81f694e8ef8">EmbedSearch::remove_embed</a>(uint32_t <span class="keywordtype">id</span>) {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  alg_hnsw_-&gt;markDelete(<span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  save_data();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="class_c_c_1_1embeddb_1_1_embed_search.html#ae2372636a26693febdbca06206ae3686">   74</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#ae2372636a26693febdbca06206ae3686">EmbedSearch::search_embed</a>(<span class="keyword">const</span> std::vector&lt;float&gt;&amp; embed,</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                               std::vector&lt;SearchEmbedResult&gt;&amp; results,</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                               uint32_t top_k, <span class="keywordtype">float</span> threshold) {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  results.clear();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  uint32_t current_index = <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#aac95ec30c380590908bfc4cad1c9c4bf">get_current_index</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keywordflow">if</span> (current_index == 0) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keywordflow">if</span> (current_index &lt; top_k) top_k = current_index;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">void</span>* p = embed.data();</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; embeds.size(); i++) {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#ae2372636a26693febdbca06206ae3686">search_embed</a>(embeds[i], results[i], top_k, threshold);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
-<div class="ttc" id="aclass_c_c_1_1embeddb_1_1_embed_search_html_a637b474347c6bc4bae93627979e3ccc1"><div class="ttname"><a href="class_c_c_1_1embeddb_1_1_embed_search.html#a637b474347c6bc4bae93627979e3ccc1">CC::embeddb::EmbedSearch::search_embeds</a></div><div class="ttdeci">void search_embeds(const std::vector&lt; std::vector&lt; float &gt;&gt; &amp;embeds, std::vector&lt; std::vector&lt; SearchEmbedResult &gt;&gt; &amp;results, uint32_t top_k, float threshold)</div><div class="ttdef"><b>Definition:</b> <a href="embed__search_8cpp_source.html#l00074">embed_search.cpp:74</a></div></div>
-<div class="ttc" id="aclass_c_c_1_1embeddb_1_1_embed_search_html_a9a274e6474557040f035f4e5f0bf7711"><div class="ttname"><a href="class_c_c_1_1embeddb_1_1_embed_search.html#a9a274e6474557040f035f4e5f0bf7711">CC::embeddb::EmbedSearch::insert_embeds</a></div><div class="ttdeci">void insert_embeds(const std::vector&lt; std::vector&lt; float &gt;&gt; &amp;embeds, std::vector&lt; uint32_t &gt; &amp;ids)</div><div class="ttdef"><b>Definition:</b> <a href="embed__search_8cpp_source.html#l00034">embed_search.cpp:34</a></div></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keyword">auto</span> gd = alg_hnsw_-&gt;searchKnn(p, top_k);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keywordflow">while</span> (!gd.empty()) {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">if</span> (gd.top().first &lt;= threshold) {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      <a class="code" href="struct_c_c_1_1embeddb_1_1_search_embed_result.html">SearchEmbedResult</a> result;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      result.<a class="code" href="struct_c_c_1_1embeddb_1_1_search_embed_result.html#a19a88a9620ab90cce442d6afcabc1f72">id</a> = gd.top().second;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      result.<a class="code" href="struct_c_c_1_1embeddb_1_1_search_embed_result.html#a972f78a281c809c81f3e7e8848b11de6">score</a> = gd.top().first;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      results.emplace_back(result);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    gd.pop();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="class_c_c_1_1embeddb_1_1_embed_search.html#a637b474347c6bc4bae93627979e3ccc1">   95</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#a637b474347c6bc4bae93627979e3ccc1">EmbedSearch::search_embeds</a>(</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keyword">const</span> std::vector&lt;std::vector&lt;float&gt;&gt;&amp; embeds,</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    std::vector&lt;std::vector&lt;SearchEmbedResult&gt;&gt;&amp; results, uint32_t top_k,</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">float</span> threshold) {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  results.resize(embeds.size());</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  uint32_t current_index = <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#aac95ec30c380590908bfc4cad1c9c4bf">get_current_index</a>();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keywordflow">if</span> (current_index == 0) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keywordflow">if</span> (current_index &lt; top_k) top_k = current_index;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; embeds.size(); i++) {</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="class_c_c_1_1embeddb_1_1_embed_search.html#ae2372636a26693febdbca06206ae3686">search_embed</a>(embeds[i], results[i], top_k, threshold);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}</div>
+<div class="ttc" id="aclass_c_c_1_1embeddb_1_1_embed_search_html_a39d7b98924fad76a24d7ea9d6b8efced"><div class="ttname"><a href="class_c_c_1_1embeddb_1_1_embed_search.html#a39d7b98924fad76a24d7ea9d6b8efced">CC::embeddb::EmbedSearch::insert_embed</a></div><div class="ttdeci">void insert_embed(const std::vector&lt; float &gt; &amp;embed, uint32_t &amp;id)</div><div class="ttdef"><b>Definition:</b> <a href="embed__search_8cpp_source.html#l00037">embed_search.cpp:37</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1embeddb_1_1_embed_search_html_a637b474347c6bc4bae93627979e3ccc1"><div class="ttname"><a href="class_c_c_1_1embeddb_1_1_embed_search.html#a637b474347c6bc4bae93627979e3ccc1">CC::embeddb::EmbedSearch::search_embeds</a></div><div class="ttdeci">void search_embeds(const std::vector&lt; std::vector&lt; float &gt;&gt; &amp;embeds, std::vector&lt; std::vector&lt; SearchEmbedResult &gt;&gt; &amp;results, uint32_t top_k, float threshold)</div><div class="ttdef"><b>Definition:</b> <a href="embed__search_8cpp_source.html#l00095">embed_search.cpp:95</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1embeddb_1_1_embed_search_html_a9a274e6474557040f035f4e5f0bf7711"><div class="ttname"><a href="class_c_c_1_1embeddb_1_1_embed_search.html#a9a274e6474557040f035f4e5f0bf7711">CC::embeddb::EmbedSearch::insert_embeds</a></div><div class="ttdeci">void insert_embeds(const std::vector&lt; std::vector&lt; float &gt;&gt; &amp;embeds, std::vector&lt; uint32_t &gt; &amp;ids)</div><div class="ttdef"><b>Definition:</b> <a href="embed__search_8cpp_source.html#l00051">embed_search.cpp:51</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1embeddb_1_1_embed_search_html_aa84c5e8d382aa4ece03dc3a4bcb0d950"><div class="ttname"><a href="class_c_c_1_1embeddb_1_1_embed_search.html#aa84c5e8d382aa4ece03dc3a4bcb0d950">CC::embeddb::EmbedSearch::get_embed</a></div><div class="ttdeci">std::vector&lt; float &gt; get_embed(uint32_t id)</div><div class="ttdef"><b>Definition:</b> <a href="embed__search_8cpp_source.html#l00043">embed_search.cpp:43</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1embeddb_1_1_embed_search_html_aac95ec30c380590908bfc4cad1c9c4bf"><div class="ttname"><a href="class_c_c_1_1embeddb_1_1_embed_search.html#aac95ec30c380590908bfc4cad1c9c4bf">CC::embeddb::EmbedSearch::get_current_index</a></div><div class="ttdeci">uint32_t get_current_index()</div><div class="ttdef"><b>Definition:</b> <a href="embed__search_8cpp_source.html#l00033">embed_search.cpp:33</a></div></div>
 <div class="ttc" id="aclass_c_c_1_1embeddb_1_1_embed_search_html_aceb35064ba2f65a9f782e4eee1b5a8f3"><div class="ttname"><a href="class_c_c_1_1embeddb_1_1_embed_search.html#aceb35064ba2f65a9f782e4eee1b5a8f3">CC::embeddb::EmbedSearch::EmbedSearch</a></div><div class="ttdeci">EmbedSearch(const std::string &amp;hnsw_path, const uint32_t dim, const uint32_t max_size)</div><div class="ttdef"><b>Definition:</b> <a href="embed__search_8cpp_source.html#l00005">embed_search.cpp:5</a></div></div>
-<div class="ttc" id="aclass_c_c_1_1embeddb_1_1_embed_search_html_ae2372636a26693febdbca06206ae3686"><div class="ttname"><a href="class_c_c_1_1embeddb_1_1_embed_search.html#ae2372636a26693febdbca06206ae3686">CC::embeddb::EmbedSearch::search_embed</a></div><div class="ttdeci">void search_embed(const std::vector&lt; float &gt; &amp;embed, std::vector&lt; SearchEmbedResult &gt; &amp;results, uint32_t top_k, float threshold)</div><div class="ttdef"><b>Definition:</b> <a href="embed__search_8cpp_source.html#l00053">embed_search.cpp:53</a></div></div>
-<div class="ttc" id="aclass_c_c_1_1embeddb_1_1_embed_search_html_ae256e874e3e99863534927a0757f5bf9"><div class="ttname"><a href="class_c_c_1_1embeddb_1_1_embed_search.html#ae256e874e3e99863534927a0757f5bf9">CC::embeddb::EmbedSearch::remove_embeds</a></div><div class="ttdeci">void remove_embeds(const std::vector&lt; uint32_t &gt; &amp;ids)</div><div class="ttdef"><b>Definition:</b> <a href="embed__search_8cpp_source.html#l00046">embed_search.cpp:46</a></div></div>
-<div class="ttc" id="aclass_c_c_1_1embeddb_1_1_embed_search_html_affdd61ea09e6956ac8b9d8c6a65a03ce"><div class="ttname"><a href="class_c_c_1_1embeddb_1_1_embed_search.html#affdd61ea09e6956ac8b9d8c6a65a03ce">CC::embeddb::EmbedSearch::~EmbedSearch</a></div><div class="ttdeci">~EmbedSearch()</div><div class="ttdef"><b>Definition:</b> <a href="embed__search_8cpp_source.html#l00013">embed_search.cpp:13</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1embeddb_1_1_embed_search_html_ae2372636a26693febdbca06206ae3686"><div class="ttname"><a href="class_c_c_1_1embeddb_1_1_embed_search.html#ae2372636a26693febdbca06206ae3686">CC::embeddb::EmbedSearch::search_embed</a></div><div class="ttdeci">void search_embed(const std::vector&lt; float &gt; &amp;embed, std::vector&lt; SearchEmbedResult &gt; &amp;results, uint32_t top_k, float threshold)</div><div class="ttdef"><b>Definition:</b> <a href="embed__search_8cpp_source.html#l00074">embed_search.cpp:74</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1embeddb_1_1_embed_search_html_ae256e874e3e99863534927a0757f5bf9"><div class="ttname"><a href="class_c_c_1_1embeddb_1_1_embed_search.html#ae256e874e3e99863534927a0757f5bf9">CC::embeddb::EmbedSearch::remove_embeds</a></div><div class="ttdeci">void remove_embeds(const std::vector&lt; uint32_t &gt; &amp;ids)</div><div class="ttdef"><b>Definition:</b> <a href="embed__search_8cpp_source.html#l00063">embed_search.cpp:63</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1embeddb_1_1_embed_search_html_af113ecb97f12407423c8c81f694e8ef8"><div class="ttname"><a href="class_c_c_1_1embeddb_1_1_embed_search.html#af113ecb97f12407423c8c81f694e8ef8">CC::embeddb::EmbedSearch::remove_embed</a></div><div class="ttdeci">void remove_embed(uint32_t id)</div><div class="ttdef"><b>Definition:</b> <a href="embed__search_8cpp_source.html#l00070">embed_search.cpp:70</a></div></div>
+<div class="ttc" id="aclass_c_c_1_1embeddb_1_1_embed_search_html_affdd61ea09e6956ac8b9d8c6a65a03ce"><div class="ttname"><a href="class_c_c_1_1embeddb_1_1_embed_search.html#affdd61ea09e6956ac8b9d8c6a65a03ce">CC::embeddb::EmbedSearch::~EmbedSearch</a></div><div class="ttdeci">~EmbedSearch()</div><div class="ttdef"><b>Definition:</b> <a href="embed__search_8cpp_source.html#l00014">embed_search.cpp:14</a></div></div>
 <div class="ttc" id="aembed__search_8h_html"><div class="ttname"><a href="embed__search_8h.html">embed_search.h</a></div></div>
-<div class="ttc" id="anamespace_c_c_1_1embeddb_html"><div class="ttname"><a href="namespace_c_c_1_1embeddb.html">CC::embeddb</a></div><div class="ttdef"><b>Definition:</b> <a href="collection_8h_source.html#l00009">collection.h:9</a></div></div>
-<div class="ttc" id="astruct_c_c_1_1embeddb_1_1_search_embed_result_html"><div class="ttname"><a href="struct_c_c_1_1embeddb_1_1_search_embed_result.html">CC::embeddb::SearchEmbedResult</a></div><div class="ttdef"><b>Definition:</b> <a href="types_8h_source.html#l00006">types.h:6</a></div></div>
-<div class="ttc" id="astruct_c_c_1_1embeddb_1_1_search_embed_result_html_a19a88a9620ab90cce442d6afcabc1f72"><div class="ttname"><a href="struct_c_c_1_1embeddb_1_1_search_embed_result.html#a19a88a9620ab90cce442d6afcabc1f72">CC::embeddb::SearchEmbedResult::id</a></div><div class="ttdeci">int id</div><div class="ttdef"><b>Definition:</b> <a href="types_8h_source.html#l00007">types.h:7</a></div></div>
-<div class="ttc" id="astruct_c_c_1_1embeddb_1_1_search_embed_result_html_a972f78a281c809c81f3e7e8848b11de6"><div class="ttname"><a href="struct_c_c_1_1embeddb_1_1_search_embed_result.html#a972f78a281c809c81f3e7e8848b11de6">CC::embeddb::SearchEmbedResult::score</a></div><div class="ttdeci">float score</div><div class="ttdef"><b>Definition:</b> <a href="types_8h_source.html#l00008">types.h:8</a></div></div>
+<div class="ttc" id="anamespace_c_c_1_1embeddb_html"><div class="ttname"><a href="namespace_c_c_1_1embeddb.html">CC::embeddb</a></div><div class="ttdef"><b>Definition:</b> <a href="collection_8h_source.html#l00013">collection.h:13</a></div></div>
+<div class="ttc" id="astruct_c_c_1_1embeddb_1_1_search_embed_result_html"><div class="ttname"><a href="struct_c_c_1_1embeddb_1_1_search_embed_result.html">CC::embeddb::SearchEmbedResult</a></div><div class="ttdef"><b>Definition:</b> <a href="types_8h_source.html#l00007">types.h:7</a></div></div>
+<div class="ttc" id="astruct_c_c_1_1embeddb_1_1_search_embed_result_html_a19a88a9620ab90cce442d6afcabc1f72"><div class="ttname"><a href="struct_c_c_1_1embeddb_1_1_search_embed_result.html#a19a88a9620ab90cce442d6afcabc1f72">CC::embeddb::SearchEmbedResult::id</a></div><div class="ttdeci">int id</div><div class="ttdef"><b>Definition:</b> <a href="types_8h_source.html#l00008">types.h:8</a></div></div>
+<div class="ttc" id="astruct_c_c_1_1embeddb_1_1_search_embed_result_html_a972f78a281c809c81f3e7e8848b11de6"><div class="ttname"><a href="struct_c_c_1_1embeddb_1_1_search_embed_result.html#a972f78a281c809c81f3e7e8848b11de6">CC::embeddb::SearchEmbedResult::score</a></div><div class="ttdeci">float score</div><div class="ttdef"><b>Definition:</b> <a href="types_8h_source.html#l00009">types.h:9</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -99,7 +99,7 @@ Collaboration diagram for CC::embeddb::EmbedSearch:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_c_c_1_1embeddb_1_1_embed_search__coll__graph.png" border="0" usemap="#a_c_c_1_1embeddb_1_1_embed_search_coll__map" alt="Collaboration graph"/></div>
 <map name="a_c_c_1_1embeddb_1_1_embed_search_coll__map" id="a_c_c_1_1embeddb_1_1_embed_search_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,212,156"/>
+<area shape="rect" title=" " alt="" coords="5,5,212,215"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -109,8 +109,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aceb35064ba2f65a9f782e4eee1b5a8f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affdd61ea09e6956ac8b9d8c6a65a03ce"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_embed_search.html#affdd61ea09e6956ac8b9d8c6a65a03ce">~EmbedSearch</a> ()</td></tr>
 <tr class="separator:affdd61ea09e6956ac8b9d8c6a65a03ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac95ec30c380590908bfc4cad1c9c4bf"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_embed_search.html#aac95ec30c380590908bfc4cad1c9c4bf">get_current_index</a> ()</td></tr>
+<tr class="separator:aac95ec30c380590908bfc4cad1c9c4bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a274e6474557040f035f4e5f0bf7711"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_embed_search.html#a9a274e6474557040f035f4e5f0bf7711">insert_embeds</a> (const std::vector&lt; std::vector&lt; float &gt;&gt; &amp;embeds, std::vector&lt; uint32_t &gt; &amp;ids)</td></tr>
 <tr class="separator:a9a274e6474557040f035f4e5f0bf7711"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39d7b98924fad76a24d7ea9d6b8efced"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_embed_search.html#a39d7b98924fad76a24d7ea9d6b8efced">insert_embed</a> (const std::vector&lt; float &gt; &amp;embed, uint32_t &amp;id)</td></tr>
+<tr class="separator:a39d7b98924fad76a24d7ea9d6b8efced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa84c5e8d382aa4ece03dc3a4bcb0d950"><td class="memItemLeft" align="right" valign="top">std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_embed_search.html#aa84c5e8d382aa4ece03dc3a4bcb0d950">get_embed</a> (uint32_t id)</td></tr>
+<tr class="separator:aa84c5e8d382aa4ece03dc3a4bcb0d950"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af113ecb97f12407423c8c81f694e8ef8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_embed_search.html#af113ecb97f12407423c8c81f694e8ef8">remove_embed</a> (uint32_t id)</td></tr>
+<tr class="separator:af113ecb97f12407423c8c81f694e8ef8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae256e874e3e99863534927a0757f5bf9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_embed_search.html#ae256e874e3e99863534927a0757f5bf9">remove_embeds</a> (const std::vector&lt; uint32_t &gt; &amp;ids)</td></tr>
 <tr class="separator:ae256e874e3e99863534927a0757f5bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2372636a26693febdbca06206ae3686"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_c_1_1embeddb_1_1_embed_search.html#ae2372636a26693febdbca06206ae3686">search_embed</a> (const std::vector&lt; float &gt; &amp;embed, std::vector&lt; <a class="el" href="struct_c_c_1_1embeddb_1_1_search_embed_result.html">SearchEmbedResult</a> &gt; &amp;results, uint32_t top_k, float threshold)</td></tr>
@@ -173,11 +181,124 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="embed__search_8cpp_source.html#l00013">13</a> of file <a class="el" href="embed__search_8cpp_source.html">embed_search.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="embed__search_8cpp_source.html#l00014">14</a> of file <a class="el" href="embed__search_8cpp_source.html">embed_search.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aac95ec30c380590908bfc4cad1c9c4bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac95ec30c380590908bfc4cad1c9c4bf">&#9670;&nbsp;</a></span>get_current_index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t EmbedSearch::get_current_index </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="embed__search_8cpp_source.html#l00033">33</a> of file <a class="el" href="embed__search_8cpp_source.html">embed_search.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_c_1_1embeddb_1_1_embed_search_aac95ec30c380590908bfc4cad1c9c4bf_icgraph.png" border="0" usemap="#aclass_c_c_1_1embeddb_1_1_embed_search_aac95ec30c380590908bfc4cad1c9c4bf_icgraph" alt=""/></div>
+<map name="aclass_c_c_1_1embeddb_1_1_embed_search_aac95ec30c380590908bfc4cad1c9c4bf_icgraph" id="aclass_c_c_1_1embeddb_1_1_embed_search_aac95ec30c380590908bfc4cad1c9c4bf_icgraph">
+<area shape="rect" title=" " alt="" coords="515,129,721,171"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_embed_search.html#a39d7b98924fad76a24d7ea9d6b8efced" title=" " alt="" coords="260,5,467,47"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_embed_search.html#a9a274e6474557040f035f4e5f0bf7711" title=" " alt="" coords="260,71,467,112"/>
+<area shape="rect" href="test__emd_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="336,137,391,163"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_embed_search.html#ae2372636a26693febdbca06206ae3686" title=" " alt="" coords="260,188,467,229"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_embed_search.html#a637b474347c6bc4bae93627979e3ccc1" title=" " alt="" coords="5,247,212,288"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_collection.html#aa944ebaa1d3d077c9aae2983c300407a" title=" " alt="" coords="17,5,200,47"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_collection.html#a9863e4a6c6260342c9dd0faacccef73e" title=" " alt="" coords="17,181,200,223"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa84c5e8d382aa4ece03dc3a4bcb0d950"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa84c5e8d382aa4ece03dc3a4bcb0d950">&#9670;&nbsp;</a></span>get_embed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; float &gt; EmbedSearch::get_embed </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="embed__search_8cpp_source.html#l00043">43</a> of file <a class="el" href="embed__search_8cpp_source.html">embed_search.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_c_1_1embeddb_1_1_embed_search_aa84c5e8d382aa4ece03dc3a4bcb0d950_icgraph.png" border="0" usemap="#aclass_c_c_1_1embeddb_1_1_embed_search_aa84c5e8d382aa4ece03dc3a4bcb0d950_icgraph" alt=""/></div>
+<map name="aclass_c_c_1_1embeddb_1_1_embed_search_aa84c5e8d382aa4ece03dc3a4bcb0d950_icgraph" id="aclass_c_c_1_1embeddb_1_1_embed_search_aa84c5e8d382aa4ece03dc3a4bcb0d950_icgraph">
+<area shape="rect" title=" " alt="" coords="339,39,545,80"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_collection.html#ad75f5e8e1aee925c9919a9210832c362" title=" " alt="" coords="108,5,291,47"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_collection.html#aa12493b434a7b2e77beebf534379ae5e" title=" " alt="" coords="108,71,291,112"/>
+<area shape="rect" href="test__collection_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,78,60,105"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a39d7b98924fad76a24d7ea9d6b8efced"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39d7b98924fad76a24d7ea9d6b8efced">&#9670;&nbsp;</a></span>insert_embed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EmbedSearch::insert_embed </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; float &gt; &amp;&#160;</td>
+          <td class="paramname"><em>embed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t &amp;&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="embed__search_8cpp_source.html#l00037">37</a> of file <a class="el" href="embed__search_8cpp_source.html">embed_search.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_c_1_1embeddb_1_1_embed_search_a39d7b98924fad76a24d7ea9d6b8efced_cgraph.png" border="0" usemap="#aclass_c_c_1_1embeddb_1_1_embed_search_a39d7b98924fad76a24d7ea9d6b8efced_cgraph" alt=""/></div>
+<map name="aclass_c_c_1_1embeddb_1_1_embed_search_a39d7b98924fad76a24d7ea9d6b8efced_cgraph" id="aclass_c_c_1_1embeddb_1_1_embed_search_a39d7b98924fad76a24d7ea9d6b8efced_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,212,47"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_embed_search.html#aac95ec30c380590908bfc4cad1c9c4bf" title=" " alt="" coords="260,5,467,47"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_c_1_1embeddb_1_1_embed_search_a39d7b98924fad76a24d7ea9d6b8efced_icgraph.png" border="0" usemap="#aclass_c_c_1_1embeddb_1_1_embed_search_a39d7b98924fad76a24d7ea9d6b8efced_icgraph" alt=""/></div>
+<map name="aclass_c_c_1_1embeddb_1_1_embed_search_a39d7b98924fad76a24d7ea9d6b8efced_icgraph" id="aclass_c_c_1_1embeddb_1_1_embed_search_a39d7b98924fad76a24d7ea9d6b8efced_icgraph">
+<area shape="rect" title=" " alt="" coords="236,5,443,47"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_collection.html#aa944ebaa1d3d077c9aae2983c300407a" title=" " alt="" coords="5,5,188,47"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a9a274e6474557040f035f4e5f0bf7711"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9a274e6474557040f035f4e5f0bf7711">&#9670;&nbsp;</a></span>insert_embeds()</h2>
 
@@ -204,14 +325,44 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="embed__search_8cpp_source.html#l00034">34</a> of file <a class="el" href="embed__search_8cpp_source.html">embed_search.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="embed__search_8cpp_source.html#l00051">51</a> of file <a class="el" href="embed__search_8cpp_source.html">embed_search.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_c_1_1embeddb_1_1_embed_search_a9a274e6474557040f035f4e5f0bf7711_cgraph.png" border="0" usemap="#aclass_c_c_1_1embeddb_1_1_embed_search_a9a274e6474557040f035f4e5f0bf7711_cgraph" alt=""/></div>
+<map name="aclass_c_c_1_1embeddb_1_1_embed_search_a9a274e6474557040f035f4e5f0bf7711_cgraph" id="aclass_c_c_1_1embeddb_1_1_embed_search_a9a274e6474557040f035f4e5f0bf7711_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,212,47"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_embed_search.html#aac95ec30c380590908bfc4cad1c9c4bf" title=" " alt="" coords="260,5,467,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af113ecb97f12407423c8c81f694e8ef8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af113ecb97f12407423c8c81f694e8ef8">&#9670;&nbsp;</a></span>remove_embed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EmbedSearch::remove_embed </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="embed__search_8cpp_source.html#l00070">70</a> of file <a class="el" href="embed__search_8cpp_source.html">embed_search.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_c_c_1_1embeddb_1_1_embed_search_a9a274e6474557040f035f4e5f0bf7711_icgraph.png" border="0" usemap="#aclass_c_c_1_1embeddb_1_1_embed_search_a9a274e6474557040f035f4e5f0bf7711_icgraph" alt=""/></div>
-<map name="aclass_c_c_1_1embeddb_1_1_embed_search_a9a274e6474557040f035f4e5f0bf7711_icgraph" id="aclass_c_c_1_1embeddb_1_1_embed_search_a9a274e6474557040f035f4e5f0bf7711_icgraph">
-<area shape="rect" title=" " alt="" coords="108,5,315,47"/>
-<area shape="rect" href="test__emd_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,60,39"/>
+<div class="center"><img src="class_c_c_1_1embeddb_1_1_embed_search_af113ecb97f12407423c8c81f694e8ef8_icgraph.png" border="0" usemap="#aclass_c_c_1_1embeddb_1_1_embed_search_af113ecb97f12407423c8c81f694e8ef8_icgraph" alt=""/></div>
+<map name="aclass_c_c_1_1embeddb_1_1_embed_search_af113ecb97f12407423c8c81f694e8ef8_icgraph" id="aclass_c_c_1_1embeddb_1_1_embed_search_af113ecb97f12407423c8c81f694e8ef8_icgraph">
+<area shape="rect" title=" " alt="" coords="236,35,443,76"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_collection.html#aa889656759630acd537298e9713e94d0" title=" " alt="" coords="5,5,188,47"/>
+<area shape="rect" href="test__emd_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="69,71,124,98"/>
 </map>
 </div>
 
@@ -233,7 +384,16 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="embed__search_8cpp_source.html#l00046">46</a> of file <a class="el" href="embed__search_8cpp_source.html">embed_search.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="embed__search_8cpp_source.html#l00063">63</a> of file <a class="el" href="embed__search_8cpp_source.html">embed_search.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_c_1_1embeddb_1_1_embed_search_ae256e874e3e99863534927a0757f5bf9_icgraph.png" border="0" usemap="#aclass_c_c_1_1embeddb_1_1_embed_search_ae256e874e3e99863534927a0757f5bf9_icgraph" alt=""/></div>
+<map name="aclass_c_c_1_1embeddb_1_1_embed_search_ae256e874e3e99863534927a0757f5bf9_icgraph" id="aclass_c_c_1_1embeddb_1_1_embed_search_ae256e874e3e99863534927a0757f5bf9_icgraph">
+<area shape="rect" title=" " alt="" coords="236,5,443,47"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_collection.html#a09d91ab889a8b084d34076f31c268d69" title=" " alt="" coords="5,5,188,47"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -275,15 +435,24 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="embed__search_8cpp_source.html#l00053">53</a> of file <a class="el" href="embed__search_8cpp_source.html">embed_search.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="embed__search_8cpp_source.html#l00074">74</a> of file <a class="el" href="embed__search_8cpp_source.html">embed_search.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_c_1_1embeddb_1_1_embed_search_ae2372636a26693febdbca06206ae3686_cgraph.png" border="0" usemap="#aclass_c_c_1_1embeddb_1_1_embed_search_ae2372636a26693febdbca06206ae3686_cgraph" alt=""/></div>
+<map name="aclass_c_c_1_1embeddb_1_1_embed_search_ae2372636a26693febdbca06206ae3686_cgraph" id="aclass_c_c_1_1embeddb_1_1_embed_search_ae2372636a26693febdbca06206ae3686_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,212,47"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_embed_search.html#aac95ec30c380590908bfc4cad1c9c4bf" title=" " alt="" coords="260,5,467,47"/>
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_c_c_1_1embeddb_1_1_embed_search_ae2372636a26693febdbca06206ae3686_icgraph.png" border="0" usemap="#aclass_c_c_1_1embeddb_1_1_embed_search_ae2372636a26693febdbca06206ae3686_icgraph" alt=""/></div>
 <map name="aclass_c_c_1_1embeddb_1_1_embed_search_ae2372636a26693febdbca06206ae3686_icgraph" id="aclass_c_c_1_1embeddb_1_1_embed_search_ae2372636a26693febdbca06206ae3686_icgraph">
-<area shape="rect" title=" " alt="" coords="260,27,467,69"/>
-<area shape="rect" href="test__emd_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="81,5,136,32"/>
-<area shape="rect" href="class_c_c_1_1embeddb_1_1_embed_search.html#a637b474347c6bc4bae93627979e3ccc1" title=" " alt="" coords="5,57,212,98"/>
+<area shape="rect" title=" " alt="" coords="260,39,467,80"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_collection.html#a9863e4a6c6260342c9dd0faacccef73e" title=" " alt="" coords="17,5,200,47"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_embed_search.html#a637b474347c6bc4bae93627979e3ccc1" title=" " alt="" coords="5,71,212,112"/>
 </map>
 </div>
 
@@ -327,14 +496,15 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="embed__search_8cpp_source.html#l00074">74</a> of file <a class="el" href="embed__search_8cpp_source.html">embed_search.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="embed__search_8cpp_source.html#l00095">95</a> of file <a class="el" href="embed__search_8cpp_source.html">embed_search.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_c_c_1_1embeddb_1_1_embed_search_a637b474347c6bc4bae93627979e3ccc1_cgraph.png" border="0" usemap="#aclass_c_c_1_1embeddb_1_1_embed_search_a637b474347c6bc4bae93627979e3ccc1_cgraph" alt=""/></div>
 <map name="aclass_c_c_1_1embeddb_1_1_embed_search_a637b474347c6bc4bae93627979e3ccc1_cgraph" id="aclass_c_c_1_1embeddb_1_1_embed_search_a637b474347c6bc4bae93627979e3ccc1_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,212,47"/>
-<area shape="rect" href="class_c_c_1_1embeddb_1_1_embed_search.html#ae2372636a26693febdbca06206ae3686" title=" " alt="" coords="260,5,467,47"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_embed_search.html#aac95ec30c380590908bfc4cad1c9c4bf" title=" " alt="" coords="515,5,721,47"/>
+<area shape="rect" href="class_c_c_1_1embeddb_1_1_embed_search.html#ae2372636a26693febdbca06206ae3686" title=" " alt="" coords="260,35,467,76"/>
 </map>
 </div>
 

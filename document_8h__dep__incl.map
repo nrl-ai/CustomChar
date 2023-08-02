@@ -1,6 +1,8 @@
 <map id="document.h" name="document.h">
-<area shape="rect" id="node1" title=" " alt="" coords="70,5,169,32"/>
-<area shape="rect" id="node2" href="$collection_8h.html" title=" " alt="" coords="5,80,103,107"/>
-<area shape="rect" id="node4" href="$document_8cpp.html" title=" " alt="" coords="127,80,242,107"/>
-<area shape="rect" id="node3" href="$embeddb_8h.html" title=" " alt="" coords="7,155,101,181"/>
+<area shape="rect" id="node1" title=" " alt="" coords="269,5,368,32"/>
+<area shape="rect" id="node2" href="$collection_8h.html" title=" " alt="" coords="169,80,266,107"/>
+<area shape="rect" id="node5" href="$test__collection_8cpp.html" title=" " alt="" coords="261,155,405,181"/>
+<area shape="rect" id="node6" href="$document_8cpp.html" title=" " alt="" coords="356,80,471,107"/>
+<area shape="rect" id="node3" href="$collection_8cpp.html" title=" " alt="" coords="5,155,117,181"/>
+<area shape="rect" id="node4" href="$embeddb_8h.html" title=" " alt="" coords="142,155,237,181"/>
 </map>

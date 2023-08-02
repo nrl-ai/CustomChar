@@ -1,5 +1,6 @@
 var class_c_c_1_1embeddb_1_1_document =
 [
+    [ "Document", "class_c_c_1_1embeddb_1_1_document.html#acdbcbe550084e8c20f4f67eb229ad66a", null ],
     [ "Document", "class_c_c_1_1embeddb_1_1_document.html#a7773cde0416549d780d8c184b9d379bc", null ],
     [ "get_content", "class_c_c_1_1embeddb_1_1_document.html#aec9960c6e6e61490cb3a1f9e11493a70", null ],
     [ "get_embedding", "class_c_c_1_1embeddb_1_1_document.html#a77b53cd988fbec408652701671eba11f", null ],

@@ -14,6 +14,7 @@ var files_dup =
     [ "chat_message.h", "chat__message_8h.html", [
       [ "ChatMessage", "class_c_c_1_1session_1_1_chat_message.html", "class_c_c_1_1session_1_1_chat_message" ]
     ] ],
+    [ "collection.cpp", "collection_8cpp.html", null ],
     [ "collection.h", "collection_8h.html", [
       [ "Collection", "class_c_c_1_1embeddb_1_1_collection.html", "class_c_c_1_1embeddb_1_1_collection" ]
     ] ],
@@ -52,6 +53,7 @@ var files_dup =
     [ "speech_recognizer.h", "speech__recognizer_8h.html", [
       [ "SpeechRecognizer", "class_c_c_1_1audio_1_1_speech_recognizer.html", "class_c_c_1_1audio_1_1_speech_recognizer" ]
     ] ],
+    [ "test_collection.cpp", "test__collection_8cpp.html", "test__collection_8cpp" ],
     [ "test_emd.cpp", "test__emd_8cpp.html", "test__emd_8cpp" ],
     [ "types.h", "types_8h.html", [
       [ "SearchEmbedResult", "struct_c_c_1_1embeddb_1_1_search_embed_result.html", "struct_c_c_1_1embeddb_1_1_search_embed_result" ]
