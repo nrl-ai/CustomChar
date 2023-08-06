@@ -43,22 +43,25 @@ https://github.com/nrl-ai/CustomChar/assets/18329471/005a2d0f-df32-4493-a391-597
 
 - [ ] Build AI characters from the knowledge database 💬💬💬 :
   - [x] LLamaCpp for LLM. Chat with **Llama-V2** on **all platforms**.
-  - [ ] Knowledge indexing and searching.
+  - [x] Knowledge indexing and searching (EmbedDB + SQLite).
+  - [ ] Search knowledge DB to add into prompt.
 - [x] Talk to your character 🎤🎤🎤 :
   - [x] STT with **whisper.cpp**. Now supports speech recognition **on all platforms**.
 - [ ] Hear from your character 🔊🔊🔊 :
   - [x] TTS with "say" on MacOS. **Note**: "say" is not available on other platforms (Windows, Linux)
   - [ ] TTS with bark.cpp. Expected to be available on all platforms.
 - [x] Plugin executor:
-  - [x] Open apps (WIP - Need improvement for Windows and Linux).
-  - [ ] Search on Google.
-  - [ ] Search on Youtube.
-- [ ] Perception engine to see the world through the camera 📷📷📷.
-- [x] Add a GUI for the character interaction.
+  - [x] Open apps
+  - [x] Record video
+- [ ] Perception engine to see the world through the camera 📷📷📷"
+  - [x] Support video capturing
+  - [ ] Object detection
+- [x] Add GUIs for the character interaction.
+  - [x] Dear ImgUI
+  - [ ] Web-based GUI
 - [ ] Add a GUI for the character creation.
 - [ ] Create virtual characters that can be used in games, simulations, and other applications.
-  - [ ] Elon Musk
-  - [ ] Iron Man
+  - [x] Iron Man (WIP)
   - [ ] Batman
   - [ ] Superman
 - [ ] Add bindings to other languages:

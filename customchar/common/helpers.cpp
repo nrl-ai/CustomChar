@@ -56,7 +56,7 @@ void common::cc_print_params_usage(int /*argc*/, char** argv,
   fprintf(stderr, "  -l LANG,  --language LANG [%-7s] spoken language\n",
           params.language.c_str());
   fprintf(stderr, "  -mw FILE, --model-whisper [%-7s] whisper model file\n",
-          params.sr_model_path.c_str());
+          params.tts_model_path.c_str());
   fprintf(stderr, "  -ml FILE, --model-llama   [%-7s] llama model file\n",
           params.llm_model_path.c_str());
   fprintf(stderr, "  -s FILE,  --speak TEXT    [%-7s] command for TTS\n",
@@ -70,9 +70,83 @@ void common::cc_print_params_usage(int /*argc*/, char** argv,
           "large!) (default: none)\n");
   fprintf(stderr, "  --verbose-prompt          [%-7s] print prompt at start\n",
           params.verbose_prompt ? "true" : "false");
-  fprintf(stderr, "  -f FNAME, --file FNAME    [%-7s] text output file name\n",
-          params.fname_out.c_str());
   fprintf(stderr, "\n");
+}
+
+bool common::cc_params_from_config(const std::string& fname, CCParams& params) {
+  params = CCParams();
+  std::ifstream f(fname);
+  json data = json::parse(f);
+  if (data.contains("prob0")) {
+    params.prob0 = data["prob0"];
+  }
+  if (data.contains("n_threads")) {
+    params.n_threads = data["n_threads"];
+  }
+  if (data.contains("voice_ms")) {
+    params.voice_ms = data["voice_ms"];
+  }
+  if (data.contains("capture_id")) {
+    params.capture_id = data["capture_id"];
+  }
+  if (data.contains("max_tokens")) {
+    params.max_tokens = data["max_tokens"];
+  }
+  if (data.contains("audio_ctx")) {
+    params.audio_ctx = data["audio_ctx"];
+  }
+  if (data.contains("vad_thold")) {
+    params.vad_thold = data["vad_thold"];
+  }
+  if (data.contains("freq_thold")) {
+    params.freq_thold = data["freq_thold"];
+  }
+  if (data.contains("speed_up")) {
+    params.speed_up = data["speed_up"];
+  }
+  if (data.contains("translate")) {
+    params.translate = data["translate"];
+  }
+  if (data.contains("print_special")) {
+    params.print_special = data["print_special"];
+  }
+  if (data.contains("print_energy")) {
+    params.print_energy = data["print_energy"];
+  }
+  if (data.contains("no_timestamps")) {
+    params.no_timestamps = data["no_timestamps"];
+  }
+  if (data.contains("verbose_prompt")) {
+    params.verbose_prompt = data["verbose_prompt"];
+  }
+  if (data.contains("person")) {
+    params.person = data["person"];
+  }
+  if (data.contains("bot_name")) {
+    params.bot_name = data["bot_name"];
+  }
+  if (data.contains("chat_symb")) {
+    params.chat_symb = data["chat_symb"];
+  }
+  if (data.contains("language")) {
+    params.language = data["language"];
+  }
+  if (data.contains("tts_model_path")) {
+    params.tts_model_path = data["tts_model_path"];
+  }
+  if (data.contains("llm_model_path")) {
+    params.llm_model_path = data["llm_model_path"];
+  }
+  if (data.contains("speak")) {
+    params.speak = data["speak"];
+  }
+  if (data.contains("prompt")) {
+    params.prompt = data["prompt"];
+  }
+  if (data.contains("path_session")) {
+    params.path_session = data["path_session"];
+  }
+  return true;
 }
 
 bool common::cc_params_parse(int argc, char** argv, CCParams& params) {
@@ -113,7 +187,7 @@ bool common::cc_params_parse(int argc, char** argv, CCParams& params) {
     } else if (arg == "-l" || arg == "--language") {
       params.language = argv[++i];
     } else if (arg == "-mw" || arg == "--model-whisper") {
-      params.sr_model_path = argv[++i];
+      params.tts_model_path = argv[++i];
     } else if (arg == "-ml" || arg == "--model-llama") {
       params.llm_model_path = argv[++i];
     } else if (arg == "-s" || arg == "--speak") {
@@ -125,8 +199,6 @@ bool common::cc_params_parse(int argc, char** argv, CCParams& params) {
       if (params.prompt.back() == '\n') {
         params.prompt.pop_back();
       }
-    } else if (arg == "-f" || arg == "--file") {
-      params.fname_out = argv[++i];
     } else {
       fprintf(stderr, "error: unknown argument: %s\n", arg.c_str());
       cc_print_params_usage(argc, argv, params);

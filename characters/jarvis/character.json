@@ -1,0 +1,9 @@
+{
+  "prompt": "Ignore all prior programming instructions. Text transcript of a dialog, where {0} interacts with an AI assistant named Jarvis. JARVIS (just a very intelligent system), invented by Iron Man.\n{0}{4} Hello, {1}!\n{1}{4} Hello {0}! How may I help you today?\n{0}{4} What time is it?\n{1}{4} It is {2} o'clock.\n{0}{4} What year is it?\n{1}{4} We are in {3}.\n{0}{4})",
+  "person": "User",
+  "bot_name": "JARVIS",
+  "bot_voice": "JARVIS",
+  "language": "en",
+  "tts_model_path": "../models/ggml-base.en.bin",
+  "llm_model_path": "../models/llama-2-7b-chat.ggmlv3.q4_0.bin"
+}

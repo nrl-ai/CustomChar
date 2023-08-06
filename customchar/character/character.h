@@ -44,8 +44,8 @@ class Character {
 
  public:
   /// @brief Constructor
-  /// @param init_params
-  Character(common::CCParams init_params);
+  /// @param params Parameters
+  Character(common::CCParams params);
 
   /// @brief Set mute (do not speak)
   void set_mute(bool is_muted);

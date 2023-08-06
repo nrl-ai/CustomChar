@@ -298,11 +298,12 @@ void run_img_ui(std::shared_ptr<session::ChatHistory> history) {
 int main(int argc, char** argv) {
   // Parse command line arguments
   common::CCParams params;
-  if (cc_params_parse(argc, argv, params) == false) {
+  if (!cc_params_from_config("../characters/jarvis/character.json", params)) {
+    std::cerr << "Error: failed to parse character config" << std::endl;
     exit(1);
   }
   if (whisper_lang_id(params.language.c_str()) == -1) {
-    fprintf(stderr, "error: unknown language '%s'\n", params.language.c_str());
+    std::cerr << "Error: unknown language" << params.language << std::endl;
     cc_print_params_usage(argc, argv, params);
     exit(1);
   }

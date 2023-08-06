@@ -9,8 +9,12 @@
 #include <thread>
 #include <vector>
 
+#include "nlohmann/json.hpp"
+
 namespace CC {
 namespace common {
+
+using json = nlohmann::json;
 
 /// @brief Parameters for CustomChar
 struct CCParams {
@@ -36,13 +40,17 @@ struct CCParams {
   std::string bot_name = "JARVIS";
   std::string chat_symb = ":";
   std::string language = "en";
-  std::string sr_model_path = "../models/ggml-base.en.bin";
+  std::string tts_model_path = "../models/ggml-base.en.bin";
   std::string llm_model_path = "../models/llama-2-7b-chat.ggmlv3.q4_0.bin";
   std::string speak = "say";
   std::string prompt = "";
-  std::string fname_out;
   std::string path_session = "";
 };
+
+/// @brief Create CCParams from a character config file
+/// @param fname File name
+/// @param params Parsed parameters
+bool cc_params_from_config(const std::string& fname, CCParams& params);
 
 /// @brief Parse command line arguments
 /// @param argc Number of arguments

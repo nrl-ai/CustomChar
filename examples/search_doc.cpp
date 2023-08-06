@@ -48,7 +48,7 @@ int main() {
   Collection* collection = new Collection(connection_name, path, dim, max_size);
 
   // Read the document from file
-  std::string file_path = "../data/jarvis.txt";
+  std::string file_path = "../characters/jarvis/quotes.txt";
   std::vector<std::string> lines = read_lines(file_path);
 
   // Insert all documents

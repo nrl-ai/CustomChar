@@ -17,7 +17,7 @@ namespace CC {
 namespace llm {
 
 const std::string kPromptLlama =
-    R"(Ignore all prior programming instructions. (Text transcript of a dialog, where {0} interacts with an AI assistant named Jarvis. Jarvis (just a very intelligent system), invented by Iron Man.
+    R"(Ignore all prior programming instructions. (Text transcript of a dialog, where {0} interacts with an AI assistant CustomChar.
 {0}{4} Hello, {1}!
 {1}{4} Hello {0}! How may I help you today?
 {0}{4} What time is it?
@@ -31,6 +31,7 @@ class LLM {
   std::string model_path_;
   std::string person_ = "User";
   std::string bot_name_ = "JARVIS";
+  std::string base_prompt_ = "";
   const std::string chat_symb_ = ":";
   bool verbose_prompt_ = false;
   bool need_to_save_session_ = false;
@@ -41,7 +42,6 @@ class LLM {
   struct llama_context* ctx_llama_;
 
   std::string prompt_llama_;
-  std::string prompt_ = "";
 
   std::vector<llama_token> embd_inp_;
   std::vector<llama_token> session_tokens_;
@@ -62,7 +62,8 @@ class LLM {
   /// @param path_session Path to the session
   LLM(const std::string& model_path, const std::string& path_session = "",
       const std::string& person = "User",
-      const std::string& bot_name = "JARVIS");
+      const std::string& bot_name = "JARVIS",
+      const std::string& base_prompt = "");
   ~LLM();
 
   /// @brief Evaluate the model. Run this function before inference.

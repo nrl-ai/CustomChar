@@ -4,11 +4,13 @@ using namespace CC;
 using namespace CC::llm;
 
 LLM::LLM(const std::string& model_path, const std::string& path_session,
-         const std::string& person, const std::string& bot_name)
+         const std::string& person, const std::string& bot_name,
+         const std::string& prompt)
     : model_path_(model_path),
       path_session_(path_session),
       person_(person),
-      bot_name_(bot_name) {
+      bot_name_(bot_name),
+      base_prompt_(prompt) {
   // Init prompt
   init_prompt();
 
@@ -45,7 +47,7 @@ LLM::~LLM() {
 
 void LLM::init_prompt() {
   // Construct the initial prompt for LLaMA inference
-  prompt_llama_ = prompt_.empty() ? kPromptLlama : prompt_;
+  prompt_llama_ = base_prompt_.empty() ? kPromptLlama : base_prompt_;
 
   // Need to have leading ' '
   prompt_llama_.insert(0, 1, ' ');
