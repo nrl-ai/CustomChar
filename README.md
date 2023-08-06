@@ -32,6 +32,7 @@ https://github.com/nrl-ai/CustomChar/assets/18329471/005a2d0f-df32-4493-a391-597
 
 ## 2. Updates
 
+- 🔥 **2023-08-06:** Load character configuration from a file.
 - 🔥 **2023-07-30:** Record a video with "record a video" and "stop recording".
 - 🔥 **2023-07-30:** Added OpenCV + camera view.
 - 🔥 **2023-07-29:** Added a plugin executor to open apps.
