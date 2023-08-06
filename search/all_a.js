@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['language_106',['language',['../struct_c_c_1_1common_1_1_c_c_params.html#a544e83c9149850452034432c650fe647',1,'CC::common::CCParams']]],
-  ['llm_107',['LLM',['../class_c_c_1_1llm_1_1_l_l_m.html',1,'CC::llm::LLM'],['../class_c_c_1_1llm_1_1_l_l_m.html#a6bb3b1a6045aeaf316dadbbd34f802a9',1,'CC::llm::LLM::LLM()']]],
-  ['llm_2ecpp_108',['llm.cpp',['../llm_8cpp.html',1,'']]],
-  ['llm_2eh_109',['llm.h',['../llm_8h.html',1,'']]],
-  ['llm_5fmodel_5fpath_110',['llm_model_path',['../struct_c_c_1_1common_1_1_c_c_params.html#a1b1b2f8243a5cc06938f46c107d866bd',1,'CC::common::CCParams']]],
-  ['load_5fsession_111',['load_session',['../class_c_c_1_1llm_1_1_l_l_m.html#ada26e4a903d30780cfff0cd85b8c33c5',1,'CC::llm::LLM']]]
+  ['kffmpeg_103',['kFFmpeg',['../namespace_c_c_1_1vision.html#ab5aa02f765efca17cd6bf9116ae45805a4a6a2b1db7ff22ae1b950a456d02604c',1,'CC::vision']]],
+  ['knone_104',['kNone',['../namespace_c_c_1_1vision.html#ab5aa02f765efca17cd6bf9116ae45805a35c3ace1970663a16e5c65baa5941b13',1,'CC::vision']]],
+  ['kopencv_105',['kOpenCV',['../namespace_c_c_1_1vision.html#ab5aa02f765efca17cd6bf9116ae45805a04f3c1767a20309503733b624716d00c',1,'CC::vision']]],
+  ['kpromptllama_106',['kPromptLlama',['../namespace_c_c_1_1llm.html#a43be6cb3cd77698e5cdd3b432089de87',1,'CC::llm']]]
 ];

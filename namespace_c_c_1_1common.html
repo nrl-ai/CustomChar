@@ -88,6 +88,7 @@ $(document).ready(function(){initNavTree('namespace_c_c_1_1common.html',''); ini
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">CC::common Namespace Reference</div>  </div>
@@ -100,6 +101,11 @@ Data Structures</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parameters for CustomChar.  <a href="struct_c_c_1_1common_1_1_c_c_params.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:aec16833c24967e1e557fd6b36c6d9f9a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1common.html#aec16833c24967e1e557fd6b36c6d9f9a">json</a> = nlohmann::json</td></tr>
+<tr class="separator:aec16833c24967e1e557fd6b36c6d9f9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a07b857d084cdfa2513e6b0c309b7e132"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1common.html#a07b857d084cdfa2513e6b0c309b7e132">replace</a> (const std::string &amp;s, const std::string &amp;from, const std::string &amp;to)</td></tr>
@@ -108,6 +114,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a63333e75a58efeaedcba259ac4b78d5d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1common.html#a63333e75a58efeaedcba259ac4b78d5d">trim</a> (const std::string &amp;s)</td></tr>
 <tr class="memdesc:a63333e75a58efeaedcba259ac4b78d5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trim whitespace from both ends of a string.  <a href="namespace_c_c_1_1common.html#a63333e75a58efeaedcba259ac4b78d5d">More...</a><br /></td></tr>
 <tr class="separator:a63333e75a58efeaedcba259ac4b78d5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a682c37125f4a28acc45cf35c47592560"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1common.html#a682c37125f4a28acc45cf35c47592560">cc_params_from_config</a> (const std::string &amp;fname, <a class="el" href="struct_c_c_1_1common_1_1_c_c_params.html">CCParams</a> &amp;params)</td></tr>
+<tr class="memdesc:a682c37125f4a28acc45cf35c47592560"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create <a class="el" href="struct_c_c_1_1common_1_1_c_c_params.html" title="Parameters for CustomChar.">CCParams</a> from a character config file.  <a href="namespace_c_c_1_1common.html#a682c37125f4a28acc45cf35c47592560">More...</a><br /></td></tr>
+<tr class="separator:a682c37125f4a28acc45cf35c47592560"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae27cc1660db74af5a3a48f8dac45fd24"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1common.html#ae27cc1660db74af5a3a48f8dac45fd24">cc_params_parse</a> (int argc, char **argv, <a class="el" href="struct_c_c_1_1common_1_1_c_c_params.html">CCParams</a> &amp;params)</td></tr>
 <tr class="memdesc:ae27cc1660db74af5a3a48f8dac45fd24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse command line arguments.  <a href="namespace_c_c_1_1common.html#ae27cc1660db74af5a3a48f8dac45fd24">More...</a><br /></td></tr>
 <tr class="separator:ae27cc1660db74af5a3a48f8dac45fd24"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -115,7 +124,72 @@ Functions</h2></td></tr>
 <tr class="memdesc:ac0de10c4c3c2bb4c3a90b4a9b028f3a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print usage.  <a href="namespace_c_c_1_1common.html#ac0de10c4c3c2bb4c3a90b4a9b028f3a6">More...</a><br /></td></tr>
 <tr class="separator:ac0de10c4c3c2bb4c3a90b4a9b028f3a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="aec16833c24967e1e557fd6b36c6d9f9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec16833c24967e1e557fd6b36c6d9f9a">&#9670;&nbsp;</a></span>json</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespace_c_c_1_1common.html#aec16833c24967e1e557fd6b36c6d9f9a">CC::common::json</a> = typedef nlohmann::json</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="helpers_8h_source.html#l00017">17</a> of file <a class="el" href="helpers_8h_source.html">helpers.h</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a682c37125f4a28acc45cf35c47592560"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a682c37125f4a28acc45cf35c47592560">&#9670;&nbsp;</a></span>cc_params_from_config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CC::common::cc_params_from_config </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>fname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_c_c_1_1common_1_1_c_c_params.html">CCParams</a> &amp;&#160;</td>
+          <td class="paramname"><em>params</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create <a class="el" href="struct_c_c_1_1common_1_1_c_c_params.html" title="Parameters for CustomChar.">CCParams</a> from a character config file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fname</td><td>File name </td></tr>
+    <tr><td class="paramname">params</td><td>Parsed parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="helpers_8cpp_source.html#l00076">76</a> of file <a class="el" href="helpers_8cpp_source.html">helpers.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespace_c_c_1_1common_a682c37125f4a28acc45cf35c47592560_icgraph.png" border="0" usemap="#anamespace_c_c_1_1common_a682c37125f4a28acc45cf35c47592560_icgraph" alt=""/></div>
+<map name="anamespace_c_c_1_1common_a682c37125f4a28acc45cf35c47592560_icgraph" id="anamespace_c_c_1_1common_a682c37125f4a28acc45cf35c47592560_icgraph">
+<area shape="rect" title="Create CCParams from a character config file." alt="" coords="108,5,291,47"/>
+<area shape="rect" href="main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,13,60,39"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="ae27cc1660db74af5a3a48f8dac45fd24"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae27cc1660db74af5a3a48f8dac45fd24">&#9670;&nbsp;</a></span>cc_params_parse()</h2>
 
@@ -159,7 +233,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if parsing was successful </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="helpers_8cpp_source.html#l00078">78</a> of file <a class="el" href="helpers_8cpp_source.html">helpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="helpers_8cpp_source.html#l00152">152</a> of file <a class="el" href="helpers_8cpp_source.html">helpers.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -175,7 +249,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="namespace_c_c_1_1common_ae27cc1660db74af5a3a48f8dac45fd24_icgraph.png" border="0" usemap="#anamespace_c_c_1_1common_ae27cc1660db74af5a3a48f8dac45fd24_icgraph" alt=""/></div>
 <map name="anamespace_c_c_1_1common_ae27cc1660db74af5a3a48f8dac45fd24_icgraph" id="anamespace_c_c_1_1common_ae27cc1660db74af5a3a48f8dac45fd24_icgraph">
 <area shape="rect" title="Parse command line arguments." alt="" coords="108,5,291,47"/>
-<area shape="rect" href="main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,13,60,39"/>
+<area shape="rect" href="main__cli_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,13,60,39"/>
 </map>
 </div>
 
@@ -231,7 +305,8 @@ Here is the caller graph for this function:</div>
 <map name="anamespace_c_c_1_1common_ac0de10c4c3c2bb4c3a90b4a9b028f3a6_icgraph" id="anamespace_c_c_1_1common_ac0de10c4c3c2bb4c3a90b4a9b028f3a6_icgraph">
 <area shape="rect" title="Print usage." alt="" coords="339,35,503,76"/>
 <area shape="rect" href="namespace_c_c_1_1common.html#ae27cc1660db74af5a3a48f8dac45fd24" title="Parse command line arguments." alt="" coords="108,5,291,47"/>
-<area shape="rect" href="main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,42,60,69"/>
+<area shape="rect" href="main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="172,71,227,98"/>
+<area shape="rect" href="main__cli_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,13,60,39"/>
 </map>
 </div>
 

@@ -4,7 +4,6 @@ var struct_c_c_1_1common_1_1_c_c_params =
     [ "bot_name", "struct_c_c_1_1common_1_1_c_c_params.html#ad9db361b85c7405b3f94a0697f6d0901", null ],
     [ "capture_id", "struct_c_c_1_1common_1_1_c_c_params.html#a1f2d774b62ed027f0cfc980007eb3ae8", null ],
     [ "chat_symb", "struct_c_c_1_1common_1_1_c_c_params.html#a5a2dc2423942f8022ad042235dd382a3", null ],
-    [ "fname_out", "struct_c_c_1_1common_1_1_c_c_params.html#aa6c2e9992c0e5d07aa207d9ceeb727ce", null ],
     [ "freq_thold", "struct_c_c_1_1common_1_1_c_c_params.html#a8bc2e4078792e6215227f90281da172a", null ],
     [ "language", "struct_c_c_1_1common_1_1_c_c_params.html#a544e83c9149850452034432c650fe647", null ],
     [ "llm_model_path", "struct_c_c_1_1common_1_1_c_c_params.html#a1b1b2f8243a5cc06938f46c107d866bd", null ],
@@ -19,8 +18,8 @@ var struct_c_c_1_1common_1_1_c_c_params =
     [ "prompt", "struct_c_c_1_1common_1_1_c_c_params.html#aab6792fea7a9a8c6e74221d982faec51", null ],
     [ "speak", "struct_c_c_1_1common_1_1_c_c_params.html#aff63f8db043d0e581ca663169f80302a", null ],
     [ "speed_up", "struct_c_c_1_1common_1_1_c_c_params.html#ade3887899fc78b58d42ccae4805a73f5", null ],
-    [ "sr_model_path", "struct_c_c_1_1common_1_1_c_c_params.html#a7122cb105d5360b7ab27682f4c18f98b", null ],
     [ "translate", "struct_c_c_1_1common_1_1_c_c_params.html#a22e737e8ad754dde8ac5a781a391c2fb", null ],
+    [ "tts_model_path", "struct_c_c_1_1common_1_1_c_c_params.html#a1c5ea2c16fac00d0b0331fd3ea426c84", null ],
     [ "vad_thold", "struct_c_c_1_1common_1_1_c_c_params.html#a2d0c3c2c10bc05920f35500155c9c55c", null ],
     [ "verbose_prompt", "struct_c_c_1_1common_1_1_c_c_params.html#a92f3446d86bb203a4faebf8174a0182a", null ],
     [ "voice_ms", "struct_c_c_1_1common_1_1_c_c_params.html#ae2fc80b19237f3489d6a307479d6b5af", null ]

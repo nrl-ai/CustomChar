@@ -1,18 +1,11 @@
 var searchData=
 [
-  ['vad_5fsimple_184',['vad_simple',['../namespace_c_c_1_1audio.html#a502a8bbc1efe9680444773de81b373b5',1,'CC::audio']]],
-  ['vad_5fthold_185',['vad_thold',['../struct_c_c_1_1common_1_1_c_c_params.html#a2d0c3c2c10bc05920f35500155c9c55c',1,'CC::common::CCParams']]],
-  ['verbose_5fprompt_186',['verbose_prompt',['../struct_c_c_1_1common_1_1_c_c_params.html#a92f3446d86bb203a4faebf8174a0182a',1,'CC::common::CCParams']]],
-  ['video_5fcapture_2eh_187',['video_capture.h',['../video__capture_8h.html',1,'']]],
-  ['video_5frecord_5fplugin_2eh_188',['video_record_plugin.h',['../video__record__plugin_8h.html',1,'']]],
-  ['videocapture_189',['VideoCapture',['../class_c_c_1_1vision_1_1_video_capture.html',1,'CC::vision::VideoCapture'],['../class_c_c_1_1vision_1_1_video_capture.html#a7a14a58d3282e65990fba33c1707513f',1,'CC::vision::VideoCapture::VideoCapture()']]],
-  ['videocapturemode_190',['VideoCaptureMode',['../namespace_c_c_1_1vision.html#ab5aa02f765efca17cd6bf9116ae45805',1,'CC::vision']]],
-  ['videorecordplugin_191',['VideoRecordPlugin',['../class_c_c_1_1executors_1_1_video_record_plugin.html',1,'CC::executors::VideoRecordPlugin'],['../class_c_c_1_1executors_1_1_video_record_plugin.html#a4969f9f08a9d138c98849b0aa2fe1640',1,'CC::executors::VideoRecordPlugin::VideoRecordPlugin()']]],
-  ['voice_5fms_192',['voice_ms',['../struct_c_c_1_1common_1_1_c_c_params.html#ae2fc80b19237f3489d6a307479d6b5af',1,'CC::common::CCParams']]],
-  ['voice_5frecorder_2ecpp_193',['voice_recorder.cpp',['../voice__recorder_8cpp.html',1,'']]],
-  ['voice_5frecorder_2eh_194',['voice_recorder.h',['../voice__recorder_8h.html',1,'']]],
-  ['voice_5fsynthesizer_2ecpp_195',['voice_synthesizer.cpp',['../voice__synthesizer_8cpp.html',1,'']]],
-  ['voice_5fsynthesizer_2eh_196',['voice_synthesizer.h',['../voice__synthesizer_8h.html',1,'']]],
-  ['voicerecorder_197',['VoiceRecorder',['../class_c_c_1_1audio_1_1_voice_recorder.html',1,'CC::audio::VoiceRecorder'],['../class_c_c_1_1audio_1_1_voice_recorder.html#a33534f100b0cf8bf7fe431ca26ac1b7d',1,'CC::audio::VoiceRecorder::VoiceRecorder()']]],
-  ['voicesynthesizer_198',['VoiceSynthesizer',['../class_c_c_1_1audio_1_1_voice_synthesizer.html',1,'CC::audio::VoiceSynthesizer'],['../class_c_c_1_1audio_1_1_voice_synthesizer.html#a1cd8d65da1503e72f5e848877cc661d7',1,'CC::audio::VoiceSynthesizer::VoiceSynthesizer()']]]
+  ['test_5fcollection_2ecpp_177',['test_collection.cpp',['../test__collection_8cpp.html',1,'']]],
+  ['test_5femd_2ecpp_178',['test_emd.cpp',['../test__emd_8cpp.html',1,'']]],
+  ['text_5fmessage_5fsize_179',['TEXT_MESSAGE_SIZE',['../main_8cpp.html#a06701befc37b83174d2d2090fac04610',1,'main.cpp']]],
+  ['tokenize_180',['tokenize',['../class_c_c_1_1llm_1_1_l_l_m.html#a555b895486455181b746a8d76e9f2e45',1,'CC::llm::LLM']]],
+  ['translate_181',['translate',['../struct_c_c_1_1common_1_1_c_c_params.html#a22e737e8ad754dde8ac5a781a391c2fb',1,'CC::common::CCParams']]],
+  ['trim_182',['trim',['../namespace_c_c_1_1common.html#a63333e75a58efeaedcba259ac4b78d5d',1,'CC::common']]],
+  ['tts_5fmodel_5fpath_183',['tts_model_path',['../struct_c_c_1_1common_1_1_c_c_params.html#a1c5ea2c16fac00d0b0331fd3ea426c84',1,'CC::common::CCParams']]],
+  ['types_2eh_184',['types.h',['../types_8h.html',1,'']]]
 ];

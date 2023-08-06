@@ -1,14 +1,16 @@
 var searchData=
 [
-  ['read_5fwav_136',['read_wav',['../namespace_c_c_1_1audio.html#a75be80789dae71b7c732878840a89377',1,'CC::audio']]],
-  ['readme_2emd_137',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
-  ['recognize_138',['recognize',['../class_c_c_1_1audio_1_1_speech_recognizer.html#a0d5969d56d9830e607f4daef65d53aca',1,'CC::audio::SpeechRecognizer']]],
-  ['record_139',['Record',['../class_c_c_1_1vision_1_1_video_capture.html#a3f824f1f6a17cd22c8f54f79722ea82b',1,'CC::vision::VideoCapture']]],
-  ['record_5fspeech_140',['record_speech',['../class_c_c_1_1audio_1_1_voice_recorder.html#aa89eedc4564fae970df934594328b2aa',1,'CC::audio::VoiceRecorder']]],
-  ['remove_5fembed_141',['remove_embed',['../class_c_c_1_1embeddb_1_1_embed_search.html#af113ecb97f12407423c8c81f694e8ef8',1,'CC::embeddb::EmbedSearch']]],
-  ['remove_5fembeds_142',['remove_embeds',['../class_c_c_1_1embeddb_1_1_embed_search.html#ae256e874e3e99863534927a0757f5bf9',1,'CC::embeddb::EmbedSearch']]],
-  ['replace_143',['replace',['../namespace_c_c_1_1common.html#a07b857d084cdfa2513e6b0c309b7e132',1,'CC::common']]],
-  ['resume_144',['resume',['../class_c_c_1_1audio_1_1_audio_async.html#ac467aa02ab37080335b91914220bfbda',1,'CC::audio::AudioAsync']]],
-  ['run_145',['Run',['../class_c_c_1_1character_1_1_character.html#a3861f4c6f3023dc83c614fa7dabb0cfb',1,'CC::character::Character']]],
-  ['run_5fimg_5fui_146',['run_img_ui',['../main_8cpp.html#aaf47c2ebe47c2229c33128f8aba95e09',1,'main.cpp']]]
+  ['parse_5fand_5fexecute_124',['parse_and_execute',['../class_c_c_1_1executors_1_1_plugin_executor.html#ae9673e0b685e2e5f814c5eacae216fc3',1,'CC::executors::PluginExecutor']]],
+  ['path_5fsession_125',['path_session',['../struct_c_c_1_1common_1_1_c_c_params.html#af50cbac4fb99370cdb62fe3d6d7401f1',1,'CC::common::CCParams']]],
+  ['pause_126',['pause',['../class_c_c_1_1audio_1_1_audio_async.html#adcd90d3dc7a51185e09c8d1e1dfe4029',1,'CC::audio::AudioAsync']]],
+  ['person_127',['person',['../struct_c_c_1_1common_1_1_c_c_params.html#a029c9413477b078bd0d950f03ebb1339',1,'CC::common::CCParams']]],
+  ['plugin_128',['Plugin',['../class_c_c_1_1executors_1_1_plugin.html',1,'CC::executors::Plugin'],['../class_c_c_1_1executors_1_1_plugin.html#a64b7befda94f5464341a0258c8515339',1,'CC::executors::Plugin::Plugin()']]],
+  ['plugin_2eh_129',['plugin.h',['../plugin_8h.html',1,'']]],
+  ['plugin_5fexecutor_2ecpp_130',['plugin_executor.cpp',['../plugin__executor_8cpp.html',1,'']]],
+  ['plugin_5fexecutor_2eh_131',['plugin_executor.h',['../plugin__executor_8h.html',1,'']]],
+  ['pluginexecutor_132',['PluginExecutor',['../class_c_c_1_1executors_1_1_plugin_executor.html',1,'CC::executors::PluginExecutor'],['../class_c_c_1_1executors_1_1_plugin_executor.html#a1747de5201ee9b2e8b555affc3e0aba3',1,'CC::executors::PluginExecutor::PluginExecutor()']]],
+  ['print_5fenergy_133',['print_energy',['../struct_c_c_1_1common_1_1_c_c_params.html#a7c353a667fc9bb78118e74e389d8c802',1,'CC::common::CCParams']]],
+  ['print_5fspecial_134',['print_special',['../struct_c_c_1_1common_1_1_c_c_params.html#a61bbccdbf299c7250652de1f7b5a66c8',1,'CC::common::CCParams']]],
+  ['prob0_135',['prob0',['../struct_c_c_1_1common_1_1_c_c_params.html#ab7ff24789a0a4e944b6b270be77200e3',1,'CC::common::CCParams']]],
+  ['prompt_136',['prompt',['../struct_c_c_1_1common_1_1_c_c_params.html#aab6792fea7a9a8c6e74221d982faec51',1,'CC::common::CCParams']]]
 ];

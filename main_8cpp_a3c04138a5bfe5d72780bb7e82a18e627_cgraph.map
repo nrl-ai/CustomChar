@@ -1,9 +1,9 @@
 <map id="main" name="main">
-<area shape="rect" id="node1" title=" " alt="" coords="5,122,60,149"/>
-<area shape="rect" id="node2" href="$namespace_c_c_1_1common.html#ae27cc1660db74af5a3a48f8dac45fd24" title="Parse command line arguments." alt="" coords="123,5,306,47"/>
-<area shape="rect" id="node3" href="$namespace_c_c_1_1common.html#ac0de10c4c3c2bb4c3a90b4a9b028f3a6" title="Print usage." alt="" coords="369,35,533,76"/>
-<area shape="rect" id="node4" href="$main_8cpp.html#adaf0294b0b9a3ae2f257166d68244604" title=" " alt="" coords="145,122,284,149"/>
-<area shape="rect" id="node5" href="$class_c_c_1_1character_1_1_character.html#a3861f4c6f3023dc83c614fa7dabb0cfb" title="Run character in a loop." alt="" coords="108,173,321,199"/>
-<area shape="rect" id="node7" href="$main_8cpp.html#aaf47c2ebe47c2229c33128f8aba95e09" title="Main ImGUI loop." alt="" coords="167,223,262,250"/>
-<area shape="rect" id="node6" href="$namespace_c_c_1_1audio.html#a5b0b450a58701c85e42bace4c2d468ba" title=" " alt="" coords="380,165,523,207"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,137,60,163"/>
+<area shape="rect" id="node2" href="$namespace_c_c_1_1common.html#a682c37125f4a28acc45cf35c47592560" title="Create CCParams from a character config file." alt="" coords="123,5,306,47"/>
+<area shape="rect" id="node3" href="$namespace_c_c_1_1common.html#ac0de10c4c3c2bb4c3a90b4a9b028f3a6" title="Print usage." alt="" coords="133,71,297,112"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#adaf0294b0b9a3ae2f257166d68244604" title=" " alt="" coords="145,137,284,163"/>
+<area shape="rect" id="node5" href="$class_c_c_1_1character_1_1_character.html#a3861f4c6f3023dc83c614fa7dabb0cfb" title="Run character in a loop." alt="" coords="108,187,321,214"/>
+<area shape="rect" id="node7" href="$main_8cpp.html#aaf47c2ebe47c2229c33128f8aba95e09" title="Main ImGUI loop." alt="" coords="167,238,262,265"/>
+<area shape="rect" id="node6" href="$namespace_c_c_1_1audio.html#a5b0b450a58701c85e42bace4c2d468ba" title=" " alt="" coords="369,180,512,221"/>
 </map>

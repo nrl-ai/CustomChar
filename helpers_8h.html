@@ -89,6 +89,7 @@ $(document).ready(function(){initNavTree('helpers_8h.html',''); initResizable();
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">helpers.h File Reference</div>  </div>
@@ -101,12 +102,13 @@ $(document).ready(function(){initNavTree('helpers_8h.html',''); initResizable();
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;thread&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &quot;nlohmann/json.hpp&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for helpers.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="helpers_8h__incl.png" border="0" usemap="#ahelpers_8h" alt=""/></div>
 <map name="ahelpers_8h" id="ahelpers_8h">
-<area shape="rect" title=" " alt="" coords="271,5,353,32"/>
+<area shape="rect" title=" " alt="" coords="312,5,395,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,75,107"/>
 <area shape="rect" title=" " alt="" coords="99,80,160,107"/>
 <area shape="rect" title=" " alt="" coords="185,80,258,107"/>
@@ -114,6 +116,7 @@ Include dependency graph for helpers.h:</div>
 <area shape="rect" title=" " alt="" coords="365,80,424,107"/>
 <area shape="rect" title=" " alt="" coords="448,80,512,107"/>
 <area shape="rect" title=" " alt="" coords="537,80,599,107"/>
+<area shape="rect" title=" " alt="" coords="624,80,771,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -145,8 +148,16 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespace_c_c_1_1common"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1common.html">CC::common</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:aec16833c24967e1e557fd6b36c6d9f9a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1common.html#aec16833c24967e1e557fd6b36c6d9f9a">CC::common::json</a> = nlohmann::json</td></tr>
+<tr class="separator:aec16833c24967e1e557fd6b36c6d9f9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a682c37125f4a28acc45cf35c47592560"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1common.html#a682c37125f4a28acc45cf35c47592560">CC::common::cc_params_from_config</a> (const std::string &amp;fname, <a class="el" href="struct_c_c_1_1common_1_1_c_c_params.html">CCParams</a> &amp;params)</td></tr>
+<tr class="memdesc:a682c37125f4a28acc45cf35c47592560"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create <a class="el" href="struct_c_c_1_1common_1_1_c_c_params.html" title="Parameters for CustomChar.">CCParams</a> from a character config file.  <a href="namespace_c_c_1_1common.html#a682c37125f4a28acc45cf35c47592560">More...</a><br /></td></tr>
+<tr class="separator:a682c37125f4a28acc45cf35c47592560"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae27cc1660db74af5a3a48f8dac45fd24"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_c_c_1_1common.html#ae27cc1660db74af5a3a48f8dac45fd24">CC::common::cc_params_parse</a> (int argc, char **argv, <a class="el" href="struct_c_c_1_1common_1_1_c_c_params.html">CCParams</a> &amp;params)</td></tr>
 <tr class="memdesc:ae27cc1660db74af5a3a48f8dac45fd24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse command line arguments.  <a href="namespace_c_c_1_1common.html#ae27cc1660db74af5a3a48f8dac45fd24">More...</a><br /></td></tr>
 <tr class="separator:ae27cc1660db74af5a3a48f8dac45fd24"><td class="memSeparator" colspan="2">&#160;</td></tr>

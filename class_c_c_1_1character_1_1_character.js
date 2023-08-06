@@ -1,6 +1,6 @@
 var class_c_c_1_1character_1_1_character =
 [
-    [ "Character", "class_c_c_1_1character_1_1_character.html#a0fffa840cfbffab1fb38b789abdf5045", null ],
+    [ "Character", "class_c_c_1_1character_1_1_character.html#a69911c4bdeec180b2c263b54a0f0d64b", null ],
     [ "get_video_capture", "class_c_c_1_1character_1_1_character.html#aec11c8d2fdf746a3a1c0e4a67ea70151", null ],
     [ "get_visualized_frame", "class_c_c_1_1character_1_1_character.html#a5ba9de3b29d5f5cda3787269c8f3245b", null ],
     [ "is_muted", "class_c_c_1_1character_1_1_character.html#a3a9e959fbbdf9f7e905d422fb162a94c", null ],

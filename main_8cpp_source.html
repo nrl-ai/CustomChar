@@ -390,37 +390,38 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="line"><a name="l00298"></a><span class="lineno"><a class="line" href="main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">  298</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv) {</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;  <span class="comment">// Parse command line arguments</span></div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;  <a class="code" href="struct_c_c_1_1common_1_1_c_c_params.html">common::CCParams</a> params;</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="namespace_c_c_1_1common.html#ae27cc1660db74af5a3a48f8dac45fd24">cc_params_parse</a>(argc, argv, params) == <span class="keyword">false</span>) {</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    exit(1);</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;  }</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  <span class="keywordflow">if</span> (whisper_lang_id(params.<a class="code" href="struct_c_c_1_1common_1_1_c_c_params.html#a544e83c9149850452034432c650fe647">language</a>.c_str()) == -1) {</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    fprintf(stderr, <span class="stringliteral">&quot;error: unknown language &#39;%s&#39;\n&quot;</span>, params.<a class="code" href="struct_c_c_1_1common_1_1_c_c_params.html#a544e83c9149850452034432c650fe647">language</a>.c_str());</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <a class="code" href="namespace_c_c_1_1common.html#ac0de10c4c3c2bb4c3a90b4a9b028f3a6">cc_print_params_usage</a>(argc, argv, params);</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    exit(1);</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  }</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160; </div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  <span class="comment">// Initialize chat history</span></div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  std::shared_ptr&lt;session::ChatHistory&gt; history =</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;      std::make_shared&lt;session::ChatHistory&gt;();</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  <span class="comment">// Create character</span></div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;  <a class="code" href="main_8cpp.html#aefeb86a37bb814bae1787c6e2dd7613d">character_instance</a> = std::make_shared&lt;character::Character&gt;(params);</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; </div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;  <span class="comment">// Set message callbacks</span></div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  <a class="code" href="main_8cpp.html#aefeb86a37bb814bae1787c6e2dd7613d">character_instance</a>-&gt;set_on_user_message(</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      std::bind(<a class="code" href="main_8cpp.html#adaf0294b0b9a3ae2f257166d68244604">on_new_message</a>, std::placeholders::_1, <span class="stringliteral">&quot;User&quot;</span>, history));</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;  <a class="code" href="main_8cpp.html#aefeb86a37bb814bae1787c6e2dd7613d">character_instance</a>-&gt;set_on_bot_message(</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;      std::bind(<a class="code" href="main_8cpp.html#adaf0294b0b9a3ae2f257166d68244604">on_new_message</a>, std::placeholders::_1, <span class="stringliteral">&quot;JARVIS&quot;</span>, history));</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160; </div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  <span class="comment">// Start character in a new thread</span></div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;  std::thread character_thread(&amp;<a class="code" href="class_c_c_1_1character_1_1_character.html#a3861f4c6f3023dc83c614fa7dabb0cfb">character::Character::Run</a>, <a class="code" href="main_8cpp.html#aefeb86a37bb814bae1787c6e2dd7613d">character_instance</a>);</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  character_thread.detach();</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160; </div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;  <span class="comment">// Main GUI loop</span></div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;  <a class="code" href="main_8cpp.html#aaf47c2ebe47c2229c33128f8aba95e09">run_img_ui</a>(history);</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;}</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  <span class="keywordflow">if</span> (!<a class="code" href="namespace_c_c_1_1common.html#a682c37125f4a28acc45cf35c47592560">cc_params_from_config</a>(<span class="stringliteral">&quot;../characters/jarvis/character.json&quot;</span>, params)) {</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: failed to parse character config&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    exit(1);</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  }</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  <span class="keywordflow">if</span> (whisper_lang_id(params.<a class="code" href="struct_c_c_1_1common_1_1_c_c_params.html#a544e83c9149850452034432c650fe647">language</a>.c_str()) == -1) {</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: unknown language&quot;</span> &lt;&lt; params.<a class="code" href="struct_c_c_1_1common_1_1_c_c_params.html#a544e83c9149850452034432c650fe647">language</a> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <a class="code" href="namespace_c_c_1_1common.html#ac0de10c4c3c2bb4c3a90b4a9b028f3a6">cc_print_params_usage</a>(argc, argv, params);</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    exit(1);</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  }</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  <span class="comment">// Initialize chat history</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  std::shared_ptr&lt;session::ChatHistory&gt; history =</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;      std::make_shared&lt;session::ChatHistory&gt;();</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160; </div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;  <span class="comment">// Create character</span></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  <a class="code" href="main_8cpp.html#aefeb86a37bb814bae1787c6e2dd7613d">character_instance</a> = std::make_shared&lt;character::Character&gt;(params);</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; </div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  <span class="comment">// Set message callbacks</span></div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;  <a class="code" href="main_8cpp.html#aefeb86a37bb814bae1787c6e2dd7613d">character_instance</a>-&gt;set_on_user_message(</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;      std::bind(<a class="code" href="main_8cpp.html#adaf0294b0b9a3ae2f257166d68244604">on_new_message</a>, std::placeholders::_1, <span class="stringliteral">&quot;User&quot;</span>, history));</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  <a class="code" href="main_8cpp.html#aefeb86a37bb814bae1787c6e2dd7613d">character_instance</a>-&gt;set_on_bot_message(</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;      std::bind(<a class="code" href="main_8cpp.html#adaf0294b0b9a3ae2f257166d68244604">on_new_message</a>, std::placeholders::_1, <span class="stringliteral">&quot;JARVIS&quot;</span>, history));</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160; </div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;  <span class="comment">// Start character in a new thread</span></div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  std::thread character_thread(&amp;<a class="code" href="class_c_c_1_1character_1_1_character.html#a3861f4c6f3023dc83c614fa7dabb0cfb">character::Character::Run</a>, <a class="code" href="main_8cpp.html#aefeb86a37bb814bae1787c6e2dd7613d">character_instance</a>);</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;  character_thread.detach();</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160; </div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;  <span class="comment">// Main GUI loop</span></div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;  <a class="code" href="main_8cpp.html#aaf47c2ebe47c2229c33128f8aba95e09">run_img_ui</a>(history);</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160; </div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;}</div>
 <div class="ttc" id="acharacter_8h_html"><div class="ttname"><a href="character_8h.html">character.h</a></div></div>
 <div class="ttc" id="achat__history_8h_html"><div class="ttname"><a href="chat__history_8h.html">chat_history.h</a></div></div>
 <div class="ttc" id="achat__message_8h_html"><div class="ttname"><a href="chat__message_8h.html">chat_message.h</a></div></div>
@@ -436,11 +437,11 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="ttc" id="amain_8cpp_html_ad63bf4a46b68ab75c178034fe7a86f1c"><div class="ttname"><a href="main_8cpp.html#ad63bf4a46b68ab75c178034fe7a86f1c">INIT_WINDOW_WIDTH</a></div><div class="ttdeci">constexpr int INIT_WINDOW_WIDTH</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00047">main.cpp:47</a></div></div>
 <div class="ttc" id="amain_8cpp_html_adaf0294b0b9a3ae2f257166d68244604"><div class="ttname"><a href="main_8cpp.html#adaf0294b0b9a3ae2f257166d68244604">on_new_message</a></div><div class="ttdeci">bool on_new_message(const std::string &amp;text, const std::string &amp;sender, std::shared_ptr&lt; session::ChatHistory &gt; history)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00055">main.cpp:55</a></div></div>
 <div class="ttc" id="amain_8cpp_html_aefeb86a37bb814bae1787c6e2dd7613d"><div class="ttname"><a href="main_8cpp.html#aefeb86a37bb814bae1787c6e2dd7613d">character_instance</a></div><div class="ttdeci">std::shared_ptr&lt; character::Character &gt; character_instance</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00029">main.cpp:29</a></div></div>
+<div class="ttc" id="anamespace_c_c_1_1common_html_a682c37125f4a28acc45cf35c47592560"><div class="ttname"><a href="namespace_c_c_1_1common.html#a682c37125f4a28acc45cf35c47592560">CC::common::cc_params_from_config</a></div><div class="ttdeci">bool cc_params_from_config(const std::string &amp;fname, CCParams &amp;params)</div><div class="ttdoc">Create CCParams from a character config file.</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8cpp_source.html#l00076">helpers.cpp:76</a></div></div>
 <div class="ttc" id="anamespace_c_c_1_1common_html_ac0de10c4c3c2bb4c3a90b4a9b028f3a6"><div class="ttname"><a href="namespace_c_c_1_1common.html#ac0de10c4c3c2bb4c3a90b4a9b028f3a6">CC::common::cc_print_params_usage</a></div><div class="ttdeci">void cc_print_params_usage(int, char **argv, const CCParams &amp;params)</div><div class="ttdoc">Print usage.</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8cpp_source.html#l00006">helpers.cpp:6</a></div></div>
-<div class="ttc" id="anamespace_c_c_1_1common_html_ae27cc1660db74af5a3a48f8dac45fd24"><div class="ttname"><a href="namespace_c_c_1_1common.html#ae27cc1660db74af5a3a48f8dac45fd24">CC::common::cc_params_parse</a></div><div class="ttdeci">bool cc_params_parse(int argc, char **argv, CCParams &amp;params)</div><div class="ttdoc">Parse command line arguments.</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8cpp_source.html#l00078">helpers.cpp:78</a></div></div>
 <div class="ttc" id="anamespace_c_c_html"><div class="ttname"><a href="namespace_c_c.html">CC</a></div><div class="ttdef"><b>Definition:</b> <a href="audio_8h_source.html#l00010">audio.h:10</a></div></div>
-<div class="ttc" id="astruct_c_c_1_1common_1_1_c_c_params_html"><div class="ttname"><a href="struct_c_c_1_1common_1_1_c_c_params.html">CC::common::CCParams</a></div><div class="ttdoc">Parameters for CustomChar.</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8h_source.html#l00016">helpers.h:16</a></div></div>
-<div class="ttc" id="astruct_c_c_1_1common_1_1_c_c_params_html_a544e83c9149850452034432c650fe647"><div class="ttname"><a href="struct_c_c_1_1common_1_1_c_c_params.html#a544e83c9149850452034432c650fe647">CC::common::CCParams::language</a></div><div class="ttdeci">std::string language</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8h_source.html#l00038">helpers.h:38</a></div></div>
+<div class="ttc" id="astruct_c_c_1_1common_1_1_c_c_params_html"><div class="ttname"><a href="struct_c_c_1_1common_1_1_c_c_params.html">CC::common::CCParams</a></div><div class="ttdoc">Parameters for CustomChar.</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8h_source.html#l00020">helpers.h:20</a></div></div>
+<div class="ttc" id="astruct_c_c_1_1common_1_1_c_c_params_html_a544e83c9149850452034432c650fe647"><div class="ttname"><a href="struct_c_c_1_1common_1_1_c_c_params.html#a544e83c9149850452034432c650fe647">CC::common::CCParams::language</a></div><div class="ttdeci">std::string language</div><div class="ttdef"><b>Definition:</b> <a href="helpers_8h_source.html#l00042">helpers.h:42</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
