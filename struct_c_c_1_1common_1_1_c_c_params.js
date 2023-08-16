@@ -16,11 +16,11 @@ var struct_c_c_1_1common_1_1_c_c_params =
     [ "print_special", "struct_c_c_1_1common_1_1_c_c_params.html#a61bbccdbf299c7250652de1f7b5a66c8", null ],
     [ "prob0", "struct_c_c_1_1common_1_1_c_c_params.html#ab7ff24789a0a4e944b6b270be77200e3", null ],
     [ "prompt", "struct_c_c_1_1common_1_1_c_c_params.html#aab6792fea7a9a8c6e74221d982faec51", null ],
-    [ "speak", "struct_c_c_1_1common_1_1_c_c_params.html#aff63f8db043d0e581ca663169f80302a", null ],
     [ "speed_up", "struct_c_c_1_1common_1_1_c_c_params.html#ade3887899fc78b58d42ccae4805a73f5", null ],
     [ "translate", "struct_c_c_1_1common_1_1_c_c_params.html#a22e737e8ad754dde8ac5a781a391c2fb", null ],
     [ "tts_model_path", "struct_c_c_1_1common_1_1_c_c_params.html#a1c5ea2c16fac00d0b0331fd3ea426c84", null ],
     [ "vad_thold", "struct_c_c_1_1common_1_1_c_c_params.html#a2d0c3c2c10bc05920f35500155c9c55c", null ],
     [ "verbose_prompt", "struct_c_c_1_1common_1_1_c_c_params.html#a92f3446d86bb203a4faebf8174a0182a", null ],
+    [ "voice", "struct_c_c_1_1common_1_1_c_c_params.html#a6fb25e9207ef99dd9d5da6ec2161d1ac", null ],
     [ "voice_ms", "struct_c_c_1_1common_1_1_c_c_params.html#ae2fc80b19237f3489d6a307479d6b5af", null ]
 ];

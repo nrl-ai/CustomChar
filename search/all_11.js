@@ -19,14 +19,13 @@ var searchData=
   ['set_5fopen_5fcamera_5fview_164',['set_open_camera_view',['../class_c_c_1_1character_1_1_character.html#a90eecf27da583ebade8ec80edf0bb80e',1,'CC::character::Character']]],
   ['set_5fsender_165',['set_sender',['../class_c_c_1_1session_1_1_chat_message.html#afe12efc71088e26bbc5734c914f952f4',1,'CC::session::ChatMessage']]],
   ['set_5ftime_166',['set_time',['../class_c_c_1_1session_1_1_chat_message.html#af557574ac56696d7d7556bda6dcfd79a',1,'CC::session::ChatMessage']]],
-  ['speak_167',['speak',['../struct_c_c_1_1common_1_1_c_c_params.html#aff63f8db043d0e581ca663169f80302a',1,'CC::common::CCParams']]],
-  ['speech_5frecognizer_2ecpp_168',['speech_recognizer.cpp',['../speech__recognizer_8cpp.html',1,'']]],
-  ['speech_5frecognizer_2eh_169',['speech_recognizer.h',['../speech__recognizer_8h.html',1,'']]],
-  ['speechrecognizer_170',['SpeechRecognizer',['../class_c_c_1_1audio_1_1_speech_recognizer.html',1,'CC::audio::SpeechRecognizer'],['../class_c_c_1_1audio_1_1_speech_recognizer.html#a935e7016b953506681e450ca0cda6089',1,'CC::audio::SpeechRecognizer::SpeechRecognizer()']]],
-  ['speed_5fup_171',['speed_up',['../struct_c_c_1_1common_1_1_c_c_params.html#ade3887899fc78b58d42ccae4805a73f5',1,'CC::common::CCParams']]],
-  ['start_172',['Start',['../class_c_c_1_1vision_1_1_video_capture.html#ac1948f79fe3a3391e1bffbfd5f4773da',1,'CC::vision::VideoCapture']]],
-  ['start_5fvideo_5fcapture_173',['start_video_capture',['../class_c_c_1_1character_1_1_character.html#a873bd7aeb9726760354c174ec83426ab',1,'CC::character::Character']]],
-  ['start_5fvideo_5frecording_174',['start_video_recording',['../class_c_c_1_1character_1_1_character.html#abead78f961c623fed79cdc2cc8c6b30e',1,'CC::character::Character']]],
-  ['stop_175',['Stop',['../class_c_c_1_1vision_1_1_video_capture.html#a809cf127f302693c2d24b84dfcd944b4',1,'CC::vision::VideoCapture']]],
-  ['stop_5fvideo_5fcapture_176',['stop_video_capture',['../class_c_c_1_1character_1_1_character.html#a508c8f4a490a8b75574a4a54664da961',1,'CC::character::Character']]]
+  ['speech_5frecognizer_2ecpp_167',['speech_recognizer.cpp',['../speech__recognizer_8cpp.html',1,'']]],
+  ['speech_5frecognizer_2eh_168',['speech_recognizer.h',['../speech__recognizer_8h.html',1,'']]],
+  ['speechrecognizer_169',['SpeechRecognizer',['../class_c_c_1_1audio_1_1_speech_recognizer.html',1,'CC::audio::SpeechRecognizer'],['../class_c_c_1_1audio_1_1_speech_recognizer.html#a935e7016b953506681e450ca0cda6089',1,'CC::audio::SpeechRecognizer::SpeechRecognizer()']]],
+  ['speed_5fup_170',['speed_up',['../struct_c_c_1_1common_1_1_c_c_params.html#ade3887899fc78b58d42ccae4805a73f5',1,'CC::common::CCParams']]],
+  ['start_171',['Start',['../class_c_c_1_1vision_1_1_video_capture.html#ac1948f79fe3a3391e1bffbfd5f4773da',1,'CC::vision::VideoCapture']]],
+  ['start_5fvideo_5fcapture_172',['start_video_capture',['../class_c_c_1_1character_1_1_character.html#a873bd7aeb9726760354c174ec83426ab',1,'CC::character::Character']]],
+  ['start_5fvideo_5frecording_173',['start_video_recording',['../class_c_c_1_1character_1_1_character.html#abead78f961c623fed79cdc2cc8c6b30e',1,'CC::character::Character']]],
+  ['stop_174',['Stop',['../class_c_c_1_1vision_1_1_video_capture.html#a809cf127f302693c2d24b84dfcd944b4',1,'CC::vision::VideoCapture']]],
+  ['stop_5fvideo_5fcapture_175',['stop_video_capture',['../class_c_c_1_1character_1_1_character.html#a508c8f4a490a8b75574a4a54664da961',1,'CC::character::Character']]]
 ];
