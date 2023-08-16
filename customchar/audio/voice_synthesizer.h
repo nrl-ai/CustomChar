@@ -15,13 +15,14 @@ namespace audio {
 class VoiceSynthesizer {
  private:
   bool is_say_supported_ = false;
+  std::string voice_;
 
   /// @brief Preprocess text
   std::string preprocess(const std::string& text);
 
  public:
   /// @brief Constructor
-  VoiceSynthesizer();
+  VoiceSynthesizer(const std::string& voice);
 
   /// @brief Say text
   void say(const std::string& text);

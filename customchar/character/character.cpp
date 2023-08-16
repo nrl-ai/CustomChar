@@ -12,7 +12,7 @@ Character::Character(common::CCParams params) {
       params_.n_threads, params_.max_tokens, params_.translate,
       params_.no_timestamps, params_.print_special, params_.speed_up);
   voice_recoder_ = std::make_shared<audio::VoiceRecorder>();
-  voice_synthesizer_ = std::make_shared<audio::VoiceSynthesizer>();
+  voice_synthesizer_ = std::make_shared<audio::VoiceSynthesizer>(params.voice);
 
   // Load LLM
   llm_ = std::make_shared<llm::LLM>(params.llm_model_path, params_.path_session,

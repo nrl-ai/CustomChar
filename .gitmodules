@@ -10,3 +10,6 @@
 [submodule "libs/SQLiteCpp"]
 	path = libs/SQLiteCpp
 	url = https://github.com/SRombauts/SQLiteCpp
+[submodule "libs/bark-cpp"]
+	path = libs/bark-cpp
+	url = https://github.com/vietanhdev/bark.cpp

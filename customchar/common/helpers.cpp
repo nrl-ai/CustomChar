@@ -59,8 +59,8 @@ void common::cc_print_params_usage(int /*argc*/, char** argv,
           params.tts_model_path.c_str());
   fprintf(stderr, "  -ml FILE, --model-llama   [%-7s] llama model file\n",
           params.llm_model_path.c_str());
-  fprintf(stderr, "  -s FILE,  --speak TEXT    [%-7s] command for TTS\n",
-          params.speak.c_str());
+  fprintf(stderr, "  -s FILE,  --voice TEXT    [%-7s] command for TTS\n",
+          params.voice.c_str());
   fprintf(stderr,
           "  --prompt-file FNAME       [%-7s] file with custom prompt to start "
           "dialog\n",
@@ -137,8 +137,8 @@ bool common::cc_params_from_config(const std::string& fname, CCParams& params) {
   if (data.contains("llm_model_path")) {
     params.llm_model_path = data["llm_model_path"];
   }
-  if (data.contains("speak")) {
-    params.speak = data["speak"];
+  if (data.contains("voice")) {
+    params.voice = data["voice"];
   }
   if (data.contains("prompt")) {
     params.prompt = data["prompt"];
@@ -190,8 +190,8 @@ bool common::cc_params_parse(int argc, char** argv, CCParams& params) {
       params.tts_model_path = argv[++i];
     } else if (arg == "-ml" || arg == "--model-llama") {
       params.llm_model_path = argv[++i];
-    } else if (arg == "-s" || arg == "--speak") {
-      params.speak = argv[++i];
+    } else if (arg == "-v" || arg == "--voice") {
+      params.voice = argv[++i];
     } else if (arg == "--prompt-file") {
       std::ifstream file(argv[++i]);
       std::copy(std::istreambuf_iterator<char>(file),

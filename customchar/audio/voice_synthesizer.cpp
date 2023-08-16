@@ -4,7 +4,8 @@
 using namespace CC;
 using namespace CC::audio;
 
-VoiceSynthesizer::VoiceSynthesizer() {
+VoiceSynthesizer::VoiceSynthesizer(const std::string& voice) : voice_(voice) {
+#ifdef __APPLE__
   // Check if the Say command is supported
   std::string command = "which say";
   FILE* pipe = popen(command.c_str(), "r");
@@ -13,6 +14,7 @@ VoiceSynthesizer::VoiceSynthesizer() {
     is_say_supported_ = false;
     return;
   }
+#endif
 
   is_say_supported_ = true;
 }
@@ -52,6 +54,14 @@ void VoiceSynthesizer::say(const std::string& text) {
     return;
   }
 
-  std::string command = "say " + preprocess(text);
+#ifdef __APPLE__
+  std::string os_voice;
+  if (voice_ == "common-voice-male") {
+    os_voice = "-v Daniel";
+  } else {
+    os_voice = "";
+  }
+  std::string command = "say " + os_voice + " \"" + preprocess(text) + "\"";
   system(command.c_str());
+#endif
 }
