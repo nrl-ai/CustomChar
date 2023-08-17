@@ -84,7 +84,10 @@ Install dependencies:
 - [CMake](https://cmake.org/download/)
 - C++ 14 compiler
 
-On macOS: Using [Homebrew](https://brew.sh/)
+**On macOS:**
+
+- Install [Homebrew](https://brew.sh/).
+- Install dependencies:
 
 ```bash
 brew install sdl2 glew glfw3
@@ -92,7 +95,9 @@ brew install opencv
 brew install ffmpeg # For video recording
 ```
 
-On Ubuntu:
+**On Ubuntu:**
+
+- Install dependencies:
 
 ```bash
 sudo apt-get install libsdl2-dev libglew-dev libglfw3-dev
@@ -100,7 +105,11 @@ sudo apt-get install libopencv-dev
 sudo apt-get install ffmpeg # For video recording
 ```
 
-On Windows: Using [vcpkg](https://github.com/microsoft/vcpkg), [Git Bash](https://git-scm.com/downloads), and [FFmpeg](https://www.wikihow.com/Install-FFmpeg-on-Windows).
+**On Windows:**
+
+- Install [vcpkg](https://vcpkg.io/en/getting-started). Add **vcpkg** to the system path and restart the system.
+- Install [Git Bash](https://git-scm.com/downloads).
+- Install dependencies:
 
 ```bash
 vcpkg install sdl2:x64-windows glew:x64-windows glfw3:x64-windows
@@ -113,7 +122,14 @@ Build the **CustomChar** executable:
 mkdir build
 cd build
 cmake ..
+
 make
+```
+
+For Windows:
+
+```bash
+cmake .. -DCMAKE_GENERATOR_PLATFORM=x64
 ```
 
 ## 5. Usage
