@@ -5,12 +5,21 @@ using namespace CC;
 using namespace CC::audio;
 
 VoiceSynthesizer::VoiceSynthesizer(const std::string& voice) : voice_(voice) {
+// Check if the Say command is supported
 #ifdef __APPLE__
-  // Check if the Say command is supported
   std::string command = "which say";
   FILE* pipe = popen(command.c_str(), "r");
   if (pipe == nullptr) {
     printf("Failed to run command: %s\n", command.c_str());
+    is_say_supported_ = false;
+    return;
+  }
+#elif __linux__
+  std::string command = "which espeak";
+  FILE* pipe = popen(command.c_str(), "r");
+  if (pipe == nullptr) {
+    printf("Failed to run command: %s\n", command.c_str());
+    printf("Please install espeak\n");
     is_say_supported_ = false;
     return;
   }
@@ -63,5 +72,26 @@ void VoiceSynthesizer::say(const std::string& text) {
   }
   std::string command = "say " + os_voice + " \"" + preprocess(text) + "\"";
   system(command.c_str());
+#elif _WIN32
+  std::string os_voice;
+  if (voice_ == "common-voice-male") {
+    os_voice = "David";
+  } else {
+    os_voice = "Zira";
+  }
+  std::string command =
+      "powershell.exe -ExecutionPolicy Bypass -Command "
+      "\"Add-Type -AssemblyName System.Speech; "
+      "$speak = New-Object "
+      "System.Speech.Synthesis.SpeechSynthesizer; "
+      "$speak.SelectVoice('Microsoft " +
+      os_voice +
+      " Desktop'); "
+      "$speak.Rate='0'; "
+      "$speak.Speak('" +
+      preprocess(text) + "');\"";
+  system(command.c_str());
+#elif __linux__
+  std::string command = "espeak \"" + preprocess(text) + "\"";
 #endif
 }
