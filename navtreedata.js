@@ -61,7 +61,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"speech__recognizer_8cpp_source.html"
+"speech__recognizer_8cpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

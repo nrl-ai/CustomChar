@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"speech__recognizer_8cpp.html":[3,0,29],
 "speech__recognizer_8cpp_source.html":[3,0,29],
 "speech__recognizer_8h.html":[3,0,30],
 "speech__recognizer_8h_source.html":[3,0,30],
