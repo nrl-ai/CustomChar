@@ -15,7 +15,7 @@ LLM::LLM(const std::string& model_path, const std::string& path_session,
   init_prompt();
 
   // Init Llama
-  llama_init_backend();
+  llama_backend_init(0);
   lparams_ = llama_context_default_params();
 
   // Tune these to your liking
@@ -24,8 +24,12 @@ LLM::LLM(const std::string& model_path, const std::string& path_session,
   lparams_.f16_kv = true;
   lparams_.embedding = true;
 
+  auto modelparams = llama_model_default_params();
+  modelparams.n_gpu_layers = 0;  // No GPU layers. Fix for CPU-only inference
+
   // Load model to ram
-  ctx_llama_ = llama_init_from_file(model_path_.c_str(), lparams_);
+  model_llama_ = llama_load_model_from_file(model_path_.c_str(), modelparams);
+  ctx_llama_ = llama_new_context_with_model(model_llama_, lparams_);
   n_ctx_ = llama_n_ctx(ctx_llama_);
   embd_inp_ = tokenize(prompt_llama_, true);
   n_keep_ = embd_inp_.size();
@@ -84,14 +88,22 @@ void LLM::init_prompt() {
 }
 
 std::vector<llama_token> LLM::tokenize(const std::string& text, bool add_bos) {
-  // initialize to prompt numer of chars, since n_tokens <= n_prompt_chars
-  std::vector<llama_token> res(text.size() + (int)add_bos);
-  int n = ::llama_tokenize(ctx_llama_, text.c_str(), res.data(), res.size(),
-                           add_bos);
-  assert(n >= 0);
-  res.resize(n);
+  auto* model = llama_get_model(ctx_llama_);
 
-  return res;
+  // upper limit for the number of tokens
+  int n_tokens = text.length() + add_bos;
+  std::vector<llama_token> result(n_tokens);
+  n_tokens = llama_tokenize(model, text.data(), text.length(), result.data(),
+                            result.size(), add_bos, false);
+  if (n_tokens < 0) {
+    result.resize(-n_tokens);
+    int check = llama_tokenize(model, text.data(), text.length(), result.data(),
+                               result.size(), add_bos, false);
+    GGML_ASSERT(check == -n_tokens);
+  } else {
+    result.resize(n_tokens);
+  }
+  return result;
 }
 
 void LLM::add_tokens_to_current_session(
@@ -140,8 +152,7 @@ void LLM::eval_model() {
   printf(
       "Initializing... This may take a few minutes, depending on the model "
       "size.\n");
-  if (llama_eval(ctx_llama_, embd_inp_.data(), embd_inp_.size(), 0,
-                 n_threads_)) {
+  if (llama_eval(ctx_llama_, embd_inp_.data(), embd_inp_.size(), 0)) {
     fprintf(stderr, "%s : failed to eval\n", __func__);
     exit(1);
   }
@@ -240,8 +251,7 @@ std::string LLM::get_answer(const std::string& user_input) {
         n_session_consumed_ = session_tokens_.size();
       }
 
-      if (llama_eval(ctx_llama_, embd.data(), embd.size(), n_past_,
-                     n_threads_)) {
+      if (llama_eval(ctx_llama_, embd.data(), embd.size(), n_past_)) {
         fprintf(stderr, "%s : failed to eval\n", __func__);
         exit(1);
       }
@@ -272,9 +282,9 @@ std::string LLM::get_answer(const std::string& user_input) {
 
       {
         auto logits = llama_get_logits(ctx_llama_);
-        auto n_vocab = llama_n_vocab(ctx_llama_);
+        auto n_vocab = llama_n_vocab(model_llama_);
 
-        logits[llama_token_eos()] = 0;
+        logits[llama_token_eos(model_llama_)] = 0;
 
         std::vector<llama_token_data> candidates;
         candidates.reserve(n_vocab);
@@ -287,14 +297,14 @@ std::string LLM::get_answer(const std::string& user_input) {
                                                candidates.size(), false};
 
         // apply repeat penalty
-        const float nl_logit = logits[llama_token_nl()];
+        const float nl_logit = logits[llama_token_nl(model_llama_)];
 
-        llama_sample_repetition_penalty(
+        llama_sample_repetition_penalties(
             ctx_llama_, &candidates_p,
             embd_inp_.data() + std::max(0, n_past_ - repeat_last_n),
-            repeat_last_n, repeat_penalty);
+            repeat_last_n, repeat_penalty, 0.0, 0.0f);
 
-        logits[llama_token_nl()] = nl_logit;
+        logits[llama_token_nl(model_llama_)] = nl_logit;
 
         if (temp <= 0) {
           // Greedy sampling
@@ -303,25 +313,25 @@ std::string LLM::get_answer(const std::string& user_input) {
           // Temperature sampling
           llama_sample_top_k(ctx_llama_, &candidates_p, top_k, 1);
           llama_sample_top_p(ctx_llama_, &candidates_p, top_p, 1);
-          llama_sample_temperature(ctx_llama_, &candidates_p, temp);
+          llama_sample_temp(ctx_llama_, &candidates_p, temp);
           id = llama_sample_token(ctx_llama_, &candidates_p);
         }
       }
 
-      if (id != llama_token_eos()) {
+      if (id != llama_token_eos(model_llama_)) {
         // add it to the context
         embd.push_back(id);
-        output_text += llama_token_to_str(ctx_llama_, id);
-        printf("%s", llama_token_to_str(ctx_llama_, id));
+        output_text += llama_token_to_piece2(ctx_llama_, id);
+        printf("%s", llama_token_to_piece2(ctx_llama_, id).c_str());
       }
     }
 
     {
       std::string last_output;
       for (int i = embd_inp_.size() - 16; i < (int)embd_inp_.size(); i++) {
-        last_output += llama_token_to_str(ctx_llama_, embd_inp_[i]);
+        last_output += llama_token_to_piece2(ctx_llama_, embd_inp_[i]);
       }
-      last_output += llama_token_to_str(ctx_llama_, embd[0]);
+      last_output += llama_token_to_piece2(ctx_llama_, embd[0]);
 
       for (std::string& antiprompt : antiprompts_) {
         if (last_output.find(antiprompt.c_str(),
@@ -355,9 +365,11 @@ std::string LLM::get_answer(const std::string& user_input) {
 
 std::vector<float> LLM::get_embedding(const std::string& text) {
   std::vector<llama_token> embd(text.size());
-  llama_tokenize(ctx_llama_, text.c_str(), embd.data(), embd.size(), true);
-  llama_eval(ctx_llama_, embd.data(), embd.size(), n_past_, n_threads_);
-  const int n_embd = llama_n_embd(ctx_llama_);
+  auto* model = llama_get_model(ctx_llama_);
+  llama_tokenize(model, text.data(), text.length(), embd.data(), embd.size(),
+                 true, false);
+  llama_eval(ctx_llama_, embd.data(), embd.size(), n_past_);
+  const int n_embd = llama_n_embd(model);
   const auto embeddings = llama_get_embeddings(ctx_llama_);
   std::vector<float> result;
   result.reserve(n_embd);

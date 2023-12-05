@@ -40,8 +40,8 @@ struct CCParams {
   std::string bot_name = "JARVIS";
   std::string chat_symb = ":";
   std::string language = "en";
-  std::string tts_model_path = "../models/ggml-base.en.bin";
-  std::string llm_model_path = "../models/llama-2-7b-chat.ggmlv3.q4_0.bin";
+  std::string tts_model_path = "../models/ggml-base.bin";
+  std::string llm_model_path = "../models/nous-hermes-llama-2-7b.Q4_0.gguf";
   std::string voice = "common-voice-male";
   std::string prompt = "";
   std::string path_session = "";

@@ -37,7 +37,7 @@ std::vector<std::string> read_lines(const std::string& file_path) {
 }
 
 int main() {
-  std::string model_path = "../models/llama-2-7b-chat.ggmlv3.q4_0.bin";
+  std::string model_path = "../models/nous-hermes-llama-2-7b.Q4_0.gguf";
   llm::LLM embedding_model(model_path);
   embedding_model.eval_model();
 

@@ -40,6 +40,7 @@ class LLM {
   std::string path_session_;
   struct llama_context_params lparams_;
   struct llama_context* ctx_llama_;
+  struct llama_model* model_llama_;
 
   std::string prompt_llama_;
 
@@ -84,6 +85,23 @@ class LLM {
 
   /// @brief Get embedding from LLM
   std::vector<float> get_embedding(const std::string& text);
+
+  std::string llama_token_to_piece2(const struct llama_context* ctx,
+                                    llama_token token) {
+    std::vector<char> result(8, 0);
+    const int n_tokens = llama_token_to_piece(llama_get_model(ctx), token,
+                                              result.data(), result.size());
+    if (n_tokens < 0) {
+      result.resize(-n_tokens);
+      int check = llama_token_to_piece(llama_get_model(ctx), token,
+                                       result.data(), result.size());
+      GGML_ASSERT(check == -n_tokens);
+    } else {
+      result.resize(n_tokens);
+    }
+
+    return std::string(result.data(), result.size());
+  }
 };
 
 }  // namespace llm

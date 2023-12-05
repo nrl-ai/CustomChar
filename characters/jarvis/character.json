@@ -4,7 +4,7 @@
   "bot_name": "JARVIS",
   "bot_voice": "JARVIS",
   "language": "en",
-  "tts_model_path": "../models/ggml-base.en.bin",
-  "llm_model_path": "../models/llama-2-7b-chat.ggmlv3.q4_0.bin",
+  "tts_model_path": "../models/ggml-base.bin",
+  "llm_model_path": "../models/nous-hermes-llama-2-7b.Q4_0.gguf",
   "voice": "common-voice-female"
 }
